@@ -13,7 +13,7 @@ class HireController extends Controller
     public function index()
     {
         //
-        return view('hire-us');
+        return view('frontend.hire-us');
     }
 
     /**

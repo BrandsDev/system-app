@@ -13,7 +13,7 @@ class SiteTemplatesController extends Controller
     public function index()
     {
         //
-        return view('site-templates');
+        return view('frontend.site-templates');
     }
 
     /**

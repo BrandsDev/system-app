@@ -58,16 +58,16 @@ Route::get('template-detail', [TemplateDetailController::class, 'index']);
 
 // Administration
 Route::get('/dashboard', function () {
-    return view('administration/dashboard');
+    return view('administration.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Templates
 Route::get('/templates', function () {
-    return view('administration/templates');
+    return view('administration.templates');
 })->middleware(['auth', 'verified'])->name('templates');
 
 Route::get('/templates/add-template', function () {
-    return view('administration/templates/add-template');
+    return view('administration.templates.add-template');
 })->middleware(['auth', 'verified'])->name('add-template');
 
 Route::middleware('auth')->group(function () {

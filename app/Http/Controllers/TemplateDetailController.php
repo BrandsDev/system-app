@@ -13,7 +13,7 @@ class TemplateDetailController extends Controller
     public function index()
     {
         //
-        return view('template-detail');
+        return view('frontend.template-detail');
     }
 
     /**

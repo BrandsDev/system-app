@@ -18,27 +18,27 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="https://themes.getbootstrap.com/wp-content/themes/bootstrap-marketplace/assets/images/fav/favicon-16x16.png" />
 
 		<!-- HTML Meta Tags -->
-		@include('skeleton.meta')
+		@include('frontend.skeleton.meta')
 		
 
 		<!-- Schema -->
-		@include('skeleton.schema')
+		@include('frontend.skeleton.schema')
 
 	</head>
 	<body>
 
 		<!-- Navigation -->
-		@include('skeleton.navigation')
+		@include('frontend.skeleton.navigation')
 
 
 		<!-- Content -->
 		@yield('content')
 
 		<!-- Footer -->
-		@include('skeleton.footer')
+		@include('frontend.skeleton.footer')
 
 		<!-- Scripts -->
-		@include('skeleton.scripts')
+		@include('frontend.skeleton.scripts')
 
 	</body>
 </html>

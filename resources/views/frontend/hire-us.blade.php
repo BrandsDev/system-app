@@ -1,4 +1,4 @@
-@extends('skeleton.body')
+@extends('frontend.skeleton.body')
 @section('content')
 		<main class="container p-3 py-5">
 			<div class="my-5 text-center">

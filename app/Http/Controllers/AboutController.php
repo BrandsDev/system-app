@@ -21,7 +21,7 @@ class AboutController extends Controller
     public function overview()
     {
         //
-        return view('/about/overview');
+        return view('frontend.about.overview');
     }
 
     /**
@@ -30,7 +30,7 @@ class AboutController extends Controller
     public function brand()
     {
         //
-        return view('/about/brand');
+        return view('frontend.about.brand');
     }
 
     /**
@@ -39,7 +39,7 @@ class AboutController extends Controller
     public function license()
     {
         //
-        return view('/about/license');
+        return view('frontend.about.license');
     }
 
     /**

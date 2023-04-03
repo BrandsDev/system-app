@@ -13,7 +13,7 @@ class WhyOurThemesController extends Controller
     public function index()
     {
         //
-        return view('why-our-themes');
+        return view('frontend.why-our-themes');
     }
 
     /**
