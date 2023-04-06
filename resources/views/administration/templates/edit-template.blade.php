@@ -7,7 +7,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('templates') }}">Templates</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Templates</li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Templates</li>
                 </ol>
             </nav>
         </div>
@@ -16,7 +16,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1>Add Template</h1>
+            <h1>Edit Template</h1>
         </div>
     </div>
 

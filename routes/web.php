@@ -63,12 +63,20 @@ Route::get('/dashboard', function () {
 
 // Templates
 Route::get('/templates', function () {
-    return view('administration.templates');
+    return view('administration.templates.templates');
 })->middleware(['auth', 'verified'])->name('templates');
 
 Route::get('/templates/add-template', function () {
     return view('administration.templates.add-template');
 })->middleware(['auth', 'verified'])->name('add-template');
+
+Route::get('/templates/edit-template', function () {
+    return view('administration.templates.edit-template');
+})->middleware(['auth', 'verified'])->name('edit-template');
+
+Route::get('/templates/delete-template', function () {
+    return view('administration.templates.delete-template');
+})->middleware(['auth', 'verified'])->name('delete-template');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

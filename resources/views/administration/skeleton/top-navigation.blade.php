@@ -11,7 +11,7 @@
 				<div class="col-lg-6"></div>
 				<div class="col-lg-6 collapse navbar-collapse" id="navbarText">
 					<ul class="navbar-nav">
-						<li class="nav-item"><a href="{{ url('/fix-errors') }}" class="nav-link">Dashboard</a></li>
+						<li class="nav-item"><a href="{{ route('dashboard') }}" class="nav-link">Dashboard</a></li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Templates
