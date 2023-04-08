@@ -22,6 +22,8 @@ class TemplateDetailController extends Controller
     public function create()
     {
         //
+        return view('administration.templates.new-template')->with('status', 'profile-updated');
+
     }
 
     /**
@@ -30,6 +32,9 @@ class TemplateDetailController extends Controller
     public function store(Request $request)
     {
         //
+        dd();
+        
+        return view('administration.templates.new-resource');
     }
 
     /**

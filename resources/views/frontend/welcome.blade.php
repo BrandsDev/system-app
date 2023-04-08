@@ -60,7 +60,7 @@
 					<figure>
 						<div class="card shadow p-2 mb-5 bg-body rounded">
 							<a href="{{ url('/site-templates/template-detail/') }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-								<img src="administrative/www/digital-marketplace/free/html/login/form/centered/centered-html-bootstrap-5-login-form-sample.png" class="card-img-top" alt="..." />
+								<img src="{{ Vite::asset('resources/images/logo.png') }}" class="card-img-top" alt="..." />
 							</a>
 							<figcaption>
 								<div class="card-body">

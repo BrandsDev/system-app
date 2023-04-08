@@ -66,9 +66,9 @@ Route::get('/templates', function () {
     return view('administration.templates.templates');
 })->middleware(['auth', 'verified'])->name('templates');
 
-Route::get('/templates/add-template', function () {
-    return view('administration.templates.add-template');
-})->middleware(['auth', 'verified'])->name('add-template');
+Route::get('/templates/new-template', [TemplateDetailController::class, 'create'])->middleware(['auth', 'verified'])->name('new-template');
+
+Route::post('/templates/new-template/store', [TemplateDetailController::class, 'store'])->middleware(['auth', 'verified'])->name('new-template.store');
 
 Route::get('/templates/edit-template', function () {
     return view('administration.templates.edit-template');

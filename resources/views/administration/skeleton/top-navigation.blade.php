@@ -20,7 +20,7 @@
 								<li><a class="dropdown-item" href="{{ url('/about/overview') }}">Category</a></li>
 								<li><a class="dropdown-item" href="{{ url('/about/brand') }}">Sub Category</a></li>
 								<li><a class="dropdown-item" href="{{ url('/about/license') }}">Sub Sub Category</a></li>
-								<li><a class="dropdown-item" href="{{ route('add-template') }}">Add Templates</a></li>
+								<li><a class="dropdown-item" href="{{ route('new-template') }}">Add Templates</a></li>
 								<li><a class="dropdown-item" href="{{ url('/about/license') }}">Manage Templates</a></li>
 							</ul>
 						</li>
