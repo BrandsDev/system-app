@@ -10,7 +10,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\TermsOfServiceController;
 use App\Http\Controllers\SiteTemplatesController;
-use App\Http\Controllers\TemplateDetailController;
+use App\Http\Controllers\TemplateController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,8 +53,8 @@ Route::get('terms-of-service', [TermsOfServiceController::class, 'index']);
 // Site Templates
 Route::get('site-templates', [SiteTemplatesController::class, 'index']);
 
-// Template Detail
-Route::get('template-detail', [TemplateDetailController::class, 'index']);
+// Template
+Route::get('template-detail', [TemplateController::class, 'index']);
 
 // Administration
 Route::get('/dashboard', function () {
@@ -66,9 +66,9 @@ Route::get('/templates', function () {
     return view('administration.templates.templates');
 })->middleware(['auth', 'verified'])->name('templates');
 
-Route::get('/templates/new-template', [TemplateDetailController::class, 'create'])->middleware(['auth', 'verified'])->name('new-template');
+Route::get('/templates/new-template', [TemplateController::class, 'create'])->middleware(['auth', 'verified'])->name('new-template');
 
-Route::post('/templates/new-template/store', [TemplateDetailController::class, 'store'])->middleware(['auth', 'verified'])->name('new-template.store');
+Route::post('/templates/new-template/store', [TemplateController::class, 'store'])->name('new-template.store');
 
 Route::get('/templates/edit-template', function () {
     return view('administration.templates.edit-template');

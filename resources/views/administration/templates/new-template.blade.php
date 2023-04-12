@@ -33,13 +33,13 @@
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Name" />
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Name" />
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="slug" class="form-label">Slug</label>
-                            <input type="text" class="form-control" id="slug" placeholder="Slug" />
+                            <input type="text" class="form-control" name="slug" id="slug" placeholder="Slug" />
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="category" class="form-label">Category</label>
-                            <input class="form-control" list="datalistOptions" id="category" placeholder="Search Category" />
+                            <input class="form-control" list="datalistOptions" name="category" id="category" placeholder="Search Category" />
                             <datalist id="datalistOptions">
                                 <option value="Francisco"> </option>
                                 <option value="York"> </option>
@@ -57,7 +57,7 @@
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="sub-category" class="form-label">Sub Category</label>
-                            <input class="form-control" list="datalistOptions" id="sub-category" placeholder="Search Sub Category" />
+                            <input class="form-control" list="datalistOptions" name="sub-category" id="sub-category" placeholder="Search Sub Category" />
                             <datalist id="datalistOptions">
                                 <option value="Francisco"> </option>
                                 <option value="York"> </option>
@@ -67,7 +67,7 @@
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="sub-sub-category" class="form-label">Sub Sub Category</label>
-                            <input class="form-control" list="datalistOptions" id="sub-sub-category" placeholder="Search Sub Sub Category" />
+                            <input class="form-control" list="datalistOptions" name="sub-sub-category" id="sub-sub-category" placeholder="Search Sub Sub Category" />
                             <datalist id="datalistOptions">
                                 <option value="Francisco"> </option>
                                 <option value="York"> </option>
@@ -79,19 +79,19 @@
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="sale-price" class="form-label">Sale Price</label>
-                            <input type="text" class="form-control" id="sale-price" placeholder="Sale Price" />
+                            <input type="text" class="form-control" name="sale-price" id="sale-price" placeholder="Sale Price" />
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="regular-price" class="form-label">Regular Price</label>
-                            <input type="text" class="form-control" id="regular-price" placeholder="Regular Price" />
+                            <input type="text" class="form-control" name="regular-price" id="regular-price" placeholder="Regular Price" />
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="commission" class="form-label">Commission</label>
-                            <input type="text" class="form-control" id="commission" placeholder="Commission" />
+                            <input type="text" class="form-control" name="commission" id="commission" placeholder="Commission" />
                         </div>
                     </div>
                 </div>
@@ -99,25 +99,25 @@
                     <div class="col-sm-3">
                         <div class="mb-3">
                             <label for="bootstrap-v" class="form-label">Bootstrap Version</label>
-                            <input type="text" class="form-control" id="bootstrap-v" placeholder="Bootstrap Version" />
+                            <input type="text" class="form-control" name="bootstrap-v" id="bootstrap-v" placeholder="Bootstrap Version" />
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="mb-3">
                             <label for="released" class="form-label">Released</label>
-                            <input type="text" class="form-control" id="released" placeholder="Released" />
+                            <input type="text" class="form-control" name="released" id="released" placeholder="Released" />
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="mb-3">
                             <label for="updated" class="form-label">Updated</label>
-                            <input type="text" class="form-control" id="updated" placeholder="Updated" />
+                            <input type="text" class="form-control" name="updated" id="updated" placeholder="Updated" />
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="mb-3">
                             <label for="version" class="form-label">Version</label>
-                            <input type="text" class="form-control" id="version" placeholder="Version" />
+                            <input type="text" class="form-control" name="version" id="version" placeholder="Version" />
                         </div>
                     </div>
                 </div>
@@ -125,13 +125,13 @@
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="seller-name" class="form-label">Seller Name</label>
-                            <input type="text" class="form-control" id="seller-name" placeholder="Seller Name" />
+                            <input type="text" class="form-control" name="seller-name" id="seller-name" placeholder="Seller Name" />
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="seller-email" class="form-label">Seller Email</label>
-                            <input type="email" class="form-control" id="seller-email" placeholder="Seller Email" />
+                            <input type="email" class="form-control" name="seller-email" id="seller-email" placeholder="Seller Email" />
                         </div>
                     </div>
                 </div>
@@ -189,13 +189,13 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="live-preview-link" class="form-label">Live Preview Link</label>
-                            <input type="text" class="form-control" id="live-preview-link" placeholder="Live Preview Link" />
+                            <input type="text" class="form-control" name="live-preview-link" id="live-preview-link" placeholder="Live Preview Link" />
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="downloadable-link" class="form-label">Downloadable Link</label>
-                            <input type="text" class="form-control" id="downloadable-link" placeholder="Downloadable Link" />
+                            <input type="text" class="form-control" name="downloadable-link" id="downloadable-link" placeholder="Downloadable Link" />
                         </div>
                     </div>
                 </div>
@@ -203,13 +203,13 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="upload-image" class="form-label">Upload Image</label>
-                            <input class="form-control" type="file" id="upload-file">
+                            <input class="form-control" type="file" name="upload-image" id="upload-image">
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="upload-file" class="form-label">Upload File</label>
-                            <input class="form-control" type="file" id="upload-file" multiple>
+                            <input class="form-control" type="file" name="upload-file" id="upload-file" multiple>
                         </div>
                     </div>
                 </div>
@@ -217,7 +217,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="add-template-comment" class="form-label">Comment</label>
-                            <textarea class="form-control" id="add-template-comment" rows="3" name="add-template-comment"></textarea>
+                            <textarea class="form-control" name="add-template-comment" id="add-template-comment" rows="3" name="add-template-comment"></textarea>
                         </div>
                     </div>
                 </div>
