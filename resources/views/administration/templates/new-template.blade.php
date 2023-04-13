@@ -25,21 +25,24 @@
         </div>
     </div>
 
-    <form method="POST" action="{{ route('new-template.store') }}">
+    <form class="needs-validation" method="POST" action="{{ route('new-template.store') }}" novalidate>
         @csrf
         <div class="row">
             <div class="col-sm-9">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" name="name" id="name" placeholder="Name" />
+                            <label for="name" class="form-label">Name *</label>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
+                            <div class="valid-feedback">
+                              Looks good!
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="slug" class="form-label">Slug</label>
-                            <input type="text" class="form-control" name="slug" id="slug" placeholder="Slug" />
+                            <input type="text" class="form-control" name="slug" id="slug" placeholder="Slug" required>
                         </div>
                     </div>
                 </div>
@@ -47,8 +50,8 @@
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="category" class="form-label">Category</label>
-                            <input class="form-control" list="datalistOptions" name="category" id="category" placeholder="Search Category" />
-                            <datalist id="datalistOptions">
+                            <input class="form-control" list="datalistCategory" name="category" id="category" placeholder="Search Category" required>
+                            <datalist id="datalistCategory">
                                 <option value="Francisco"> </option>
                                 <option value="York"> </option>
                             </datalist>
@@ -57,8 +60,8 @@
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="sub-category" class="form-label">Sub Category</label>
-                            <input class="form-control" list="datalistOptions" name="sub-category" id="sub-category" placeholder="Search Sub Category" />
-                            <datalist id="datalistOptions">
+                            <input class="form-control" list="datalistSubCategory" name="sub-category" id="sub-category" placeholder="Search Sub Category" />
+                            <datalist id="datalistSubCategory">
                                 <option value="Francisco"> </option>
                                 <option value="York"> </option>
                             </datalist>
@@ -67,8 +70,8 @@
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="sub-sub-category" class="form-label">Sub Sub Category</label>
-                            <input class="form-control" list="datalistOptions" name="sub-sub-category" id="sub-sub-category" placeholder="Search Sub Sub Category" />
-                            <datalist id="datalistOptions">
+                            <input class="form-control" list="datalistSubSubCategory" name="sub-sub-category" id="sub-sub-category" placeholder="Search Sub Sub Category" />
+                            <datalist id="datalistSubSubCategory">
                                 <option value="Francisco"> </option>
                                 <option value="York"> </option>
                             </datalist>
@@ -79,19 +82,19 @@
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="sale-price" class="form-label">Sale Price</label>
-                            <input type="text" class="form-control" name="sale-price" id="sale-price" placeholder="Sale Price" />
+                            <input type="text" class="form-control" name="sale-price" id="sale-price" placeholder="0.00" />
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="regular-price" class="form-label">Regular Price</label>
-                            <input type="text" class="form-control" name="regular-price" id="regular-price" placeholder="Regular Price" />
+                            <input type="text" class="form-control" name="regular-price" id="regular-price" placeholder="0.00" required>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="commission" class="form-label">Commission</label>
-                            <input type="text" class="form-control" name="commission" id="commission" placeholder="Commission" />
+                            <input type="text" class="form-control" name="commission" id="commission" placeholder="0.00" />
                         </div>
                     </div>
                 </div>
@@ -99,7 +102,7 @@
                     <div class="col-sm-3">
                         <div class="mb-3">
                             <label for="bootstrap-v" class="form-label">Bootstrap Version</label>
-                            <input type="text" class="form-control" name="bootstrap-v" id="bootstrap-v" placeholder="Bootstrap Version" />
+                            <input type="text" class="form-control" name="bootstrap-v" id="bootstrap-v" placeholder="Bootstrap Version" required>
                         </div>
                     </div>
                     <div class="col-sm-3">
@@ -117,7 +120,7 @@
                     <div class="col-sm-3">
                         <div class="mb-3">
                             <label for="version" class="form-label">Version</label>
-                            <input type="text" class="form-control" name="version" id="version" placeholder="Version" />
+                            <input type="text" class="form-control" name="version" id="version" placeholder="Version" required>
                         </div>
                     </div>
                 </div>
@@ -125,13 +128,13 @@
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="seller-name" class="form-label">Seller Name</label>
-                            <input type="text" class="form-control" name="seller-name" id="seller-name" placeholder="Seller Name" />
+                            <input type="text" class="form-control" name="seller-name" id="seller-name" placeholder="Seller Name" required>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="seller-email" class="form-label">Seller Email</label>
-                            <input type="email" class="form-control" name="seller-email" id="seller-email" placeholder="Seller Email" />
+                            <input type="email" class="form-control" name="seller-email" id="seller-email" placeholder="Seller Email" required>
                         </div>
                     </div>
                 </div>
@@ -216,8 +219,20 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="add-template-comment" class="form-label">Comment</label>
-                            <textarea class="form-control" name="add-template-comment" id="add-template-comment" rows="3" name="add-template-comment"></textarea>
+                            <label for="status" class="form-label">Status</label>
+                            <input class="form-control" list="datalistStatus" name="status" id="status" placeholder="Status" />
+                            <datalist id="datalistStatus">
+                                <option value="Publish"> </option>
+                                <option value="Unpublish"> </option>
+                            </datalist>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <label for="comment" class="form-label">Comment</label>
+                            <textarea class="form-control" name="comment" id="comment" rows="3"></textarea>
                         </div>
                     </div>
                 </div>
@@ -246,6 +261,28 @@ tinymce.init({
     { value: 'Email', title: 'Email' },
   ]
 });
+</script>
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
 </script>
 @endsection
 

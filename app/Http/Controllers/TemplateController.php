@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Template;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class TemplateController extends Controller
@@ -30,45 +31,52 @@ class TemplateController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         //
+        // dd($request);
 
         $template = new Template;
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
+            // 'email' => ['required', 'string', 'email', 'max:255'],
         ]);
 
         $template = Template::create([
             'name' => $request->name,
             'slug' => $request->slug,
             'category' => $request->category,
-            'sub-category' => $request->sub-category,
-            'sub-sub-category' => $request->sub-sub-category,
-            'sale-price' => $request->sale-price,
-            'regular-price' => $request->regular-price,
+            'sub-category' => $request->subCategory,
+            'sub-sub-category' => $request->subSubCategory,
+            'sale-price' => $request->salePrice,
+            'regular-price' => $request->regularPrice,
             'commission' => $request->commission,
-            'bootstrap-v' => $request->bootstrap-v,
+            'bootstrap-v' => $request->bootstrapV,
             'released' => $request->released,
             'updated' => $request->updated,
             'version' => $request->version,
-            'seller-name' => $request->seller-name,
-            'seller-email' => $request->seller-email,
-            'short-description' => $request->short-description,
-            'long-description' => $request->long-description,
-            'change-log' => $request->change-log,
-            'youtube-iframe' => $request->youtube-iframe,
-            'header-content' => $request->header-content,
-            'meta-title' => $request->meta-title,
-            'meta-description' => $request->meta-description,
-            'live-preview-link' => $request->live-preview-link,
-            'downloadable-link' => $request->downloadable-link,
-            'upload-image' => $request->upload-image,
+            'seller-name' => $request->sellerName,
+            'seller-email' => $request->sellerEmail,
+            'short-description' => $request->shortDescription,
+            'long-description' => $request->longDescription,
+            'change-log' => $request->changeLog,
+            'youtube-iframe' => $request->youtubeIframe,
+            'header-content' => $request->headerContent,
+            'meta-title' => $request->metaTitle,
+            'meta-description' => $request->metaDescription,
+            'live-preview-link' => $request->livePreviewLink,
+            'downloadable-link' => $request->downloadableLink,
+            'upload-image' => $request->uploadImage,
+            'upload-file' => $request->uploadFile,
+            'status' => $request->status,
+            'comment' => $request->comment,
         ]);
 
+        dd($template);
+
         $template->save();
+        // event(new Registered($template));
         
         return redirect(RouteServiceProvider::Template);
     }

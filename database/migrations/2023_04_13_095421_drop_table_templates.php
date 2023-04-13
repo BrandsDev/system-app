@@ -11,7 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::dropIfExists('template', 'template_details');
+        //
+        Schema::dropIfExists('templates');
     }
 
     /**
@@ -19,6 +20,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::rename('template_details', 'template');
+        //
     }
 };

@@ -11,7 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::dropIfExists('template', 'template_details');
+        Schema::table('template_details', function (Blueprint $table) {
+            //
+            Schema::dropIfExists('template');
+        });
     }
 
     /**
@@ -19,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::rename('template_details', 'template');
+        Schema::table('template_details', function (Blueprint $table) {
+            //
+        });
     }
 };

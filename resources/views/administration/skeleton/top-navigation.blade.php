@@ -24,7 +24,7 @@
 								<li><a class="dropdown-item" href="{{ url('/about/license') }}">Manage Templates</a></li>
 							</ul>
 						</li>
-						<li class="nav-item"><a href="{{ url('/why-our-themes') }}" class="nav-link" target="_blank">Visit Site</a></li>
+						<li class="nav-item"><a href="{{ url('/') }}" class="nav-link" target="_blank">Visit Site</a></li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								{{ Auth::user()->name }}
