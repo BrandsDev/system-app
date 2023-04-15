@@ -56,6 +56,11 @@ Route::get('site-templates', [SiteTemplatesController::class, 'index']);
 // Template
 Route::get('template-detail', [TemplateController::class, 'index']);
 
+// QR Code Gennerator
+Route::get('qr-code-generator', function () {
+    return view('frontend.qr-code-generator');
+});
+
 // Administration
 Route::get('/dashboard', function () {
     return view('administration.dashboard');

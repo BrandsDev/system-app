@@ -17,6 +17,9 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="https://themes.getbootstrap.com/wp-content/themes/bootstrap-marketplace/assets/images/fav/favicon-32x32.png" />
 		<link rel="icon" type="image/png" sizes="16x16" href="https://themes.getbootstrap.com/wp-content/themes/bootstrap-marketplace/assets/images/fav/favicon-16x16.png" />
 
+		<!-- Custom Head -->
+		@yield('custom-head')
+
 		<!-- HTML Meta Tags -->
 		@include('frontend.skeleton.meta')
 		
@@ -39,6 +42,9 @@
 
 		<!-- Scripts -->
 		@include('frontend.skeleton.scripts')
+
+		<!-- Custom Scripts -->
+		@yield('custom-scripts')
 
 	</body>
 </html>

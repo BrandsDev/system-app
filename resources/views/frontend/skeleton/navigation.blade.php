@@ -24,6 +24,7 @@
 								<li><a class="dropdown-item" href="{{ url('/about/license') }}">License</a></li>
 							</ul>
 						</li>
+						<li class="nav-item"><a href="{{ url('/qr-code-generator') }}" class="nav-link">QR Code Gen</a></li>
 						<li class="nav-item"><a href="{{ url('/hire-us') }}" class="nav-link">Hire Us</a></li>
 					</ul>
 				</div>
