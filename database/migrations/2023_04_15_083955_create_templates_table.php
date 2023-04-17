@@ -36,8 +36,8 @@ return new class extends Migration
             $table->text('meta_description')->nullable();
             $table->text('live_preview_link')->nullable();
             $table->text('downloadable_link')->nullable();
-            $table->text('upload_image')->nullable();
-            $table->text('upload_file')->nullable();
+            $table->text('image')->nullable();
+            $table->text('file')->nullable();
             $table->boolean('status')->nullable()->default('0')  ;
             $table->text('comment')->nullable();
             $table->timestamps();

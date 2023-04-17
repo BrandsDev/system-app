@@ -214,14 +214,14 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="upload_image" class="form-label">Upload Image</label>
-                            <input class="form-control" type="file" name="upload_image" id="upload_image" />
+                            <label for="image" class="form-label">Upload Image</label>
+                            <input class="form-control" type="file" name="image" id="image" />
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="upload_file" class="form-label">Upload File</label>
-                            <input class="form-control" type="file" name="upload_file" id="upload_file" multiple />
+                            <label for="file" class="form-label">Upload File</label>
+                            <input class="form-control" type="file" name="file" id="file" multiple />
                         </div>
                     </div>
                 </div>

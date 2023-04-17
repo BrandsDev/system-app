@@ -30,6 +30,17 @@
             <h1>Templates</h1>
         </div>
     </div>
+
+    @if(session()->has('delete'))
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success" role="alert">
+                {{ session('delete') }}
+            </div>
+        </div>
+    </div>
+    @endif
+
     <div class="row">
         <div class="col-sm-12">
 
@@ -43,17 +54,43 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($templates as $template)
                     <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
+                        <td>{{ $template->name }}</td>
+                        <td>{{ $template->seller_name }}</td>
+                        <td>{{ $template->image }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                              <a href="{{ route('edit-template') }}" class="btn btn-danger">Edit</a>
-                              <a href="{{ route('delete-template') }}" class="btn btn-warning">Delete</a>
+                              <a href="{{ route('templates.edit',$template->id) }}" class="btn btn-secondary">Edit</a>
+
+                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteTemplate{{ $template->id }}">Destroy</button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="deleteTemplate{{ $template->id }}" tabindex="-1" aria-labelledby="deleteTemplateLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Are You Sure?</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <p>Do you really want to delete. This process cannot be undone.</p>
+                                      </div>
+                                      <form method="POST" action="{{ route('destroy-template',$template->id) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Yes</button>
+                                      </div>
+                                    </form>
+                                    </div>
+                                  </div>
+                                </div>
                             </div>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
                 <tfoot>
                     <tr>

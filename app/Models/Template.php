@@ -38,8 +38,8 @@ class Template extends Model
         'meta_description',
         'live_preview_link',
         'downloadable_link',
-        'upload_image',
-        'upload_file',
+        'image',
+        'file',
         'status',
         'comment',
     ];

@@ -68,8 +68,8 @@ class TemplateController extends Controller
             'meta_description' => $request->meta_description,
             'live_preview_link' => $request->live_preview_link,
             'downloadable_link' => $request->downloadable_link,
-            'upload_image' => $request->upload_image,
-            'upload_file' => $request->upload_file,
+            'image' => $request->image,
+            'file' => $request->file,
             'status' => $request->status,
             'comment' => $request->comment,
         ]);
@@ -84,17 +84,21 @@ class TemplateController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(TemplateDetail $templateDetail)
+    public function show(Request $templateDetail)
     {
-        //
+        $templates = Template::all();
+
+        return view('administration.templates.templates', ['templates' => $templates]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(TemplateDetail $templateDetail)
+    public function edit($id)
     {
-        //
+        $template = Template::findOrFail($id);
+
+        return view('administration.templates.edit-template', compact('template'));
     }
 
     /**
@@ -108,8 +112,12 @@ class TemplateController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TemplateDetail $templateDetail)
+    public function destroy($id)
     {
-        //
+        Template::where('id',$id)->delete();
+
+        Session::flash('delete', __('Successfully Deleted!'));
+        
+        return back();
     }
 }

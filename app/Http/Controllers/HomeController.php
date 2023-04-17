@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
+use App\Models\Template;
 use App\Models\Home;
 use Illuminate\Http\Request;
 
@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $templates = DB::table('templates')->get();
+        $templates = Template::take(16)->get();
 
         return view('frontend.welcome', ['templates' => $templates]);
     }

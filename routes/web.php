@@ -67,13 +67,21 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Templates
-Route::get('/templates', function () {
-    return view('administration.templates.templates');
-})->middleware(['auth', 'verified'])->name('templates');
+// Route::get('/templates', function () {
+//     return view('administration.templates.templates');
+// })->middleware(['auth', 'verified'])->name('templates');
 
 Route::get('/templates/new-template', [TemplateController::class, 'create'])->middleware(['auth', 'verified'])->name('new-template');
 
+Route::get('/templates', [TemplateController::class, 'show'])->middleware(['auth', 'verified'])->name('templates');
+
 Route::post('/templates/new-template/store', [TemplateController::class, 'store'])->name('new-template.store');
+
+Route::get('/templates/edit/{id}', [TemplateController::class, 'edit'])->name('templates.edit');
+
+Route::get('/templates/update/{id}', [TemplateController::class, 'edit'])->name('update-template');
+
+Route::delete('/templates/destroy/{id}', [TemplateController::class, 'destroy'])->name('destroy-template');
 
 Route::get('/templates/edit-template', function () {
     return view('administration.templates.edit-template');
