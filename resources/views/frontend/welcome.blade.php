@@ -60,13 +60,13 @@
 				<article>
 					<figure>
 						<div class="card shadow p-2 mb-5 bg-body rounded">
-							<a href="{{ url('/site-templates/template-detail/') }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+							<a href="{{ route('template.detail',$template->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
 								<img src="{{ Vite::asset('resources/images/logo.png') }}" class="card-img-top" alt="..." />
 							</a>
 							<figcaption>
 								<div class="card-body">
 									<p class="card-title lead">
-										<a href="{{ url('/site-templates/template-detail/') }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+										<a href="{{ route('template.detail',$template->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
 											 {{ $template->name }}
 										</a>
 									</p>
@@ -76,7 +76,7 @@
 								</div>
 								<div class="card-body">
 									<div class="btn-group" role="group" aria-label="Basic mixed styles example">
-										<a href="/system/product-detail.html" target="_self" type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download HTML">Details</a>
+										<a href="{{ route('template.detail',$template->slug) }}" target="_self" type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download HTML">Details</a>
 										<a href="" target="_blank" type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download Wordpress">Live Preview</a>
 									</div>
 								</div>

@@ -21,7 +21,7 @@
 								<li><a class="dropdown-item" href="{{ url('/about/brand') }}">Sub Category</a></li>
 								<li><a class="dropdown-item" href="{{ url('/about/license') }}">Sub Sub Category</a></li>
 								<li><a class="dropdown-item" href="{{ route('new-template') }}">Add Templates</a></li>
-								<li><a class="dropdown-item" href="{{ url('/about/license') }}">Manage Templates</a></li>
+								<li><a class="dropdown-item" href="{{ url('/templates') }}">Manage Templates</a></li>
 							</ul>
 						</li>
 						<li class="nav-item"><a href="{{ url('/') }}" class="nav-link" target="_blank">Visit Site</a></li>

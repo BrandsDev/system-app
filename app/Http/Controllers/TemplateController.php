@@ -34,14 +34,13 @@ class TemplateController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        //
-        // dd($request);
-
         $template = new Template;
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            // 'email' => ['required', 'string', 'email', 'max:255'],
+            'slug' => ['required', 'regex:/^[a-z]+$/'],
+        ], [
+            'slug.regex' => 'The :attribute field must contain only lowercase letters.'
         ]);
 
         $template = Template::create([
@@ -92,6 +91,17 @@ class TemplateController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     */
+    public function detail($slug)
+    {
+        $template = Template::where('slug', $slug)->firstOrFail();
+
+
+        return view('frontend.template-detail', compact('template'));
+    }
+
+    /**
      * Show the form for editing the specified resource.
      */
     public function edit($id)
@@ -104,9 +114,46 @@ class TemplateController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TemplateDetail $templateDetail)
+    public function update(Request $request, $id): RedirectResponse
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            // 'email' => ['required', 'string', 'email', 'max:255'],
+        ]);
+
+        $template = Template::where('id', $id)->update([
+            'name' => $request->name,
+            'slug' => $request->slug,
+            'category' => $request->category,
+            'sub_category' => $request->sub_category,
+            'sub_sub_category' => $request->sub_sub_category,
+            'sale_price' => $request->sale_price,
+            'regular_price' => $request->regular_price,
+            'commission' => $request->commission,
+            'bootstrap_v' => $request->bootstrap_v,
+            'released' => $request->released,
+            'updated' => $request->updated,
+            'version' => $request->version,
+            'seller_name' => $request->seller_name,
+            'seller_email' => $request->seller_email,
+            'short_description' => $request->short_description,
+            'long_description' => $request->long_description,
+            'change_log' => $request->change_log,
+            'youtube_iframe' => $request->youtube_iframe,
+            'header_content' => $request->header_content,
+            'meta_title' => $request->meta_title,
+            'meta_description' => $request->meta_description,
+            'live_preview_link' => $request->live_preview_link,
+            'downloadable_link' => $request->downloadable_link,
+            'image' => $request->image,
+            'file' => $request->file,
+            'status' => $request->status,
+            'comment' => $request->comment,
+        ]);
+
+        Session::flash('update', __('Template Successfully Updated!'));
+        
+        return back();
     }
 
     /**

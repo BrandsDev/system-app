@@ -229,7 +229,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="status" class="form-label">Status</label>
-                            <input class="form-control" list="datalistStatus" name="status" id="status" placeholder="Status" />
+                            <input class="form-control" list="datalistStatus" name="status" id="status" placeholder="Status" required />
                             <datalist id="datalistStatus">
                                 <option value="1">Publish</option>
                                 <option value="0">Draft</option>
@@ -260,15 +260,9 @@
 @section('custom-scripts')
 <script>
     tinymce.init({
-      selector: '#custom-textarea',
-      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
-      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-      tinycomments_mode: 'embedded',
-      tinycomments_author: 'Author name',
-      mergetags_list: [
-        { value: 'First.Name', title: 'First Name' },
-        { value: 'Email', title: 'Email' },
-      ]
+        selector: 'textarea',
+        plugins: 'link image code',
+        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
     });
 </script>
 

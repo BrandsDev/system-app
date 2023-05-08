@@ -54,7 +54,7 @@ Route::get('terms-of-service', [TermsOfServiceController::class, 'index']);
 Route::get('site-templates', [SiteTemplatesController::class, 'index']);
 
 // Template
-Route::get('template-detail', [TemplateController::class, 'index']);
+Route::get('template/detail/{slug}', [TemplateController::class, 'detail'])->name('template.detail');
 
 // QR Code Gennerator
 Route::get('qr-code-generator', function () {
@@ -66,22 +66,17 @@ Route::get('/dashboard', function () {
     return view('administration.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Templates
-// Route::get('/templates', function () {
-//     return view('administration.templates.templates');
-// })->middleware(['auth', 'verified'])->name('templates');
-
 Route::get('/templates/new-template', [TemplateController::class, 'create'])->middleware(['auth', 'verified'])->name('new-template');
 
 Route::get('/templates', [TemplateController::class, 'show'])->middleware(['auth', 'verified'])->name('templates');
 
-Route::post('/templates/new-template/store', [TemplateController::class, 'store'])->name('new-template.store');
+Route::post('/templates/new-template/store', [TemplateController::class, 'store'])->middleware(['auth', 'verified'])->name('new-template.store');
 
-Route::get('/templates/edit/{id}', [TemplateController::class, 'edit'])->name('templates.edit');
+Route::get('/templates/edit/{id}', [TemplateController::class, 'edit'])->middleware(['auth', 'verified'])->name('templates.edit');
 
-Route::get('/templates/update/{id}', [TemplateController::class, 'edit'])->name('update-template');
+Route::put('/templates/update/{id}', [TemplateController::class, 'update'])->middleware(['auth', 'verified'])->name('update-template');
 
-Route::delete('/templates/destroy/{id}', [TemplateController::class, 'destroy'])->name('destroy-template');
+Route::delete('/templates/destroy/{id}', [TemplateController::class, 'destroy'])->middleware(['auth', 'verified'])->name('destroy-template');
 
 Route::get('/templates/edit-template', function () {
     return view('administration.templates.edit-template');
