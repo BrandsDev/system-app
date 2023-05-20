@@ -93,7 +93,7 @@
 					<form class="needs-validation" novalidate>
 						<div class="row g-3">
 							<div class="col-sm-12">
-								<img src="img/product/hyper-shot-1200x900-3.png" alt="" width="100%" height="100%" class="d-inline-block rounded-3 align-text-top" />
+								<img src="{{ Vite::asset('resources/images/templates/' . $template->image) }}" alt="" width="100%" height="100%" class="d-inline-block rounded-3 align-text-top" />
 							</div>
 						</div>
 						<div class="row g-3">

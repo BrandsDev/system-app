@@ -20,7 +20,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1>Add Template</h1>
+            <h1>Update Template</h1>
         </div>
     </div>
 
@@ -215,6 +215,12 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <label for="image" class="form-label">{{ $template->image }}</label>
+                            <img src="{{ $template->image }}" class="img-thumbnail" alt="...">
+                        </div>
+                    </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="image" class="form-label">Upload Image</label>

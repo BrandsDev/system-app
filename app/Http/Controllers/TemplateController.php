@@ -34,14 +34,16 @@ class TemplateController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $template = new Template;
+        // $request->validate([
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'slug' => ['required', 'regex:/^[a-z]+$/'],
+        // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ], [
+        //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
+        // ]);
 
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'slug' => ['required', 'regex:/^[a-z]+$/'],
-        ], [
-            'slug.regex' => 'The :attribute field must contain only lowercase letters.'
-        ]);
+        $imageName = time().'.'.$request->image->extension();  
+        $request->image->move(resource_path('images/templates'), $imageName);
 
         $template = Template::create([
             'name' => $request->name,
@@ -67,7 +69,7 @@ class TemplateController extends Controller
             'meta_description' => $request->meta_description,
             'live_preview_link' => $request->live_preview_link,
             'downloadable_link' => $request->downloadable_link,
-            'image' => $request->image,
+            'image' => $imageName,
             'file' => $request->file,
             'status' => $request->status,
             'comment' => $request->comment,
@@ -116,40 +118,53 @@ class TemplateController extends Controller
      */
     public function update(Request $request, $id): RedirectResponse
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            // 'email' => ['required', 'string', 'email', 'max:255'],
-        ]);
+        // $request->validate([
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'email' => ['required', 'string', 'email', 'max:255'],
+        //     'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        // ]);
 
-        $template = Template::where('id', $id)->update([
-            'name' => $request->name,
-            'slug' => $request->slug,
-            'category' => $request->category,
-            'sub_category' => $request->sub_category,
-            'sub_sub_category' => $request->sub_sub_category,
-            'sale_price' => $request->sale_price,
-            'regular_price' => $request->regular_price,
-            'commission' => $request->commission,
-            'bootstrap_v' => $request->bootstrap_v,
-            'released' => $request->released,
-            'updated' => $request->updated,
-            'version' => $request->version,
-            'seller_name' => $request->seller_name,
-            'seller_email' => $request->seller_email,
-            'short_description' => $request->short_description,
-            'long_description' => $request->long_description,
-            'change_log' => $request->change_log,
-            'youtube_iframe' => $request->youtube_iframe,
-            'header_content' => $request->header_content,
-            'meta_title' => $request->meta_title,
-            'meta_description' => $request->meta_description,
-            'live_preview_link' => $request->live_preview_link,
-            'downloadable_link' => $request->downloadable_link,
-            'image' => $request->image,
-            'file' => $request->file,
-            'status' => $request->status,
-            'comment' => $request->comment,
-        ]);
+        $template = Template::find($id);
+
+        // $template = Template::where('id', $id)->update([
+        //     'name' => $request->name,
+        //     'slug' => $request->slug,
+        //     'category' => $request->category,
+        //     'sub_category' => $request->sub_category,
+        //     'sub_sub_category' => $request->sub_sub_category,
+        //     'sale_price' => $request->sale_price,
+        //     'regular_price' => $request->regular_price,
+        //     'commission' => $request->commission,
+        //     'bootstrap_v' => $request->bootstrap_v,
+        //     'released' => $request->released,
+        //     'updated' => $request->updated,
+        //     'version' => $request->version,
+        //     'seller_name' => $request->seller_name,
+        //     'seller_email' => $request->seller_email,
+        //     'short_description' => $request->short_description,
+        //     'long_description' => $request->long_description,
+        //     'change_log' => $request->change_log,
+        //     'youtube_iframe' => $request->youtube_iframe,
+        //     'header_content' => $request->header_content,
+        //     'meta_title' => $request->meta_title,
+        //     'meta_description' => $request->meta_description,
+        //     'live_preview_link' => $request->live_preview_link,
+        //     'downloadable_link' => $request->downloadable_link,
+        //     'image' => $request->image,
+        //     'file' => $request->file,
+        //     'status' => $request->status,
+        //     'comment' => $request->comment,
+        // ]);
+
+        $template->name = $request->get('name');
+        
+        if ($request->hasFile('image')) {
+            $imageName = time().'.'.$request->image->extension();  
+            $request->image->move(resource_path('images/templates'), $imageName);
+            $template->image = $imageName;
+        }
+
+        $template->save();
 
         Session::flash('update', __('Template Successfully Updated!'));
         
