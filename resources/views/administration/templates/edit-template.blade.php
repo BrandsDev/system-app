@@ -34,7 +34,7 @@
     </div>
     @endif
 
-    <form class="needs-validation" method="POST" action="{{ route('update-template',$template->id) }}" novalidate>
+    <form class="needs-validation" method="POST" action="{{ route('update-template',$template->id) }}" enctype="multipart/form-data" novalidate>
         @csrf
         @method('PUT')
         <div class="row">
@@ -70,9 +70,8 @@
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="sub_category" class="form-label">Sub Category</label>
-                            <input class="form-control" list="datalistSubCategory" name="sub_category" placeholder="Search Sub Category" />
+                            <input class="form-control" list="datalistSubCategory" name="sub_category" value="{{ $template->sub_category }}" placeholder="Search Sub Category" />
                             <datalist id="datalistSubCategory">
-                                <option>{{ $template->sub_category }}</option>
                                 <option value="Francisco"> </option>
                                 <option value="York"> </option>
                             </datalist>
@@ -81,9 +80,8 @@
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="sub_sub_category" class="form-label">Sub Sub Category</label>
-                            <input class="form-control" list="datalistSubSubCategory" name="sub_sub_category" placeholder="Search Sub Sub Category" />
+                            <input class="form-control" list="datalistSubSubCategory" name="sub_sub_category" value="{{ $template->sub_sub_category }}" placeholder="Search Sub Sub Category" />
                             <datalist id="datalistSubSubCategory">
-                                <option>{{ $template->sub_sub_category }}</option>
                                 <option value="Francisco"> </option>
                                 <option value="York"> </option>
                             </datalist>
@@ -217,14 +215,19 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="image" class="form-label">{{ $template->image }}</label>
-                            <img src="{{ $template->image }}" class="img-thumbnail" alt="...">
+                            <label for="image" class="form-label">Live Image</label>
+                            <img src="{{ Vite::asset('resources/template/images/' . $template->image) }}" class="img-thumbnail" alt="...">
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="image" class="form-label">Upload Image</label>
                             <input class="form-control" type="file" name="image" id="image" />
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <label for="file" class="form-label">{{ Vite::asset('resources/template/files/' . $template->file) }}</label>
                         </div>
                     </div>
                     <div class="col-sm-12">

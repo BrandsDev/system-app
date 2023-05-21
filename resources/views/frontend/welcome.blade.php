@@ -61,7 +61,7 @@
 					<figure>
 						<div class="card shadow p-2 mb-5 bg-body rounded">
 							<a href="{{ route('template.detail',$template->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-								<img src="{{ Vite::asset('resources/images/templates/' . $template->image) }}" class="card-img-top" alt="..." />
+								<img src="{{ Vite::asset('resources/template/images/' . $template->image) }}" class="card-img-top" alt="..." />
 							</a>
 							<figcaption>
 								<div class="card-body">

@@ -1,0 +1,12 @@
+Storing image 
+---------------
+// $imageName = time().'.'.$request->image->extension();
+// $request->image->move(resource_path('images/templates'), $imageName
+
+$imageName = $request->image->getClientOriginalName();
+$request->image->move(resource_path('images/templates'), $imageName);
+
+// $uploadedImage = $request->file('image');
+// $imageName = $uploadedImage->getClientOriginalName(); // Get the original file name
+// $path = $uploadedImage->storeAs(resource_path('images/templates'), $imageName); // Store the image with its original name
+// Save the image path or perform other necessary operations

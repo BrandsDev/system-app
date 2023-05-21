@@ -42,8 +42,11 @@ class TemplateController extends Controller
         //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
         // ]);
 
-        $imageName = time().'.'.$request->image->extension();  
-        $request->image->move(resource_path('images/templates'), $imageName);
+        $imageName = $request->image->getClientOriginalName();
+        $request->image->move(resource_path('template/images'), $imageName);
+
+        $fileName = $request->file->getClientOriginalName();
+        $request->file->move(resource_path('template/files'), $fileName);
 
         $template = Template::create([
             'name' => $request->name,
@@ -70,7 +73,7 @@ class TemplateController extends Controller
             'live_preview_link' => $request->live_preview_link,
             'downloadable_link' => $request->downloadable_link,
             'image' => $imageName,
-            'file' => $request->file,
+            'file' => $fileName,
             'status' => $request->status,
             'comment' => $request->comment,
         ]);
@@ -118,53 +121,80 @@ class TemplateController extends Controller
      */
     public function update(Request $request, $id): RedirectResponse
     {
-        // $request->validate([
-        //     'name' => ['required', 'string', 'max:255'],
-        //     'email' => ['required', 'string', 'email', 'max:255'],
-        //     'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        // ]);
-
+        // Retrieve the existing record from the database
         $template = Template::find($id);
 
-        // $template = Template::where('id', $id)->update([
-        //     'name' => $request->name,
-        //     'slug' => $request->slug,
-        //     'category' => $request->category,
-        //     'sub_category' => $request->sub_category,
-        //     'sub_sub_category' => $request->sub_sub_category,
-        //     'sale_price' => $request->sale_price,
-        //     'regular_price' => $request->regular_price,
-        //     'commission' => $request->commission,
-        //     'bootstrap_v' => $request->bootstrap_v,
-        //     'released' => $request->released,
-        //     'updated' => $request->updated,
-        //     'version' => $request->version,
-        //     'seller_name' => $request->seller_name,
-        //     'seller_email' => $request->seller_email,
-        //     'short_description' => $request->short_description,
-        //     'long_description' => $request->long_description,
-        //     'change_log' => $request->change_log,
-        //     'youtube_iframe' => $request->youtube_iframe,
-        //     'header_content' => $request->header_content,
-        //     'meta_title' => $request->meta_title,
-        //     'meta_description' => $request->meta_description,
-        //     'live_preview_link' => $request->live_preview_link,
-        //     'downloadable_link' => $request->downloadable_link,
-        //     'image' => $request->image,
-        //     'file' => $request->file,
-        //     'status' => $request->status,
-        //     'comment' => $request->comment,
-        // ]);
+        // Make sure the record exists
+        if ($template) {
+            // Validate and process the new image
+            $newImage = $request->file('image');
 
-        $template->name = $request->get('name');
-        
-        if ($request->hasFile('image')) {
-            $imageName = time().'.'.$request->image->extension();  
-            $request->image->move(resource_path('images/templates'), $imageName);
-            $template->image = $imageName;
+            if ($newImage) {
+                // Validate the new image file
+                $validatedData = $request->validate([
+                    // 'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+                ]);
+
+                // Process the new image file (e.g., move to a specific directory, assign a new filename)
+                $newImageName = $request->image->getClientOriginalName();
+                $request->image->move(resource_path('template/images'), $newImageName);
+
+                // Update the image data in the model
+                $template->image = $newImageName;
+            }
+
+            // Validate and process the new image
+            $newFile = $request->file('file');
+
+            if ($newFile) {
+                // Validate the new file file
+                $validatedData = $request->validate([
+                    // 'file' => 'file|mimes:jpeg,png,jpg,gif|max:2048',
+                ]);
+
+                // Process the new file file (e.g., move to a specific directory, assign a new filename)
+                $newFileName = $request->file->getClientOriginalName();
+                $request->file->move(resource_path('template/files'), $newFileName);
+
+                // Update the file data in the model
+                $template->file = $newFileName;
+            }
+
+            // Update other fields of the request
+            $template->name = $request->input('name');
+            $template->slug = $request->input('slug');
+            $template->category = $request->input('category');
+            $template->sub_category = $request->input('sub_category');
+            $template->sub_sub_category = $request->input('sub_sub_category');
+            $template->sale_price = $request->input('sale_price');
+            $template->regular_price = $request->input('regular_price');
+            $template->commission = $request->input('commission');
+            $template->bootstrap_v = $request->input('bootstrap_v');
+            $template->released = $request->input('released');
+            $template->updated = $request->input('updated');
+            $template->version = $request->input('version');
+            $template->seller_name = $request->input('seller_name');
+            $template->seller_email = $request->input('seller_email');
+            $template->short_description = $request->input('short_description');
+            $template->long_description = $request->input('long_description');
+            $template->change_log = $request->input('change_log');
+            $template->youtube_iframe = $request->input('youtube_iframe');
+            $template->header_content = $request->input('header_content');
+            $template->meta_title = $request->input('meta_title');
+            $template->meta_description = $request->input('meta_description');
+            $template->live_preview_link = $request->input('live_preview_link');
+            $template->downloadable_link = $request->input('downloadable_link');
+            $template->status = $request->input('status');
+            $template->comment = $request->input('comment');
+
+            // Save the changes
+            $template->save();
+
+            // Perform any additional actions or redirect as needed
+        } else {
+            // Handle the case when the record doesn't exist
+            dd();
         }
-
-        $template->save();
 
         Session::flash('update', __('Template Successfully Updated!'));
         
