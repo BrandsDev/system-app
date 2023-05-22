@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2023 at 12:41 PM
+-- Generation Time: May 22, 2023 at 01:07 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -41,6 +41,27 @@ CREATE TABLE `abouts` (
 
 CREATE TABLE `blogs` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `category_name` varchar(199) NOT NULL,
+  `slug` varchar(199) NOT NULL,
+  `description` varchar(199) DEFAULT NULL,
+  `meta_title` varchar(199) DEFAULT NULL,
+  `meta_description` varchar(199) DEFAULT NULL,
+  `icon` text NOT NULL,
+  `thumb` text NOT NULL,
+  `cover` text NOT NULL,
+  `og_image` text NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -144,7 +165,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (29, '2023_04_13_095421_drop_table_templates', 14),
 (30, '2023_04_13_095441_create_templates_table', 15),
 (31, '2023_04_15_083833_drop_table_template', 16),
-(32, '2023_04_15_083955_create_templates_table', 17);
+(32, '2023_04_15_083955_create_templates_table', 17),
+(33, '2023_05_22_103504_create_categories_table', 18),
+(34, '2023_05_22_103514_create_sub_categories_table', 18),
+(35, '2023_05_22_103522_create_sub_sub_categories_table', 18);
 
 -- --------------------------------------------------------
 
@@ -209,6 +233,50 @@ CREATE TABLE `site_templates` (
 
 CREATE TABLE `skeletons` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sub_categories`
+--
+
+CREATE TABLE `sub_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `sub_category_name` varchar(199) NOT NULL,
+  `slug` varchar(199) NOT NULL,
+  `category_name` varchar(199) NOT NULL,
+  `description` varchar(199) DEFAULT NULL,
+  `meta_title` varchar(199) DEFAULT NULL,
+  `meta_description` varchar(199) DEFAULT NULL,
+  `icon` text NOT NULL,
+  `thumb` text NOT NULL,
+  `cover` text NOT NULL,
+  `og_image` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sub_sub_categories`
+--
+
+CREATE TABLE `sub_sub_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `sub_sub_category_name` varchar(199) NOT NULL,
+  `sub_category_name` varchar(199) NOT NULL,
+  `slug` varchar(199) NOT NULL,
+  `description` varchar(199) DEFAULT NULL,
+  `meta_title` varchar(199) DEFAULT NULL,
+  `meta_description` varchar(199) DEFAULT NULL,
+  `icon` text NOT NULL,
+  `thumb` text NOT NULL,
+  `cover` text NOT NULL,
+  `og_image` text NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -332,6 +400,12 @@ ALTER TABLE `blogs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `contacts`
 --
 ALTER TABLE `contacts`
@@ -395,6 +469,18 @@ ALTER TABLE `skeletons`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sub_categories`
+--
+ALTER TABLE `sub_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sub_sub_categories`
+--
+ALTER TABLE `sub_sub_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `templates`
 --
 ALTER TABLE `templates`
@@ -437,6 +523,12 @@ ALTER TABLE `blogs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
@@ -464,7 +556,7 @@ ALTER TABLE `homes`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -488,6 +580,18 @@ ALTER TABLE `site_templates`
 -- AUTO_INCREMENT for table `skeletons`
 --
 ALTER TABLE `skeletons`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `sub_categories`
+--
+ALTER TABLE `sub_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `sub_sub_categories`
+--
+ALTER TABLE `sub_sub_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
