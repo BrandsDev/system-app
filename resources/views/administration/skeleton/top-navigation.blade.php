@@ -17,11 +17,20 @@
 								Templates
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="{{ url('/about/overview') }}">Category</a></li>
-								<li><a class="dropdown-item" href="{{ url('/about/brand') }}">Sub Category</a></li>
-								<li><a class="dropdown-item" href="{{ url('/about/license') }}">Sub Sub Category</a></li>
-								<li><a class="dropdown-item" href="{{ route('new-template') }}">Add Templates</a></li>
-								<li><a class="dropdown-item" href="{{ url('/templates') }}">Manage Templates</a></li>
+								<li><a class="dropdown-item" href="{{ url('manage-category') }}">Category</a></li>
+								<li><a class="dropdown-item" href="{{ url('manage-sub-category') }}">Sub Category</a></li>
+								<li><a class="dropdown-item" href="{{ url('manage-sub-sub-category') }}">Sub Sub Category</a></li>
+								<li><a class="dropdown-item" href="{{ route('new-template') }}">Add Template</a></li>
+								<li><a class="dropdown-item" href="{{ route('templates') }}">Manage Templates</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Blogs
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="{{ route('new-blog') }}">Add Blog</a></li>
+								<li><a class="dropdown-item" href="{{ route('manage-blogs') }}">Manage Blogs</a></li>
 							</ul>
 						</li>
 						<li class="nav-item"><a href="{{ url('/') }}" class="nav-link" target="_blank">Visit Site</a></li>

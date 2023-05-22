@@ -34,7 +34,7 @@
 						</div>
 					</div>
 
-					<ul class="list-group list-group-flush mt-3">
+					<!-- <ul class="list-group list-group-flush mt-3">
 						<li class="list-group-item bg-light">
 							<input class="form-check-input me-1" type="checkbox" value="" aria-label="..." checked disabled />
 							Reviewed by the Bootstrap team
@@ -47,7 +47,7 @@
 							<input class="form-check-input me-1" type="checkbox" value="" aria-label="..." checked disabled />
 							100% money back guarantee
 						</li>
-					</ul>
+					</ul> -->
 
 					<ul class="list-group list-group-flush mt-3">
 						<li class="list-group-item d-flex justify-content-between align-items-center bg-light">

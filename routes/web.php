@@ -11,6 +11,7 @@ use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\TermsOfServiceController;
 use App\Http\Controllers\SiteTemplatesController;
 use App\Http\Controllers\TemplateController;
+use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +24,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-    
+
+/*
+|--------------------------------------------------------------------------
+| Frontend
+|--------------------------------------------------------------------------
+*/
+
 // Homepage
 Route::get('/', [HomeController::class, 'index'])->name('home');
     
@@ -61,30 +68,48 @@ Route::get('qr-code-generator', function () {
     return view('frontend.qr-code-generator');
 });
 
-// Administration
+/*
+|--------------------------------------------------------------------------
+| Backend
+|--------------------------------------------------------------------------
+*/
+
+// Dashboard
 Route::get('/dashboard', function () {
     return view('administration.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/templates/new-template', [TemplateController::class, 'create'])->middleware(['auth', 'verified'])->name('new-template');
+// Categories
+Route::get('/manage-category', [CategoriesController::class, 'categoryShow'])->middleware(['auth', 'verified'])->name('manage-category');
+Route::get('/category/new-category', [CategoriesController::class, 'categoryCreate'])->middleware(['auth', 'verified'])->name('new-category');
+Route::post('/category/new-category/store', [CategoriesController::class, 'categoryStore'])->middleware(['auth', 'verified'])->name('new-category.store');
+Route::get('/category/edit/{id}', [CategoriesController::class, 'categoryEdit'])->middleware(['auth', 'verified'])->name('category.edit');
+Route::put('/category/update/{id}', [CategoriesController::class, 'categoryUpdate'])->middleware(['auth', 'verified'])->name('update-category');
+Route::delete('/category/destroy/{id}', [CategoriesController::class, 'categoryDestroy'])->middleware(['auth', 'verified'])->name('destroy-category');
 
+// Templates
 Route::get('/templates', [TemplateController::class, 'show'])->middleware(['auth', 'verified'])->name('templates');
-
+Route::get('/templates/new-template', [TemplateController::class, 'create'])->middleware(['auth', 'verified'])->name('new-template');
 Route::post('/templates/new-template/store', [TemplateController::class, 'store'])->middleware(['auth', 'verified'])->name('new-template.store');
-
 Route::get('/templates/edit/{id}', [TemplateController::class, 'edit'])->middleware(['auth', 'verified'])->name('templates.edit');
-
 Route::put('/templates/update/{id}', [TemplateController::class, 'update'])->middleware(['auth', 'verified'])->name('update-template');
-
 Route::delete('/templates/destroy/{id}', [TemplateController::class, 'destroy'])->middleware(['auth', 'verified'])->name('destroy-template');
 
-Route::get('/templates/edit-template', function () {
-    return view('administration.templates.edit-template');
-})->middleware(['auth', 'verified'])->name('edit-template');
+// Blogs
+Route::get('/manage-blogs', [BlogController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-blogs');
+Route::get('/blog/new-blog', [BlogController::class, 'create'])->middleware(['auth', 'verified'])->name('new-blog');
+Route::post('/blog/new-blog/store', [BlogController::class, 'store'])->middleware(['auth', 'verified'])->name('new-blog.store');
+Route::get('/blog/edit/{id}', [BlogController::class, 'edit'])->middleware(['auth', 'verified'])->name('blog.edit');
+Route::put('/blog/update/{id}', [BlogController::class, 'update'])->middleware(['auth', 'verified'])->name('update-blog');
+Route::delete('/blog/destroy/{id}', [BlogController::class, 'destroy'])->middleware(['auth', 'verified'])->name('destroy-blog');
 
-Route::get('/templates/delete-template', function () {
-    return view('administration.templates.delete-template');
-})->middleware(['auth', 'verified'])->name('delete-template');
+// Route::get('/templates/edit-template', function () {
+//     return view('administration.templates.edit-template');
+// })->middleware(['auth', 'verified'])->name('edit-template');
+
+// Route::get('/templates/delete-template', function () {
+//     return view('administration.templates.delete-template');
+// })->middleware(['auth', 'verified'])->name('delete-template');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
