@@ -17,9 +17,9 @@
 								Templates
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="{{ url('manage-category') }}">Category</a></li>
-								<li><a class="dropdown-item" href="{{ url('manage-sub-category') }}">Sub Category</a></li>
-								<li><a class="dropdown-item" href="{{ url('manage-sub-sub-category') }}">Sub Sub Category</a></li>
+								<li><a class="dropdown-item" href="{{ route('manage-categories') }}">Category</a></li>
+								<li><a class="dropdown-item" href="{{ route('manage-sub-categories') }}">Sub Category</a></li>
+								<li><a class="dropdown-item" href="{{ route('manage-sub-sub-categories') }}">Sub Sub Category</a></li>
 								<li><a class="dropdown-item" href="{{ route('new-template') }}">Add Template</a></li>
 								<li><a class="dropdown-item" href="{{ route('templates') }}">Manage Templates</a></li>
 							</ul>

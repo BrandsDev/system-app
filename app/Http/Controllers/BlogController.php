@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Template;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -37,7 +38,9 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        $blogs = Template::all();
+
+        return view('administration.blog.manage-blogs', ['blogs' => $blogs]);
     }
 
     /**

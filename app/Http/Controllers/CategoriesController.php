@@ -8,7 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Session;
 
-class TemplateController extends Controller
+class CategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,7 +22,7 @@ class TemplateController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function categoryCreate()
     {
         //
         return view('administration.templates.new-template')->with('status', 'profile-updated');
@@ -32,7 +32,7 @@ class TemplateController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function categoryStore(Request $request): RedirectResponse
     {
         // $request->validate([
         //     'name' => ['required', 'string', 'max:255'],
@@ -88,28 +88,17 @@ class TemplateController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Request $templateDetail)
+    public function categoryShow()
     {
-        $templates = Template::all();
+        $categories = Categories::all();
 
-        return view('administration.templates.templates', ['templates' => $templates]);
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function detail($slug)
-    {
-        $template = Template::where('slug', $slug)->firstOrFail();
-
-
-        return view('frontend.template-detail', compact('template'));
+        return view('administration.categories.manage-categories', ['categories' => $categories]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function categoryEdit($id)
     {
         $template = Template::findOrFail($id);
 
@@ -119,7 +108,7 @@ class TemplateController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id): RedirectResponse
+    public function categoryUpdate(Request $request, $id): RedirectResponse
     {
         // Retrieve the existing record from the database
         $template = Template::find($id);
@@ -204,7 +193,7 @@ class TemplateController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function categoryDestroy($id)
     {
         Template::where('id',$id)->delete();
 

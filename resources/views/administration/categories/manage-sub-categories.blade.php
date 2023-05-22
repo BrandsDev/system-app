@@ -18,7 +18,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Templates</li>
+                    <li class="breadcrumb-item active" aria-current="page">Sub Categories</li>
                 </ol>
             </nav>
         </div>
@@ -27,7 +27,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1>Templates</h1>
+            <h1>Sub Categories</h1>
         </div>
     </div>
 
@@ -47,26 +47,26 @@
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Seller Name</th>
-                        <th>Image</th>
+                        <th>Icon</th>
+                        <th>Category Name</th>
+                        <th>Category Slug</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($templates as $template)
+                    @foreach ($categories as $categories)
                     <tr>
-                        <td>{{ $template->name }}</td>
-                        <td>{{ $template->seller_name }}</td>
-                        <td>{{ $template->image }}</td>
+                        <td>{{ $categories->icon }}</td>
+                        <td>{{ $categories->category_name }}</td>
+                        <td>{{ $categories->slug }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                              <a href="{{ route('templates.edit',$template->id) }}" class="btn btn-secondary">Edit</a>
+                              <a href="{{ route('categories.edit',$categories->id) }}" class="btn btn-secondary">Edit</a>
 
-                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteTemplate{{ $template->id }}">Destroy</button>
+                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteCategories{{ $categories->id }}">Destroy</button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="deleteTemplate{{ $template->id }}" tabindex="-1" aria-labelledby="deleteTemplateLabel" aria-hidden="true">
+                                <div class="modal fade" id="deleteCategories{{ $categories->id }}" tabindex="-1" aria-labelledby="deleteCategoriesLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                     <div class="modal-content">
                                       <div class="modal-header">
@@ -76,7 +76,7 @@
                                       <div class="modal-body">
                                         <p>Do you really want to delete. This process cannot be undone.</p>
                                       </div>
-                                      <form method="POST" action="{{ route('destroy-template',$template->id) }}">
+                                      <form method="POST" action="{{ route('destroy-categories',$categories->id) }}">
                                         @csrf
                                         @method('DELETE')
                                       <div class="modal-footer">
@@ -94,9 +94,9 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>Name</th>
-                        <th>Seller Name</th>
-                        <th>Image</th>
+                        <th>Icon</th>
+                        <th>Category Name</th>
+                        <th>Category Slug</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
