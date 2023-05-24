@@ -25,7 +25,7 @@ class CategoriesController extends Controller
     public function categoryCreate()
     {
         //
-        return view('administration.templates.new-template')->with('status', 'profile-updated');
+        return view('administration.categories.new-category')->with('status', 'profile-updated');
 
     }
 
@@ -42,47 +42,35 @@ class CategoriesController extends Controller
         //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
         // ]);
 
-        $imageName = $request->image->getClientOriginalName();
-        $request->image->move(resource_path('template/images'), $imageName);
+        $icon = $request->icon->getClientOriginalName();
+        $request->icon->move(resource_path('category/icon'), $icon);
 
-        $fileName = $request->file->getClientOriginalName();
-        $request->file->move(resource_path('template/files'), $fileName);
+        $thumb = $request->thumb->getClientOriginalName();
+        $request->thumb->move(resource_path('category/thumb'), $thumb);
 
-        $template = Template::create([
-            'name' => $request->name,
+        $cover = $request->cover->getClientOriginalName();
+        $request->cover->move(resource_path('category/cover'), $cover);
+
+        $og = $request->og_image->getClientOriginalName();
+        $request->og_image->move(resource_path('category/og'), $og);
+
+        $category = Categories::create([
+            'category_name' => $request->category_name,
             'slug' => $request->slug,
-            'category' => $request->category,
-            'sub_category' => $request->sub_category,
-            'sub_sub_category' => $request->sub_sub_category,
-            'sale_price' => $request->sale_price,
-            'regular_price' => $request->regular_price,
-            'commission' => $request->commission,
-            'bootstrap_v' => $request->bootstrap_v,
-            'released' => $request->released,
-            'updated' => $request->updated,
-            'version' => $request->version,
-            'seller_name' => $request->seller_name,
-            'seller_email' => $request->seller_email,
-            'short_description' => $request->short_description,
-            'long_description' => $request->long_description,
-            'change_log' => $request->change_log,
-            'youtube_iframe' => $request->youtube_iframe,
-            'header_content' => $request->header_content,
+            'description' => $request->description,
             'meta_title' => $request->meta_title,
             'meta_description' => $request->meta_description,
-            'live_preview_link' => $request->live_preview_link,
-            'downloadable_link' => $request->downloadable_link,
-            'image' => $imageName,
-            'file' => $fileName,
-            'status' => $request->status,
-            'comment' => $request->comment,
+            'icon' => $icon,
+            'thumb' => $thumb,
+            'cover' => $cover,
+            'og_image' => $og,
         ]);
 
-        $template->save();
+        $category->save();
 
-        Session::flash('message', __('New Template Successfully Added!'));
+        Session::flash('message', __('New Category Successfully Added!'));
         
-        return redirect(RouteServiceProvider::Template);
+        return redirect(RouteServiceProvider::Categories);
     }
 
     /**
@@ -100,9 +88,9 @@ class CategoriesController extends Controller
      */
     public function categoryEdit($id)
     {
-        $template = Template::findOrFail($id);
+        $category = Categories::findOrFail($id);
 
-        return view('administration.templates.edit-template', compact('template'));
+        return view('administration.categories.edit-category', compact('category'));
     }
 
     /**
@@ -111,81 +99,95 @@ class CategoriesController extends Controller
     public function categoryUpdate(Request $request, $id): RedirectResponse
     {
         // Retrieve the existing record from the database
-        $template = Template::find($id);
+        $category = Categories::find($id);
 
         // Make sure the record exists
-        if ($template) {
-            // Validate and process the new image
-            $newImage = $request->file('image');
+        if ($category) {
+            // Validate and process the new icon
+            $newIcon = $request->file('icon');
 
-            if ($newImage) {
-                // Validate the new image file
+            if ($newIcon) {
+                // Validate the new icon file
                 $validatedData = $request->validate([
-                    // 'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+                    // 'icon' => 'icon|mimes:jpeg,png,jpg,gif|max:2048',
                 ]);
 
-                // Process the new image file (e.g., move to a specific directory, assign a new filename)
-                $newImageName = $request->image->getClientOriginalName();
-                $request->image->move(resource_path('template/images'), $newImageName);
+                // Process the new icon file (e.g., move to a specific directory, assign a new filename)
+                $newIconName = $request->icon->getClientOriginalName();
+                $request->icon->move(resource_path('category/icon'), $newIconName);
 
                 // Update the image data in the model
-                $template->image = $newImageName;
+                $category->icon = $newIconName;
             }
 
             // Validate and process the new image
-            $newFile = $request->file('file');
+            $newThumb = $request->file('thumb');
 
-            if ($newFile) {
-                // Validate the new file file
+            if ($newThumb) {
+                // Validate the new thumb thumb
                 $validatedData = $request->validate([
-                    // 'file' => 'file|mimes:jpeg,png,jpg,gif|max:2048',
+                    // 'thumb' => 'thumb|mimes:jpeg,png,jpg,gif|max:2048',
                 ]);
 
-                // Process the new file file (e.g., move to a specific directory, assign a new filename)
-                $newFileName = $request->file->getClientOriginalName();
-                $request->file->move(resource_path('template/files'), $newFileName);
+                // Process the new thumb thumb (e.g., move to a specific directory, assign a new filename)
+                $newThumbName = $request->thumb->getClientOriginalName();
+                $request->thumb->move(resource_path('category/thumb'), $newThumbName);
 
-                // Update the file data in the model
-                $template->file = $newFileName;
+                // Update the thumb data in the model
+                $category->thumb = $newThumbName;
+            }
+
+            // Validate and process the new image
+            $newCover = $request->file('cover');
+
+            if ($newCover) {
+                // Validate the new cover cover
+                $validatedData = $request->validate([
+                    // 'cover' => 'cover|mimes:jpeg,png,jpg,gif|max:2048',
+                ]);
+
+                // Process the new cover cover (e.g., move to a specific directory, assign a new filename)
+                $newCoverName = $request->cover->getClientOriginalName();
+                $request->cover->move(resource_path('category/cover'), $newCoverName);
+
+                // Update the cover data in the model
+                $category->cover = $newCoverName;
+            }
+
+            // Validate and process the new image
+            $newOG = $request->file('og_image');
+
+            if ($newOG) {
+                // Validate the new OG Image
+                $validatedData = $request->validate([
+                    // 'og_image' => 'og_image|mimes:jpeg,png,jpg,gif|max:2048',
+                ]);
+
+                // Process the new OG Image (e.g., move to a specific directory, assign a new filename)
+                $newOGName = $request->og_image->getClientOriginalName();
+                $request->og_image->move(resource_path('category/og'), $newOGName);
+
+                // Update the thumb data in the model
+                $category->og_image = $newOGName;
             }
 
             // Update other fields of the request
-            $template->name = $request->input('name');
-            $template->slug = $request->input('slug');
-            $template->category = $request->input('category');
-            $template->sub_category = $request->input('sub_category');
-            $template->sub_sub_category = $request->input('sub_sub_category');
-            $template->sale_price = $request->input('sale_price');
-            $template->regular_price = $request->input('regular_price');
-            $template->commission = $request->input('commission');
-            $template->bootstrap_v = $request->input('bootstrap_v');
-            $template->released = $request->input('released');
-            $template->updated = $request->input('updated');
-            $template->version = $request->input('version');
-            $template->seller_name = $request->input('seller_name');
-            $template->seller_email = $request->input('seller_email');
-            $template->short_description = $request->input('short_description');
-            $template->long_description = $request->input('long_description');
-            $template->change_log = $request->input('change_log');
-            $template->youtube_iframe = $request->input('youtube_iframe');
-            $template->header_content = $request->input('header_content');
-            $template->meta_title = $request->input('meta_title');
-            $template->meta_description = $request->input('meta_description');
-            $template->live_preview_link = $request->input('live_preview_link');
-            $template->downloadable_link = $request->input('downloadable_link');
-            $template->status = $request->input('status');
-            $template->comment = $request->input('comment');
+            $category->category_name = $request->input('category_name');
+            $category->slug = $request->input('slug');
+            $category->description = $request->input('description');
+            $category->meta_title = $request->input('meta_title');
+            $category->meta_description = $request->input('meta_description');
 
             // Save the changes
-            $template->save();
+            $category->save();
 
             // Perform any additional actions or redirect as needed
         } else {
             // Handle the case when the record doesn't exist
-            dd();
+            return back();
         }
 
-        Session::flash('update', __('Template Successfully Updated!'));
+        Session::flash('update', __('Category Successfully Updated!'));
         
         return back();
     }
@@ -195,7 +197,7 @@ class CategoriesController extends Controller
      */
     public function categoryDestroy($id)
     {
-        Template::where('id',$id)->delete();
+        Categories::where('id',$id)->delete();
 
         Session::flash('delete', __('Successfully Deleted!'));
         

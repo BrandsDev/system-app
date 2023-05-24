@@ -26,8 +26,15 @@
     <!-- Content -->
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-lg-10">
             <h1>Categories</h1>
+        </div>
+        <div class="col-lg-2 align-self-center">
+            <div class="row">
+                <div class="col-12 col-sm-12">
+                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('new-category') }}">+ Add Category</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -54,19 +61,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($categories as $categories)
+                    @foreach ($categories as $category)
                     <tr>
-                        <td>{{ $categories->icon }}</td>
-                        <td>{{ $categories->category_name }}</td>
-                        <td>{{ $categories->slug }}</td>
+                        <td>{{ $category->icon }}</td>
+                        <td>{{ $category->category_name }}</td>
+                        <td>{{ $category->slug }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                              <a href="{{ route('categories.edit',$categories->id) }}" class="btn btn-secondary">Edit</a>
+                              <a href="{{ route('category.edit',$category->id) }}" class="btn btn-secondary">Edit</a>
 
-                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteCategories{{ $categories->id }}">Destroy</button>
+                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteCategories{{ $category->id }}">Destroy</button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="deleteCategories{{ $categories->id }}" tabindex="-1" aria-labelledby="deleteCategoriesLabel" aria-hidden="true">
+                                <div class="modal fade" id="deleteCategories{{ $category->id }}" tabindex="-1" aria-labelledby="deleteCategoriesLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                     <div class="modal-content">
                                       <div class="modal-header">
@@ -76,7 +83,7 @@
                                       <div class="modal-body">
                                         <p>Do you really want to delete. This process cannot be undone.</p>
                                       </div>
-                                      <form method="POST" action="{{ route('destroy-categories',$categories->id) }}">
+                                      <form method="POST" action="{{ route('category.destroy',$category->id) }}">
                                         @csrf
                                         @method('DELETE')
                                       <div class="modal-footer">

@@ -11,7 +11,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('manage-categories') }}">Categories</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Category</li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Category</li>
                 </ol>
             </nav>
         </div>
@@ -20,7 +20,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1>Add Category</h1>
+            <h1>Edit Category</h1>
         </div>
     </div>
 
@@ -34,15 +34,16 @@
     </div>
     @endif
 
-    <form class="needs-validation" method="POST" action="{{ route('new-category.store') }}" enctype="multipart/form-data" novalidate>
+    <form class="needs-validation" method="POST" action="{{ route('category.update',$category->id) }}" enctype="multipart/form-data" novalidate>
         @csrf
+        @method('PUT')
         <div class="row">
             <div class="col-sm-9">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="category_name" class="form-label">Category Name *</label>
-                            <input type="text" class="form-control" name="category_name" id="category_name" placeholder="Name" required />
+                            <input type="text" class="form-control" name="category_name" value="{{ $category->category_name }}" placeholder="Name" required />
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -51,7 +52,7 @@
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="slug" class="form-label">Category Slug *</label>
-                            <input type="text" class="form-control" name="slug" id="slug" placeholder="Slug" required />
+                            <input type="text" class="form-control" name="slug" value="{{ $category->slug }}" placeholder="Slug" required />
                         </div>
                     </div>
                 </div>
@@ -59,19 +60,19 @@
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                            <textarea class="form-control" name="description" rows="3">{{ $category->description }}</textarea>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="meta_title" class="form-label">Meta Title</label>
-                            <textarea class="form-control" id="meta_title" name="meta_title" rows="3"></textarea>
+                            <textarea class="form-control" name="meta_title" rows="3">{{ $category->meta_title }}</textarea>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="meta_description" class="form-label">Meta Description</label>
-                            <textarea class="form-control" id="meta_description" name="meta_description" rows="3"></textarea>
+                            <textarea class="form-control" name="meta_description" rows="3">{{ $category->meta_description }}</textarea>
                         </div>
                     </div>
                 </div>
