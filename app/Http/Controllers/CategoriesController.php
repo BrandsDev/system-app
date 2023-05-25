@@ -22,65 +22,150 @@ class CategoriesController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function categoryCreate()
+    public function create(Request $request)
     {
-        //
-        return view('administration.categories.new-category')->with('status', 'profile-updated');
+        if ($request->routeIs('new-category')) {
+            
+            return view('administration.categories.new-category');
 
+        } elseif ($request->routeIs('new-sub-category')) {
+        
+            $categories = Categories::select('category_name')->get();
+            
+            return view('administration.categories.new-sub-category', ['categories' => $categories]);
+
+        } elseif ($request->routeIs('new-sub-sub-category')) {
+            
+            return view('administration.categories.new-sub-sub-category');
+
+        }
+        
+        // Default view if none of the routes match
+        return view('/dashboard');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function categoryStore(Request $request): RedirectResponse
+    public function store(Request $request): RedirectResponse
     {
-        // $request->validate([
-        //     'name' => ['required', 'string', 'max:255'],
-        //     'slug' => ['required', 'regex:/^[a-z]+$/'],
-        // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        // ], [
-        //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
-        // ]);
 
-        $icon = $request->icon->getClientOriginalName();
-        $request->icon->move(resource_path('category/icon'), $icon);
+        if ($request->routeIs('new-category.store')) {
+            
+            // $request->validate([
+            //     'name' => ['required', 'string', 'max:255'],
+            //     'slug' => ['required', 'regex:/^[a-z]+$/'],
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // ], [
+            //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
+            // ]);
 
-        $thumb = $request->thumb->getClientOriginalName();
-        $request->thumb->move(resource_path('category/thumb'), $thumb);
+            $icon = $request->icon->getClientOriginalName();
+            $request->icon->move(resource_path('category/icon'), $icon);
 
-        $cover = $request->cover->getClientOriginalName();
-        $request->cover->move(resource_path('category/cover'), $cover);
+            $thumb = $request->thumb->getClientOriginalName();
+            $request->thumb->move(resource_path('category/thumb'), $thumb);
 
-        $og = $request->og_image->getClientOriginalName();
-        $request->og_image->move(resource_path('category/og'), $og);
+            $cover = $request->cover->getClientOriginalName();
+            $request->cover->move(resource_path('category/cover'), $cover);
 
-        $category = Categories::create([
-            'category_name' => $request->category_name,
-            'slug' => $request->slug,
-            'description' => $request->description,
-            'meta_title' => $request->meta_title,
-            'meta_description' => $request->meta_description,
-            'icon' => $icon,
-            'thumb' => $thumb,
-            'cover' => $cover,
-            'og_image' => $og,
-        ]);
+            $og = $request->og_image->getClientOriginalName();
+            $request->og_image->move(resource_path('category/og'), $og);
 
-        $category->save();
+            $category = Categories::create([
+                'category_name' => $request->category_name,
+                'slug' => $request->slug,
+                'description' => $request->description,
+                'meta_title' => $request->meta_title,
+                'meta_description' => $request->meta_description,
+                'icon' => $icon,
+                'thumb' => $thumb,
+                'cover' => $cover,
+                'og_image' => $og,
+            ]);
 
-        Session::flash('message', __('New Category Successfully Added!'));
+            $category->save();
+
+            Session::flash('message', __('New Category Successfully Added!'));
+            
+            return redirect(RouteServiceProvider::Categories);
+
+        } elseif ($request->routeIs('new-sub-category.store')) {
+            
+            // $request->validate([
+            //     'name' => ['required', 'string', 'max:255'],
+            //     'slug' => ['required', 'regex:/^[a-z]+$/'],
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // ], [
+            //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
+            // ]);
+
+            $icon = $request->icon->getClientOriginalName();
+            $request->icon->move(resource_path('category/icon'), $icon);
+
+            $thumb = $request->thumb->getClientOriginalName();
+            $request->thumb->move(resource_path('category/thumb'), $thumb);
+
+            $cover = $request->cover->getClientOriginalName();
+            $request->cover->move(resource_path('category/cover'), $cover);
+
+            $og = $request->og_image->getClientOriginalName();
+            $request->og_image->move(resource_path('category/og'), $og);
+
+            $category = Categories::create([
+                'category_name' => $request->category_name,
+                'sub_category_name' => $request->category_name,
+                'slug' => $request->slug,
+                'description' => $request->description,
+                'meta_title' => $request->meta_title,
+                'meta_description' => $request->meta_description,
+                'icon' => $icon,
+                'thumb' => $thumb,
+                'cover' => $cover,
+                'og_image' => $og,
+            ]);
+
+            $category->save();
+
+            Session::flash('message', __('New Category Successfully Added!'));
+            
+            return redirect(RouteServiceProvider::Categories);
         
-        return redirect(RouteServiceProvider::Categories);
+            
+
+        } elseif ($request->routeIs('new-sub-sub-category')) {
+            
+            return view('administration.categories.new-sub-sub-category');
+
+        }
+        
+        // Default view if none of the routes match
+        return view('/dashboard');
     }
 
     /**
      * Display the specified resource.
      */
-    public function categoryShow()
+    public function show(Request $request)
     {
         $categories = Categories::all();
 
-        return view('administration.categories.manage-categories', ['categories' => $categories]);
+        if ($request->routeIs('manage-categories')) {
+            
+            return view('administration.categories.manage-categories', ['categories' => $categories]);
+
+        } elseif ($request->routeIs('manage-sub-categories')) {
+            
+            return view('administration.categories.manage-sub-categories', ['categories' => $categories]);
+
+        } elseif ($request->routeIs('manage-sub-sub-categories')) {
+            
+            return view('administration.categories.manage-sub-sub-categories', ['categories' => $categories]);
+
+        }
+        
+        // Default view if none of the routes match
+        return view('/dashboard');
     }
 
     /**

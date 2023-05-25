@@ -24,5 +24,6 @@ class Categories extends Model
         'thumb',
         'cover',
         'og_image',
+        'sub_categories_sub_category_name',
     ];
 }

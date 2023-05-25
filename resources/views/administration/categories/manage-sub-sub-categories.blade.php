@@ -61,7 +61,7 @@
                         <td>{{ $categories->slug }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                              <a href="{{ route('categories.edit',$categories->id) }}" class="btn btn-secondary">Edit</a>
+                              <a href="{{ route('category.edit',$categories->id) }}" class="btn btn-secondary">Edit</a>
 
                               <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteCategories{{ $categories->id }}">Destroy</button>
 
@@ -76,7 +76,7 @@
                                       <div class="modal-body">
                                         <p>Do you really want to delete. This process cannot be undone.</p>
                                       </div>
-                                      <form method="POST" action="{{ route('destroy-categories',$categories->id) }}">
+                                      <form method="POST" action="{{ route('category.destroy',$categories->id) }}">
                                         @csrf
                                         @method('DELETE')
                                       <div class="modal-footer">
