@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2023 at 01:07 PM
+-- Generation Time: May 25, 2023 at 07:27 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -55,9 +55,9 @@ CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `category_name` varchar(199) NOT NULL,
   `slug` varchar(199) NOT NULL,
-  `description` varchar(199) DEFAULT NULL,
-  `meta_title` varchar(199) DEFAULT NULL,
-  `meta_description` varchar(199) DEFAULT NULL,
+  `description` tinytext DEFAULT NULL,
+  `meta_title` tinytext DEFAULT NULL,
+  `meta_description` tinytext DEFAULT NULL,
   `icon` text NOT NULL,
   `thumb` text NOT NULL,
   `cover` text NOT NULL,
@@ -65,6 +65,13 @@ CREATE TABLE `categories` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `category_name`, `slug`, `description`, `meta_title`, `meta_description`, `icon`, `thumb`, `cover`, `og_image`, `created_at`, `updated_at`) VALUES
+(1, 'Blog 1', 'blog-1', '<p><label class=\"form-label\" for=\"meta_title\">Meta Title 1<br></label></p>', '<p><label class=\"form-label\" for=\"meta_description\">Meta Description 1<br></label></p>', '<p><label class=\"form-label\" for=\"meta_description\">Meta Description 1<br></label></p>', 'category-icon-1.png', 'category-thumb-1.png', 'category-cover-img-1.jpg', 'category-og-1.jpg', '2023-05-24 04:46:39', '2023-05-24 05:02:39');
 
 -- --------------------------------------------------------
 
@@ -168,7 +175,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (32, '2023_04_15_083955_create_templates_table', 17),
 (33, '2023_05_22_103504_create_categories_table', 18),
 (34, '2023_05_22_103514_create_sub_categories_table', 18),
-(35, '2023_05_22_103522_create_sub_sub_categories_table', 18);
+(35, '2023_05_22_103522_create_sub_sub_categories_table', 18),
+(36, '2023_05_24_104323_drop_categories', 19),
+(37, '2023_05_24_104446_change_categories_table', 20);
 
 -- --------------------------------------------------------
 
@@ -526,7 +535,7 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `contacts`
@@ -556,7 +565,7 @@ ALTER TABLE `homes`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
