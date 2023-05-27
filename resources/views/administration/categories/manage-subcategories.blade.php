@@ -18,7 +18,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Sub Sub Categories</li>
+                    <li class="breadcrumb-item"><a href="{{ route('manage-categories') }}">Categories</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Sub Categories</li>
                 </ol>
             </nav>
         </div>
@@ -26,8 +27,15 @@
     <!-- Content -->
 
     <div class="row">
-        <div class="col-md-12">
-            <h1>Sub Sub Categories</h1>
+        <div class="col-lg-10">
+            <h1>Sub Categories</h1>
+        </div>
+        <div class="col-lg-2 align-self-center">
+            <div class="row">
+                <div class="col-12 col-sm-12">
+                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('new-sub-category') }}">+ Add Sub Category</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -47,26 +55,26 @@
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Icon</th>
+                        <th>Subcategory Name</th>
                         <th>Category Name</th>
-                        <th>Category Slug</th>
+                        <th>Sub Category Slug</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($categories as $categories)
+                    @foreach ($sub_categories as $subcategory)
                     <tr>
-                        <td>{{ $categories->icon }}</td>
-                        <td>{{ $categories->category_name }}</td>
-                        <td>{{ $categories->slug }}</td>
+                        <td>{{ $subcategory->sub_category_name }}</td>
+                        <td>{{ $subcategory->category_name }}</td>
+                        <td>{{ $subcategory->slug }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                              <a href="{{ route('category.edit',$categories->id) }}" class="btn btn-secondary">Edit</a>
+                              <a href="{{ route('subcategory.edit',$subcategory->id) }}" class="btn btn-secondary">Edit</a>
 
-                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteCategories{{ $categories->id }}">Destroy</button>
+                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteCategories{{ $subcategory->id }}">Destroy</button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="deleteCategories{{ $categories->id }}" tabindex="-1" aria-labelledby="deleteCategoriesLabel" aria-hidden="true">
+                                <div class="modal fade" id="deleteCategories{{ $subcategory->id }}" tabindex="-1" aria-labelledby="deleteCategoriesLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                     <div class="modal-content">
                                       <div class="modal-header">
@@ -76,7 +84,7 @@
                                       <div class="modal-body">
                                         <p>Do you really want to delete. This process cannot be undone.</p>
                                       </div>
-                                      <form method="POST" action="{{ route('category.destroy',$categories->id) }}">
+                                      <form method="POST" action="{{ route('category.destroy',$subcategory->id) }}">
                                         @csrf
                                         @method('DELETE')
                                       <div class="modal-footer">

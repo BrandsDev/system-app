@@ -11,7 +11,8 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('manage-categories') }}">Categories</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Edit Category</li>
+                    <li class="breadcrumb-item"><a href="{{ route('manage-subcategories') }}">Subcategories</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Sub Subcategories</li>
                 </ol>
             </nav>
         </div>

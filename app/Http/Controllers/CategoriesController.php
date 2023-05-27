@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\SubCategories;
+use App\Models\SubSubCategories;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -35,9 +37,10 @@ class CategoriesController extends Controller
             return view('administration.categories.new-sub-category', ['categories' => $categories]);
 
         } elseif ($request->routeIs('new-sub-sub-category')) {
+        
+            $subcategories = SubCategories::select('sub_category_name')->get();
             
-            return view('administration.categories.new-sub-sub-category');
-
+            return view('administration.categories.new-sub-sub-category', ['subcategories' => $subcategories]);
         }
         
         // Default view if none of the routes match
@@ -51,7 +54,7 @@ class CategoriesController extends Controller
     {
 
         if ($request->routeIs('new-category.store')) {
-            
+
             // $request->validate([
             //     'name' => ['required', 'string', 'max:255'],
             //     'slug' => ['required', 'regex:/^[a-z]+$/'],
@@ -72,6 +75,8 @@ class CategoriesController extends Controller
             $og = $request->og_image->getClientOriginalName();
             $request->og_image->move(resource_path('category/og'), $og);
 
+            // dd($request);
+
             $category = Categories::create([
                 'category_name' => $request->category_name,
                 'slug' => $request->slug,
@@ -83,6 +88,8 @@ class CategoriesController extends Controller
                 'cover' => $cover,
                 'og_image' => $og,
             ]);
+
+            // echo 'cat';exit();
 
             $category->save();
 
@@ -112,9 +119,50 @@ class CategoriesController extends Controller
             $og = $request->og_image->getClientOriginalName();
             $request->og_image->move(resource_path('category/og'), $og);
 
-            $category = Categories::create([
-                'category_name' => $request->category_name,
+            $category = SubCategories::create([
                 'sub_category_name' => $request->category_name,
+                'slug' => $request->slug,
+                'category_name' => $request->category_name,
+                'description' => $request->description,
+                'meta_title' => $request->meta_title,
+                'meta_description' => $request->meta_description,
+                'icon' => $icon,
+                'thumb' => $thumb,
+                'cover' => $cover,
+                'og_image' => $og,
+            ]);
+
+            $category->save();
+
+            Session::flash('message', __('New Sub Category Successfully Added!'));
+            
+            return redirect(RouteServiceProvider::SubCategories);
+
+        } elseif ($request->routeIs('new-sub-sub-category.store')) {
+            
+            // $request->validate([
+            //     'name' => ['required', 'string', 'max:255'],
+            //     'slug' => ['required', 'regex:/^[a-z]+$/'],
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // ], [
+            //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
+            // ]);
+
+            $icon = $request->icon->getClientOriginalName();
+            $request->icon->move(resource_path('category/icon'), $icon);
+
+            $thumb = $request->thumb->getClientOriginalName();
+            $request->thumb->move(resource_path('category/thumb'), $thumb);
+
+            $cover = $request->cover->getClientOriginalName();
+            $request->cover->move(resource_path('category/cover'), $cover);
+
+            $og = $request->og_image->getClientOriginalName();
+            $request->og_image->move(resource_path('category/og'), $og);
+
+            $category = SubSubCategories::create([
+                'sub_sub_category_name' => $request->sub_sub_category_name,
+                'sub_category_name' => $request->sub_category_name,
                 'slug' => $request->slug,
                 'description' => $request->description,
                 'meta_title' => $request->meta_title,
@@ -127,15 +175,9 @@ class CategoriesController extends Controller
 
             $category->save();
 
-            Session::flash('message', __('New Category Successfully Added!'));
+            Session::flash('message', __('New Sub Subcategory Successfully Added!'));
             
-            return redirect(RouteServiceProvider::Categories);
-        
-            
-
-        } elseif ($request->routeIs('new-sub-sub-category')) {
-            
-            return view('administration.categories.new-sub-sub-category');
+            return redirect(RouteServiceProvider::SubSubCategories);
 
         }
         
@@ -149,18 +191,20 @@ class CategoriesController extends Controller
     public function show(Request $request)
     {
         $categories = Categories::all();
+        $sub_categories = SubCategories::all();
+        $sub_subcategories = SubSubCategories::all();
 
         if ($request->routeIs('manage-categories')) {
             
             return view('administration.categories.manage-categories', ['categories' => $categories]);
 
-        } elseif ($request->routeIs('manage-sub-categories')) {
+        } elseif ($request->routeIs('manage-subcategories')) {
             
-            return view('administration.categories.manage-sub-categories', ['categories' => $categories]);
+            return view('administration.categories.manage-subcategories', ['sub_categories' => $sub_categories]);
 
-        } elseif ($request->routeIs('manage-sub-sub-categories')) {
+        } elseif ($request->routeIs('manage-sub-subcategories')) {
             
-            return view('administration.categories.manage-sub-sub-categories', ['categories' => $categories]);
+            return view('administration.categories.manage-sub-subcategories', ['sub_subcategories' => $sub_subcategories]);
 
         }
         
@@ -171,11 +215,28 @@ class CategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function categoryEdit($id)
+    public function edit(Request $request, $id)
     {
         $category = Categories::findOrFail($id);
+        $subcategory = SubCategories::findOrFail($id);
+        $sub_subcategory = SubSubCategories::findOrFail($id);
 
-        return view('administration.categories.edit-category', compact('category'));
+        if ($request->routeIs('category.edit')) {
+            
+            return view('administration.categories.edit-category', ['category' => $category]);
+
+        } elseif ($request->routeIs('subcategory.edit')) {
+            
+            return view('administration.categories.edit-subcategory', ['subcategory' => $subcategory]);
+
+        } elseif ($request->routeIs('sub-sub-category.edit')) {
+            
+            return view('administration.categories.edit-sub-subcategory', ['sub_subcategory' => $sub_subcategory]);
+
+        }
+        
+        // Default view if none of the routes match
+        return view('/dashboard');
     }
 
     /**

@@ -18,8 +18,8 @@
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li><a class="dropdown-item" href="{{ route('manage-categories') }}">Category</a></li>
-								<li><a class="dropdown-item" href="{{ route('manage-sub-categories') }}">Sub Category</a></li>
-								<li><a class="dropdown-item" href="{{ route('manage-sub-sub-categories') }}">Sub Sub Category</a></li>
+								<li><a class="dropdown-item" href="{{ route('manage-subcategories') }}">Sub Category</a></li>
+								<li><a class="dropdown-item" href="{{ route('manage-sub-subcategories') }}">Sub Sub Category</a></li>
 								<li><a class="dropdown-item" href="{{ route('new-template') }}">Add Template</a></li>
 								<li><a class="dropdown-item" href="{{ route('templates') }}">Manage Templates</a></li>
 							</ul>

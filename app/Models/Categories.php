@@ -24,6 +24,33 @@ class Categories extends Model
         'thumb',
         'cover',
         'og_image',
-        'sub_categories_sub_category_name',
     ];
+
+    // protected $fillable = [
+    //     'categories' => [
+    //         'category_name',
+    //         'slug',
+    //         'description',
+    //         'meta_title',
+    //         'meta_description',
+    //         'icon',
+    //         'thumb',
+    //         'cover',
+    //         'og_image',
+    //     ],
+    //     'sub_categories' => [
+    //         'sub_category_name',
+    //         'slug',
+    //         'category_name',
+    //         'description',
+    //         'meta_title',
+    //         'meta_description',
+    //         'icon',
+    //         'thumb',
+    //         'cover',
+    //         'og_image',
+    //     ],
+    //     'sub_sub_categories' => ['field5', 'field6'],
+    //     // Other shared fillable fields
+    // ];
 }
