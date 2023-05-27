@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2023 at 07:27 AM
+-- Generation Time: May 27, 2023 at 12:55 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -71,7 +71,10 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `category_name`, `slug`, `description`, `meta_title`, `meta_description`, `icon`, `thumb`, `cover`, `og_image`, `created_at`, `updated_at`) VALUES
-(1, 'Blog 1', 'blog-1', '<p><label class=\"form-label\" for=\"meta_title\">Meta Title 1<br></label></p>', '<p><label class=\"form-label\" for=\"meta_description\">Meta Description 1<br></label></p>', '<p><label class=\"form-label\" for=\"meta_description\">Meta Description 1<br></label></p>', 'category-icon-1.png', 'category-thumb-1.png', 'category-cover-img-1.jpg', 'category-og-1.jpg', '2023-05-24 04:46:39', '2023-05-24 05:02:39');
+(1, 'Blog', 'blog', '<p><label class=\"form-label\" for=\"meta_title\">Blog Meta Title<br></label></p>', '<p><label class=\"form-label\" for=\"meta_description\">Blog Meta Description<br></label></p>', '<p><label class=\"form-label\" for=\"meta_description\">Blog Meta Description<br></label></p>', 'category-icon-1.png', 'category-thumb-1.png', 'category-cover-img-1.jpg', 'category-cover-img-1.jpg', '2023-05-24 04:46:39', '2023-05-27 04:49:37'),
+(3, 'blog 2', 'blog-2', NULL, NULL, NULL, 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img-1.jpg', '2023-05-25 01:56:00', '2023-05-25 01:56:00'),
+(4, 'Blog 1', 'Sub blog 1', NULL, NULL, NULL, 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img-1.jpg', '2023-05-25 01:58:15', '2023-05-25 01:58:15'),
+(5, 'Blog 3', 'blog-3', NULL, NULL, NULL, 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img-1.jpg', '2023-05-27 01:12:35', '2023-05-27 01:12:35');
 
 -- --------------------------------------------------------
 
@@ -268,6 +271,13 @@ CREATE TABLE `sub_categories` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `sub_categories`
+--
+
+INSERT INTO `sub_categories` (`id`, `sub_category_name`, `slug`, `category_name`, `description`, `meta_title`, `meta_description`, `icon`, `thumb`, `cover`, `og_image`, `created_at`, `updated_at`) VALUES
+(1, 'Blog 3', 'blog-4', 'Blog 3', NULL, NULL, NULL, 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img-1.jpg', '2023-05-27 01:16:28', '2023-05-27 01:16:28');
+
 -- --------------------------------------------------------
 
 --
@@ -289,6 +299,13 @@ CREATE TABLE `sub_sub_categories` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sub_sub_categories`
+--
+
+INSERT INTO `sub_sub_categories` (`id`, `sub_sub_category_name`, `sub_category_name`, `slug`, `description`, `meta_title`, `meta_description`, `icon`, `thumb`, `cover`, `og_image`, `created_at`, `updated_at`) VALUES
+(1, 'Sub Subcategory Blog 3', 'Blog 3', 'sub-subcategory-blog-3', '<p><label class=\"form-label\" for=\"description\">Description</label></p>', '<p><label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p><label class=\"form-label\" for=\"meta_description\">Meta Description</label></p>', 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img.jpg', '2023-05-27 04:03:20', '2023-05-27 04:03:20');
 
 -- --------------------------------------------------------
 
@@ -535,7 +552,7 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `contacts`
@@ -595,13 +612,13 @@ ALTER TABLE `skeletons`
 -- AUTO_INCREMENT for table `sub_categories`
 --
 ALTER TABLE `sub_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `sub_sub_categories`
 --
 ALTER TABLE `sub_sub_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `templates`
