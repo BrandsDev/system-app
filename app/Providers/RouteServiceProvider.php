@@ -20,8 +20,8 @@ class RouteServiceProvider extends ServiceProvider
     public const HOME = '/dashboard';
     public const Template = '/templates/new-template';
     public const Categories = '/categories/manage-categories';
-    public const SubCategories = '/categories/manage-sub-categories';
-    public const SubSubCategories = '/categories/manage-sub-sub-categories';
+    public const SubCategories = '/categories/manage-subcategories';
+    public const SubSubCategories = '/categories/manage-sub-subcategories';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.

@@ -84,22 +84,22 @@ Route::get('/categories/manage-categories', [CategoriesController::class, 'show'
 Route::get('/categories/new-category', [CategoriesController::class, 'create'])->middleware(['auth', 'verified'])->name('new-category');
 Route::post('/categories/new-category/store', [CategoriesController::class, 'store'])->middleware(['auth', 'verified'])->name('new-category.store');
 Route::get('/categories/edit-category/{id}', [CategoriesController::class, 'edit'])->middleware(['auth', 'verified'])->name('category.edit');
-Route::put('/categories/update-category/{id}', [CategoriesController::class, 'categoryUpdate'])->middleware(['auth', 'verified'])->name('category.update');
-Route::delete('/categories/destroy-category/{id}', [CategoriesController::class, 'categoryDestroy'])->middleware(['auth', 'verified'])->name('category.destroy');
+Route::put('/categories/update-category/{id}', [CategoriesController::class, 'update'])->middleware(['auth', 'verified'])->name('category.update');
+Route::delete('/categories/destroy-category/{id}', [CategoriesController::class, 'destroy'])->middleware(['auth', 'verified'])->name('category.destroy');
 
 Route::get('/categories/manage-subcategories', [CategoriesController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-subcategories');
-Route::get('/categories/new-sub-category', [CategoriesController::class, 'create'])->middleware(['auth', 'verified'])->name('new-sub-category');
-Route::post('/categories/new-sub-category/store', [CategoriesController::class, 'store'])->middleware(['auth', 'verified'])->name('new-sub-category.store');
-Route::get('/categories/sub-category/edit/{id}', [CategoriesController::class, 'edit'])->middleware(['auth', 'verified'])->name('subcategory.edit');
-Route::put('/categories/sub-category/update/{id}', [CategoriesController::class, 'subCategoryUpdate'])->middleware(['auth', 'verified'])->name('subcategory.update');
-Route::delete('/categories/sub-category/destroy/{id}', [CategoriesController::class, 'subCategoryDestroy'])->middleware(['auth', 'verified'])->name('subdestroy-category');
+Route::get('/categories/subcategories/new-subcategory', [CategoriesController::class, 'create'])->middleware(['auth', 'verified'])->name('new-subcategory');
+Route::post('/categories/subcategories/new-subcategory/store', [CategoriesController::class, 'store'])->middleware(['auth', 'verified'])->name('new-subcategory.store');
+Route::get('/categories/subcategories/subcategory/edit/{id}', [CategoriesController::class, 'edit'])->middleware(['auth', 'verified'])->name('subcategory.edit');
+Route::put('/categories/subcategories/subcategory/update/{id}', [CategoriesController::class, 'update'])->middleware(['auth', 'verified'])->name('subcategory.update');
+Route::delete('/categories/subcategories/subcategory/destroy/{id}', [CategoriesController::class, 'destroy'])->middleware(['auth', 'verified'])->name('subcategory.destroy');
 
 Route::get('/categories/manage-sub-subcategories', [CategoriesController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-sub-subcategories');
-Route::get('/categories/new-sub-sub-category', [CategoriesController::class, 'create'])->middleware(['auth', 'verified'])->name('new-sub-sub-category');
-Route::post('/categories/new-sub-sub-category/store', [CategoriesController::class, 'store'])->middleware(['auth', 'verified'])->name('new-sub-sub-category.store');
-Route::get('/categories/sub-sub-category/edit/{id}', [CategoriesController::class, 'edit'])->middleware(['auth', 'verified'])->name('sub-subcategory.edit');
-Route::put('/categories/sub-sub-category/update/{id}', [CategoriesController::class, 'subSubCategoryUpdate'])->middleware(['auth', 'verified'])->name('sub-subcategory.update');
-Route::delete('/categories/sub-sub-category/destroy/{id}', [CategoriesController::class, 'subSubCategoryDestroy'])->middleware(['auth', 'verified'])->name('sub-subcategory.destroy');
+Route::get('/categories/sub-subcategories/new-subsubcategory', [CategoriesController::class, 'create'])->middleware(['auth', 'verified'])->name('new-sub-subcategory');
+Route::post('/categories/sub-subcategories/new-subsubcategory/store', [CategoriesController::class, 'store'])->middleware(['auth', 'verified'])->name('new-sub-subcategory.store');
+Route::get('/categories/sub-subcategories/sub-subcategory/edit/{id}', [CategoriesController::class, 'edit'])->middleware(['auth', 'verified'])->name('sub-subcategory.edit');
+Route::put('/categories/sub-subcategories/sub-subcategory/update/{id}', [CategoriesController::class, 'update'])->middleware(['auth', 'verified'])->name('sub-subcategory.update');
+Route::delete('/categories/sub-subcategories/sub-subcategory/destroy/{id}', [CategoriesController::class, 'destroy'])->middleware(['auth', 'verified'])->name('sub-subcategory.destroy');
 
 // Templates
 Route::get('/templates', [TemplateController::class, 'show'])->middleware(['auth', 'verified'])->name('templates');

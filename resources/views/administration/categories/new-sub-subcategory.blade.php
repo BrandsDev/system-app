@@ -34,7 +34,7 @@
     </div>
     @endif
 
-    <form class="needs-validation" method="POST" action="{{ route('new-sub-sub-category.store') }}" enctype="multipart/form-data" novalidate>
+    <form class="needs-validation" method="POST" action="{{ route('new-sub-subcategory.store') }}" enctype="multipart/form-data" novalidate>
         @csrf
         <div class="row">
             <div class="col-sm-9">

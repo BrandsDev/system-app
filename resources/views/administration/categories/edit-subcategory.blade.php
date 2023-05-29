@@ -41,18 +41,26 @@
         <div class="row">
             <div class="col-sm-9">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="category_name" class="form-label">Category Name *</label>
-                            <input type="text" class="form-control" name="category_name" value="{{ $subcategory->category_name }}" placeholder="Name" required />
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
+                            <input class="form-control" list="datalistCategory" name="category_name" id="category_name" value="{{ $subcategory->category_name }}" placeholder="Search Category" />
+                            <datalist id="datalistCategory">
+                                @foreach($categories as $category)
+                                <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
+                                @endforeach
+                            </datalist>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="slug" class="form-label">Category Slug *</label>
+                            <label for="sub_category_name" class="form-label">Subcategory Name *</label>
+                            <input type="text" class="form-control" name="sub_category_name" value="{{ $subcategory->sub_category_name }}" placeholder="Subcategory Name" required />
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mb-3">
+                            <label for="slug" class="form-label">Sub Category Slug *</label>
                             <input type="text" class="form-control" name="slug" value="{{ $subcategory->slug }}" placeholder="Slug" required />
                         </div>
                     </div>

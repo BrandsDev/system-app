@@ -33,11 +33,21 @@
         <div class="col-lg-2 align-self-center">
             <div class="row">
                 <div class="col-12 col-sm-12">
-                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('new-sub-category') }}">+ Add Sub Category</a>
+                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('new-subcategory') }}">+ Add Sub Category</a>
                 </div>
             </div>
         </div>
     </div>
+
+    @if(session()->has('message'))
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success" role="alert">
+                {{ session('message') }}
+            </div>
+        </div>
+    </div>
+    @endif
 
     @if(session()->has('delete'))
     <div class="row">
@@ -62,7 +72,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($sub_categories as $subcategory)
+                    @foreach ($subcategories as $subcategory)
                     <tr>
                         <td>{{ $subcategory->sub_category_name }}</td>
                         <td>{{ $subcategory->category_name }}</td>
@@ -71,10 +81,10 @@
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                               <a href="{{ route('subcategory.edit',$subcategory->id) }}" class="btn btn-secondary">Edit</a>
 
-                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteCategories{{ $subcategory->id }}">Destroy</button>
+                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteSubcategory{{ $subcategory->id }}">Destroy</button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="deleteCategories{{ $subcategory->id }}" tabindex="-1" aria-labelledby="deleteCategoriesLabel" aria-hidden="true">
+                                <div class="modal fade" id="deleteSubcategory{{ $subcategory->id }}" tabindex="-1" aria-labelledby="deleteSubcategoryLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                     <div class="modal-content">
                                       <div class="modal-header">
@@ -84,7 +94,7 @@
                                       <div class="modal-body">
                                         <p>Do you really want to delete. This process cannot be undone.</p>
                                       </div>
-                                      <form method="POST" action="{{ route('category.destroy',$subcategory->id) }}">
+                                      <form method="POST" action="{{ route('subcategory.destroy',$subcategory->id) }}">
                                         @csrf
                                         @method('DELETE')
                                       <div class="modal-footer">
