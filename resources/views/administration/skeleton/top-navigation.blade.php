@@ -29,6 +29,9 @@
 								Blogs
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="{{ route('manage-blog-categories') }}">Blog Category</a></li>
+								<li><a class="dropdown-item" href="{{ route('manage-blog-subcategories') }}">Blog Sub Category</a></li>
+								<li><a class="dropdown-item" href="{{ route('manage-blog-sub-subcategories') }}">Blog Sub Sub Category</a></li>
 								<li><a class="dropdown-item" href="{{ route('new-blog') }}">Add Blog</a></li>
 								<li><a class="dropdown-item" href="{{ route('manage-blogs') }}">Manage Blogs</a></li>
 							</ul>
