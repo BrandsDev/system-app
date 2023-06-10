@@ -48,7 +48,7 @@
                             <input class="form-control" list="datalistSubcategory" name="sub_category_name" id="sub_category_name" value="{{ $sub_subcategory->sub_category_name }}" placeholder="Search Category" />
                             <datalist id="datalistSubcategory">
                                 @foreach($subcategories as $category)
-                                <option value="{{ $category->sub_category_name }}">{{ $category->csub_ategory_name }}</option>
+                                <option value="{{ $category->sub_category_name }}">{{ $category->sub_category_name }}</option>
                                 @endforeach
                             </datalist>
                         </div>
@@ -96,7 +96,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <img src="{{ Vite::asset('resources/category/icon/' . $sub_subcategory->icon) }}" class="img-thumbnail" height="85" width="85" alt="...">
+                            <img src="{{ asset('category/subcategory/sub-subcategory/icon/' . $sub_subcategory->icon) }}" class="img-thumbnail" height="85" width="85" alt="...">
                         </div>
                         <div class="mb-3">
                             <label for="icon" class="form-label">Category Icon *</label>
@@ -105,7 +105,7 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <img src="{{ Vite::asset('resources/category/thumb/' . $sub_subcategory->thumb) }}" class="img-thumbnail" height="85" width="85" alt="...">
+                            <img src="{{ asset('category/subcategory/sub-subcategory/thumb/' . $sub_subcategory->thumb) }}" class="img-thumbnail" height="85" width="85" alt="...">
                         </div>
                         <div class="mb-3">
                             <label for="thumb" class="form-label">Category Thumb *</label>
@@ -114,7 +114,7 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <img src="{{ Vite::asset('resources/category/cover/' . $sub_subcategory->cover) }}" class="img-thumbnail" height="630" width="630" alt="...">
+                            <img src="{{ asset('category/subcategory/sub-subcategory/cover/' . $sub_subcategory->cover) }}" class="img-thumbnail" height="630" width="630" alt="...">
                         </div>
                         <div class="mb-3">
                             <label for="cover" class="form-label">Category Cover *</label>
@@ -123,7 +123,7 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <img src="{{ Vite::asset('resources/category/og/' . $sub_subcategory->og_image) }}" class="img-thumbnail" height="630" width="630" alt="...">
+                            <img src="{{ asset('category/subcategory/sub-subcategory/og/' . $sub_subcategory->og_image) }}" class="img-thumbnail" height="630" width="630" alt="...">
                         </div>
                         <div class="mb-3">
                             <label for="og_image" class="form-label">Category OG *</label>

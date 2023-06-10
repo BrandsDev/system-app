@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name', 100);
             $table->string('slug', 100);
-            $table->string('category', 100);
-            $table->string('sub_category', 100)->nullable();
-            $table->string('sub_sub_category', 100)->nullable();
+            $table->string('category_name', 100);
+            $table->string('sub_category_name', 100)->nullable();
+            $table->string('sub_sub_category_name', 100)->nullable();
             $table->string('sale_price', 100)->nullable();
             $table->string('regular_price', 100);
             $table->string('commission', 100)->nullable();

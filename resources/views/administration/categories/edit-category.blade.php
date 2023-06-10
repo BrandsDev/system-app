@@ -83,7 +83,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <img src="{{ Vite::asset('resources/category/icon/' . $category->icon) }}" class="img-thumbnail" height="85" width="85" alt="...">
+                            <img src="{{ asset('category/icon/' . $category->icon) }}" class="img-thumbnail" height="85" width="85" alt="...">
                         </div>
                         <div class="mb-3">
                             <label for="icon" class="form-label">Category Icon *</label>
@@ -92,7 +92,7 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <img src="{{ Vite::asset('resources/category/thumb/' . $category->thumb) }}" class="img-thumbnail" height="85" width="85" alt="...">
+                            <img src="{{ asset('category/thumb/' . $category->thumb) }}" class="img-thumbnail" height="85" width="85" alt="...">
                         </div>
                         <div class="mb-3">
                             <label for="thumb" class="form-label">Category Thumb *</label>
@@ -101,7 +101,7 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <img src="{{ Vite::asset('resources/category/cover/' . $category->cover) }}" class="img-thumbnail" height="630" width="630" alt="...">
+                            <img src="{{ asset('category/cover/' . $category->cover) }}" class="img-thumbnail" height="630" width="630" alt="...">
                         </div>
                         <div class="mb-3">
                             <label for="cover" class="form-label">Category Cover *</label>
@@ -110,7 +110,7 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <img src="{{ Vite::asset('resources/category/og/' . $category->og_image) }}" class="img-thumbnail" height="630" width="630" alt="...">
+                            <img src="{{ asset('category/og/' . $category->og_image) }}" class="img-thumbnail" height="630" width="630" alt="...">
                         </div>
                         <div class="mb-3">
                             <label for="og_image" class="form-label">Category OG *</label>

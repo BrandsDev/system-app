@@ -10,7 +10,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('templates') }}">Templates</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('manage-templates') }}">Templates</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Update Templates</li>
                 </ol>
             </nav>
@@ -59,31 +59,34 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="category" class="form-label">Category</label>
-                            <input class="form-control" list="datalistCategory" name="category" value="{{ $template->category }}" placeholder="Search Category" required />
+                            <label for="category_name" class="form-label">Category</label>
+                            <input class="form-control" list="datalistCategory" name="category_name" value="{{ $template->category_name }}" placeholder="Search Category" required />
                             <datalist id="datalistCategory">
-                                <option value="Francisco"> </option>
-                                <option value="York"> </option>
+                                @foreach($categories as $category)
+                                <option value="{{ $category->category_name }}"></option>
+                                @endforeach
                             </datalist>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="sub_category" class="form-label">Sub Category</label>
-                            <input class="form-control" list="datalistSubCategory" name="sub_category" value="{{ $template->sub_category }}" placeholder="Search Sub Category" />
+                            <label for="sub_category_name" class="form-label">Sub Category</label>
+                            <input class="form-control" list="datalistSubCategory" name="sub_category_name" value="{{ $template->sub_category_name }}" placeholder="Search Sub Category" />
                             <datalist id="datalistSubCategory">
-                                <option value="Francisco"> </option>
-                                <option value="York"> </option>
+                                @foreach($subcategories as $subcategory)
+                                <option value="{{ $subcategory->sub_category_name }}"></option>
+                                @endforeach
                             </datalist>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="sub_sub_category" class="form-label">Sub Sub Category</label>
-                            <input class="form-control" list="datalistSubSubCategory" name="sub_sub_category" value="{{ $template->sub_sub_category }}" placeholder="Search Sub Sub Category" />
+                            <label for="sub_sub_category_name" class="form-label">Sub Sub Category</label>
+                            <input class="form-control" list="datalistSubSubCategory" name="sub_sub_category_name" value="{{ $template->sub_sub_category_name }}" placeholder="Search Sub Sub Category" />
                             <datalist id="datalistSubSubCategory">
-                                <option value="Francisco"> </option>
-                                <option value="York"> </option>
+                                @foreach($sub_subcategories as $sub_subcategory)
+                                <option value="{{ $sub_subcategory->sub_sub_category_name }}"></option>
+                                @endforeach
                             </datalist>
                         </div>
                     </div>
@@ -216,7 +219,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="image" class="form-label">Live Image</label>
-                            <img src="{{ Vite::asset('resources/template/images/' . $template->image) }}" class="img-thumbnail" alt="...">
+                            <img src="{{ asset('template/image/' . $template->image) }}" class="img-thumbnail" alt="...">
                         </div>
                     </div>
                     <div class="col-sm-12">
@@ -227,7 +230,7 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="file" class="form-label">{{ Vite::asset('resources/template/files/' . $template->file) }}</label>
+                            <label for="file" class="form-label">{{ asset('template/file/' . $template->file) }}</label>
                         </div>
                     </div>
                     <div class="col-sm-12">
@@ -241,7 +244,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="status" class="form-label">Status</label>
-                            <input class="form-control" list="datalistStatus" name="status" id="status" value="{{ $template->status }}" placeholder="Status" />
+                            <input class="form-control" list="datalistStatus" name="status" id="status" value="{{ $template->status }}" placeholder="Status" required />
                             <datalist id="datalistStatus">
                                 <option value="1">Publish</option>
                                 <option value="0">Draft</option>

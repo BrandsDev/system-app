@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2023 at 12:55 PM
+-- Generation Time: Jun 08, 2023 at 05:33 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -72,9 +72,10 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `category_name`, `slug`, `description`, `meta_title`, `meta_description`, `icon`, `thumb`, `cover`, `og_image`, `created_at`, `updated_at`) VALUES
 (1, 'Blog', 'blog', '<p><label class=\"form-label\" for=\"meta_title\">Blog Meta Title<br></label></p>', '<p><label class=\"form-label\" for=\"meta_description\">Blog Meta Description<br></label></p>', '<p><label class=\"form-label\" for=\"meta_description\">Blog Meta Description<br></label></p>', 'category-icon-1.png', 'category-thumb-1.png', 'category-cover-img-1.jpg', 'category-cover-img-1.jpg', '2023-05-24 04:46:39', '2023-05-27 04:49:37'),
-(3, 'blog 2', 'blog-2', NULL, NULL, NULL, 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img-1.jpg', '2023-05-25 01:56:00', '2023-05-25 01:56:00'),
-(4, 'Blog 1', 'Sub blog 1', NULL, NULL, NULL, 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img-1.jpg', '2023-05-25 01:58:15', '2023-05-25 01:58:15'),
-(5, 'Blog 3', 'blog-3', NULL, NULL, NULL, 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img-1.jpg', '2023-05-27 01:12:35', '2023-05-27 01:12:35');
+(3, 'Blog 2', 'blog-2', '<p>Blog 2 Description</p>', '<p><label class=\"form-label\" for=\"meta_title\">Blog 2 Meta Title</label></p>', '<p><label class=\"form-label\" for=\"meta_description\">Blog 2 Meta Description</label></p>', 'category-icon-1.png', 'category-thumb-1.png', 'category-cover-img-1.jpg', 'category-cover-img-1.jpg', '2023-05-25 01:56:00', '2023-05-28 23:35:47'),
+(5, 'Blog 3', 'blog-3', NULL, NULL, NULL, 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img-1.jpg', '2023-05-27 01:12:35', '2023-05-27 01:12:35'),
+(6, 'Blog 4', 'blog-4', '<p>Blog 4 Description</p>', '<p><label class=\"form-label\" for=\"meta_title\">Blog 4Meta Title</label></p>', '<p><label class=\"form-label\" for=\"meta_description\">Blog 4Meta Description</label></p>', 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img.jpg', '2023-05-28 23:24:40', '2023-05-28 23:24:40'),
+(8, 'Blog 55', 'blog-55', '<p>Blog 55 Description</p>', '<p>Blog 55 <label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p>Blog 55 <label class=\"form-label\" for=\"meta_description\">Meta Description</label></p>', 'category-icon-1.png', 'category-thumb-1.png', 'category-cover-img-1.jpg', 'category-cover-img-1.jpg', '2023-05-29 05:17:07', '2023-05-29 05:19:01');
 
 -- --------------------------------------------------------
 
@@ -276,7 +277,10 @@ CREATE TABLE `sub_categories` (
 --
 
 INSERT INTO `sub_categories` (`id`, `sub_category_name`, `slug`, `category_name`, `description`, `meta_title`, `meta_description`, `icon`, `thumb`, `cover`, `og_image`, `created_at`, `updated_at`) VALUES
-(1, 'Blog 3', 'blog-4', 'Blog 3', NULL, NULL, NULL, 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img-1.jpg', '2023-05-27 01:16:28', '2023-05-27 01:16:28');
+(1, 'Sub Blog 3', 'sub-blog-3', 'Blog 3', '<p>Sub Blog 3 Description</p>', '<p>Sub Blog 3 <label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p>Sub Blog 3 <label class=\"form-label\" for=\"meta_description\">Meta Description</label></p>', 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img-1.jpg', '2023-05-27 01:16:28', '2023-05-29 05:08:58'),
+(2, 'Blog', 'sub-blog', 'Blog', '<p>Sub Blog Description</p>', '<p>Sub Blog&nbsp;<label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p>Sub Blog <label class=\"form-label\" for=\"meta_description\">Meta Description</label></p>', 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img.jpg', '2023-05-29 00:26:23', '2023-05-29 00:26:23'),
+(3, 'Sub Blog 2', 'sub-blog-2', 'Blog 2', '<p>Sub Blog Description</p>', '<p>Sub Blog <label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p>Sub Blog <label class=\"form-label\" for=\"meta_description\">Meta Description</label></p>', 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img.jpg', '2023-05-29 00:28:52', '2023-05-29 01:17:06'),
+(5, 'Sub Category 55', 'sub-category-55', 'Blog 55', '<p>Sub Category 55 Description</p>', '<p>Sub Category 55 <label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p>Sub Category 55 <label class=\"form-label\" for=\"meta_description\">Meta Description</label></p>', 'category-icon-1.png', 'category-thumb-1.png', 'category-cover-img-1.jpg', 'category-cover-img-1.jpg', '2023-05-29 05:20:12', '2023-05-29 05:20:38');
 
 -- --------------------------------------------------------
 
@@ -305,7 +309,8 @@ CREATE TABLE `sub_sub_categories` (
 --
 
 INSERT INTO `sub_sub_categories` (`id`, `sub_sub_category_name`, `sub_category_name`, `slug`, `description`, `meta_title`, `meta_description`, `icon`, `thumb`, `cover`, `og_image`, `created_at`, `updated_at`) VALUES
-(1, 'Sub Subcategory Blog 3', 'Blog 3', 'sub-subcategory-blog-3', '<p><label class=\"form-label\" for=\"description\">Description</label></p>', '<p><label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p><label class=\"form-label\" for=\"meta_description\">Meta Description</label></p>', 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img.jpg', '2023-05-27 04:03:20', '2023-05-27 04:03:20');
+(2, 'Sub Sub Blog 2', 'Sub Blog 2', 'sub-sub-blog-2', '<p>Sub Sub Blog 2 Description</p>', '<p>Sub Sub Blog 2&nbsp;<label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p>Sub Sub Blog 2 <label class=\"form-label\" for=\"meta_description\">Meta Description</label></p>', 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img.jpg', '2023-05-29 04:55:45', '2023-05-29 04:55:45'),
+(3, 'Sub Subcategory 55', 'Sub Category 55', 'sub-subcategory-55', '<p>Sub Subcategory 55 Description</p>', '<p>Sub Subcategory 55 <label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p>Sub Subcategory 55 <label class=\"form-label\" for=\"meta_description\">Meta Description</label></p>', 'category-icon-1.png', 'category-thumb-1.png', 'category-cover-img-1.jpg', 'category-cover-img-1.jpg', '2023-05-29 05:21:44', '2023-05-29 05:23:30');
 
 -- --------------------------------------------------------
 
@@ -552,7 +557,7 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `contacts`
@@ -612,13 +617,13 @@ ALTER TABLE `skeletons`
 -- AUTO_INCREMENT for table `sub_categories`
 --
 ALTER TABLE `sub_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `sub_sub_categories`
 --
 ALTER TABLE `sub_sub_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `templates`

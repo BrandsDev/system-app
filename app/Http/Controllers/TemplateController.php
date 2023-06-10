@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Template;
+use App\Models\Categories;
+use App\Models\SubCategories;
+use App\Models\SubSubCategories;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -24,9 +27,11 @@ class TemplateController extends Controller
      */
     public function create()
     {
-        //
-        return view('administration.templates.new-template')->with('status', 'profile-updated');
+        $categories = Categories::all();
+        $subcategories = SubCategories::all();
+        $sub_subcategories = SubSubCategories::all();
 
+        return view('administration.templates.new-template', ['categories' => $categories, 'subcategories' => $subcategories, 'sub_subcategories' => $sub_subcategories]);
     }
 
     /**
@@ -43,17 +48,17 @@ class TemplateController extends Controller
         // ]);
 
         $imageName = $request->image->getClientOriginalName();
-        $request->image->move(resource_path('template/images'), $imageName);
+        $request->image->move(public_path('template/image'), $imageName);
 
         $fileName = $request->file->getClientOriginalName();
-        $request->file->move(resource_path('template/files'), $fileName);
+        $request->file->move(public_path('template/file'), $fileName);
 
         $template = Template::create([
             'name' => $request->name,
             'slug' => $request->slug,
-            'category' => $request->category,
-            'sub_category' => $request->sub_category,
-            'sub_sub_category' => $request->sub_sub_category,
+            'category_name' => $request->category_name,
+            'sub_category_name' => $request->sub_category_name,
+            'sub_sub_category_name' => $request->sub_sub_category_name,
             'sale_price' => $request->sale_price,
             'regular_price' => $request->regular_price,
             'commission' => $request->commission,
@@ -111,9 +116,12 @@ class TemplateController extends Controller
      */
     public function edit($id)
     {
-        $template = Template::findOrFail($id);
+        $template = Template::findOrFail($id);     
+        $categories = Categories::all();
+        $subcategories = SubCategories::all();
+        $sub_subcategories = SubSubCategories::all();
 
-        return view('administration.templates.edit-template', compact('template'));
+        return view('administration.templates.edit-template', ['template' => $template, 'categories' => $categories,'subcategories' => $subcategories, 'sub_subcategories' => $sub_subcategories]);
     }
 
     /**
@@ -137,7 +145,7 @@ class TemplateController extends Controller
 
                 // Process the new image file (e.g., move to a specific directory, assign a new filename)
                 $newImageName = $request->image->getClientOriginalName();
-                $request->image->move(resource_path('template/images'), $newImageName);
+                $request->image->move(public_path('template/image'), $newImageName);
 
                 // Update the image data in the model
                 $template->image = $newImageName;
@@ -154,7 +162,7 @@ class TemplateController extends Controller
 
                 // Process the new file file (e.g., move to a specific directory, assign a new filename)
                 $newFileName = $request->file->getClientOriginalName();
-                $request->file->move(resource_path('template/files'), $newFileName);
+                $request->file->move(public_path('template/file'), $newFileName);
 
                 // Update the file data in the model
                 $template->file = $newFileName;
@@ -163,9 +171,9 @@ class TemplateController extends Controller
             // Update other fields of the request
             $template->name = $request->input('name');
             $template->slug = $request->input('slug');
-            $template->category = $request->input('category');
-            $template->sub_category = $request->input('sub_category');
-            $template->sub_sub_category = $request->input('sub_sub_category');
+            $template->category_name = $request->input('category_name');
+            $template->sub_category_name = $request->input('sub_category_name');
+            $template->sub_sub_category_name = $request->input('sub_sub_category_name');
             $template->sale_price = $request->input('sale_price');
             $template->regular_price = $request->input('regular_price');
             $template->commission = $request->input('commission');

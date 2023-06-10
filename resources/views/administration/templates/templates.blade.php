@@ -47,18 +47,18 @@
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
+                        <th>Image</th>
                         <th>Name</th>
                         <th>Seller Name</th>
-                        <th>Image</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($templates as $template)
                     <tr>
+                        <td><img src="{{ asset('template/image/' . $template->image) }}" class="" alt="..." height="42" width="42" /></td>
                         <td>{{ $template->name }}</td>
                         <td>{{ $template->seller_name }}</td>
-                        <td>{{ $template->image }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                               <a href="{{ route('templates.edit',$template->id) }}" class="btn btn-secondary">Edit</a>
@@ -94,9 +94,9 @@
                 </tbody>
                 <tfoot>
                     <tr>
+                        <th>Image</th>
                         <th>Name</th>
                         <th>Seller Name</th>
-                        <th>Image</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>

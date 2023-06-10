@@ -92,7 +92,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <img src="{{ Vite::asset('resources/category/icon/' . $subcategory->icon) }}" class="img-thumbnail" height="85" width="85" alt="...">
+                            <img src="{{ asset('category/subcategory/icon/' . $subcategory->icon) }}" class="img-thumbnail" height="85" width="85" alt="...">
                         </div>
                         <div class="mb-3">
                             <label for="icon" class="form-label">Category Icon *</label>
@@ -101,7 +101,7 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <img src="{{ Vite::asset('resources/category/thumb/' . $subcategory->thumb) }}" class="img-thumbnail" height="85" width="85" alt="...">
+                            <img src="{{ asset('category/subcategory/thumb/' . $subcategory->thumb) }}" class="img-thumbnail" height="85" width="85" alt="...">
                         </div>
                         <div class="mb-3">
                             <label for="thumb" class="form-label">Category Thumb *</label>
@@ -110,7 +110,7 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <img src="{{ Vite::asset('resources/category/cover/' . $subcategory->cover) }}" class="img-thumbnail" height="630" width="630" alt="...">
+                            <img src="{{ asset('category/subcategory/cover/' . $subcategory->cover) }}" class="img-thumbnail" height="630" width="630" alt="...">
                         </div>
                         <div class="mb-3">
                             <label for="cover" class="form-label">Category Cover *</label>
@@ -119,7 +119,7 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <img src="{{ Vite::asset('resources/category/og/' . $subcategory->og_image) }}" class="img-thumbnail" height="630" width="630" alt="...">
+                            <img src="{{ asset('category/subcategory/og/' . $subcategory->og_image) }}" class="img-thumbnail" height="630" width="630" alt="...">
                         </div>
                         <div class="mb-3">
                             <label for="og_image" class="form-label">Category OG *</label>

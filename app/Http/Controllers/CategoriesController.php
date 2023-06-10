@@ -64,16 +64,16 @@ class CategoriesController extends Controller
             // ]);
 
             $icon = $request->icon->getClientOriginalName();
-            $request->icon->move(resource_path('category/icon'), $icon);
+            $request->icon->move(public_path('category/icon'), $icon);
 
             $thumb = $request->thumb->getClientOriginalName();
-            $request->thumb->move(resource_path('category/thumb'), $thumb);
+            $request->thumb->move(public_path('category/thumb'), $thumb);
 
             $cover = $request->cover->getClientOriginalName();
-            $request->cover->move(resource_path('category/cover'), $cover);
+            $request->cover->move(public_path('category/cover'), $cover);
 
             $og = $request->og_image->getClientOriginalName();
-            $request->og_image->move(resource_path('category/og'), $og);
+            $request->og_image->move(public_path('category/og'), $og);
 
             // dd($request);
 
@@ -108,16 +108,16 @@ class CategoriesController extends Controller
             // ]);
 
             $icon = $request->icon->getClientOriginalName();
-            $request->icon->move(resource_path('category/icon'), $icon);
+            $request->icon->move(public_path('category/subcategory/icon'), $icon);
 
             $thumb = $request->thumb->getClientOriginalName();
-            $request->thumb->move(resource_path('category/thumb'), $thumb);
+            $request->thumb->move(public_path('category/subcategory/thumb'), $thumb);
 
             $cover = $request->cover->getClientOriginalName();
-            $request->cover->move(resource_path('category/cover'), $cover);
+            $request->cover->move(public_path('category/subcategory/cover'), $cover);
 
             $og = $request->og_image->getClientOriginalName();
-            $request->og_image->move(resource_path('category/og'), $og);
+            $request->og_image->move(public_path('category/subcategory/og'), $og);
 
             $category = SubCategories::create([
                 'category_name' => $request->category_name,
@@ -149,16 +149,16 @@ class CategoriesController extends Controller
             // ]);
 
             $icon = $request->icon->getClientOriginalName();
-            $request->icon->move(resource_path('category/icon'), $icon);
+            $request->icon->move(public_path('category/subcategory/sub-subcategory/icon'), $icon);
 
             $thumb = $request->thumb->getClientOriginalName();
-            $request->thumb->move(resource_path('category/thumb'), $thumb);
+            $request->thumb->move(public_path('category/subcategory/sub-subcategory/thumb'), $thumb);
 
             $cover = $request->cover->getClientOriginalName();
-            $request->cover->move(resource_path('category/cover'), $cover);
+            $request->cover->move(public_path('category/subcategory/sub-subcategory/cover'), $cover);
 
             $og = $request->og_image->getClientOriginalName();
-            $request->og_image->move(resource_path('category/og'), $og);
+            $request->og_image->move(public_path('category/subcategory/sub-subcategory/og'), $og);
 
             $category = SubSubCategories::create([
                 'sub_sub_category_name' => $request->sub_sub_category_name,
@@ -270,7 +270,7 @@ class CategoriesController extends Controller
 
                     // Process the new icon file (e.g., move to a specific directory, assign a new filename)
                     $newIconName = $request->icon->getClientOriginalName();
-                    $request->icon->move(resource_path('category/icon'), $newIconName);
+                    $request->icon->move(public_path('category/icon'), $newIconName);
 
                     // Update the image data in the model
                     $category->icon = $newIconName;
@@ -287,7 +287,7 @@ class CategoriesController extends Controller
 
                     // Process the new thumb thumb (e.g., move to a specific directory, assign a new filename)
                     $newThumbName = $request->thumb->getClientOriginalName();
-                    $request->thumb->move(resource_path('category/thumb'), $newThumbName);
+                    $request->thumb->move(public_path('category/thumb'), $newThumbName);
 
                     // Update the thumb data in the model
                     $category->thumb = $newThumbName;
@@ -304,7 +304,7 @@ class CategoriesController extends Controller
 
                     // Process the new cover cover (e.g., move to a specific directory, assign a new filename)
                     $newCoverName = $request->cover->getClientOriginalName();
-                    $request->cover->move(resource_path('category/cover'), $newCoverName);
+                    $request->cover->move(public_path('category/cover'), $newCoverName);
 
                     // Update the cover data in the model
                     $category->cover = $newCoverName;
@@ -321,7 +321,7 @@ class CategoriesController extends Controller
 
                     // Process the new OG Image (e.g., move to a specific directory, assign a new filename)
                     $newOGName = $request->og_image->getClientOriginalName();
-                    $request->og_image->move(resource_path('category/og'), $newOGName);
+                    $request->og_image->move(public_path('category/og'), $newOGName);
 
                     // Update the thumb data in the model
                     $category->og_image = $newOGName;
@@ -362,7 +362,7 @@ class CategoriesController extends Controller
                     ]);
 
                     $newIconName = $request->icon->getClientOriginalName();
-                    $request->icon->move(resource_path('category/icon'), $newIconName);
+                    $request->icon->move(public_path('category/subcategory/icon'), $newIconName);
 
                     $subcategory->icon = $newIconName;
                 }
@@ -375,7 +375,7 @@ class CategoriesController extends Controller
                     ]);
 
                     $newThumbName = $request->thumb->getClientOriginalName();
-                    $request->thumb->move(resource_path('category/thumb'), $newThumbName);
+                    $request->thumb->move(public_path('category/subcategory/thumb'), $newThumbName);
 
                     $subcategory->thumb = $newThumbName;
                 }
@@ -388,7 +388,7 @@ class CategoriesController extends Controller
                     ]);
 
                     $newCoverName = $request->cover->getClientOriginalName();
-                    $request->cover->move(resource_path('category/cover'), $newCoverName);
+                    $request->cover->move(public_path('category/subcategory/cover'), $newCoverName);
 
                     $subcategory->cover = $newCoverName;
                 }
@@ -401,7 +401,7 @@ class CategoriesController extends Controller
                     ]);
 
                     $newOGName = $request->og_image->getClientOriginalName();
-                    $request->og_image->move(resource_path('category/og'), $newOGName);
+                    $request->og_image->move(public_path('category/subcategory/og'), $newOGName);
 
                     $subcategory->og_image = $newOGName;
                 }
@@ -438,7 +438,7 @@ class CategoriesController extends Controller
                     ]);
 
                     $newIconName = $request->icon->getClientOriginalName();
-                    $request->icon->move(resource_path('category/icon'), $newIconName);
+                    $request->icon->move(public_path('category/subcategory/sub-subcategory/icon'), $newIconName);
 
                     $sub_subcategory->icon = $newIconName;
                 }
@@ -451,7 +451,7 @@ class CategoriesController extends Controller
                     ]);
 
                     $newThumbName = $request->thumb->getClientOriginalName();
-                    $request->thumb->move(resource_path('category/thumb'), $newThumbName);
+                    $request->thumb->move(public_path('category/subcategory/sub-subcategory/thumb'), $newThumbName);
 
                     $sub_subcategory->thumb = $newThumbName;
                 }
@@ -464,7 +464,7 @@ class CategoriesController extends Controller
                     ]);
 
                     $newCoverName = $request->cover->getClientOriginalName();
-                    $request->cover->move(resource_path('category/cover'), $newCoverName);
+                    $request->cover->move(public_path('category/subcategory/sub-subcategory/cover'), $newCoverName);
 
                     $sub_subcategory->cover = $newCoverName;
                 }
@@ -477,7 +477,7 @@ class CategoriesController extends Controller
                     ]);
 
                     $newOGName = $request->og_image->getClientOriginalName();
-                    $request->og_image->move(resource_path('category/og'), $newOGName);
+                    $request->og_image->move(public_path('category/subcategory/sub-subcategory/og'), $newOGName);
 
                     $sub_subcategory->og_image = $newOGName;
                 }

@@ -17,9 +17,9 @@ class Template extends Model
     protected $fillable = [
         'name',
         'slug',
-        'category',
-        'sub_category',
-        'sub_sub_category',
+        'category_name',
+        'sub_category_name',
+        'sub_sub_category_name',
         'sale_price',
         'regular_price',
         'commission',
