@@ -19,6 +19,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public const HOME = '/dashboard';
     public const Template = '/templates/new-template';
+    public const Book = '/manage-book/new-book';
     public const Categories = '/categories/manage-categories';
     public const SubCategories = '/categories/manage-subcategories';
     public const SubSubCategories = '/categories/manage-sub-subcategories';

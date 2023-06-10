@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Template;
 use App\Models\Categories;
 use App\Models\SubCategories;
 use App\Models\SubSubCategories;
-use App\Models\BlogCategories;
-use App\Models\BlogSubCategories;
-use App\Models\BlogSubSubCategories;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -29,31 +27,12 @@ class BlogController extends Controller
      */
     public function create(Request $request)
     {
-        if ($request->routeIs('new-blog')) {
-            
-            return view('administration.blogs.new-blog');
+        $templates = Template::all();
+        $categories = Categories::all();
+        $subcategories = SubCategories::all();
+        $sub_subcategories = SubSubCategories::all();
 
-        } elseif ($request->routeIs('new-subcategory')) {
-        
-            $categories = Categories::select('category_name')->get();
-            
-            return view('administration.categories.new-subcategory', ['categories' => $categories]);
-
-        } elseif ($request->routeIs('new-subcategory')) {
-        
-            $categories = Categories::select('category_name')->get();
-            
-            return view('administration.categories.new-subcategory', ['categories' => $categories]);
-
-        } elseif ($request->routeIs('new-sub-subcategory')) {
-        
-            $subcategories = SubCategories::select('sub_category_name')->get();
-            
-            return view('administration.categories.new-sub-subcategory', ['subcategories' => $subcategories]);
-        }
-        
-        // Default view if none of the routes match
-        return view('/dashboard');
+        return view('administration.blogs.new-blog', ['categories' => $categories, 'subcategories' => $subcategories, 'sub_subcategories' => $sub_subcategories, 'templates' => $templates]);
     }
 
     /**

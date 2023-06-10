@@ -73,65 +73,47 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-4">
-                        <div class="mb-3">
-                            <label for="category" class="form-label">Blog Category</label>
-                            <input class="form-control" list="datalistCategory" name="category" id="category" placeholder="Search Blog Category" required />
-                            <datalist id="datalistCategory">
-                                <option value="Francisco"> </option>
-                                <option value="York"> </option>
-                            </datalist>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="mb-3">
-                            <label for="sub_category" class="form-label">Blog Sub Category</label>
-                            <input class="form-control" list="datalistSubCategory" name="sub_category" id="sub_category" placeholder="Search Blog Sub Category" />
-                            <datalist id="datalistSubCategory">
-                                <option value="Francisco"> </option>
-                                <option value="York"> </option>
-                            </datalist>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="mb-3">
-                            <label for="sub_sub_category" class="form-label">Blog Sub Sub Category</label>
-                            <input class="form-control" list="datalistSubSubCategory" name="sub_sub_category" id="sub_sub_category" placeholder="Search Blog Sub Sub Category" />
-                            <datalist id="datalistSubSubCategory">
-                                <option value="Francisco"> </option>
-                                <option value="York"> </option>
-                            </datalist>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="mb-3">
                             <label for="category" class="form-label">Template Category</label>
-                            <input class="form-control" list="datalistCategory" name="category" id="category" placeholder="Search Template Category" required />
+                            <input class="form-control" list="datalistCategory" name="category" id="category" placeholder="Template Category" required />
                             <datalist id="datalistCategory">
-                                <option value="Francisco"> </option>
-                                <option value="York"> </option>
+                                @foreach($categories as $category)
+                                <option value="{{ $category->category_name }}"></option>
+                                @endforeach
                             </datalist>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="mb-3">
                             <label for="sub_category" class="form-label">Sub Template Category</label>
-                            <input class="form-control" list="datalistSubCategory" name="sub_category" id="sub_category" placeholder="Search Sub Template Category" />
+                            <input class="form-control" list="datalistSubCategory" name="sub_category" id="sub_category" placeholder="Sub Template Category" />
                             <datalist id="datalistSubCategory">
-                                <option value="Francisco"> </option>
-                                <option value="York"> </option>
+                                @foreach($subcategories as $subcategory)
+                                <option value="{{ $subcategory->sub_category_name }}"></option>
+                                @endforeach
                             </datalist>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="mb-3">
                             <label for="sub_sub_category" class="form-label">Sub Sub Template Category</label>
-                            <input class="form-control" list="datalistSubSubCategory" name="sub_sub_category" id="sub_sub_category" placeholder="Search Sub Sub Template Category" />
+                            <input class="form-control" list="datalistSubSubCategory" name="sub_sub_category" placeholder="Sub Sub Template Category" />
                             <datalist id="datalistSubSubCategory">
-                                <option value="Francisco"> </option>
-                                <option value="York"> </option>
+                                @foreach($sub_subcategories as $sub_subcategory)
+                                <option value="{{ $sub_subcategory->sub_sub_category_name }}"></option>
+                                @endforeach
+                            </datalist>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="mb-3">
+                            <label for="template" class="form-label">Template</label>
+                            <input class="form-control" list="datalistTemplate" name="template" placeholder="Search Template" />
+                            <datalist id="datalistTemplate">
+                                @foreach($templates as $template)
+                                <option value="{{ $template->name }}"></option>
+                                @endforeach
                             </datalist>
                         </div>
                     </div>
