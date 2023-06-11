@@ -57,10 +57,10 @@
                 <tbody>
                     @foreach ($blogs as $blog)
                     <tr>
-                        <td>{{ $blog->name }}</td>
-                        <td>{{ $blog->name }}</td>
-                        <td>{{ $blog->seller_name }}</td>
-                        <td>{{ $blog->image }}</td>
+                        <td><img src="{{ asset('blog/icon/' . $category->icon) }}" class="" alt="..." height="42" width="42" /></td>
+                        <td>{{ $blog->title }}</td>
+                        <td>{{ $blog->category }}</td>
+                        <td>{{ $blog->status }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                               <a href="{{ route('blog.edit',$blog->id) }}" class="btn btn-secondary">Edit</a>
@@ -78,7 +78,7 @@
                                       <div class="modal-body">
                                         <p>Do you really want to delete. This process cannot be undone.</p>
                                       </div>
-                                      <form method="POST" action="{{ route('destroy-blog',$blog->id) }}">
+                                      <form method="POST" action="{{ route('blog.destroy',$blog->id) }}">
                                         @csrf
                                         @method('DELETE')
                                       <div class="modal-footer">

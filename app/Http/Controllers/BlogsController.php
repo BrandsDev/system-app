@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Template;
 use App\Models\Categories;
 use App\Models\SubCategories;
@@ -11,7 +12,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Session;
 
-class BlogController extends Controller
+class BlogsController extends Controller
 {
     /**
      * Display a listing of the resource.

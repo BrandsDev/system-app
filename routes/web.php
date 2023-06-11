@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WhyOurThemesController;
-use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HireController;
 use App\Http\Controllers\ContactController;
@@ -41,7 +41,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('why-our-themes', [WhyOurThemesController::class, 'index']);
 
 // Blog
-Route::get('blog', [BlogController::class, 'index']);
+Route::get('blog', [BlogsController::class, 'index']);
 
 // About
 Route::get('about/overview', [AboutController::class, 'overview']);
@@ -137,12 +137,12 @@ Route::put('/manage-author/update/{id}', [BookAuthorsController::class, 'update'
 Route::delete('/manage-author/destroy/{id}', [BookAuthorsController::class, 'destroy'])->middleware(['auth', 'verified'])->name('author.destroy');
 
 // Blogs
-Route::get('/manage-blogs', [BlogController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-blogs');
-Route::get('/manage-blogs/new-blog', [BlogController::class, 'create'])->middleware(['auth', 'verified'])->name('new-blog');
-Route::post('/manage-blogs/new-blog/store', [BlogController::class, 'store'])->middleware(['auth', 'verified'])->name('new-blog.store');
-Route::get('/manage-blogs/edit/{id}', [BlogController::class, 'edit'])->middleware(['auth', 'verified'])->name('blog.edit');
-Route::put('/manage-blogs/update/{id}', [BlogController::class, 'update'])->middleware(['auth', 'verified'])->name('update-blog');
-Route::delete('/manage-blogs/destroy/{id}', [BlogController::class, 'destroy'])->middleware(['auth', 'verified'])->name('destroy-blog');
+Route::get('/manage-blogs', [BlogsController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-blogs');
+Route::get('/manage-blog/new-blog', [BlogsController::class, 'create'])->middleware(['auth', 'verified'])->name('new-blog');
+Route::post('/manage-blog/new-blog/store', [BlogsController::class, 'store'])->middleware(['auth', 'verified'])->name('new-blog.store');
+Route::get('/manage-blog/edit/{id}', [BlogsController::class, 'edit'])->middleware(['auth', 'verified'])->name('blog.edit');
+Route::put('/manage-blog/update/{id}', [BlogsController::class, 'update'])->middleware(['auth', 'verified'])->name('blog.update');
+Route::delete('/manage-blog/destroy/{id}', [BlogsController::class, 'destroy'])->middleware(['auth', 'verified'])->name('blog.destroy');
 
 // Blog Categories
 // Route::get('/blog-categories/manage-blog-categories', [CategoriesController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-blog-categories');
