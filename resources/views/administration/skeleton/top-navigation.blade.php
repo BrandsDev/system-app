@@ -14,12 +14,12 @@
 						Categories
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item" href="{{ route('manage-categories') }}">Category</a></li>
-						<li><a class="dropdown-item" href="{{ route('manage-subcategories') }}">Sub Category</a></li>
-						<li><a class="dropdown-item" href="{{ route('manage-sub-subcategories') }}">Sub Sub Category</a></li>
+						<li><a class="dropdown-item" href="{{ route('manage-categories') }}">Categories</a></li>
+						<li><a class="dropdown-item" href="{{ route('manage-subcategories') }}">Subcategories</a></li>
+						<li><a class="dropdown-item" href="{{ route('manage-sub-subcategories') }}">Sub Subcategories</a></li>
 					</ul>
 				</li>
-				<li class="nav-item dropdown">
+				<!-- <li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Templates
 					</a>
@@ -27,7 +27,7 @@
 						<li><a class="dropdown-item" href="{{ route('new-template') }}">Add Template</a></li>
 						<li><a class="dropdown-item" href="{{ route('manage-templates') }}">Manage Templates</a></li>
 					</ul>
-				</li>
+				</li> -->
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Books
@@ -35,6 +35,12 @@
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item" href="{{ route('new-book') }}">Add Book</a></li>
 						<li><a class="dropdown-item" href="{{ route('manage-books') }}">Manage Books</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="{{ route('new-publisher') }}">Add Publisher</a></li>
+						<li><a class="dropdown-item" href="{{ route('manage-publishers') }}">Manage Publishers</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="{{ route('new-author') }}">Add Author</a></li>
+						<li><a class="dropdown-item" href="{{ route('manage-authors') }}">Manage Authors</a></li>
 					</ul>
 				</li>
 				<li class="nav-item dropdown">

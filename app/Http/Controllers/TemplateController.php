@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Template;
-use App\Models\Categories;
-use App\Models\SubCategories;
-use App\Models\SubSubCategories;
+use App\Models\Category;
+use App\Models\Subcategory;
+use App\Models\SubSubcategory;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -27,9 +27,9 @@ class TemplateController extends Controller
      */
     public function create()
     {
-        $categories = Categories::all();
-        $subcategories = SubCategories::all();
-        $sub_subcategories = SubSubCategories::all();
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+        $sub_subcategories = SubSubcategory::all();
 
         return view('administration.templates.new-template', ['categories' => $categories, 'subcategories' => $subcategories, 'sub_subcategories' => $sub_subcategories]);
     }
@@ -57,8 +57,8 @@ class TemplateController extends Controller
             'name' => $request->name,
             'slug' => $request->slug,
             'category_name' => $request->category_name,
-            'sub_category_name' => $request->sub_category_name,
-            'sub_sub_category_name' => $request->sub_sub_category_name,
+            'subcategory_name' => $request->subcategory_name,
+            'sub_subcategory_name' => $request->sub_subcategory_name,
             'sale_price' => $request->sale_price,
             'regular_price' => $request->regular_price,
             'commission' => $request->commission,
@@ -117,9 +117,9 @@ class TemplateController extends Controller
     public function edit($id)
     {
         $template = Template::findOrFail($id);     
-        $categories = Categories::all();
-        $subcategories = SubCategories::all();
-        $sub_subcategories = SubSubCategories::all();
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+        $sub_subcategories = SubSubcategory::all();
 
         return view('administration.templates.edit-template', ['template' => $template, 'categories' => $categories,'subcategories' => $subcategories, 'sub_subcategories' => $sub_subcategories]);
     }
@@ -172,8 +172,8 @@ class TemplateController extends Controller
             $template->name = $request->input('name');
             $template->slug = $request->input('slug');
             $template->category_name = $request->input('category_name');
-            $template->sub_category_name = $request->input('sub_category_name');
-            $template->sub_sub_category_name = $request->input('sub_sub_category_name');
+            $template->subcategory_name = $request->input('subcategory_name');
+            $template->sub_subcategory_name = $request->input('sub_subcategory_name');
             $template->sale_price = $request->input('sale_price');
             $template->regular_price = $request->input('regular_price');
             $template->commission = $request->input('commission');

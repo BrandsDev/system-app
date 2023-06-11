@@ -223,7 +223,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="page_images" class="form-label">Page Images</label>
-                            <img src="{{ asset('book/page/image/' . $book->page_images) }}" class="img-thumbnail" alt="...">
+                            <img src="{{ asset('book/image/pages/' . $book->page_images) }}" class="img-thumbnail" alt="...">
                         </div>
                     </div>
                     <div class="col-sm-12">

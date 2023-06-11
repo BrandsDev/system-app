@@ -44,19 +44,19 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="sub_category_name" class="form-label">Sub Category Name *</label>
-                            <input class="form-control" list="datalistSubcategory" name="sub_category_name" id="sub_category_name" value="{{ $sub_subcategory->sub_category_name }}" placeholder="Search Category" />
+                            <label for="subcategory_name" class="form-label">Subcategory Name *</label>
+                            <input class="form-control" list="datalistSubcategory" name="subcategory_name" id="subcategory_name" value="{{ $sub_subcategory->subcategory_name }}" placeholder="Subcategory" />
                             <datalist id="datalistSubcategory">
                                 @foreach($subcategories as $category)
-                                <option value="{{ $category->sub_category_name }}">{{ $category->sub_category_name }}</option>
+                                <option value="{{ $category->subcategory_name }}">{{ $category->subcategory_name }}</option>
                                 @endforeach
                             </datalist>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="sub_sub_category_name" class="form-label">Sub SubCategory Name *</label>
-                            <input type="text" class="form-control" name="sub_sub_category_name" value="{{ $sub_subcategory->sub_sub_category_name }}" placeholder="Sub Subcategory Name" required />
+                            <label for="sub_subcategory_name" class="form-label">Sub SubCategory Name *</label>
+                            <input type="text" class="form-control" name="sub_subcategory_name" value="{{ $sub_subcategory->sub_subcategory_name }}" placeholder="Sub Subcategory Name" required />
                             <div class="valid-feedback">
                                 Looks good!
                             </div>

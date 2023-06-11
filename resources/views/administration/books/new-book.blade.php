@@ -70,10 +70,10 @@
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="subcategory_name" class="form-label">Sub Category</label>
-                            <input class="form-control" list="datalistSubCategory" name="subcategory_name" placeholder="Sub Category" />
+                            <input class="form-control" list="datalistSubCategory" name="subcategory_name" placeholder="Subcategory" />
                             <datalist id="datalistSubCategory">
                                 @foreach($subcategories as $subcategory)
-                                <option value="{{ $subcategory->sub_category_name }}"></option>
+                                <option value="{{ $subcategory->subcategory_name }}"></option>
                                 @endforeach
                             </datalist>
                         </div>
@@ -81,10 +81,10 @@
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="sub_subcategory_name" class="form-label">Sub Sub Category</label>
-                            <input class="form-control" list="datalistSubSubCategory" name="sub_subcategory_name" placeholder="Sub Sub Category" />
+                            <input class="form-control" list="datalistSubSubCategory" name="sub_subcategory_name" placeholder="Sub Subcategory" />
                             <datalist id="datalistSubSubCategory">
                                 @foreach($sub_subcategories as $sub_subcategory)
-                                <option value="{{ $sub_subcategory->sub_sub_category_name }}"></option>
+                                <option value="{{ $sub_subcategory->sub_subcategory_name }}"></option>
                                 @endforeach
                             </datalist>
                         </div>
@@ -122,8 +122,9 @@
                             <label for="publisher" class="form-label">Publisher</label>
                             <input class="form-control" list="datalistPublisher" name="publisher" placeholder="Publisher" required />
                             <datalist id="datalistPublisher">
-                                <option value="1">Publish</option>
-                                <option value="0">Draft</option>
+                                @foreach($publishers as $publisher)
+                                <option value="{{ $publisher->name }}"></option>
+                                @endforeach
                             </datalist>
                         </div>
                     </div>
@@ -138,8 +139,9 @@
                             <label for="author" class="form-label">Author</label>
                             <input class="form-control" list="datalistAuthor" name="author" placeholder="Author" required />
                             <datalist id="datalistAuthor">
-                                <option value="1">Publish</option>
-                                <option value="0">Draft</option>
+                                @foreach($authors as $author)
+                                <option value="{{ $author->name }}"></option>
+                                @endforeach
                             </datalist>
                         </div>
                     </div>
@@ -179,13 +181,13 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="meta_title" class="form-label">Meta Title</label>
                             <textarea class="form-control" id="meta_title" rows="2" name="meta_title"></textarea>
                         </div>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="meta_description" class="form-label">Meta Description</label>
                             <textarea class="form-control" id="meta_description" rows="2" name="meta_description"></textarea>

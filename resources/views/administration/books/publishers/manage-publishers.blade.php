@@ -18,9 +18,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('manage-categories') }}">Categories</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('manage-subcategories') }}">Subcategories</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Sub Subcategories</li>
+                    <li class="breadcrumb-item active" aria-current="page">Manage Publishers</li>
                 </ol>
             </nav>
         </div>
@@ -28,15 +26,8 @@
     <!-- Content -->
 
     <div class="row">
-        <div class="col-lg-10">
-            <h1>Sub Subcategories</h1>
-        </div>
-        <div class="col-lg-2 align-self-center">
-            <div class="row">
-                <div class="col-12 col-sm-12">
-                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('new-sub-subcategory') }}">+ Add Subcategory</a>
-                </div>
-            </div>
+        <div class="col-md-12">
+            <h1>Manage Publishers</h1>
         </div>
     </div>
 
@@ -50,42 +41,34 @@
     </div>
     @endif
 
-    @if(session()->has('message'))
-    <div class="row">
-        <div class="col-md-12">
-            <div class="alert alert-success" role="alert">
-                {{ session('message') }}
-            </div>
-        </div>
-    </div>
-    @endif
-
     <div class="row">
         <div class="col-sm-12">
 
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Sub Subcategory Name</th>
-                        <th>Subcategory Name</th>
-                        <th>Sub Subcategory Slug</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>Address</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($sub_subcategories as $category)
+                    @foreach ($publishers as $publisher)
                     <tr>
-                        <td>{{ $category->sub_subcategory_name }}</td>
-                        <td>{{ $category->subcategory_name }}</td>
-                        <td>{{ $category->slug }}</td>
+                        <td>{{ $publisher->name }}</td>
+                        <td>{{ $publisher->email }}</td>
+                        <td>{{ $publisher->mobile }}</td>
+                        <td>{{ $publisher->address }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                              <a href="{{ route('sub-subcategory.edit',$category->id) }}" class="btn btn-secondary">Edit</a>
+                              <a href="{{ route('publisher.edit',$publisher->id) }}" class="btn btn-secondary">Edit</a>
 
-                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteSubSubcategories{{ $category->id }}">Destroy</button>
+                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deletePublisher{{ $publisher->id }}">Destroy</button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="deleteSubSubcategories{{ $category->id }}" tabindex="-1" aria-labelledby="deleteSubSubcategoriesLabel" aria-hidden="true">
+                                <div class="modal fade" id="deletePublisher{{ $publisher->id }}" tabindex="-1" aria-labelledby="deletePublisherLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                     <div class="modal-content">
                                       <div class="modal-header">
@@ -95,7 +78,7 @@
                                       <div class="modal-body">
                                         <p>Do you really want to delete. This process cannot be undone.</p>
                                       </div>
-                                      <form method="POST" action="{{ route('sub-subcategory.destroy',$category->id) }}">
+                                      <form method="POST" action="{{ route('publisher.destroy',$publisher->id) }}">
                                         @csrf
                                         @method('DELETE')
                                       <div class="modal-footer">
@@ -113,9 +96,10 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>Sub Subcategory Name</th>
-                        <th>Subcategory Name</th>
-                        <th>Sub Subcategory Slug</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>Address</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>

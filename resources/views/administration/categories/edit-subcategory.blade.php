@@ -54,8 +54,8 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="sub_category_name" class="form-label">Subcategory Name *</label>
-                            <input type="text" class="form-control" name="sub_category_name" value="{{ $subcategory->sub_category_name }}" placeholder="Subcategory Name" required />
+                            <label for="subcategory_name" class="form-label">Subcategory Name *</label>
+                            <input type="text" class="form-control" name="subcategory_name" value="{{ $subcategory->subcategory_name }}" placeholder="Subcategory Name" required />
                         </div>
                     </div>
                     <div class="col-sm-4">

@@ -12,6 +12,8 @@ use App\Http\Controllers\TermsOfServiceController;
 use App\Http\Controllers\SiteTemplatesController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\BooksController;
+use App\Http\Controllers\BookPublishersController;
+use App\Http\Controllers\BookAuthorsController;
 use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 
@@ -117,6 +119,22 @@ Route::post('/manage-book/new-book/store', [BooksController::class, 'store'])->m
 Route::get('/manage-book/edit/{id}', [BooksController::class, 'edit'])->middleware(['auth', 'verified'])->name('book.edit');
 Route::put('/manage-book/update/{id}', [BooksController::class, 'update'])->middleware(['auth', 'verified'])->name('book.update');
 Route::delete('/manage-book/destroy/{id}', [BooksController::class, 'destroy'])->middleware(['auth', 'verified'])->name('book.destroy');
+
+// Book Publishers
+Route::get('/manage-publishers', [BookPublishersController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-publishers');
+Route::get('/manage-publisher/new-publisher', [BookPublishersController::class, 'create'])->middleware(['auth', 'verified'])->name('new-publisher');
+Route::post('/manage-publisher/new-publisher/store', [BookPublishersController::class, 'store'])->middleware(['auth', 'verified'])->name('new-publisher.store');
+Route::get('/manage-publisher/edit/{id}', [BookPublishersController::class, 'edit'])->middleware(['auth', 'verified'])->name('publisher.edit');
+Route::put('/manage-publisher/update/{id}', [BookPublishersController::class, 'update'])->middleware(['auth', 'verified'])->name('publisher.update');
+Route::delete('/manage-publisher/destroy/{id}', [BookPublishersController::class, 'destroy'])->middleware(['auth', 'verified'])->name('publisher.destroy');
+
+// Book Authors
+Route::get('/manage-authors', [BookAuthorsController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-authors');
+Route::get('/manage-author/new-author', [BookAuthorsController::class, 'create'])->middleware(['auth', 'verified'])->name('new-author');
+Route::post('/manage-author/new-author/store', [BookAuthorsController::class, 'store'])->middleware(['auth', 'verified'])->name('new-author.store');
+Route::get('/manage-author/edit/{id}', [BookAuthorsController::class, 'edit'])->middleware(['auth', 'verified'])->name('author.edit');
+Route::put('/manage-author/update/{id}', [BookAuthorsController::class, 'update'])->middleware(['auth', 'verified'])->name('author.update');
+Route::delete('/manage-author/destroy/{id}', [BookAuthorsController::class, 'destroy'])->middleware(['auth', 'verified'])->name('author.destroy');
 
 // Blogs
 Route::get('/manage-blogs', [BlogController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-blogs');

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SubCategories extends Model
+class BookAuthor extends Model
 {
     use HasFactory;
 
@@ -15,15 +15,20 @@ class SubCategories extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'sub_category_name',
+        'name',
         'slug',
-        'category_name',
+        'gender',
+        'bio',
+        'mobile',
+        'email',
+        'address',
         'description',
+        'youtube_iframe',
         'meta_title',
         'meta_description',
-        'icon',
-        'thumb',
-        'cover',
-        'og_image',
+        'image',
+        'og',
+        'banner',
+        'status',
     ];
 }

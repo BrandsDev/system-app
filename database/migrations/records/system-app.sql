@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2023 at 05:33 AM
+-- Generation Time: Jun 11, 2023 at 12:00 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -48,6 +48,117 @@ CREATE TABLE `blogs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `books`
+--
+
+CREATE TABLE `books` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `slug` varchar(100) NOT NULL,
+  `category_name` varchar(100) NOT NULL,
+  `subcategory_name` varchar(100) DEFAULT NULL,
+  `sub_subcategory_name` varchar(100) DEFAULT NULL,
+  `sku` varchar(100) NOT NULL,
+  `sale_price` varchar(100) DEFAULT NULL,
+  `regular_price` varchar(100) NOT NULL,
+  `commission` varchar(100) DEFAULT NULL,
+  `publisher` varchar(100) NOT NULL,
+  `ranking` varchar(255) DEFAULT NULL,
+  `author` varchar(100) NOT NULL,
+  `short_description` tinytext DEFAULT NULL,
+  `long_description` tinytext DEFAULT NULL,
+  `specification` tinytext DEFAULT NULL,
+  `youtube_iframe` text DEFAULT NULL,
+  `header_content` text DEFAULT NULL,
+  `meta_title` text DEFAULT NULL,
+  `meta_description` text DEFAULT NULL,
+  `order_type` varchar(100) NOT NULL,
+  `image` text DEFAULT NULL,
+  `page_images` text DEFAULT NULL,
+  `og_image` text DEFAULT NULL,
+  `file` text DEFAULT NULL,
+  `status` tinyint(1) DEFAULT 0,
+  `comment` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `books`
+--
+
+INSERT INTO `books` (`id`, `name`, `slug`, `category_name`, `subcategory_name`, `sub_subcategory_name`, `sku`, `sale_price`, `regular_price`, `commission`, `publisher`, `ranking`, `author`, `short_description`, `long_description`, `specification`, `youtube_iframe`, `header_content`, `meta_title`, `meta_description`, `order_type`, `image`, `page_images`, `og_image`, `file`, `status`, `comment`, `created_at`, `updated_at`) VALUES
+(1, 'মহিমান্বিত কুরআন – মর্মার্থ ও শাব্দিক অনুবাদ', 'mohimannito-quran-marmartho-o-sabdik-onubad', 'Blog 55', NULL, NULL, 'mq001', '900', '990', '90', '1', '1', '1', '<p><label class=\"form-label\" for=\"short_description\">Short Description</label></p>', '<p><label class=\"form-label\" for=\"long_description\">Long Description</label></p>', '<p>specification</p>', '<p><label class=\"form-label\" for=\"long_description\"><label class=\"form-label\" for=\"youtube_iframe\">Youtube Iframe</label></label></p>', '<p><label class=\"form-label\" for=\"header_content\">Header Content</label></p>', '<p><label class=\"form-label\" for=\"youtube_iframe\"><label class=\"form-label\" for=\"meta_title\">Meta Title</label></label></p>', '<p><label class=\"form-label\" for=\"header_content\"><label class=\"form-label\" for=\"meta_description\">Meta Description</label></label></p>', '1', 'mohimannito-quran-front-cover.jpg', 'mohimannito-quran-front-cover.jpg', 'quran-and-hadith-og.jpg', 'ProServSalesPlaybook.pdf', 1, '<p>Comment</p>', '2023-06-10 04:08:37', '2023-06-10 22:49:29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book_authors`
+--
+
+CREATE TABLE `book_authors` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(199) NOT NULL,
+  `slug` varchar(199) NOT NULL,
+  `gender` varchar(100) NOT NULL,
+  `bio` varchar(199) DEFAULT NULL,
+  `mobile` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `address` varchar(199) DEFAULT NULL,
+  `description` varchar(199) DEFAULT NULL,
+  `youtube_iframe` varchar(199) DEFAULT NULL,
+  `meta_title` varchar(199) DEFAULT NULL,
+  `meta_description` varchar(199) DEFAULT NULL,
+  `image` text DEFAULT NULL,
+  `og` text DEFAULT NULL,
+  `banner` text DEFAULT NULL,
+  `status` tinyint(1) DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `book_authors`
+--
+
+INSERT INTO `book_authors` (`id`, `name`, `slug`, `gender`, `bio`, `mobile`, `email`, `address`, `description`, `youtube_iframe`, `meta_title`, `meta_description`, `image`, `og`, `banner`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'ইলাননূর সম্পাদনা পরিষদ', 'illanoor-sompadona-porisod', 'male', '<p>BIO</p>', '01407070260', 'publication.ilannoor@gmail.com', '<p>Address</p>', '<p>Description</p>', '<p><label class=\"form-label\" for=\"youtube_iframe\">Youtube Iframe</label></p>', '<p><label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p><label class=\"form-label\" for=\"meta_description\">Meta Description</label></p>', 'mohimannito-quran-front-cover.jpg', 'quran-and-hadith-og.jpg', 'quran-and-hadith-cover.jpg', 1, '2023-06-11 03:35:10', '2023-06-11 03:35:10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book_publishers`
+--
+
+CREATE TABLE `book_publishers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(199) NOT NULL,
+  `slug` varchar(199) NOT NULL,
+  `mobile` varchar(199) DEFAULT NULL,
+  `email` varchar(199) DEFAULT NULL,
+  `address` varchar(199) DEFAULT NULL,
+  `description` varchar(199) DEFAULT NULL,
+  `youtube_iframe` varchar(199) DEFAULT NULL,
+  `meta_title` varchar(199) DEFAULT NULL,
+  `meta_description` varchar(199) DEFAULT NULL,
+  `image` text DEFAULT NULL,
+  `og` text DEFAULT NULL,
+  `banner` text DEFAULT NULL,
+  `status` tinyint(1) DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `book_publishers`
+--
+
+INSERT INTO `book_publishers` (`id`, `name`, `slug`, `mobile`, `email`, `address`, `description`, `youtube_iframe`, `meta_title`, `meta_description`, `image`, `og`, `banner`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'ইলাননূর পাবলিকেশন', 'ilannoor-publication', '01407070260', 'publication.ilannoor@gmail.com', '<p>Baridhara Block J (North)</p>', '<p>Description</p>', '<p><label class=\"form-label\" for=\"youtube_iframe\">Youtube Iframe</label></p>', '<p><label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p><label class=\"form-label\" for=\"meta_description\">Meta Description</label></p>', 'mohimannito-quran-front-cover.jpg', 'quran-and-hadith-og.jpg', 'quran-and-hadith-cover.jpg', 1, '2023-06-11 00:52:08', '2023-06-11 01:10:56');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `categories`
 --
 
@@ -71,11 +182,8 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `category_name`, `slug`, `description`, `meta_title`, `meta_description`, `icon`, `thumb`, `cover`, `og_image`, `created_at`, `updated_at`) VALUES
-(1, 'Blog', 'blog', '<p><label class=\"form-label\" for=\"meta_title\">Blog Meta Title<br></label></p>', '<p><label class=\"form-label\" for=\"meta_description\">Blog Meta Description<br></label></p>', '<p><label class=\"form-label\" for=\"meta_description\">Blog Meta Description<br></label></p>', 'category-icon-1.png', 'category-thumb-1.png', 'category-cover-img-1.jpg', 'category-cover-img-1.jpg', '2023-05-24 04:46:39', '2023-05-27 04:49:37'),
-(3, 'Blog 2', 'blog-2', '<p>Blog 2 Description</p>', '<p><label class=\"form-label\" for=\"meta_title\">Blog 2 Meta Title</label></p>', '<p><label class=\"form-label\" for=\"meta_description\">Blog 2 Meta Description</label></p>', 'category-icon-1.png', 'category-thumb-1.png', 'category-cover-img-1.jpg', 'category-cover-img-1.jpg', '2023-05-25 01:56:00', '2023-05-28 23:35:47'),
-(5, 'Blog 3', 'blog-3', NULL, NULL, NULL, 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img-1.jpg', '2023-05-27 01:12:35', '2023-05-27 01:12:35'),
-(6, 'Blog 4', 'blog-4', '<p>Blog 4 Description</p>', '<p><label class=\"form-label\" for=\"meta_title\">Blog 4Meta Title</label></p>', '<p><label class=\"form-label\" for=\"meta_description\">Blog 4Meta Description</label></p>', 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img.jpg', '2023-05-28 23:24:40', '2023-05-28 23:24:40'),
-(8, 'Blog 55', 'blog-55', '<p>Blog 55 Description</p>', '<p>Blog 55 <label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p>Blog 55 <label class=\"form-label\" for=\"meta_description\">Meta Description</label></p>', 'category-icon-1.png', 'category-thumb-1.png', 'category-cover-img-1.jpg', 'category-cover-img-1.jpg', '2023-05-29 05:17:07', '2023-05-29 05:19:01');
+(10, 'কুরআন ও হাদিস', 'quran-and-hadith', '<p>Best Sellers in Quran and Hadith (কুরআন ও হাদিস ) Collections by iLannoor Publication</p>', '<p>Find all the best sellers in Quran and Hadith (কুরআন ও হাদিস ) collections in Bangladesh.</p>', '<p>Best Sellers in Quran and Hadith (কুরআন ও হাদিস ) Collections by iLannoor Publication</p>', 'quran-and-hadith-thumb.png', 'quran-and-hadith-thumb-2.png', 'quran-and-hadith-cover.jpg', 'quran-and-hadith-og.jpg', '2023-06-10 23:31:07', '2023-06-10 23:31:07'),
+(11, 'সবার জন্য আরবি', 'arabic-for-all', NULL, NULL, NULL, 'quran-and-hadith-icon.png', 'quran-and-hadith-thumb.png', 'quran-and-hadith-cover.jpg', 'quran-and-hadith-og.jpg', '2023-06-10 23:32:06', '2023-06-10 23:32:06');
 
 -- --------------------------------------------------------
 
@@ -181,7 +289,14 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (34, '2023_05_22_103514_create_sub_categories_table', 18),
 (35, '2023_05_22_103522_create_sub_sub_categories_table', 18),
 (36, '2023_05_24_104323_drop_categories', 19),
-(37, '2023_05_24_104446_change_categories_table', 20);
+(37, '2023_05_24_104446_change_categories_table', 20),
+(38, '2023_06_10_083431_create_table_books', 21),
+(39, '2023_06_11_045739_create_subcategories', 22),
+(40, '2023_06_11_045859_create_sub_subcategories', 22),
+(41, '2023_06_11_061030_create_publishers', 23),
+(42, '2023_06_11_061100_create_book_publishers', 23),
+(43, '2023_06_11_061112_create_book_authors', 23),
+(44, '2023_06_11_091106_create_book_authors', 24);
 
 -- --------------------------------------------------------
 
@@ -253,12 +368,12 @@ CREATE TABLE `skeletons` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sub_categories`
+-- Table structure for table `subcategories`
 --
 
-CREATE TABLE `sub_categories` (
+CREATE TABLE `subcategories` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `sub_category_name` varchar(199) NOT NULL,
+  `subcategory_name` varchar(199) NOT NULL,
   `slug` varchar(199) NOT NULL,
   `category_name` varchar(199) NOT NULL,
   `description` varchar(199) DEFAULT NULL,
@@ -273,25 +388,23 @@ CREATE TABLE `sub_categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `sub_categories`
+-- Dumping data for table `subcategories`
 --
 
-INSERT INTO `sub_categories` (`id`, `sub_category_name`, `slug`, `category_name`, `description`, `meta_title`, `meta_description`, `icon`, `thumb`, `cover`, `og_image`, `created_at`, `updated_at`) VALUES
-(1, 'Sub Blog 3', 'sub-blog-3', 'Blog 3', '<p>Sub Blog 3 Description</p>', '<p>Sub Blog 3 <label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p>Sub Blog 3 <label class=\"form-label\" for=\"meta_description\">Meta Description</label></p>', 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img-1.jpg', '2023-05-27 01:16:28', '2023-05-29 05:08:58'),
-(2, 'Blog', 'sub-blog', 'Blog', '<p>Sub Blog Description</p>', '<p>Sub Blog&nbsp;<label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p>Sub Blog <label class=\"form-label\" for=\"meta_description\">Meta Description</label></p>', 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img.jpg', '2023-05-29 00:26:23', '2023-05-29 00:26:23'),
-(3, 'Sub Blog 2', 'sub-blog-2', 'Blog 2', '<p>Sub Blog Description</p>', '<p>Sub Blog <label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p>Sub Blog <label class=\"form-label\" for=\"meta_description\">Meta Description</label></p>', 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img.jpg', '2023-05-29 00:28:52', '2023-05-29 01:17:06'),
-(5, 'Sub Category 55', 'sub-category-55', 'Blog 55', '<p>Sub Category 55 Description</p>', '<p>Sub Category 55 <label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p>Sub Category 55 <label class=\"form-label\" for=\"meta_description\">Meta Description</label></p>', 'category-icon-1.png', 'category-thumb-1.png', 'category-cover-img-1.jpg', 'category-cover-img-1.jpg', '2023-05-29 05:20:12', '2023-05-29 05:20:38');
+INSERT INTO `subcategories` (`id`, `subcategory_name`, `slug`, `category_name`, `description`, `meta_title`, `meta_description`, `icon`, `thumb`, `cover`, `og_image`, `created_at`, `updated_at`) VALUES
+(1, 'মহিমান্বিত কুরআন', 'mohimannito-quran', 'কুরআন ও হাদিস', '<p>Best Sellers in Quran and Hadith (কুরআন ও হাদিস ) Collections by iLannoor Publication</p>', '<p>Best Sellers in Quran and Hadith (কুরআন ও হাদিস ) Collections by iLannoor Publication</p>', '<p>Find all the best sellers in Quran and Hadith (কুরআন ও হাদিস ) collections in Bangladesh.</p>', 'quran-and-hadith-icon-2.png', 'quran-and-hadith-thumb-2.png', 'quran-and-hadith-cover-2.jpg', 'quran-and-hadith-og-2.jpg', '2023-06-10 23:37:19', '2023-06-10 23:39:43'),
+(3, 'আল আরাবিয়্যাতু বাইনা ইয়াদাই আওলাদিনা', 'arabic-at-our-childrens-hands', 'সবার জন্য আরবি', '<p>আল আরাবিয়্যাতু বাইনা ইয়াদাই আওলাদিনা</p>', '<p>আল আরাবিয়্যাতু বাইনা ইয়াদাই আওলাদিনা</p>', '<p>আল আরাবিয়্যাতু বাইনা ইয়াদাই আওলাদিনা</p>', 'quran-and-hadith-icon.png', 'quran-and-hadith-thumb.png', 'quran-and-hadith-cover.jpg', 'quran-and-hadith-og.jpg', '2023-06-10 23:42:53', '2023-06-10 23:42:53');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sub_sub_categories`
+-- Table structure for table `sub_subcategories`
 --
 
-CREATE TABLE `sub_sub_categories` (
+CREATE TABLE `sub_subcategories` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `sub_sub_category_name` varchar(199) NOT NULL,
-  `sub_category_name` varchar(199) NOT NULL,
+  `sub_subcategory_name` varchar(199) NOT NULL,
+  `subcategory_name` varchar(199) NOT NULL,
   `slug` varchar(199) NOT NULL,
   `description` varchar(199) DEFAULT NULL,
   `meta_title` varchar(199) DEFAULT NULL,
@@ -305,12 +418,12 @@ CREATE TABLE `sub_sub_categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `sub_sub_categories`
+-- Dumping data for table `sub_subcategories`
 --
 
-INSERT INTO `sub_sub_categories` (`id`, `sub_sub_category_name`, `sub_category_name`, `slug`, `description`, `meta_title`, `meta_description`, `icon`, `thumb`, `cover`, `og_image`, `created_at`, `updated_at`) VALUES
-(2, 'Sub Sub Blog 2', 'Sub Blog 2', 'sub-sub-blog-2', '<p>Sub Sub Blog 2 Description</p>', '<p>Sub Sub Blog 2&nbsp;<label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p>Sub Sub Blog 2 <label class=\"form-label\" for=\"meta_description\">Meta Description</label></p>', 'category-icon.png', 'category-thumb.png', 'category-cover-img.jpg', 'category-cover-img.jpg', '2023-05-29 04:55:45', '2023-05-29 04:55:45'),
-(3, 'Sub Subcategory 55', 'Sub Category 55', 'sub-subcategory-55', '<p>Sub Subcategory 55 Description</p>', '<p>Sub Subcategory 55 <label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p>Sub Subcategory 55 <label class=\"form-label\" for=\"meta_description\">Meta Description</label></p>', 'category-icon-1.png', 'category-thumb-1.png', 'category-cover-img-1.jpg', 'category-cover-img-1.jpg', '2023-05-29 05:21:44', '2023-05-29 05:23:30');
+INSERT INTO `sub_subcategories` (`id`, `sub_subcategory_name`, `subcategory_name`, `slug`, `description`, `meta_title`, `meta_description`, `icon`, `thumb`, `cover`, `og_image`, `created_at`, `updated_at`) VALUES
+(1, 'শিক্ষকদের বইসমূহ', 'আল আরাবিয়্যাতু বাইনা ইয়াদাই আওলাদিনা', 'teachers-books', NULL, NULL, NULL, 'quran-and-hadith-icon.png', 'quran-and-hadith-thumb.png', 'quran-and-hadith-cover.jpg', 'quran-and-hadith-og.jpg', '2023-06-10 23:43:55', '2023-06-10 23:43:55'),
+(2, 'শিক্ষার্থীদের বইসমূহ', 'আল আরাবিয়্যাতু বাইনা ইয়াদাই আওলাদিনা', 'students-books', NULL, NULL, NULL, 'quran-and-hadith-icon.png', 'quran-and-hadith-thumb.png', 'quran-and-hadith-cover.jpg', 'quran-and-hadith-og.jpg', '2023-06-10 23:44:24', '2023-06-10 23:44:24');
 
 -- --------------------------------------------------------
 
@@ -322,9 +435,9 @@ CREATE TABLE `templates` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(100) NOT NULL,
   `slug` varchar(100) NOT NULL,
-  `category` varchar(100) NOT NULL,
-  `sub_category` varchar(100) DEFAULT NULL,
-  `sub_sub_category` varchar(100) DEFAULT NULL,
+  `category_name` varchar(100) NOT NULL,
+  `sub_category_name` varchar(100) DEFAULT NULL,
+  `sub_sub_category_name` varchar(100) DEFAULT NULL,
   `sale_price` varchar(100) DEFAULT NULL,
   `regular_price` varchar(100) NOT NULL,
   `commission` varchar(100) DEFAULT NULL,
@@ -355,16 +468,17 @@ CREATE TABLE `templates` (
 -- Dumping data for table `templates`
 --
 
-INSERT INTO `templates` (`id`, `name`, `slug`, `category`, `sub_category`, `sub_sub_category`, `sale_price`, `regular_price`, `commission`, `bootstrap_v`, `released`, `updated`, `version`, `seller_name`, `seller_email`, `short_description`, `long_description`, `change_log`, `youtube_iframe`, `header_content`, `meta_title`, `meta_description`, `live_preview_link`, `downloadable_link`, `image`, `file`, `status`, `comment`, `created_at`, `updated_at`) VALUES
-(14, 'Template 1', 'template-9', 'Francisco', NULL, NULL, NULL, '200', NULL, '4', NULL, NULL, '4', 'a@a.a', 'a@a.a', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'calligraphy-thumbnail.jpg', NULL, 0, NULL, '2023-04-17 03:00:52', '2023-05-09 01:49:01'),
-(27, 'template 11', 'template-11', 'Francisco', 'York', NULL, NULL, '2000', NULL, '2', NULL, NULL, '2', 'template 11', 'a@a.a', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'calligraphy-thumbnail.jpg', NULL, 1, NULL, '2023-05-16 00:20:34', '2023-05-16 00:20:34'),
+INSERT INTO `templates` (`id`, `name`, `slug`, `category_name`, `sub_category_name`, `sub_sub_category_name`, `sale_price`, `regular_price`, `commission`, `bootstrap_v`, `released`, `updated`, `version`, `seller_name`, `seller_email`, `short_description`, `long_description`, `change_log`, `youtube_iframe`, `header_content`, `meta_title`, `meta_description`, `live_preview_link`, `downloadable_link`, `image`, `file`, `status`, `comment`, `created_at`, `updated_at`) VALUES
+(14, 'Template 1', 'template-9', 'Blog 55', 'Sub Category 55', 'Sub Subcategory 55', NULL, '200', NULL, '4', NULL, NULL, '4', 'a@a.a', 'a@a.a', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'calligraphy-thumbnail.jpg', NULL, 0, NULL, '2023-04-17 03:00:52', '2023-06-09 23:13:55'),
+(27, 'template 11', 'template-11', 'Francisco', 'York', NULL, NULL, '2000', NULL, '2', NULL, NULL, '2', 'template 11', 'a@a.a', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'calligraphy-basic-course.jpg', NULL, 1, NULL, '2023-05-16 00:20:34', '2023-06-09 23:14:46'),
 (46, 'Template 26', 'Template 26', 'Francisco', 'York', NULL, NULL, '2000', NULL, '2', NULL, NULL, '2', 'Template 26', 'a@a.a', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1684655776.346050196_767516311760616_3589983963788781674_n.jpg', NULL, 1, NULL, '2023-05-21 01:56:16', '2023-05-21 01:56:16'),
 (47, 'Template 27', 'Template 27', 'Francisco', 'York', NULL, NULL, '2000', NULL, '2', NULL, NULL, '2', 'Template 27', 'a@a.a', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1684513973IMG-20230519-WA0001.jpg', NULL, 1, NULL, '2023-05-21 01:57:30', '2023-05-21 04:39:02'),
 (48, 'Template 28', 'Template 28', 'Francisco', 'York', NULL, NULL, '2000', NULL, '2', NULL, NULL, '2', 'Template 28', 'a@a.a', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sura-nas-falaq-o-ikhlas-calligraphy-painting-product-03.jpg', NULL, 1, NULL, '2023-05-21 02:00:03', '2023-05-21 02:00:03'),
 (49, 'Template 29', 'Template 29', 'Francisco', 'York', NULL, NULL, '2000', NULL, '2', NULL, NULL, '2', 'Template 29', 'a@a.a', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'calligraphy-thumbnail.jpg', 'Dr. Mahmudul Hasan.pdf', 1, NULL, '2023-05-21 02:06:02', '2023-05-21 02:06:02'),
 (51, 'Template 30', 'Template 30', 'Francisco', 'York', NULL, NULL, '2000', NULL, '2', NULL, NULL, '2', 'Template 30', 'a@a.a', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'calligraphy-thumbnail.jpg', 'Dr. Mahmudul Hasan.pdf', 1, NULL, '2023-05-21 02:16:40', '2023-05-21 02:16:40'),
 (52, 'Test 1', 'test-1', 'Francisco', 'York', 'York', '222', '2000', '222', '2', NULL, NULL, '2', 'Template 31 edited 2', 'b@a.a', '<p><label class=\"form-label\" for=\"short_description\">Short Description</label></p>', '<p><label class=\"form-label\" for=\"long_description\">Long Description</label></p>', '<p><label class=\"form-label\" for=\"change_log\">Change Log</label></p>', '<p><label class=\"form-label\" for=\"youtube_iframe\">Youtube Iframe</label></p>', '<p><label class=\"form-label\" for=\"header_content\">Header Content</label></p>', '<p><label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p>Meta&nbsp;</p>', 'http://localhost/system-app/public/template/detail/Template%2031', 'http://localhost/system-app/public/template/detail/Template%2031', 'calligraphy-thumbnail.jpg', 'Dr. Mahmudul Hasan.pdf', 0, '<p>Comment</p>', '2023-05-21 02:19:22', '2023-05-21 04:31:11'),
-(53, 'Test 2', 'test-2', 'Francisco', 'York', 'Francisco', '222', '222', '222', '1', NULL, NULL, '1', 'Test 2', 'a@a.a', '<p><label class=\"form-label\" for=\"short_description\">Short Description</label></p>', '<p><label class=\"form-label\" for=\"long_description\">Long Description</label></p>', '<p><label class=\"form-label\" for=\"change_log\">Change Log</label></p>', '<p><label class=\"form-label\" for=\"youtube_iframe\">Youtube Iframe</label></p>', '<p><label class=\"form-label\" for=\"header_content\">Header Content</label></p>', '<p><label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p><label class=\"form-label\" for=\"meta_description\">Meta Description</label></p>', 'http://localhost/system-app/public/', 'http://localhost/system-app/public/', '345847653_282874117406995_7699823351204466739_n.jpg', 'note 1.pdf', 1, '<p>Comment</p>', '2023-05-21 04:40:47', '2023-05-21 04:40:47');
+(53, 'Test 2', 'test-2', 'Francisco', 'York', 'Francisco', '222', '222', '222', '1', NULL, NULL, '1', 'Test 2', 'a@a.a', '<p><label class=\"form-label\" for=\"short_description\">Short Description</label></p>', '<p><label class=\"form-label\" for=\"long_description\">Long Description</label></p>', '<p><label class=\"form-label\" for=\"change_log\">Change Log</label></p>', '<p><label class=\"form-label\" for=\"youtube_iframe\">Youtube Iframe</label></p>', '<p><label class=\"form-label\" for=\"header_content\">Header Content</label></p>', '<p><label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p><label class=\"form-label\" for=\"meta_description\">Meta Description</label></p>', 'http://localhost/system-app/public/', 'http://localhost/system-app/public/', '345847653_282874117406995_7699823351204466739_n.jpg', 'note 1.pdf', 1, '<p>Comment</p>', '2023-05-21 04:40:47', '2023-05-21 04:40:47'),
+(54, 'Blog 55', 'blog-55', 'Blog 55', 'Sub Category 55', 'Sub Subcategory 55', '900', '990', '90', '1', NULL, NULL, '1', 'Blog 55', 'blog55@system-app.com', '<p>Blog 55 <label class=\"form-label\" for=\"short_description\">Short Description</label></p>', '<p>Blog 55 <label class=\"form-label\" for=\"short_description\">Long&nbsp;Description</label></p>', '<p>Blog 55 <label class=\"form-label\" for=\"change_log\">Change Log</label></p>', '<p>&lt;iframe width=\"424\" height=\"238\" src=\"https://www.youtube.com/embed/FcW4dsxpH_E\" title=\"DRMC জাতীয় ইসলামিক কালচারাল ফেস্টিভ্যাল ২০২১ এ &nbsp;ইলাননূর পাবলিকেশন\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen&gt;&lt;/iframe&gt;</p>', NULL, '<p>Blog 55 <label class=\"form-label\" for=\"meta_title\">Meta Title</label></p>', '<p>Blog 55 <label class=\"form-label\" for=\"meta_title\">Meta Description<br></label></p>', 'http://localhost/system-app/public/template/detail/blog-55', 'http://localhost/system-app/public/template/detail/blog-55', 'calligraphy-basic-course.jpg', 'ProServSalesPlaybook.pdf', 1, '<p>Comment</p>', '2023-06-07 23:39:10', '2023-06-10 00:38:37');
 
 -- --------------------------------------------------------
 
@@ -428,6 +542,24 @@ ALTER TABLE `abouts`
 -- Indexes for table `blogs`
 --
 ALTER TABLE `blogs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `books`
+--
+ALTER TABLE `books`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `book_authors`
+--
+ALTER TABLE `book_authors`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `book_publishers`
+--
+ALTER TABLE `book_publishers`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -500,15 +632,15 @@ ALTER TABLE `skeletons`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `sub_categories`
+-- Indexes for table `subcategories`
 --
-ALTER TABLE `sub_categories`
+ALTER TABLE `subcategories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `sub_sub_categories`
+-- Indexes for table `sub_subcategories`
 --
-ALTER TABLE `sub_sub_categories`
+ALTER TABLE `sub_subcategories`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -554,10 +686,28 @@ ALTER TABLE `blogs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `books`
+--
+ALTER TABLE `books`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `book_authors`
+--
+ALTER TABLE `book_authors`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `book_publishers`
+--
+ALTER TABLE `book_publishers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `contacts`
@@ -587,7 +737,7 @@ ALTER TABLE `homes`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -614,22 +764,22 @@ ALTER TABLE `skeletons`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `sub_categories`
+-- AUTO_INCREMENT for table `subcategories`
 --
-ALTER TABLE `sub_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `subcategories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `sub_sub_categories`
+-- AUTO_INCREMENT for table `sub_subcategories`
 --
-ALTER TABLE `sub_sub_categories`
+ALTER TABLE `sub_subcategories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `templates`
 --
 ALTER TABLE `templates`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `terms_of_services`

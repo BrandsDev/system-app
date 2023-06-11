@@ -10,8 +10,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('manage-categories') }}">Categories</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Sub Category</li>
+                    <li class="breadcrumb-item"><a href="{{ route('manage-publishers') }}">Manage Publishers</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Publishers</li>
                 </ol>
             </nav>
         </div>
@@ -20,7 +20,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1>Add Sub Category</h1>
+            <h1>Add Publisher</h1>
         </div>
     </div>
 
@@ -34,55 +34,77 @@
     </div>
     @endif
 
-    <form class="needs-validation" method="POST" action="{{ route('new-subcategory.store') }}" enctype="multipart/form-data" novalidate>
+    <form class="needs-validation" method="POST" action="{{ route('new-publisher.store') }}" enctype="multipart/form-data" novalidate>
         @csrf
         <div class="row">
             <div class="col-sm-9">
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="mb-3">
-                            <label for="category_name" class="form-label">Category Name *</label>
-                            <input class="form-control" list="datalistCategory" name="category_name" id="category_name" placeholder="Search Category" />
-                            <datalist id="datalistCategory">
-                                @foreach($categories as $category)
-                                <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
-                                @endforeach
-                            </datalist>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="mb-3">
-                            <label for="subcategory_name" class="form-label">Sub Category Name *</label>
-                            <input type="text" class="form-control" name="subcategory_name" id="subcategory_name" placeholder="Subcategory Name" />
+                            <label for="name" class="form-label">Name *</label>
+                            <input type="text" class="form-control" name="name" placeholder="Name" />
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="mb-3">
-                            <label for="slug" class="form-label">Sub Category Slug *</label>
-                            <input type="text" class="form-control" name="slug" id="slug" placeholder="Sub Category Slug" />
+                            <label for="slug" class="form-label">Slug</label>
+                            <input type="text" class="form-control" name="slug" placeholder="Slug" />
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="mobile" class="form-label">Mobile</label>
+                            <input type="text" class="form-control" name="mobile" placeholder="Mobile" />
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="text" class="form-control" name="email" placeholder="Email" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <textarea name="address"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                            <textarea id="custom-textarea" name="description"></textarea>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <label for="youtube_iframe" class="form-label">Youtube Iframe</label>
+                            <textarea class="form-control" id="youtube_iframe" rows="2" name="youtube_iframe"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="meta_title" class="form-label">Meta Title</label>
-                            <textarea class="form-control" id="meta_title" name="meta_title" rows="3"></textarea>
+                            <textarea class="form-control" id="meta_title" rows="2" name="meta_title"></textarea>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="meta_description" class="form-label">Meta Description</label>
-                            <textarea class="form-control" id="meta_description" name="meta_description" rows="3"></textarea>
+                            <textarea class="form-control" id="meta_description" rows="2" name="meta_description"></textarea>
                         </div>
                     </div>
                 </div>
@@ -91,26 +113,32 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="icon" class="form-label">Category Icon *</label>
-                            <input class="form-control" type="file" name="icon" id="icon" />
+                            <label for="image" class="form-label">Image</label>
+                            <input class="form-control" type="file" name="image" />
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="thumb" class="form-label">Category Thumb *</label>
-                            <input class="form-control" type="file" name="thumb" id="thumb" />
+                            <label for="og" class="form-label">OG</label>
+                            <input class="form-control" type="file" name="og" />
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="cover" class="form-label">Category Cover *</label>
-                            <input class="form-control" type="file" name="cover" id="cover" />
+                            <label for="banner" class="form-label">Banner</label>
+                            <input class="form-control" type="file" name="banner" />
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="og_image" class="form-label">Category OG *</label>
-                            <input class="form-control" type="file" name="og_image" id="og_image" />
+                            <label for="status" class="form-label">Status</label>
+                            <input class="form-control" list="datalistStatus" name="status" placeholder="Status" />
+                            <datalist id="datalistStatus">
+                                <option value="1">Publish</option>
+                                <option value="0">Draft</option>
+                            </datalist>
                         </div>
                     </div>
                 </div>
