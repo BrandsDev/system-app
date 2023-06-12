@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Book;
+use App\Models\BookAuthor;
 use App\Models\Template;
-use App\Models\Categories;
-use App\Models\SubCategories;
-use App\Models\SubSubCategories;
+use App\Models\Category;
+use App\Models\Subcategory;
+use App\Models\SubSubcategory;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -19,7 +21,6 @@ class BlogsController extends Controller
      */
     public function index()
     {
-        //
         return view('frontend.blog');
     }
 
@@ -28,12 +29,19 @@ class BlogsController extends Controller
      */
     public function create(Request $request)
     {
-        $templates = Template::all();
-        $categories = Categories::all();
-        $subcategories = SubCategories::all();
-        $sub_subcategories = SubSubCategories::all();
+        $books = Book::all();
+        $authors = BookAuthor::all();
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+        $sub_subcategories = SubSubcategory::all();
 
-        return view('administration.blogs.new-blog', ['categories' => $categories, 'subcategories' => $subcategories, 'sub_subcategories' => $sub_subcategories, 'templates' => $templates]);
+        return view('administration.blogs.new-blog', [
+            'categories' => $categories, 
+            'subcategories' => $subcategories, 
+            'sub_subcategories' => $sub_subcategories, 
+            'books' => $books,
+            'authors' => $authors,
+        ]);
     }
 
     /**
@@ -41,172 +49,56 @@ class BlogsController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        // $request->validate([
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'slug' => ['required', 'regex:/^[a-z]+$/'],
+        // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ], [
+        //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
+        // ]);
 
-        if ($request->routeIs('new-category.store')) {
+        $image = $request->image->getClientOriginalName();
+        $request->image->move(public_path('book/image/author'), $image);
 
-            // $request->validate([
-            //     'name' => ['required', 'string', 'max:255'],
-            //     'slug' => ['required', 'regex:/^[a-z]+$/'],
-            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // ], [
-            //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
-            // ]);
+        $og = $request->og->getClientOriginalName();
+        $request->og->move(public_path('book/image/author'), $og);
 
-            $icon = $request->icon->getClientOriginalName();
-            $request->icon->move(resource_path('category/icon'), $icon);
+        $banner = $request->banner->getClientOriginalName();
+        $request->banner->move(public_path('book/image/author'), $banner);
 
-            $thumb = $request->thumb->getClientOriginalName();
-            $request->thumb->move(resource_path('category/thumb'), $thumb);
+        $book = BookAuthor::create([
+            'name' => $request->name,
+            'slug' => $request->slug,
+            'gender' => $request->gender,
+            'bio' => $request->bio,
+            'mobile' => $request->mobile,
+            'email' => $request->email,
+            'address' => $request->address,
+            'description' => $request->description,
+            'youtube_iframe' => $request->youtube_iframe,
+            'meta_title' => $request->meta_title,
+            'meta_description' => $request->meta_description,
+            'image' => $image,
+            'og' => $og,
+            'banner' => $banner,
+            'status' => $request->status,
+        ]);
 
-            $cover = $request->cover->getClientOriginalName();
-            $request->cover->move(resource_path('category/cover'), $cover);
+        $book->save();
 
-            $og = $request->og_image->getClientOriginalName();
-            $request->og_image->move(resource_path('category/og'), $og);
-
-            // dd($request);
-
-            $category = Categories::create([
-                'category_name' => $request->category_name,
-                'slug' => $request->slug,
-                'description' => $request->description,
-                'meta_title' => $request->meta_title,
-                'meta_description' => $request->meta_description,
-                'icon' => $icon,
-                'thumb' => $thumb,
-                'cover' => $cover,
-                'og_image' => $og,
-            ]);
-
-            // echo 'cat';exit();
-
-            $category->save();
-
-            Session::flash('message', __('New Category Successfully Added!'));
-            
-            return redirect(RouteServiceProvider::Categories);
-
-        } elseif ($request->routeIs('new-subcategory.store')) {
-            
-            // $request->validate([
-            //     'name' => ['required', 'string', 'max:255'],
-            //     'slug' => ['required', 'regex:/^[a-z]+$/'],
-            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // ], [
-            //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
-            // ]);
-
-            $icon = $request->icon->getClientOriginalName();
-            $request->icon->move(resource_path('category/icon'), $icon);
-
-            $thumb = $request->thumb->getClientOriginalName();
-            $request->thumb->move(resource_path('category/thumb'), $thumb);
-
-            $cover = $request->cover->getClientOriginalName();
-            $request->cover->move(resource_path('category/cover'), $cover);
-
-            $og = $request->og_image->getClientOriginalName();
-            $request->og_image->move(resource_path('category/og'), $og);
-
-            $category = SubCategories::create([
-                'category_name' => $request->category_name,
-                'sub_category_name' => $request->sub_category_name,
-                'slug' => $request->slug,
-                'description' => $request->description,
-                'meta_title' => $request->meta_title,
-                'meta_description' => $request->meta_description,
-                'icon' => $icon,
-                'thumb' => $thumb,
-                'cover' => $cover,
-                'og_image' => $og,
-            ]);
-
-            $category->save();
-
-            Session::flash('message', __('New Subcategory Successfully Added!'));
-            
-            return redirect(RouteServiceProvider::SubCategories);
-
-        } elseif ($request->routeIs('new-sub-subcategory.store')) {
-            
-            // $request->validate([
-            //     'name' => ['required', 'string', 'max:255'],
-            //     'slug' => ['required', 'regex:/^[a-z]+$/'],
-            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // ], [
-            //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
-            // ]);
-
-            $icon = $request->icon->getClientOriginalName();
-            $request->icon->move(resource_path('category/icon'), $icon);
-
-            $thumb = $request->thumb->getClientOriginalName();
-            $request->thumb->move(resource_path('category/thumb'), $thumb);
-
-            $cover = $request->cover->getClientOriginalName();
-            $request->cover->move(resource_path('category/cover'), $cover);
-
-            $og = $request->og_image->getClientOriginalName();
-            $request->og_image->move(resource_path('category/og'), $og);
-
-            $category = SubSubCategories::create([
-                'sub_sub_category_name' => $request->sub_sub_category_name,
-                'sub_category_name' => $request->sub_category_name,
-                'slug' => $request->slug,
-                'description' => $request->description,
-                'meta_title' => $request->meta_title,
-                'meta_description' => $request->meta_description,
-                'icon' => $icon,
-                'thumb' => $thumb,
-                'cover' => $cover,
-                'og_image' => $og,
-            ]);
-
-            $category->save();
-
-            Session::flash('message', __('New Sub Subcategory Successfully Added!'));
-            
-            return redirect(RouteServiceProvider::SubSubCategories);
-
-        }
+        Session::flash('message', __('New Author Successfully Added!'));
         
-        // Default view if none of the routes match
-        return view('/dashboard');
+        return redirect(RouteServiceProvider::Author);
     }
 
     /**
      * Display the specified resource.
      */
     public function show(Request $request)
-    {
-        if ($request->routeIs('manage-blogs')) {
-            
-            $categories = Categories::all();
-            
-            return view('administration.blogs.manage-blogs', ['categories' => $categories]);
-
-        } elseif ($request->routeIs('manage-categories')) {
-            
-            $categories = Categories::all();
-            
-            return view('administration.categories.manage-categories', ['categories' => $categories]);
-
-        } elseif ($request->routeIs('manage-subcategories')) {
-            
-            $subcategories = SubCategories::all();
-            
-            return view('administration.categories.manage-subcategories', ['subcategories' => $subcategories]);
-
-        } elseif ($request->routeIs('manage-sub-subcategories')) {
+    {            
+        $blogs = Blog::all();
         
-            $sub_subcategories = SubSubCategories::all();
-            
-            return view('administration.categories.manage-sub-subcategories', ['sub_subcategories' => $sub_subcategories]);
-
-        }
-        
-        // Default view if none of the routes match
-        return view('/dashboard');
+        return view('administration.blogs.manage-blogs', ['blogs' => $blogs]);
     }
 
     /**
@@ -216,23 +108,23 @@ class BlogsController extends Controller
     {
         if ($request->routeIs('category.edit')) {
 
-            $category = Categories::findOrFail($id);
+            $category = Category::findOrFail($id);
             
             return view('administration.categories.edit-category', ['category' => $category]);
 
         } elseif ($request->routeIs('subcategory.edit')) {
 
-            $categories = Categories::select('category_name')->get();
+            $categories = Category::select('category_name')->get();
 
-            $subcategory = SubCategories::findOrFail($id);
+            $subcategory = Subcategory::findOrFail($id);
             
             return view('administration.categories.edit-subcategory', ['categories' => $categories, 'subcategory' => $subcategory]);
 
         } elseif ($request->routeIs('sub-subcategory.edit')) {
 
-            $subcategories = SubCategories::select('sub_category_name')->get();
+            $subcategories = Subcategory::select('sub_category_name')->get();
 
-            $sub_subcategory = SubSubCategories::findOrFail($id);
+            $sub_subcategory = SubSubcategory::findOrFail($id);
             
             return view('administration.categories.edit-sub-subcategory', ['subcategories' => $subcategories, 'sub_subcategory' => $sub_subcategory]);
 
@@ -250,7 +142,7 @@ class BlogsController extends Controller
         if ($request->routeIs('category.update')) {
 
             // Retrieve the existing record from the database
-            $category = Categories::find($id);
+            $category = Category::find($id);
 
             // Make sure the record exists
             if ($category) {
@@ -346,7 +238,7 @@ class BlogsController extends Controller
 
         } elseif ($request->routeIs('subcategory.update')) {
 
-            $subcategory = SubCategories::find($id);
+            $subcategory = Subcategory::find($id);
 
             if ($subcategory) {
                 $newIcon = $request->file('icon');
@@ -422,7 +314,7 @@ class BlogsController extends Controller
 
         } elseif ($request->routeIs('sub-subcategory.update')) {
 
-            $sub_subcategory = SubSubCategories::find($id);
+            $sub_subcategory = SubSubcategory::find($id);
 
             if ($sub_subcategory) {
                 $newIcon = $request->file('icon');
@@ -508,7 +400,7 @@ class BlogsController extends Controller
     {
         if ($request->routeIs('category.destroy')) {
 
-            Categories::where('id',$id)->delete();
+            Category::where('id',$id)->delete();
 
             Session::flash('delete', __('Category Successfully Deleted!'));
             
@@ -516,7 +408,7 @@ class BlogsController extends Controller
 
         } elseif ($request->routeIs('subcategory.destroy')) {
             
-            SubCategories::where('id',$id)->delete();
+            Subcategory::where('id',$id)->delete();
 
             Session::flash('delete', __('Subcategory Successfully Deleted!'));
             
@@ -524,7 +416,7 @@ class BlogsController extends Controller
 
         } elseif ($request->routeIs('sub-subcategory.destroy')) {
             
-            SubSubCategories::where('id',$id)->delete();
+            SubSubcategory::where('id',$id)->delete();
 
             Session::flash('delete', __('Sub Subcategory Successfully Deleted!'));
             

@@ -73,10 +73,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="mb-3">
-                            <label for="category" class="form-label">Category</label>
-                            <input class="form-control" list="datalistCategory" name="category" placeholder="Category" required />
+                            <label for="category" class="form-label">Template Category</label>
+                            <input class="form-control" list="datalistCategory" name="category" id="category" placeholder="Template Category" required />
                             <datalist id="datalistCategory">
                                 @foreach($categories as $category)
                                 <option value="{{ $category->category_name }}"></option>
@@ -84,58 +84,51 @@
                             </datalist>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="mb-3">
-                            <label for="sub_category" class="form-label">Sub Category</label>
-                            <input class="form-control" list="datalistSubcategory" name="sub_category" id="sub_category" placeholder="Sub Category" />
-                            <datalist id="datalistSubcategory">
+                            <label for="sub_category" class="form-label">Sub Template Category</label>
+                            <input class="form-control" list="datalistSubCategory" name="sub_category" id="sub_category" placeholder="Sub Template Category" />
+                            <datalist id="datalistSubCategory">
                                 @foreach($subcategories as $subcategory)
-                                <option value="{{ $subcategory->subcategory_name }}"></option>
+                                <option value="{{ $subcategory->sub_category_name }}"></option>
                                 @endforeach
                             </datalist>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="mb-3">
-                            <label for="sub_subcategory" class="form-label">Sub Sub Category</label>
-                            <input class="form-control" list="datalistSubSubcategory" name="sub_subcategory" placeholder="Sub Sub Category" />
-                            <datalist id="datalistSubSubcategory">
+                            <label for="sub_sub_category" class="form-label">Sub Sub Template Category</label>
+                            <input class="form-control" list="datalistSubSubCategory" name="sub_sub_category" placeholder="Sub Sub Template Category" />
+                            <datalist id="datalistSubSubCategory">
                                 @foreach($sub_subcategories as $sub_subcategory)
-                                <option value="{{ $sub_subcategory->sub_subcategory_name }}"></option>
+                                <option value="{{ $sub_subcategory->sub_sub_category_name }}"></option>
                                 @endforeach
                             </datalist>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-3">
                         <div class="mb-3">
-                            <label for="template" class="form-label">Book</label>
-                            <input class="form-control" list="datalistTemplate" name="template" placeholder="Search Book" />
+                            <label for="template" class="form-label">Template</label>
+                            <input class="form-control" list="datalistTemplate" name="template" placeholder="Search Template" />
                             <datalist id="datalistTemplate">
-                                @foreach($books as $book)
-                                <option value="{{ $book->name }}"></option>
-                                @endforeach
-                            </datalist>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="mb-3">
-                            <label for="author" class="form-label">Author</label>
-                            <input class="form-control" list="datalistAuthor" name="author" placeholder="Search Author" />
-                            <datalist id="datalistAuthor">
-                                @foreach($authors as $author)
-                                <option value="{{ $author->name }}"></option>
+                                @foreach($templates as $template)
+                                <option value="{{ $template->name }}"></option>
                                 @endforeach
                             </datalist>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <div class="mb-3">
-                            <label for="short_description" class="form-label">Short Description</label>
-                            <textarea id="custom-textarea" name="short_description"></textarea>
+                            <label for="author_name" class="form-label">Author Name</label>
+                            <input type="text" class="form-control" name="author_name" id="author_name" placeholder="Author Name" required />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="author_email" class="form-label">Author Email</label>
+                            <input type="email" class="form-control" name="author_email" id="author_email" placeholder="Author Email" required />
                         </div>
                     </div>
                 </div>
@@ -184,15 +177,8 @@
                             <input type="text" class="form-control" name="link" placeholder="Link" disabled />
                         </div>
                     </div>
-                    <div class="col-sm-12">
-                    <div class="mb-3">
-                        <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="1" id="featuredCheckDefault">
-                              <label class="form-check-label" for="featuredCheckDefault">
-                                Featured?
-                              </label>
-                        </div>
-                    </div>
+                </div>
+                <div class="row">
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="featured-image" class="form-label">Featured Image</label>
@@ -202,13 +188,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="file" class="form-label">Upload File</label>
-                            <input class="form-control" type="file" name="file" multiple />
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="mb-3">
-                            <label for="og" class="form-label">Upload OG</label>
-                            <input class="form-control" type="file" name="og" multiple />
+                            <input class="form-control" type="file" name="file" id="file" multiple />
                         </div>
                     </div>
                 </div>
@@ -216,7 +196,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="status" class="form-label">Status</label>
-                            <input class="form-control" list="datalistStatus" name="status" placeholder="Status" required />
+                            <input class="form-control" list="datalistStatus" name="status" id="status" placeholder="Status" required />
                             <datalist id="datalistStatus">
                                 <option value="1">Publish</option>
                                 <option value="0">Draft</option>
@@ -228,7 +208,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="comment" class="form-label">Comment</label>
-                            <textarea class="form-control" name="comment" rows="3"></textarea>
+                            <textarea class="form-control" name="comment" id="comment" rows="3"></textarea>
                         </div>
                     </div>
                 </div>
