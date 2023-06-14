@@ -36,6 +36,7 @@ use Illuminate\Support\Facades\Route;
 
 // Homepage
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('book/detail/{slug}', [BooksController::class, 'detail'])->name('book.detail');
     
 // Why Our Themes
 Route::get('why-our-themes', [WhyOurThemesController::class, 'index']);
@@ -52,7 +53,7 @@ Route::get('about/license', [AboutController::class, 'license']);
 Route::get('hire-us', [HireController::class, 'index']);
 
 // Contact Us
-Route::get('contact-us', [ContactController::class, 'index']);
+Route::get('contact-us', [ContactController::class, 'index'])->name('book-contact-us');
 
 // Privacy Policy
 Route::get('privacy-policy', [PrivacyPolicyController::class, 'index']);
@@ -143,6 +144,21 @@ Route::post('/manage-blog/new-blog/store', [BlogsController::class, 'store'])->m
 Route::get('/manage-blog/edit/{id}', [BlogsController::class, 'edit'])->middleware(['auth', 'verified'])->name('blog.edit');
 Route::put('/manage-blog/update/{id}', [BlogsController::class, 'update'])->middleware(['auth', 'verified'])->name('blog.update');
 Route::delete('/manage-blog/destroy/{id}', [BlogsController::class, 'destroy'])->middleware(['auth', 'verified'])->name('blog.destroy');
+
+// Streaming Audios
+Route::get('/manage-audios', [BlogsController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-audios');
+Route::get('/manage-audio/new-audio', [BlogsController::class, 'create'])->middleware(['auth', 'verified'])->name('new-audio');
+Route::post('/manage-audio/new-audio/store', [BlogsController::class, 'store'])->middleware(['auth', 'verified'])->name('new-audio.store');
+Route::get('/manage-audio/edit/{id}', [BlogsController::class, 'edit'])->middleware(['auth', 'verified'])->name('audio.edit');
+Route::put('/manage-audio/update/{id}', [BlogsController::class, 'update'])->middleware(['auth', 'verified'])->name('audio.update');
+Route::delete('/manage-audio/destroy/{id}', [BlogsController::class, 'destroy'])->middleware(['auth', 'verified'])->name('audio.destroy');
+
+Route::get('/manage-audio-playlists', [BlogsController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-audio-playlists');
+Route::get('/manage-audio-playlist/new-audio-playlist', [BlogsController::class, 'create'])->middleware(['auth', 'verified'])->name('new-audio-playlist');
+Route::post('/manage-audio-playlist/new-audio-playlist/store', [BlogsController::class, 'store'])->middleware(['auth', 'verified'])->name('new-audio-playlist.store');
+Route::get('/manage-audio-playlist/edit/{id}', [BlogsController::class, 'edit'])->middleware(['auth', 'verified'])->name('audio-playlist.edit');
+Route::put('/manage-audio-playlist/update/{id}', [BlogsController::class, 'update'])->middleware(['auth', 'verified'])->name('audio-playlist.update');
+Route::delete('/manage-audio-playlist/destroy/{id}', [BlogsController::class, 'destroy'])->middleware(['auth', 'verified'])->name('audio-playlist.destroy');
 
 // Blog Categories
 // Route::get('/blog-categories/manage-blog-categories', [CategoriesController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-blog-categories');

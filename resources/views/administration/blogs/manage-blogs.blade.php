@@ -26,8 +26,15 @@
     <!-- Content -->
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-10">
             <h1>Blogs</h1>
+        </div>
+        <div class="col-lg-2 align-self-center">
+            <div class="row">
+                <div class="col-12 col-sm-12">
+                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('new-blog') }}">+ Add Blog</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -47,9 +54,11 @@
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Thumbnail</th>
+                        <th>Featured Image</th>
                         <th>Title</th>
                         <th>Category</th>
+                        <th>Subcategory</th>
+                        <th>Tags</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -57,10 +66,12 @@
                 <tbody>
                     @foreach ($blogs as $blog)
                     <tr>
-                        <td><img src="{{ asset('blog/icon/' . $category->icon) }}" class="" alt="..." height="42" width="42" /></td>
+                        <td><img src="{{ asset('blog/image/featured/' . $blog->featured_image) }}" class="" alt="..." height="42" width="42" /></td>
                         <td>{{ $blog->title }}</td>
-                        <td>{{ $blog->category }}</td>
-                        <td>{{ $blog->status }}</td>
+                        <td>{{ $blog->category_name }}</td>
+                        <td>{{ $blog->subcategory_name }}</td>
+                        <td>{{ $blog->tags }}</td>
+                        <td>@if($blog->status == 1) Published @else Draft @endif</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                               <a href="{{ route('blog.edit',$blog->id) }}" class="btn btn-secondary">Edit</a>
@@ -96,9 +107,11 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>Thumbnail</th>
+                        <th>Featured Image</th>
                         <th>Title</th>
                         <th>Category</th>
+                        <th>Subcategory</th>
+                        <th>Tags</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>

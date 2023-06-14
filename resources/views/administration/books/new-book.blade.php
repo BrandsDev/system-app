@@ -70,7 +70,7 @@
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="subcategory_name" class="form-label">Sub Category</label>
-                            <input class="form-control" list="datalistSubCategory" name="subcategory_name" placeholder="Subcategory" />
+                            <input class="form-control" list="datalistSubCategory" name="subcategory_name" placeholder="Subcategory" required />
                             <datalist id="datalistSubCategory">
                                 @foreach($subcategories as $subcategory)
                                 <option value="{{ $subcategory->subcategory_name }}"></option>
@@ -94,7 +94,7 @@
                     <div class="col-sm-3">
                         <div class="mb-3">
                             <label for="sku" class="form-label">SKU</label>
-                            <input type="text" class="form-control" name="sku" placeholder="SKU" />
+                            <input type="text" class="form-control" name="sku" placeholder="SKU" required />
                         </div>
                     </div>
                     <div class="col-sm-3">
@@ -200,15 +200,23 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="order_type" class="form-label">Order Type</label>
-                            <input class="form-control" list="datalistOrderType" name="order_type" placeholder="Order Type" required />
+                            <input class="form-control" list="datalistOrderType" name="order_type" placeholder="Order Type" />
                             <datalist id="datalistOrderType">
                                 <option value="1">Normal</option>
                                 <option value="0">Pre-Order</option>
                             </datalist>
                         </div>
                     </div>
-                </div>
-                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" name="is_featured" value="0" id="featuredCheckDefault">
+                                  <label class="form-check-label" for="featuredCheckDefault">
+                                    Featured?
+                                  </label>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="image" class="form-label">Book Image</label>
@@ -223,8 +231,8 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="og_image" class="form-label">OG Image</label>
-                            <input class="form-control" type="file" name="og_image" />
+                            <label for="og" class="form-label">OG Image</label>
+                            <input class="form-control" type="file" name="og" />
                         </div>
                     </div>
                     <div class="col-sm-12">
@@ -233,20 +241,16 @@
                             <input class="form-control" type="file" name="file" />
                         </div>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="status" class="form-label">Status</label>
-                            <input class="form-control" list="datalistStatus" name="status" placeholder="Status" required />
+                            <input class="form-control" list="datalistStatus" name="status" placeholder="Status" />
                             <datalist id="datalistStatus">
                                 <option value="1">Publish</option>
                                 <option value="0">Draft</option>
                             </datalist>
                         </div>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="comment" class="form-label">Comment</label>

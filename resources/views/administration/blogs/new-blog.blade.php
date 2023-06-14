@@ -59,7 +59,7 @@
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="tags" class="form-label">Tags *</label>
-                            <input type="text" class="form-control" name="tags" placeholder="Tags" required />
+                            <input type="text" class="form-control" name="tags" placeholder="Tags" />
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -67,16 +67,16 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-3">
-                            <label for="header-title" class="form-label">Header Title</label>
-                            <input type="text" class="form-control" name="header-title" placeholder="Header Title" required />
+                            <label for="header_title" class="form-label">Header Title</label>
+                            <input type="text" class="form-control" name="header_title" placeholder="Header Title" />
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="category" class="form-label">Category</label>
-                            <input class="form-control" list="datalistCategory" name="category" placeholder="Category" required />
+                            <label for="category_name" class="form-label">Category</label>
+                            <input class="form-control" list="datalistCategory" name="category_name" placeholder="Category" />
                             <datalist id="datalistCategory">
                                 @foreach($categories as $category)
                                 <option value="{{ $category->category_name }}"></option>
@@ -86,8 +86,8 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="sub_category" class="form-label">Sub Category</label>
-                            <input class="form-control" list="datalistSubcategory" name="sub_category" id="sub_category" placeholder="Sub Category" />
+                            <label for="subcategory_name" class="form-label">Sub Category</label>
+                            <input class="form-control" list="datalistSubcategory" name="subcategory_name" id="subcategory_name" placeholder="Sub Category" />
                             <datalist id="datalistSubcategory">
                                 @foreach($subcategories as $subcategory)
                                 <option value="{{ $subcategory->subcategory_name }}"></option>
@@ -97,8 +97,8 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="sub_subcategory" class="form-label">Sub Sub Category</label>
-                            <input class="form-control" list="datalistSubSubcategory" name="sub_subcategory" placeholder="Sub Sub Category" />
+                            <label for="sub_subcategory_name" class="form-label">Sub Sub Category</label>
+                            <input class="form-control" list="datalistSubSubcategory" name="sub_subcategory_name" placeholder="Sub Sub Category" />
                             <datalist id="datalistSubSubcategory">
                                 @foreach($sub_subcategories as $sub_subcategory)
                                 <option value="{{ $sub_subcategory->sub_subcategory_name }}"></option>
@@ -110,8 +110,8 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="mb-3">
-                            <label for="template" class="form-label">Book</label>
-                            <input class="form-control" list="datalistTemplate" name="template" placeholder="Search Book" />
+                            <label for="book" class="form-label">Book</label>
+                            <input class="form-control" list="datalistTemplate" name="book" placeholder="Search Book" />
                             <datalist id="datalistTemplate">
                                 @foreach($books as $book)
                                 <option value="{{ $book->name }}"></option>
@@ -122,7 +122,7 @@
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="author" class="form-label">Author</label>
-                            <input class="form-control" list="datalistAuthor" name="author" placeholder="Search Author" />
+                            <input class="form-control" list="datalistAuthor" name="author" placeholder="Search Author" required />
                             <datalist id="datalistAuthor">
                                 @foreach($authors as $author)
                                 <option value="{{ $author->name }}"></option>
@@ -151,13 +151,13 @@
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="youtube_iframe" class="form-label">Youtube Iframe</label>
-                            <textarea class="form-control" id="youtube_iframe" rows="2" name="youtube_iframe"></textarea>
+                            <textarea class="form-control" rows="2" name="youtube_iframe"></textarea>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="header_content" class="form-label">Header Content</label>
-                            <textarea class="form-control" id="header_content" rows="2" name="header_content"></textarea>
+                            <textarea class="form-control" rows="2" name="header_content"></textarea>
                         </div>
                     </div>
                 </div>
@@ -185,18 +185,19 @@
                         </div>
                     </div>
                     <div class="col-sm-12">
-                    <div class="mb-3">
-                        <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="1" id="featuredCheckDefault">
-                              <label class="form-check-label" for="featuredCheckDefault">
-                                Featured?
-                              </label>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" name="is_featured" value="0" id="featuredCheckDefault">
+                                  <label class="form-check-label" for="featuredCheckDefault">
+                                    Featured?
+                                  </label>
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="featured-image" class="form-label">Featured Image</label>
-                            <input class="form-control" type="file" name="featured-image" />
+                            <input class="form-control" type="file" name="featured_image" required />
                         </div>
                     </div>
                     <div class="col-sm-12">
@@ -211,20 +212,16 @@
                             <input class="form-control" type="file" name="og" multiple />
                         </div>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="status" class="form-label">Status</label>
-                            <input class="form-control" list="datalistStatus" name="status" placeholder="Status" required />
+                            <input class="form-control" list="datalistStatus" name="status" placeholder="Status" />
                             <datalist id="datalistStatus">
                                 <option value="1">Publish</option>
                                 <option value="0">Draft</option>
                             </datalist>
                         </div>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="comment" class="form-label">Comment</label>

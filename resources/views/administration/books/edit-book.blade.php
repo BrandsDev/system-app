@@ -70,22 +70,22 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="subcategory_name" class="form-label">Sub Category</label>
-                            <input class="form-control" list="datalistSubCategory" name="subcategory_name" value="{{ $book->sub_category_name }}" placeholder="Sub Category" />
-                            <datalist id="datalistSubCategory">
+                            <label for="subcategory_name" class="form-label">Subcategory</label>
+                            <input class="form-control" list="datalistSubcategory" name="subcategory_name" value="{{ $book->subcategory_name }}" placeholder="Subcategory" />
+                            <datalist id="datalistSubcategory">
                                 @foreach($subcategories as $subcategory)
-                                <option value="{{ $subcategory->sub_category_name }}"></option>
+                                <option value="{{ $subcategory->subcategory_name }}"></option>
                                 @endforeach
                             </datalist>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="sub_subcategory_name" class="form-label">Sub Sub Category</label>
-                            <input class="form-control" list="datalistSubSubCategory" name="sub_subcategory_name" value="{{ $book->sub_sub_category_name }}" placeholder="Sub Sub Category" />
-                            <datalist id="datalistSubSubCategory">
+                            <label for="sub_subcategory_name" class="form-label">Sub Subcategory</label>
+                            <input class="form-control" list="datalistSubSubcategory" name="sub_subcategory_name" value="{{ $book->sub_subcategory_name }}" placeholder="Sub Subcategory" />
+                            <datalist id="datalistSubSubcategory">
                                 @foreach($sub_subcategories as $sub_subcategory)
-                                <option value="{{ $sub_subcategory->sub_sub_category_name }}"></option>
+                                <option value="{{ $sub_subcategory->sub_subcategory_name }}"></option>
                                 @endforeach
                             </datalist>
                         </div>
@@ -123,8 +123,9 @@
                             <label for="publisher" class="form-label">Publisher</label>
                             <input class="form-control" list="datalistPublisher" name="publisher" value="{{ $book->publisher }}" placeholder="Publisher" required />
                             <datalist id="datalistPublisher">
-                                <option value="1">Publish</option>
-                                <option value="0">Draft</option>
+                                @foreach($BookPublishers as $BookPublisher)
+                                <option value="{{ $BookPublisher->name }}"></option>
+                                @endforeach
                             </datalist>
                         </div>
                     </div>
@@ -139,8 +140,9 @@
                             <label for="author" class="form-label">Author</label>
                             <input class="form-control" list="datalistAuthor" name="author" value="{{ $book->author }}" placeholder="Author" required />
                             <datalist id="datalistAuthor">
-                                <option value="1">Publish</option>
-                                <option value="0">Draft</option>
+                                @foreach($bookAuthors as $bookAuthor)
+                                <option value="{{ $bookAuthor->name }}"></option>
+                                @endforeach
                             </datalist>
                         </div>
                     </div>
@@ -199,11 +201,21 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="order_type" class="form-label">Order Type</label>
-                            <input class="form-control" list="datalistOrderType" name="order_type" value="{{ $book->order_type }}" placeholder="Order Type" required />
+                            <input class="form-control" list="datalistOrderType" name="order_type" placeholder="@if($book->order_type == 1) Normal @else Pre-Order @endif" />
                             <datalist id="datalistOrderType">
                                 <option value="1">Normal</option>
                                 <option value="0">Pre-Order</option>
                             </datalist>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" name="is_featured" value="1" id="featuredCheckDefault" @if($book->is_featured == 1) checked @endif>
+                                  <label class="form-check-label" for="featuredCheckDefault">
+                                    Featured?
+                                  </label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -216,7 +228,6 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="image" class="form-label">Book Image</label>
                             <input class="form-control" type="file" name="image" />
                         </div>
                     </div>
@@ -228,20 +239,18 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="page_images" class="form-label">Page Images</label>
                             <input class="form-control" type="file" name="page_images" multiple />
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="og_image" class="form-label">OG Image</label>
-                            <img src="{{ asset('book/image/' . $book->og_image) }}" class="img-thumbnail" alt="...">
+                            <label for="og" class="form-label">OG Image</label>
+                            <img src="{{ asset('book/image/' . $book->og) }}" class="img-thumbnail" alt="...">
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="og_image" class="form-label">OG Image</label>
-                            <input class="form-control" type="file" name="og_image" />
+                            <input class="form-control" type="file" name="og" />
                         </div>
                     </div>
                     <div class="col-sm-12">
@@ -255,7 +264,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="status" class="form-label">Status</label>
-                            <input class="form-control" list="datalistStatus" name="status" id="status" value="{{ $book->status }}" placeholder="Status" required />
+                            <input class="form-control" list="datalistStatus" name="status" id="status" placeholder="@if($book->status == 1) Published @else Draft @endif" />
                             <datalist id="datalistStatus">
                                 <option value="1">Publish</option>
                                 <option value="0">Draft</option>

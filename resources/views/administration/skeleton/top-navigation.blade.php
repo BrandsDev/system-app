@@ -45,6 +45,16 @@
 				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Streaming
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li><a class="dropdown-item" href="{{ route('new-audio') }}">Add Audio</a></li>
+						<li><a class="dropdown-item" href="{{ route('new-audio-playlist') }}">Add Audio Playlist</a></li>
+						<li><a class="dropdown-item" href="{{ route('manage-audios') }}">Manage Audio's</a></li>
+					</ul>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Blogs
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">

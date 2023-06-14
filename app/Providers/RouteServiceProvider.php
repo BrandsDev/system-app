@@ -22,6 +22,7 @@ class RouteServiceProvider extends ServiceProvider
     public const Book = '/manage-book/new-book';
     public const Publisher = '/manage-publisher/new-publisher';
     public const Author = '/manage-author/new-author';
+    public const Blog = '/manage-blog/new-blog';
     public const Categories = '/categories/manage-categories';
     public const SubCategories = '/categories/manage-subcategories';
     public const SubSubCategories = '/categories/manage-sub-subcategories';

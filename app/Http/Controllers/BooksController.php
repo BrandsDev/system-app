@@ -58,18 +58,6 @@ class BooksController extends Controller
         //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
         // ]);
 
-        $imageName = $request->image->getClientOriginalName();
-        $request->image->move(public_path('book/image'), $imageName);
-
-        $pageImages = $request->page_images->getClientOriginalName();
-        $request->page_images->move(public_path('book/image/pages'), $pageImages);
-
-        $ogImage = $request->og_image->getClientOriginalName();
-        $request->og_image->move(public_path('book/image'), $ogImage);
-
-        $fileName = $request->file->getClientOriginalName();
-        $request->file->move(public_path('book/file'), $fileName);
-
         $book = Book::create([
             'name' => $request->name,
             'slug' => $request->slug,
@@ -90,16 +78,41 @@ class BooksController extends Controller
             'header_content' => $request->header_content,
             'meta_title' => $request->meta_title,
             'meta_description' => $request->meta_description,
-            'order_type' => $request->order_type,
-            'image' => $imageName,
-            'page_images' => $pageImages,
-            'og_image' => $ogImage,
-            'file' => $fileName,
-            'status' => $request->status,
+            'order_type' => $request->input('order_type', 0),
+            'is_featured' => $request->input('is_featured', 0),
+            'status' => $request->input('status', 0),
             'comment' => $request->comment,
         ]);
 
         $book->save();
+
+        if ($request->hasFile('image')) {
+            $imageName = $request->file('image')->getClientOriginalName();
+            $request->file('image')->move(public_path('book/image'), $imageName);
+            $book->image = $imageName;
+        }
+
+        if ($request->hasFile('page_images')) {
+            $pageImages = $request->file('page_images')->getClientOriginalName();
+            $request->file('page_images')->move(public_path('book/image/page'), $pageImages);
+            $book->page_images = $pageImages;
+        }
+
+        if ($request->hasFile('og')) {
+            $og = $request->file('og')->getClientOriginalName();
+            $request->file('og')->move(public_path('book/image/og'), $og);
+            $book->og = $og;
+        }
+
+        if ($request->hasFile('file')) {
+            $fileName = $request->file('file')->getClientOriginalName();
+            $request->file('file')->move(public_path('book/file'), $fileName);
+            $book->file = $fileName;
+        }
+
+        if ($request->hasFile('image') || $request->hasFile('page_images') || $request->hasFile('og') || $request->hasFile('file')) {
+            $book->save();
+        }
 
         Session::flash('message', __('New Book Successfully Added!'));
         
@@ -109,7 +122,7 @@ class BooksController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Request $bookDetail)
+    public function show(Request $request)
     {
         $books = Book::all();
 
@@ -121,10 +134,10 @@ class BooksController extends Controller
      */
     public function detail($slug)
     {
-        $books = Book::where('slug', $slug)->firstOrFail();
+        $book = Book::where('slug', $slug)->firstOrFail();
 
 
-        return view('frontend.Book-detail', ['books' => $books]);
+        return view('frontend.book.book-detail', ['book' => $book]);
     }
 
     /**
@@ -132,12 +145,21 @@ class BooksController extends Controller
      */
     public function edit($id)
     {
-        $book = Book::findOrFail($id);     
+        $book = Book::findOrFail($id);
+        $bookAuthors = BookAuthor::all();
+        $BookPublishers = BookPublisher::all();
         $categories = Category::all();
         $subcategories = Subcategory::all();
         $sub_subcategories = SubSubcategory::all();
 
-        return view('administration.books.edit-Book', ['book' => $book, 'categories' => $categories,'subcategories' => $subcategories, 'sub_subcategories' => $sub_subcategories]);
+        return view('administration.books.edit-Book', [
+            'book' => $book, 
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+            'sub_subcategories' => $sub_subcategories,
+            'bookAuthors' => $bookAuthors,
+            'BookPublishers' => $BookPublishers
+        ]);
     }
 
     /**
@@ -145,80 +167,63 @@ class BooksController extends Controller
      */
     public function update(Request $request, $id): RedirectResponse
     {
-        // Retrieve the existing record from the database
         $book = Book::find($id);
 
-        // Make sure the record exists
         if ($book) {
-            // Validate and process the new image
             $newImage = $request->file('image');
 
             if ($newImage) {
-                // Validate the new image file
                 $validatedData = $request->validate([
                     // 'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
                 ]);
 
-                // Process the new image file (e.g., move to a specific directory, assign a new filename)
                 $newImageName = $request->image->getClientOriginalName();
                 $request->image->move(public_path('book/image'), $newImageName);
 
-                // Update the image data in the model
                 $book->image = $newImageName;
             }
 
-            // Validate and process the new image
             $newPageImages = $request->file('page_images');
 
             if ($newPageImages) {
-                // Validate the new page images page images
                 $validatedData = $request->validate([
                     // 'page_images' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
                 ]);
 
-                // Process the new page images page images (e.g., move to a specific directory, assign a new filename)
                 $newPageImageName = $request->page_images->getClientOriginalName();
                 $request->page_images->move(public_path('book/image/pages'), $newPageImageName);
 
-                // Update the page images data in the model
                 $book->page_images = $newPageImageName;
             }
 
-            // Validate and process the new image
-            $newOGImage = $request->file('og_image');
+            $newOGImage = $request->file('og');
 
             if ($newOGImage) {
-                // Validate the new OG Image OG Image
                 $validatedData = $request->validate([
-                    // 'og_image' => 'file|mimes:jpeg,png,jpg,gif|max:2048',
+                    // 'og' => 'file|mimes:jpeg,png,jpg,gif|max:2048',
                 ]);
 
-                // Process the new OG Image OG Image (e.g., move to a specific directory, assign a new filename)
-                $newOGImageName = $request->og_image->getClientOriginalName();
-                $request->og_image->move(public_path('book/image'), $newOGImageName);
+                $newOGImageName = $request->og->getClientOriginalName();
+                $request->og->move(public_path('book/image'), $newOGImageName);
 
-                // Update the OG Image data in the model
-                $book->og_image = $newOGImageName;
+                $book->og = $newOGImageName;
             }
 
-            // Validate and process the new image
             $newFile = $request->file('file');
 
             if ($newFile) {
-                // Validate the new file file
                 $validatedData = $request->validate([
                     // 'file' => 'file|mimes:jpeg,png,jpg,gif|max:2048',
                 ]);
 
-                // Process the new file file (e.g., move to a specific directory, assign a new filename)
                 $newFileName = $request->file->getClientOriginalName();
                 $request->file->move(public_path('book/file'), $newFileName);
 
-                // Update the file data in the model
                 $book->file = $newFileName;
             }
 
-            // Update other fields of the request
+            // dd($book->og);
+
             $book->name = $request->input('name');
             $book->slug = $request->input('slug');
             $book->category_name = $request->input('category_name');
@@ -239,16 +244,16 @@ class BooksController extends Controller
             $book->meta_title = $request->input('meta_title');
             $book->meta_description = $request->input('meta_description');
             $book->order_type = $request->input('order_type');
+            $book->is_featured = $request->input('is_featured');
             $book->status = $request->input('status');
             $book->comment = $request->input('comment');
 
-            // Save the changes
             $book->save();
 
-            // Perform any additional actions or redirect as needed
         } else {
-            // Handle the case when the record doesn't exist
-            dd();
+            Session::flash('update', __('The record does not exist'));
+        
+            return back();
         }
 
         Session::flash('update', __('Book Successfully Updated!'));

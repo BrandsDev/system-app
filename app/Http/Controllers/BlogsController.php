@@ -16,17 +16,11 @@ use Session;
 
 class BlogsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         return view('frontend.blog');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create(Request $request)
     {
         $books = Book::all();
@@ -44,9 +38,6 @@ class BlogsController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request): RedirectResponse
     {
         // $request->validate([
@@ -57,43 +48,56 @@ class BlogsController extends Controller
         //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
         // ]);
 
-        $image = $request->image->getClientOriginalName();
-        $request->image->move(public_path('book/image/author'), $image);
-
-        $og = $request->og->getClientOriginalName();
-        $request->og->move(public_path('book/image/author'), $og);
-
-        $banner = $request->banner->getClientOriginalName();
-        $request->banner->move(public_path('book/image/author'), $banner);
-
-        $book = BookAuthor::create([
-            'name' => $request->name,
+        $blog = Blog::create([
+            'title' => $request->title,
             'slug' => $request->slug,
-            'gender' => $request->gender,
-            'bio' => $request->bio,
-            'mobile' => $request->mobile,
-            'email' => $request->email,
-            'address' => $request->address,
-            'description' => $request->description,
+            'tags' => $request->tags,
+            'header_title' => $request->header_title,
+            'category_name' => $request->category_name,
+            'subcategory_name' => $request->subcategory_name,
+            'sub_subcategory_name' => $request->sub_subcategory_name,
+            'book' => $request->book,
+            'author' => $request->author,
+            'short_description' => $request->short_description,
+            'long_description' => $request->long_description,
             'youtube_iframe' => $request->youtube_iframe,
+            'header_content' => $request->header_content,
             'meta_title' => $request->meta_title,
             'meta_description' => $request->meta_description,
-            'image' => $image,
-            'og' => $og,
-            'banner' => $banner,
+            'is_featured' => $request->is_featured,
             'status' => $request->status,
+            'comment' => $request->comment,
         ]);
 
-        $book->save();
+        $blog->save();
 
-        Session::flash('message', __('New Author Successfully Added!'));
+        if ($request->hasFile('featured_image')) {
+            $featuredImage = $request->file('featured_image')->getClientOriginalName();
+            $request->file('featured_image')->move(public_path('blog/image/featured'), $featuredImage);
+            $blog->featured_image = $featuredImage;
+        }
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file')->getClientOriginalName();
+            $request->file('file')->move(public_path('blog/file'), $file);
+            $blog->file = $file;
+        }
+
+        if ($request->hasFile('og')) {
+            $og = $request->file('og')->getClientOriginalName();
+            $request->file('og')->move(public_path('blog/image/og'), $og);
+            $blog->og = $og;
+        }
+
+        if ($request->hasFile('featured_image') || $request->hasFile('file') || $request->hasFile('og')) {
+            $blog->save();
+        }
+
+        Session::flash('message', __('New Blog Successfully Added!'));
         
-        return redirect(RouteServiceProvider::Author);
+        return redirect(RouteServiceProvider::Blog);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Request $request)
     {            
         $blogs = Blog::all();
@@ -101,329 +105,111 @@ class BlogsController extends Controller
         return view('administration.blogs.manage-blogs', ['blogs' => $blogs]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Request $request, $id)
+    public function edit($id)
     {
-        if ($request->routeIs('category.edit')) {
-
-            $category = Category::findOrFail($id);
-            
-            return view('administration.categories.edit-category', ['category' => $category]);
-
-        } elseif ($request->routeIs('subcategory.edit')) {
-
-            $categories = Category::select('category_name')->get();
-
-            $subcategory = Subcategory::findOrFail($id);
-            
-            return view('administration.categories.edit-subcategory', ['categories' => $categories, 'subcategory' => $subcategory]);
-
-        } elseif ($request->routeIs('sub-subcategory.edit')) {
-
-            $subcategories = Subcategory::select('sub_category_name')->get();
-
-            $sub_subcategory = SubSubcategory::findOrFail($id);
-            
-            return view('administration.categories.edit-sub-subcategory', ['subcategories' => $subcategories, 'sub_subcategory' => $sub_subcategory]);
-
-        }
+        $blog = Blog::findOrFail($id);
+        $books = Book::all();
+        $authors = BookAuthor::all();
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+        $sub_subcategories = SubSubcategory::all();
         
-        // Default view if none of the routes match
-        return view('/dashboard');
+        return view('administration.blogs.edit-blog', [
+            'blog' => $blog,
+            'books' => $books,
+            'authors' => $authors,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+            'sub_subcategories' => $sub_subcategories,
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id): RedirectResponse
     {
-        if ($request->routeIs('category.update')) {
+        $blog = Blog::find($id);
 
-            // Retrieve the existing record from the database
-            $category = Category::find($id);
+        if ($blog) {
+            $featuredImage = $request->file('featured_image');
 
-            // Make sure the record exists
-            if ($category) {
-                // Validate and process the new icon
-                $newIcon = $request->file('icon');
+            if ($featuredImage) {
+                $validatedData = $request->validate([
+                    // 'featured_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+                ]);
 
-                if ($newIcon) {
-                    // Validate the new icon file
-                    $validatedData = $request->validate([
-                        // 'icon' => 'icon|mimes:jpeg,png,jpg,gif|max:2048',
-                    ]);
+                $featuredImageName = $request->featured_image->getClientOriginalName();
+                $request->featured_image->move(public_path('blog/image/featured'), $featuredImageName);
 
-                    // Process the new icon file (e.g., move to a specific directory, assign a new filename)
-                    $newIconName = $request->icon->getClientOriginalName();
-                    $request->icon->move(resource_path('category/icon'), $newIconName);
-
-                    // Update the image data in the model
-                    $category->icon = $newIconName;
-                }
-
-                // Validate and process the new image
-                $newThumb = $request->file('thumb');
-
-                if ($newThumb) {
-                    // Validate the new thumb thumb
-                    $validatedData = $request->validate([
-                        // 'thumb' => 'thumb|mimes:jpeg,png,jpg,gif|max:2048',
-                    ]);
-
-                    // Process the new thumb thumb (e.g., move to a specific directory, assign a new filename)
-                    $newThumbName = $request->thumb->getClientOriginalName();
-                    $request->thumb->move(resource_path('category/thumb'), $newThumbName);
-
-                    // Update the thumb data in the model
-                    $category->thumb = $newThumbName;
-                }
-
-                // Validate and process the new image
-                $newCover = $request->file('cover');
-
-                if ($newCover) {
-                    // Validate the new cover cover
-                    $validatedData = $request->validate([
-                        // 'cover' => 'cover|mimes:jpeg,png,jpg,gif|max:2048',
-                    ]);
-
-                    // Process the new cover cover (e.g., move to a specific directory, assign a new filename)
-                    $newCoverName = $request->cover->getClientOriginalName();
-                    $request->cover->move(resource_path('category/cover'), $newCoverName);
-
-                    // Update the cover data in the model
-                    $category->cover = $newCoverName;
-                }
-
-                // Validate and process the new image
-                $newOG = $request->file('og_image');
-
-                if ($newOG) {
-                    // Validate the new OG Image
-                    $validatedData = $request->validate([
-                        // 'og_image' => 'og_image|mimes:jpeg,png,jpg,gif|max:2048',
-                    ]);
-
-                    // Process the new OG Image (e.g., move to a specific directory, assign a new filename)
-                    $newOGName = $request->og_image->getClientOriginalName();
-                    $request->og_image->move(resource_path('category/og'), $newOGName);
-
-                    // Update the thumb data in the model
-                    $category->og_image = $newOGName;
-                }
-
-                // Update other fields of the request
-                $category->category_name = $request->input('category_name');
-                $category->slug = $request->input('slug');
-                $category->description = $request->input('description');
-                $category->meta_title = $request->input('meta_title');
-                $category->meta_description = $request->input('meta_description');
-
-                // Save the changes
-                $category->save();
-
-                // Perform any additional actions or redirect as needed
-            } else {
-                // Handle the case when the record doesn't exist
-                Session::flash('message', __('Category Record does not exist!'));
-
-                return back();
+                $blog->featured_image = $featuredImageName;
             }
 
-            Session::flash('message', __('Category Successfully Updated!'));
-            
-            return back();
+            $file = $request->file('file');
 
-        } elseif ($request->routeIs('subcategory.update')) {
+            if ($file) {
+                $validatedData = $request->validate([
+                    // 'file' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+                ]);
 
-            $subcategory = Subcategory::find($id);
+                $Name = $request->file->getClientOriginalName();
+                $request->file->move(public_path('blog/file'), $Name);
 
-            if ($subcategory) {
-                $newIcon = $request->file('icon');
-
-                if ($newIcon) {
-                    $validatedData = $request->validate([
-                        // 'icon' => 'icon|mimes:jpeg,png,jpg,gif|max:2048',
-                    ]);
-
-                    $newIconName = $request->icon->getClientOriginalName();
-                    $request->icon->move(resource_path('category/icon'), $newIconName);
-
-                    $subcategory->icon = $newIconName;
-                }
-
-                $newThumb = $request->file('thumb');
-
-                if ($newThumb) {
-                    $validatedData = $request->validate([
-                        // 'thumb' => 'thumb|mimes:jpeg,png,jpg,gif|max:2048',
-                    ]);
-
-                    $newThumbName = $request->thumb->getClientOriginalName();
-                    $request->thumb->move(resource_path('category/thumb'), $newThumbName);
-
-                    $subcategory->thumb = $newThumbName;
-                }
-
-                $newCover = $request->file('cover');
-
-                if ($newCover) {
-                    $validatedData = $request->validate([
-                        // 'cover' => 'cover|mimes:jpeg,png,jpg,gif|max:2048',
-                    ]);
-
-                    $newCoverName = $request->cover->getClientOriginalName();
-                    $request->cover->move(resource_path('category/cover'), $newCoverName);
-
-                    $subcategory->cover = $newCoverName;
-                }
-
-                $newOG = $request->file('og_image');
-
-                if ($newOG) {
-                    $validatedData = $request->validate([
-                        // 'og_image' => 'og_image|mimes:jpeg,png,jpg,gif|max:2048',
-                    ]);
-
-                    $newOGName = $request->og_image->getClientOriginalName();
-                    $request->og_image->move(resource_path('category/og'), $newOGName);
-
-                    $subcategory->og_image = $newOGName;
-                }
-
-                $subcategory->category_name = $request->input('category_name');
-                $subcategory->sub_category_name = $request->input('sub_category_name');
-                $subcategory->slug = $request->input('slug');
-                $subcategory->description = $request->input('description');
-                $subcategory->meta_title = $request->input('meta_title');
-                $subcategory->meta_description = $request->input('meta_description');
-
-                $subcategory->save();
-
-            } else {
-                Session::flash('message', __('Category Record does not exist!'));
-
-                return back();
+                $blog->file = $Name;
             }
 
-            Session::flash('message', __('Subcategory Successfully Updated!'));
-            
-            return back();
+            $og = $request->file('og');
 
-        } elseif ($request->routeIs('sub-subcategory.update')) {
+            if ($og) {
+                $validatedData = $request->validate([
+                    // 'og' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+                ]);
 
-            $sub_subcategory = SubSubcategory::find($id);
+                $ogImageName = $request->og->getClientOriginalName();
+                $request->og->move(public_path('blog/image/og'), $ogImageName);
 
-            if ($sub_subcategory) {
-                $newIcon = $request->file('icon');
-
-                if ($newIcon) {
-                    $validatedData = $request->validate([
-                        // 'icon' => 'icon|mimes:jpeg,png,jpg,gif|max:2048',
-                    ]);
-
-                    $newIconName = $request->icon->getClientOriginalName();
-                    $request->icon->move(resource_path('category/icon'), $newIconName);
-
-                    $sub_subcategory->icon = $newIconName;
-                }
-
-                $newThumb = $request->file('thumb');
-
-                if ($newThumb) {
-                    $validatedData = $request->validate([
-                        // 'thumb' => 'thumb|mimes:jpeg,png,jpg,gif|max:2048',
-                    ]);
-
-                    $newThumbName = $request->thumb->getClientOriginalName();
-                    $request->thumb->move(resource_path('category/thumb'), $newThumbName);
-
-                    $sub_subcategory->thumb = $newThumbName;
-                }
-
-                $newCover = $request->file('cover');
-
-                if ($newCover) {
-                    $validatedData = $request->validate([
-                        // 'cover' => 'cover|mimes:jpeg,png,jpg,gif|max:2048',
-                    ]);
-
-                    $newCoverName = $request->cover->getClientOriginalName();
-                    $request->cover->move(resource_path('category/cover'), $newCoverName);
-
-                    $sub_subcategory->cover = $newCoverName;
-                }
-
-                $newOG = $request->file('og_image');
-
-                if ($newOG) {
-                    $validatedData = $request->validate([
-                        // 'og_image' => 'og_image|mimes:jpeg,png,jpg,gif|max:2048',
-                    ]);
-
-                    $newOGName = $request->og_image->getClientOriginalName();
-                    $request->og_image->move(resource_path('category/og'), $newOGName);
-
-                    $sub_subcategory->og_image = $newOGName;
-                }
-
-                $sub_subcategory->sub_sub_category_name = $request->input('sub_sub_category_name');
-                $sub_subcategory->sub_category_name = $request->input('sub_category_name');
-                $sub_subcategory->slug = $request->input('slug');
-                $sub_subcategory->description = $request->input('description');
-                $sub_subcategory->meta_title = $request->input('meta_title');
-                $sub_subcategory->meta_description = $request->input('meta_description');
-
-                $sub_subcategory->save();
-
-            } else {
-                Session::flash('message', __('Category Record does not exist!'));
-
-                return back();
+                $blog->og = $ogImageName;
             }
 
-            Session::flash('message', __('Subcategory Successfully Updated!'));
-            
+            // Update other fields of the request
+            $blog->title = $request->input('title');
+            $blog->slug = $request->input('slug');            
+            $blog->tags = $request->input('tags');
+            $blog->header_title = $request->input('header_title');
+            $blog->category_name = $request->input('category_name');
+            $blog->subcategory_name = $request->input('subcategory_name');
+            $blog->sub_subcategory_name = $request->input('sub_subcategory_name');
+            $blog->book = $request->input('book');
+            $blog->author = $request->input('author');
+            $blog->short_description = $request->input('short_description');
+            $blog->long_description = $request->input('long_description');
+            $blog->youtube_iframe = $request->input('youtube_iframe');
+            $blog->header_content = $request->input('header_content');
+            $blog->meta_title = $request->input('meta_title');
+            $blog->meta_description = $request->input('meta_description');
+            $blog->is_featured = $request->input('is_featured');
+            $blog->status = $request->input('status');
+            $blog->comment = $request->input('comment');
+
+            // Save the changes
+            $blog->save();
+
+            // Perform any additional actions or redirect as needed
+        } else {
+            // Handle the case when the record doesn't exist
+            Session::flash('update', __('There is a problem!'));
+
             return back();
         }
+
+        Session::flash('update', __('Blog Successfully Updated!'));
         
-        // Default view if none of the routes match
-        return view('/dashboard');
+        return back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Request $request, $id)
     {
-        if ($request->routeIs('category.destroy')) {
+        Blog::where('id',$id)->delete();
 
-            Category::where('id',$id)->delete();
-
-            Session::flash('delete', __('Category Successfully Deleted!'));
-            
-            return back();
-
-        } elseif ($request->routeIs('subcategory.destroy')) {
-            
-            Subcategory::where('id',$id)->delete();
-
-            Session::flash('delete', __('Subcategory Successfully Deleted!'));
-            
-            return back();
-
-        } elseif ($request->routeIs('sub-subcategory.destroy')) {
-            
-            SubSubcategory::where('id',$id)->delete();
-
-            Session::flash('delete', __('Sub Subcategory Successfully Deleted!'));
-            
-            return back();
-        }
+        Session::flash('delete', __('Blog Successfully Deleted!'));
         
-        // Default view if none of the routes match
-        return view('/dashboard');
+        return back();
     }
 }

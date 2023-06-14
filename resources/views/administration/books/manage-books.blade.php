@@ -1,16 +1,11 @@
-@extends('administration.skeleton.body')
-
-@section('custom-head')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+@extends('administration.skeleton.body') @section('custom-head')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" />
 
 <script defer src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script defer src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script defer src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
-@vite(['resources/js/datatable-script.js'])
-@endsection
-
-@section('content')
+@vite(['resources/js/datatable-script.js']) @endsection @section('content')
 <main class="container p-3 py-5">
     <!-- Breadcrumb -->
     <div class="row">
@@ -26,8 +21,15 @@
     <!-- Content -->
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-10">
             <h1>Books</h1>
+        </div>
+        <div class="col-lg-2 align-self-center">
+            <div class="row">
+                <div class="col-12 col-sm-12">
+                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('new-blog') }}">+ Add Book</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -43,13 +45,13 @@
 
     <div class="row">
         <div class="col-sm-12">
-
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
                         <th>Image</th>
                         <th>Name</th>
-                        <th>Publisher Name</th>
+                        <th>Publisher</th>
+                        <th>Author</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -58,34 +60,34 @@
                     <tr>
                         <td><img src="{{ asset('book/image/' . $book->image) }}" class="" alt="..." height="42" width="42" /></td>
                         <td>{{ $book->name }}</td>
-                        <td>{{ $book->seller_name }}</td>
+                        <td>{{ $book->publisher }}</td>
+                        <td>{{ $book->author }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                              <a href="{{ route('book.edit',$book->id) }}" class="btn btn-secondary">Edit</a>
+                                <a href="{{ route('book.edit',$book->id) }}" class="btn btn-secondary">Edit</a>
 
-                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteBook{{ $book->id }}">Destroy</button>
+                                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteBook{{ $book->id }}">Destroy</button>
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="deleteBook{{ $book->id }}" tabindex="-1" aria-labelledby="deleteBookLabel" aria-hidden="true">
-                                  <div class="modal-dialog">
-                                    <div class="modal-content">
-                                      <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Are You Sure?</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                      </div>
-                                      <div class="modal-body">
-                                        <p>Do you really want to delete. This process cannot be undone.</p>
-                                      </div>
-                                      <form method="POST" action="{{ route('book.destroy',$book->id) }}">
-                                        @csrf
-                                        @method('DELETE')
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Yes</button>
-                                      </div>
-                                    </form>
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Are You Sure?</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Do you really want to delete. This process cannot be undone.</p>
+                                            </div>
+                                            <form method="POST" action="{{ route('book.destroy',$book->id) }}">
+                                                @csrf @method('DELETE')
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Yes</button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
-                                  </div>
                                 </div>
                             </div>
                         </td>
@@ -96,12 +98,12 @@
                     <tr>
                         <th>Image</th>
                         <th>Name</th>
-                        <th>Publisher Name</th>
+                        <th>Publisher</th>
+                        <th>Author</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
             </table>
-
         </div>
     </div>
 </main>
