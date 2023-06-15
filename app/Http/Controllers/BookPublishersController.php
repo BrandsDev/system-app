@@ -121,7 +121,7 @@ class BookPublishersController extends Controller
                 ]);
 
                 $newImageName = $request->image->getClientOriginalName();
-                $request->image->move(public_path('book/publisher/image'), $newImageName);
+                $request->image->move(public_path('book/image/publisher'), $newImageName);
 
                 $publisher->image = $newImageName;
             }
@@ -134,7 +134,7 @@ class BookPublishersController extends Controller
                 ]);
 
                 $newOGImageName = $request->og_image->getClientOriginalName();
-                $request->og_image->move(public_path('book/publisher/image'), $newOGImageName);
+                $request->og_image->move(public_path('book/image/publisher'), $newOGImageName);
 
                 $publisher->og_image = $newOGImageName;
             }
@@ -147,7 +147,7 @@ class BookPublishersController extends Controller
                 ]);
 
                 $newBannerName = $request->file->getClientOriginalName();
-                $request->file->move(public_path('book/publisher/image'), $newBannerName);
+                $request->file->move(public_path('book/image/publisher'), $newBannerName);
 
                 $publisher->file = $newBannerName;
             }
