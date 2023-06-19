@@ -18,14 +18,20 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = '/dashboard';
-    public const Template = '/templates/new-template';
-    public const Book = '/manage-book/new-book';
-    public const Publisher = '/manage-publisher/new-publisher';
-    public const Author = '/manage-author/new-author';
-    public const Blog = '/manage-blog/new-blog';
     public const Categories = '/categories/manage-categories';
     public const SubCategories = '/categories/manage-subcategories';
     public const SubSubCategories = '/categories/manage-sub-subcategories';
+
+    public const Blog = '/manage-blog/new-blog';
+    
+    public const Template = '/templates/new-template';
+
+    public const Book = '/manage-book/new-book';
+    public const Publisher = '/manage-publisher/new-publisher';
+    public const Author = '/manage-author/new-author';
+
+    public const Audio = '/manage-audio/new-audio';
+    public const AudioPlaylist = '/manage-audio-playlist/new-audio-playlist';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
