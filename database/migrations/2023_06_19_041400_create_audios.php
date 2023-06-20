@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('subcategory_name', 100)->nullable();
             $table->string('sub_subcategory_name', 100)->nullable();
             $table->string('genre', 100)->nullable();
-            $table->string('album', 100);
+            $table->string('album', 100)->nullable();
             $table->text('short_description')->nullable();
             $table->text('long_description')->nullable();
             $table->text('youtube_iframe')->nullable();

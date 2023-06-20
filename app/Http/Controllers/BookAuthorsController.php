@@ -208,7 +208,11 @@ class BookAuthorsController extends Controller
             $book->meta_title = $request->input('meta_title');
             $book->meta_description = $request->input('meta_description');
             $book->order_type = $request->input('order_type');
-            $book->status = $request->input('status');
+
+            if (!is_null($request->input('status'))) {
+                $audio->status = $request->input('status');
+            }
+            
             $book->comment = $request->input('comment');
 
             // Save the changes

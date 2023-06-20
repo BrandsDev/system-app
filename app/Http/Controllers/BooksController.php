@@ -245,7 +245,11 @@ class BooksController extends Controller
             $book->meta_description = $request->input('meta_description');
             $book->order_type = $request->input('order_type');
             $book->is_featured = $request->input('is_featured');
-            $book->status = $request->input('status');
+
+            if (!is_null($request->input('status'))) {
+                $audio->status = $request->input('status');
+            }
+            
             $book->comment = $request->input('comment');
 
             $book->save();

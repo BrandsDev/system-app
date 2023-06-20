@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Audio extends Model
 {
     use HasFactory;
+    
+    protected $table = 'audios';
 
     /**
      * The attributes that are mass assignable.

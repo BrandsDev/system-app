@@ -1,13 +1,6 @@
 @extends('administration.skeleton.body')
 @section('content') @section('custom-head')
 <script src="https://cdn.tiny.cloud/1/m9g2pjluv64jkrzcnksdf4ur6nd9lvyrbatcjua3iazeof63/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-
-<!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-
-<!-- Datepicker -->
-<link href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css' rel='stylesheet' type='text/css'>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js' type='text/javascript'></script>
 @endsection
 
 <main class="container p-3 py-5">
@@ -75,7 +68,7 @@
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="release_date" class="form-label">Release Date</label>
-                            <input type="text" class="form-control" id="release-datepicker" name="release_date" placeholder="Select Release Date">
+                            <input type="date" class="form-control" name="release_date" placeholder="Select Release Date">
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -252,13 +245,6 @@
 </main>
 
 @section('custom-scripts')
-<!-- Script -->
-<script type="text/javascript">
-    $(document).ready(function(){
-      $('#release-datepicker').datepicker(); 
-    });
-</script>
-
 <script>
     tinymce.init({
         selector: 'textarea',

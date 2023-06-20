@@ -162,7 +162,10 @@ class BookPublishersController extends Controller
             $publisher->youtube_iframe = $request->input('youtube_iframe');
             $publisher->meta_title = $request->input('meta_title');
             $publisher->meta_description = $request->input('meta_description');
-            $publisher->status = $request->input('status');
+
+            if (!is_null($request->input('status'))) {
+                $audio->status = $request->input('status');
+            }
 
             // Save the changes
             $publisher->save();

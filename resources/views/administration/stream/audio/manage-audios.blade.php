@@ -54,7 +54,7 @@
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>SL</th>
                         <th>Title</th>
                         <th>Artist</th>
                         <th>Duration</th>
@@ -64,22 +64,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($blogs as $blog)
+                    @foreach ($audios as $index => $audio)
                     <tr>
-                        <td><img src="{{ asset('blog/image/featured/' . $blog->featured_image) }}" class="" alt="..." height="42" width="42" /></td>
-                        <td>{{ $blog->title }}</td>
-                        <td>{{ $blog->category_name }}</td>
-                        <td>{{ $blog->subcategory_name }}</td>
-                        <td>{{ $blog->tags }}</td>
-                        <td>@if($blog->status == 1) Published @else Draft @endif</td>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $audio->title }}</td>
+                        <td>{{ $audio->artist }}</td>
+                        <td>{{ $audio->duration }}</td>
+                        <td>{{ $audio->release_date }}</td>
+                        <td>@if($audio->status == 1) Published @else Draft @endif</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                              <a href="{{ route('blog.edit',$blog->id) }}" class="btn btn-secondary">Edit</a>
+                              <a href="{{ route('audio.edit',$audio->id) }}" class="btn btn-secondary">Edit</a>
 
-                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteBlog{{ $blog->id }}">Destroy</button>
+                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteAudio{{ $audio->id }}">Destroy</button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="deleteBlog{{ $blog->id }}" tabindex="-1" aria-labelledby="deleteBlogLabel" aria-hidden="true">
+                                <div class="modal fade" id="deleteAudio{{ $audio->id }}" tabindex="-1" aria-labelledby="deleteAudioLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                     <div class="modal-content">
                                       <div class="modal-header">
@@ -89,7 +89,7 @@
                                       <div class="modal-body">
                                         <p>Do you really want to delete. This process cannot be undone.</p>
                                       </div>
-                                      <form method="POST" action="{{ route('blog.destroy',$blog->id) }}">
+                                      <form method="POST" action="{{ route('audio.destroy',$audio->id) }}">
                                         @csrf
                                         @method('DELETE')
                                       <div class="modal-footer">

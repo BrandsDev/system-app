@@ -101,22 +101,23 @@ class AudiosController extends Controller
 
     public function show(Request $request)
     {            
-        $blogs = Audio::all();
+        $audios = Audio::all();
         
-        return view('administration.stream.audio.manage-audios', ['blogs' => $blogs]);
+        return view('administration.stream.audio.manage-audios', ['audios' => $audios]);
     }
 
     public function edit($id)
     {
-        $blog = Audio::findOrFail($id);
+        $audio = Audio::findOrFail($id);
+        // dd($audio);
         $books = Book::all();
         $authors = BookAuthor::all();
         $categories = Category::all();
         $subcategories = Subcategory::all();
         $sub_subcategories = SubSubcategory::all();
         
-        return view('administration.stream.audio.edit-blog', [
-            'blog' => $blog,
+        return view('administration.stream.audio.edit-audio', [
+            'audio' => $audio,
             'books' => $books,
             'authors' => $authors,
             'categories' => $categories,
@@ -127,33 +128,33 @@ class AudiosController extends Controller
 
     public function update(Request $request, $id): RedirectResponse
     {
-        $blog = Audio::find($id);
+        $audio = Audio::find($id);
 
-        if ($blog) {
-            $featuredImage = $request->file('featured_image');
+        if ($audio) {
+            $coverImage = $request->file('cover_image');
 
-            if ($featuredImage) {
+            if ($coverImage) {
                 $validatedData = $request->validate([
-                    // 'featured_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+                    // 'cover_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
                 ]);
 
-                $featuredImageName = $request->featured_image->getClientOriginalName();
-                $request->featured_image->move(public_path('blog/image/featured'), $featuredImageName);
+                $coverImageName = $request->cover_image->getClientOriginalName();
+                $request->cover_image->move(public_path('stream/audio/image/cover-image'), $coverImageName);
 
-                $blog->featured_image = $featuredImageName;
+                $audio->cover_image = $coverImageName;
             }
 
-            $file = $request->file('file');
+            $audioFile = $request->file('audio_file');
 
-            if ($file) {
+            if ($audioFile) {
                 $validatedData = $request->validate([
-                    // 'file' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+                    // 'audio_file' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
                 ]);
 
-                $Name = $request->file->getClientOriginalName();
-                $request->file->move(public_path('blog/file'), $Name);
+                $audioFileName = $request->audio_file->getClientOriginalName();
+                $request->audio_file->move(public_path('stream/audio'), $audioFileName);
 
-                $blog->file = $Name;
+                $audio->audio_file = $audioFileName;
             }
 
             $og = $request->file('og');
@@ -164,33 +165,41 @@ class AudiosController extends Controller
                 ]);
 
                 $ogImageName = $request->og->getClientOriginalName();
-                $request->og->move(public_path('blog/image/og'), $ogImageName);
+                $request->og->move(public_path('stream/audio/image/og'), $ogImageName);
 
-                $blog->og = $ogImageName;
+                $audio->og = $ogImageName;
             }
 
             // Update other fields of the request
-            $blog->title = $request->input('title');
-            $blog->slug = $request->input('slug');            
-            $blog->tags = $request->input('tags');
-            $blog->header_title = $request->input('header_title');
-            $blog->category_name = $request->input('category_name');
-            $blog->subcategory_name = $request->input('subcategory_name');
-            $blog->sub_subcategory_name = $request->input('sub_subcategory_name');
-            $blog->book = $request->input('book');
-            $blog->author = $request->input('author');
-            $blog->short_description = $request->input('short_description');
-            $blog->long_description = $request->input('long_description');
-            $blog->youtube_iframe = $request->input('youtube_iframe');
-            $blog->header_content = $request->input('header_content');
-            $blog->meta_title = $request->input('meta_title');
-            $blog->meta_description = $request->input('meta_description');
-            $blog->is_featured = $request->input('is_featured');
-            $blog->status = $request->input('status');
-            $blog->comment = $request->input('comment');
+            $audio->title = $request->input('title');
+            $audio->artist = $request->input('artist');            
+            $audio->duration = $request->input('duration');
+
+            if (!is_null($request->input('release_date'))) {
+                $audio->release_date = $request->input('release_date');
+            }
+            
+            $audio->category_name = $request->input('category_name');
+            $audio->subcategory_name = $request->input('subcategory_name');
+            $audio->sub_subcategory_name = $request->input('sub_subcategory_name');
+            $audio->genre = $request->input('genre');
+            $audio->album = $request->input('album');
+            $audio->short_description = $request->input('short_description');
+            $audio->long_description = $request->input('long_description');
+            $audio->youtube_iframe = $request->input('youtube_iframe');
+            $audio->header_content = $request->input('header_content');
+            $audio->meta_title = $request->input('meta_title');
+            $audio->meta_description = $request->input('meta_description');
+            $audio->is_featured = $request->input('is_featured');
+
+            if (!is_null($request->input('status'))) {
+                $audio->status = $request->input('status');
+            }
+
+            $audio->comment = $request->input('comment');
 
             // Save the changes
-            $blog->save();
+            $audio->save();
 
             // Perform any additional actions or redirect as needed
         } else {
@@ -200,7 +209,7 @@ class AudiosController extends Controller
             return back();
         }
 
-        Session::flash('update', __('Blog Successfully Updated!'));
+        Session::flash('update', __('Audio Successfully Updated!'));
         
         return back();
     }
@@ -209,7 +218,7 @@ class AudiosController extends Controller
     {
         Audio::where('id',$id)->delete();
 
-        Session::flash('delete', __('Blog Successfully Deleted!'));
+        Session::flash('delete', __('Audio Successfully Destroyed!'));
         
         return back();
     }

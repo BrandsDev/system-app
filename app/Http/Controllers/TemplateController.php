@@ -192,7 +192,11 @@ class TemplateController extends Controller
             $template->meta_description = $request->input('meta_description');
             $template->live_preview_link = $request->input('live_preview_link');
             $template->downloadable_link = $request->input('downloadable_link');
-            $template->status = $request->input('status');
+
+            if (!is_null($request->input('status'))) {
+                $audio->status = $request->input('status');
+            }
+            
             $template->comment = $request->input('comment');
 
             // Save the changes

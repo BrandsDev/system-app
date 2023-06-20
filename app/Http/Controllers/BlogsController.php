@@ -185,7 +185,11 @@ class BlogsController extends Controller
             $blog->meta_title = $request->input('meta_title');
             $blog->meta_description = $request->input('meta_description');
             $blog->is_featured = $request->input('is_featured');
-            $blog->status = $request->input('status');
+
+            if (!is_null($request->input('status'))) {
+                $audio->status = $request->input('status');
+            }
+            
             $blog->comment = $request->input('comment');
 
             // Save the changes
