@@ -10,8 +10,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('manage-blogs') }}">Manage Blogs</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Blog</li>
+                    <li class="breadcrumb-item"><a href="{{ route('manage-audio-playlists') }}">Manage Audios Playlist</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Audio Playlist</li>
                 </ol>
             </nav>
         </div>
@@ -20,7 +20,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1>Add Blog</h1>
+            <h1>Add Audio Playlist</h1>
         </div>
     </div>
 
@@ -34,7 +34,7 @@
     </div>
     @endif
 
-    <form class="needs-validation" method="POST" action="{{ route('new-blog.store') }}" enctype="multipart/form-data" novalidate>
+    <form class="needs-validation" method="POST" action="{{ route('new-audio-playlist.store') }}" enctype="multipart/form-data" novalidate>
         @csrf
         <div class="row">
             <div class="col-sm-9">
@@ -50,31 +50,6 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-3">
-                            <label for="slug" class="form-label">Slug</label>
-                            <input type="text" class="form-control" name="slug" placeholder="Slug" required />
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="mb-3">
-                            <label for="tags" class="form-label">Tags *</label>
-                            <input type="text" class="form-control" name="tags" placeholder="Tags" />
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="mb-3">
-                            <label for="header_title" class="form-label">Header Title</label>
-                            <input type="text" class="form-control" name="header_title" placeholder="Header Title" />
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="mb-3">
                             <label for="category_name" class="form-label">Category</label>
                             <input class="form-control" list="datalistCategory" name="category_name" placeholder="Category" />
                             <datalist id="datalistCategory">
@@ -84,7 +59,9 @@
                             </datalist>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="subcategory_name" class="form-label">Sub Category</label>
                             <input class="form-control" list="datalistSubcategory" name="subcategory_name" id="subcategory_name" placeholder="Sub Category" />
@@ -95,7 +72,7 @@
                             </datalist>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="sub_subcategory_name" class="form-label">Sub Sub Category</label>
                             <input class="form-control" list="datalistSubSubcategory" name="sub_subcategory_name" placeholder="Sub Sub Category" />
@@ -108,26 +85,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="book" class="form-label">Book</label>
-                            <input class="form-control" list="datalistTemplate" name="book" placeholder="Search Book" />
-                            <datalist id="datalistTemplate">
-                                @foreach($books as $book)
-                                <option value="{{ $book->name }}"></option>
+                            <label for="audio" class="form-label">audio</label>
+                            <select class="form-select" multiple aria-label="multiple select example">
+                                @foreach($audios as $audio)
+                                <option value="{{ $audio->title }}">{{ $audio->title }}</option>
                                 @endforeach
-                            </datalist>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="mb-3">
-                            <label for="author" class="form-label">Author</label>
-                            <input class="form-control" list="datalistAuthor" name="author" placeholder="Search Author" required />
-                            <datalist id="datalistAuthor">
-                                @foreach($authors as $author)
-                                <option value="{{ $author->name }}"></option>
-                                @endforeach
-                            </datalist>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -196,14 +161,8 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="featured-image" class="form-label">Featured Image</label>
-                            <input class="form-control" type="file" name="featured_image" required />
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="mb-3">
-                            <label for="file" class="form-label">Upload File</label>
-                            <input class="form-control" type="file" name="file" multiple />
+                            <label for="cover_image" class="form-label">Cover Image</label>
+                            <input class="form-control" type="file" name="cover_image" required />
                         </div>
                     </div>
                     <div class="col-sm-12">

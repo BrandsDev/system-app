@@ -116,8 +116,8 @@
                             <label for="genre" class="form-label">Genre</label>
                             <input class="form-control" list="datalistTemplate" name="genre" placeholder="Search Book" />
                             <datalist id="datalistTemplate">
-                                @foreach($books as $book)
-                                <option value="{{ $book->name }}"></option>
+                                @foreach($audios as $audio)
+                                <option value="{{ $audio->genre }}"></option>
                                 @endforeach
                             </datalist>
                         </div>
@@ -127,8 +127,8 @@
                             <label for="album" class="form-label">Album</label>
                             <input class="form-control" list="datalistAuthor" name="album" placeholder="Search Author" />
                             <datalist id="datalistAuthor">
-                                @foreach($authors as $author)
-                                <option value="{{ $author->name }}"></option>
+                                @foreach($audios as $audio)
+                                <option value="{{ $audio->album }}"></option>
                                 @endforeach
                             </datalist>
                         </div>

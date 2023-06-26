@@ -49,8 +49,10 @@
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item" href="{{ route('new-audio') }}">Add Audio</a></li>
-						<li><a class="dropdown-item" href="{{ route('new-audio-playlist') }}">Add Audio Playlist</a></li>
 						<li><a class="dropdown-item" href="{{ route('manage-audios') }}">Manage Audio's</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="{{ route('new-audio-playlist') }}">Add Audio Playlist</a></li>
+						<li><a class="dropdown-item" href="{{ route('manage-audio-playlists') }}">Manage Audio Playlists</a></li>
 					</ul>
 				</li>
 				<li class="nav-item dropdown">
