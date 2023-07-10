@@ -211,9 +211,7 @@
                         <div class="mb-3">
                             <div class="form-check">
                                   <input class="form-check-input" type="checkbox" name="is_featured" value="0" id="featuredCheckDefault">
-                                  <label class="form-check-label" for="featuredCheckDefault">
-                                    Featured?
-                                  </label>
+                                  <label class="form-check-label" for="featuredCheckDefault">Featured?</label>
                             </div>
                         </div>
                     </div>

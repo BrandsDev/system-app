@@ -87,7 +87,8 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="audio" class="form-label">audio</label>
+                            <label for="audio" class="form-label">Audio</label>
+                            <input class="form-control" name="selected_audios" />
                             <select class="form-select" multiple aria-label="multiple select example">
                                 @foreach($audios as $audio)
                                 <option value="{{ $audio->title }}">{{ $audio->title }}</option>
@@ -152,7 +153,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" name="is_featured" value="0" id="featuredCheckDefault">
+                                  <input class="form-check-input" type="checkbox" name="is_featured" value="1" id="featuredCheckDefault">
                                   <label class="form-check-label" for="featuredCheckDefault">
                                     Featured?
                                   </label>

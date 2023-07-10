@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-3">
-                            <label for="artist" class="form-label">Artist</label>
+                            <label for="artist" class="form-label">Artist *</label>
                             <input type="text" class="form-control" name="artist" placeholder="Artist" required />
                         </div>
                     </div>
@@ -190,16 +190,14 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" name="is_featured" value="0" id="featuredCheckDefault">
-                                  <label class="form-check-label" for="featuredCheckDefault">
-                                    Featured?
-                                  </label>
+                                  <input class="form-check-input" type="checkbox" name="is_featured" value="1" id="featuredCheckDefault">
+                                  <label class="form-check-label" for="featuredCheckDefault">Featured?</label>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="cover_image" class="form-label">Cover Image</label>
+                            <label for="cover_image" class="form-label">Cover Image *</label>
                             <input class="form-control" type="file" name="cover_image" required />
                         </div>
                     </div>

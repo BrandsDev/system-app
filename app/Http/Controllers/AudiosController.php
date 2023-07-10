@@ -113,26 +113,63 @@ class AudiosController extends Controller
                 $audio->save();
             }
 
-            Session::flash('message', __('New Audio Successfully Added!'));
+            Session::flash('message', __('Audio Successfully Added!'));
             
             return redirect(RouteServiceProvider::Audio);
 
         } elseif ($request->routeIs('new-audio-playlist.store')) {
             
-            $audios = Audio::all();
-            $categories = Category::all();
-            $subcategories = Subcategory::all();
-            $sub_subcategories = SubSubcategory::all();
+            // $request->validate([
+            //     'name' => ['required', 'string', 'max:255'],
+            //     'slug' => ['required', 'regex:/^[a-z]+$/'],
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // ], [
+            //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
+            // ]);
 
-            // dd($audios);
+            dd($request);
 
-            return view('administration.stream.audio.playlist.new-audio-playlist', [
-                'audios' => $audios,
-                'categories' => $categories,
-                'subcategories' => $subcategories,
-                'sub_subcategories' => $sub_subcategories,
+            $audio = Audio::create([
+                'title' => $request->title,
+                'artist' => 'artist',
+                'category_name' => $request->category_name,
+                'subcategory_name' => $request->subcategory_name,
+                'sub_subcategory_name' => $request->sub_subcategory_name,
+                'selected_audios' => $request->selected_audios,
+                'short_description' => $request->short_description,
+                'long_description' => $request->long_description,
+                'youtube_iframe' => $request->youtube_iframe,
+                'header_content' => $request->header_content,
+                'meta_title' => $request->meta_title,
+                'meta_description' => $request->meta_description,
+                'is_featured' => $request->is_featured,
+                'status' => $request->status,
+                'comment' => $request->comment,
             ]);
 
+            dd($audio);
+
+            $audio->save();
+
+            if ($request->hasFile('cover_image')) {
+                $coverImage = $request->file('cover_image')->getClientOriginalName();
+                $request->file('cover_image')->move(public_path('stream/audio/image/cover-image'), $coverImage);
+                $audio->cover_image = $coverImage;
+            }
+
+            if ($request->hasFile('og')) {
+                $og = $request->file('og')->getClientOriginalName();
+                $request->file('og')->move(public_path('stream/audio/image/og'), $og);
+                $audio->og = $og;
+            }
+
+            if ($request->hasFile('featured_image') || $request->hasFile('file') || $request->hasFile('og')) {
+                $audio->save();
+            }
+
+            Session::flash('message', __('Audio Playlist Successfully Added!'));
+            
+            return redirect(RouteServiceProvider::AudioPlaylist);
         }
         
         // Default view if none of the routes match
@@ -157,7 +194,7 @@ class AudiosController extends Controller
         return view('/dashboard');
     }
 
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         if ($request->routeIs('audio.edit')) {
 

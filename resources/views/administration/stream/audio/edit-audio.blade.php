@@ -124,22 +124,18 @@
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="genre" class="form-label">Genre</label>
-                            <input class="form-control" list="datalistTemplate" name="genre" placeholder="Search Book" />
+                            <input class="form-control" list="datalistTemplate" name="genre" placeholder="{{ $audio->genre }}" />
                             <datalist id="datalistTemplate">
-                                @foreach($books as $book)
-                                <option value="{{ $book->name }}"></option>
-                                @endforeach
+                                <option value="{{ $audio->genre }}"></option>
                             </datalist>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="album" class="form-label">Album</label>
-                            <input class="form-control" list="datalistAuthor" name="album" placeholder="Search Author" />
+                            <input class="form-control" list="datalistAuthor" name="album" placeholder="{{ $audio->album }}" />
                             <datalist id="datalistAuthor">
-                                @foreach($authors as $author)
-                                <option value="{{ $author->name }}"></option>
-                                @endforeach
+                                <option value="{{ $audio->album }}"></option>
                             </datalist>
                         </div>
                     </div>
@@ -201,9 +197,7 @@
                         <div class="mb-3">
                             <div class="form-check">
                                   <input class="form-check-input" type="checkbox" name="is_featured" value="1" id="featuredCheckDefault" @if($audio->is_featured == 1) checked @endif>
-                                  <label class="form-check-label" for="featuredCheckDefault">
-                                    Featured?
-                                  </label>
+                                  <label class="form-check-label" for="featuredCheckDefault">Featured?</label>
                             </div>
                         </div>
                     </div>

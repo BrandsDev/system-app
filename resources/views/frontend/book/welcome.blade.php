@@ -69,7 +69,7 @@
 
 		<div class="row">
 			@foreach ($books as $book)
-			<div class="col-lg-4">
+			<div class="col-lg-3">
 				<article>
 					<figure>
 						<div class="card shadow p-2 mb-5 bg-body rounded">
@@ -90,19 +90,20 @@
 									<span class="card-text">
 										@if($book->sale_price)
 
-										<small class="fw-bold text-success">৳ {{ $book->sale_price }}</small> | <small class="fw-bold text-decoration-line-through text-muted">৳ {{ $book->regular_price }}</small>
+										<small class="fw-bold fs-5 text-success">৳ {{ $book->sale_price }}</small> | <small class="fw-bold text-decoration-line-through text-muted">৳ {{ $book->regular_price }}</small>
 
 										@else
 
-										<small class="fw-bold text-success">৳ {{ $book->regular_price }}</small>
+										<small class="fw-bold fs-5 text-success">৳ {{ $book->regular_price }}</small>
 
 										@endif										
 									</span>
 								</div>
 								<div class="card-body">
-									<div class="btn-group" role="group" aria-label="Basic mixed styles example">
-										<a href="{{ route('book.detail',$book->slug) }}" target="_self" type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download HTML">Details</a>
-										<!-- <a href="" target="_blank" type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download Wordpress">Live Preview</a> -->
+									<div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
+										<a href="{{ route('book.detail',$book->slug) }}" target="_self" type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download HTML">Details</a>
+										<a href="" target="_blank" type="button" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download Wordpress">Add to Cart</a>
+										<a href="" target="_blank" type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download Wordpress">Buy Now</a>
 									</div>
 								</div>
 							</figcaption>

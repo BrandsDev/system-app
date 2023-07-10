@@ -2,123 +2,95 @@
 @section('content')
 		<main class="container p-3 py-5">
 			<!-- Large Header Banner -->
-			<div class="row">
+			<div class="row mb-3">
 				<div class="col-12">
-					<h1>{{ $book->name }}</h1>
+					<nav aria-label="breadcrumb">
+		                <ol class="breadcrumb">
+		                    <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+		                    <li class="breadcrumb-item"><a href="{{ route('manage-blogs') }}">Manage Blogs</a></li>
+		                    <li class="breadcrumb-item active" aria-current="page">Edit Blog</li>
+		                </ol>
+		            </nav>
 				</div>
 			</div>
 
-			<div class="row g-5">
-				<div class="col-md-5 col-lg-4 order-md-last">
-					<p>
-						<span class="text-primary">Grab it now!</span>
-						<span class="badge bg-primary rounded-pill">Free</span>
-					</p>
-					<ul class="list-group mb-3">
-						<li class="list-group-item d-flex justify-content-between lh-sm bg-light">
-							<div>
-								<p class="my-0">{{ $book->name }}</p>
-								<p class="text-muted">{!! $book->short_description !!}</p>
-							</div>
-							<span class="text-muted">0 ৳</span>
-						</li>
-					</ul>
-
-					<div class="d-grid gap-2">
-						<div class="btn-group" role="group" aria-label="Basic mixed styles example">
-							<button type="button" class="btn btn-outline-primary">Live Preview</button>
-						</div>
-						<div class="btn-group" role="group" aria-label="Basic mixed styles example">
-							<button type="button" class="btn btn-primary position-relative" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download HTML"><i class="fa-solid fa-download"></i> HTML</button>
-							<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Github"><i class="fa-solid fa-download"></i> Github</button>
-						</div>
-					</div>
-
-					<!-- <ul class="list-group list-group-flush mt-3">
-						<li class="list-group-item bg-light">
-							<input class="form-check-input me-1" type="checkbox" value="" aria-label="..." checked disabled />
-							Reviewed by the Bootstrap team
-						</li>
-						<li class="list-group-item bg-light">
-							<input class="form-check-input me-1" type="checkbox" value="" aria-label="..." checked disabled />
-							6 months technical support
-						</li>
-						<li class="list-group-item bg-light">
-							<input class="form-check-input me-1" type="checkbox" value="" aria-label="..." checked disabled />
-							100% money back guarantee
-						</li>
-					</ul> -->
-
-					<ul class="list-group list-group-flush mt-3">
-						<li class="list-group-item d-flex justify-content-between align-items-center bg-light">
-							Bootstrap
-							<span class="text-muted">{{ $book->bootstrap_v }}</span>
-						</li>
-						<li class="list-group-item d-flex justify-content-between align-items-center bg-light">
-							Released
-							<span class="text-muted">4 years ago</span>
-						</li>
-						<li class="list-group-item d-flex justify-content-between align-items-center bg-light">
-							Updated
-							<span class="text-muted">5 days ago</span>
-						</li>
-						<li class="list-group-item d-flex justify-content-between align-items-center bg-light">
-							Version
-							<span class="text-muted">{{ $book->version }}</span>
-						</li>
-						<li class="list-group-item d-flex justify-content-between align-items-center bg-light">
-							Category
-							<a href="#">Admin & Dashboard</a>
-						</li>
-						<li class="list-group-item d-flex justify-content-between align-items-center bg-light">
-							Questions?
-							<button type="button" class="btn btn-outline-primary btn-sm">Contact Seller</button>
-						</li>
-						<li class="list-group-item d-flex justify-content-between align-items-center p-3 bg-light">
-							<div class="d-flex align-items-center">
-								<div class="flex-shrink-0">
-									<img src="img/seller-logo.png" alt="..." width="69" height="69" />
-								</div>
-								<div class="flex-grow-1 ms-3">
-									<div class="ms-2 me-auto">
-										<div class="fw-bold">Created by</div>
-										{{ $book->seller_name }}
-									</div>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-				<div class="col-md-7 col-lg-8">
+			<!-- Header Short Description -->
+			<div class="row mb-3">
+				<div class="col-md-6 mb-3">
 					<form class="needs-validation" novalidate>
 						<div class="row g-3">
 							<div class="col-sm-12">
-								<img src="{{ asset('template/image/' . $book->image) }}" alt="" width="100%" height="100%" class="d-inline-block rounded-3 align-text-top" />
-							</div>
-						</div>
-						<div class="row g-3">
-							<ul class="nav nav-pills mb-3 border border-start-0 border-top-0 border-end-0" id="pills-tab" role="tablist">
-								<li class="nav-item" role="presentation">
-									<button class="nav-link active mb-3" id="pills-description-tab" data-bs-toggle="pill" data-bs-target="#pills-description" type="button" role="tab" aria-controls="pills-description" aria-selected="true">
-										Description
-									</button>
-								</li>
-								<li class="nav-item" role="presentation">
-									<button class="nav-link mb-3" id="pills-changelog-tab" data-bs-toggle="pill" data-bs-target="#pills-changelog" type="button" role="tab" aria-controls="pills-changelog" aria-selected="false">
-										Changelog
-									</button>
-								</li>
-							</ul>
-							<div class="tab-content" id="pills-tabContent">
-								<div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
-									{!! $book->long_description !!}
-								</div>
-								<div class="tab-pane fade" id="pills-changelog" role="tabpanel" aria-labelledby="pills-changelog-tab">
-									{!! $book->change_log !!}
-								</div>
+								<img src="{{ asset('book/image/' . $book->image) }}" alt="" width="100%" height="100%" class="d-inline-block rounded-3 align-text-top" />
 							</div>
 						</div>
 					</form>
+				</div>
+				<div class="col-md-6">
+					<h1>{{ $book->name }}</h1>
+					<ul class="list-group mb-3">
+						<li class="list-group-item d-flex justify-content-between lh-sm bg-light">
+							<div>
+								<!-- <p class="my-0">{{ $book->name }}</p> -->
+								<p class="text-muted">{!! $book->short_description !!}</p>
+							</div>
+						</li>
+						<li class="list-group-item">
+							<div>
+								<p class="card-text fs-5">
+									<small><i>পাবলিকেশন: </i> {{ $book->publisher }}</small><br>
+									<small><i>ক্যাটেগরি: </i> <a href="{{ url('/' . $book->slug) }}" target="_blank" class="link-dark">{{ $book->category_name }}</a></small>
+								</p>
+								<span class="card-text">
+									@if($book->sale_price)
+
+									<small class="fw-bold fs-4 text-success">৳ {{ $book->sale_price }}</small> | <small class="fw-bold text-decoration-line-through text-muted">৳ {{ $book->regular_price }}</small>
+
+									@else
+
+									<small class="fw-bold fs-4 text-success">৳ {{ $book->regular_price }}</small>
+
+									@endif										
+								</span>
+							</div>
+						</li>
+					</ul>
+
+					<button type="button" class="btn btn-primary position-relative" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download HTML"><i class="fa-solid fa-download"></i> Add to Cart</button>
+					<button type="button" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Github"><i class="fa-solid fa-download"></i> Buy Now</button>
+					<button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Github"><i class="fa-solid fa-download"></i> Easy Order</button>
+
+					<ul class="list-group list-group-flush mt-3">
+						<li class="list-group-item d-flex justify-content-between align-items-center bg-light">
+							<small><i>ক্যাটেগরি: </i> <a href="{{ url('/' . $book->slug) }}" target="_blank" class="link-dark">{{ $book->category_name }}</a></small>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row g-3">
+						<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+							<li class="nav-item" role="presentation">
+								<button class="nav-link active mb-3" id="pills-description-tab" data-bs-toggle="pill" data-bs-target="#pills-description" type="button" role="tab" aria-controls="pills-description" aria-selected="true">
+									বিস্তারিত
+								</button>
+							</li>
+							<li class="nav-item" role="presentation">
+								<button class="nav-link mb-3" id="pills-changelog-tab" data-bs-toggle="pill" data-bs-target="#pills-changelog" type="button" role="tab" aria-controls="pills-changelog" aria-selected="false">
+									স্পেসিফিকেশন
+								</button>
+							</li>
+						</ul>
+						<div class="tab-content" id="pills-tabContent">
+							<div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+								{!! $book->long_description !!}
+							</div>
+							<div class="tab-pane fade" id="pills-changelog" role="tabpanel" aria-labelledby="pills-changelog-tab">
+								{!! $book->change_log !!}
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			

@@ -59,6 +59,7 @@
                         <th>Artist</th>
                         <th>Duration</th>
                         <th>Release Date</th>
+                        <th>Featured?</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -71,6 +72,7 @@
                         <td>{{ $audio->artist }}</td>
                         <td>{{ $audio->duration }}</td>
                         <td>{{ $audio->release_date }}</td>
+                        <td>@if($audio->is_featured == 1) Yes @else No @endif</td>
                         <td>@if($audio->status == 1) Published @else Draft @endif</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
@@ -112,6 +114,7 @@
                         <th>Artist</th>
                         <th>Duration</th>
                         <th>Release Date</th>
+                        <th>Featured?</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
