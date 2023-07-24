@@ -1,6 +1,6 @@
 @extends('frontend.book.skeleton.body')
 @section('content')
-@include('frontend.book.skeleton.slider')
+
 <main class="container p-3 py-5">
 		<!-- Header Banner -->
 		<div class="row">
@@ -67,6 +67,7 @@
 
 		<div class="mt-3"></div>
 
+		<!-- Books Section -->
 		<div class="row">
 			@foreach ($books as $book)
 			<div class="col-lg-3">

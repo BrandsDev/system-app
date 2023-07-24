@@ -1,3 +1,9 @@
+---------------
+Setup Environment
+---------------
+# install local server, vendor, composer, nodeJS, npm install
+
+---------------
 Storing image 
 ---------------
 // $imageName = time().'.'.$request->image->extension();

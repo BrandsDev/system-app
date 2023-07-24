@@ -15,18 +15,18 @@ use Session;
 
 class BooksController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
         return view('frontend.book-detail');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function books()
+    {
+        $books = Book::take(60)->get();
+
+        return view('frontend.book.books', ['books' => $books]);
+    }
+
     public function create()
     {
         $categories = Category::all();
@@ -45,9 +45,6 @@ class BooksController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request): RedirectResponse
     {
         // $request->validate([
@@ -119,9 +116,6 @@ class BooksController extends Controller
         return redirect(RouteServiceProvider::Book);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Request $request)
     {
         $books = Book::all();
@@ -129,20 +123,15 @@ class BooksController extends Controller
         return view('administration.books.manage-books', ['books' => $books]);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function detail($slug)
     {
         $book = Book::where('slug', $slug)->firstOrFail();
 
+        $relatedBook = Book::take(4)->get();
 
-        return view('frontend.book.book-detail', ['book' => $book]);
+        return view('frontend.book.book-detail', ['book' => $book, 'relatedBook' => $relatedBook]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit($id)
     {
         $book = Book::findOrFail($id);
@@ -162,9 +151,6 @@ class BooksController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id): RedirectResponse
     {
         $book = Book::find($id);
@@ -265,9 +251,6 @@ class BooksController extends Controller
         return back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id)
     {
         Book::where('id',$id)->delete();

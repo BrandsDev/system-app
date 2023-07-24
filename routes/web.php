@@ -37,7 +37,10 @@ use Illuminate\Support\Facades\Route;
 
 // Homepage
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('book/detail/{slug}', [BooksController::class, 'detail'])->name('book.detail');
+
+// Book
+Route::get('books', [BooksController::class, 'books'])->name('books');
+Route::get('book-detail/{slug}', [BooksController::class, 'detail'])->name('book.detail');
     
 // Why Our Themes
 Route::get('why-our-themes', [WhyOurThemesController::class, 'index']);
