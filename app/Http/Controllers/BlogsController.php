@@ -18,7 +18,16 @@ class BlogsController extends Controller
 {
     public function index()
     {
-        return view('frontend.blog');
+        echo "string";
+        return view('frontend.book.blogs');
+    }
+
+    public function blogs()
+    {
+        $featuredBlogs = Blog::where('is_featured', 1)->get();
+        $takeBlogs = Blog::take(2)->get();
+
+        return view('frontend.book.blogs', ['featuredBlogs' => $featuredBlogs, 'takeBlogs' => $takeBlogs]);
     }
 
     public function create(Request $request)
@@ -103,6 +112,17 @@ class BlogsController extends Controller
         $blogs = Blog::all();
         
         return view('administration.blogs.manage-blogs', ['blogs' => $blogs]);
+    }
+
+    public function detail($slug)
+    {
+        $blog = Blog::where('slug', $slug)->firstOrFail();
+        $relatedBlog = Blog::take(4)->get();
+
+        return view('frontend.book.blog-detail', [
+            'blog' => $blog,
+            'relatedBlog' => $relatedBlog
+        ]);
     }
 
     public function edit($id)

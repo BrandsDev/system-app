@@ -4,6 +4,13 @@ Setup Environment
 # install local server, vendor, composer, nodeJS, npm install
 
 ---------------
+New Domain & File Configuring
+---------------
+sudo nano /etc/apache2/sites-available/subdomain.example.com.conf
+SSLCertificateFile /etc/letsencrypt/live/subdomain.example.com/fullchain.pem
+SSLCertificateKeyFile /etc/letsencrypt/live/subdomain.example.com/privkey.pem
+
+---------------
 Storing image 
 ---------------
 // $imageName = time().'.'.$request->image->extension();

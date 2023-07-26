@@ -11,7 +11,7 @@
 						<li class="nav-item"><a href="{{ url('/') }}" class="nav-link">Home</a></li>
 						<!-- <li class="nav-item"><a href="{{ url('/why-our-themes') }}" class="nav-link">Why Our Templates?</a></li> -->
 						<!-- <li class="nav-item"><a href="{{ url('/fix-errors') }}" class="nav-link">Fix Errors</a></li> -->
-						<li class="nav-item"><a href="{{ url('/blog') }}" class="nav-link">Blog</a></li>
+						<li class="nav-item"><a href="{{ route('blogs') }}" class="nav-link">Blog</a></li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								About

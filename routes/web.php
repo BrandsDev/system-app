@@ -46,7 +46,8 @@ Route::get('book-detail/{slug}', [BooksController::class, 'detail'])->name('book
 Route::get('why-our-themes', [WhyOurThemesController::class, 'index']);
 
 // Blog
-Route::get('blog', [BlogsController::class, 'index']);
+Route::get('blogs', [BlogsController::class, 'blogs'])->name('blogs');
+Route::get('blog-detail/{slug}', [BlogsController::class, 'detail'])->name('blog.detail');
 
 // About
 Route::get('about/overview', [AboutController::class, 'overview']);

@@ -1,7 +1,7 @@
 @extends('frontend.book.skeleton.body')
 @section('content')
 		<main class="container p-3 py-5">
-			<!-- Large Header Banner -->
+			<!-- Breadcrumb -->
 			<div class="row mb-3">
 				<div class="col-12">
 					<nav aria-label="breadcrumb">
@@ -16,7 +16,7 @@
 
 			<!-- Header Short Description -->
 			<div class="row mb-3">
-				<div class="col-md-6 mb-3">
+				<div class="col-md-4 mb-3">
 					<form class="needs-validation" novalidate>
 						<div class="row g-3">
 							<div class="col-sm-12">
@@ -25,7 +25,7 @@
 						</div>
 					</form>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-8">
 					<h1>{{ $book->name }}</h1>
 					<ul class="list-group mb-3">
 						<li class="list-group-item d-flex justify-content-between lh-sm bg-light">
@@ -87,24 +87,25 @@
 								{!! $book->long_description !!}
 							</div>
 							<div class="tab-pane fade" id="pills-changelog" role="tabpanel" aria-labelledby="pills-changelog-tab">
-								{!! $book->change_log !!}
+								{!! $book->specification !!}
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<!-- Header Banner End -->
+			<!-- HR -->
 			<div class="mt-3 border-top border-start-0 border-bottom-0 border-end-0"></div>
 
-			<!-- Header Banner End -->
+			<!-- Related Books Margin -->
 			<div class="mt-3"></div>
-			<!-- Latest Item -->
+
+			<!-- Related Books -->
 			<div class="row border-top-0 border-start-0 border-bottom-0 border-end-0">
 				<div class="col-lg-10">
-					<h2>হিফজ শুরুর পূর্বেই এই বইগুলো সংগ্রহ করুন</h2>
+					<h2>প্রাসঙ্গিক বই</h2>
 
-					<p>আপনি হিফজ শুরুর পূর্বেই উপযুক্ত প্রস্তুতি নিতে চান? এই পথে আপনার সহায়তা করতে আমরা আপনাকে বইগুলোর সংগ্রহ করার জন্য উদ্বুদ্ধ করছি। আমাদের একটি বিশেষ সম্প্রদায়ে এই বইগুলো সংগ্রহ করে নিয়ে গেলে আপনি শুরুতে নিজেকে একটি সুষ্ঠু আধার দিতে পারেন। এই বইগুলো আপনাকে মূল্যবান তথ্য, পথনির্দেশিকা এবং প্রাথমিক বিষয়গুলি সরবরাহ করবে। আপনি সম্পূর্ণ পরিষ্কার ধারণা পেতে এই বইগুলো অবশ্যই সংগ্রহ করতে পারেন। তাই, এই বইগুলো আমাদের ওয়েবসাইট থেকে অর্ডার করুন এবং হিফজ পথে আগ্রহী চলে যান।</p>
+					<!-- <p>আপনি হিফজ শুরুর পূর্বেই উপযুক্ত প্রস্তুতি নিতে চান? এই পথে আপনার সহায়তা করতে আমরা আপনাকে বইগুলোর সংগ্রহ করার জন্য উদ্বুদ্ধ করছি। আমাদের একটি বিশেষ সম্প্রদায়ে এই বইগুলো সংগ্রহ করে নিয়ে গেলে আপনি শুরুতে নিজেকে একটি সুষ্ঠু আধার দিতে পারেন। এই বইগুলো আপনাকে মূল্যবান তথ্য, পথনির্দেশিকা এবং প্রাথমিক বিষয়গুলি সরবরাহ করবে। আপনি সম্পূর্ণ পরিষ্কার ধারণা পেতে এই বইগুলো অবশ্যই সংগ্রহ করতে পারেন। তাই, এই বইগুলো আমাদের ওয়েবসাইট থেকে অর্ডার করুন এবং হিফজ পথে আগ্রহী চলে যান।</p> -->
 				</div>
 				<div class="col-lg-2 align-self-center">
 					<div class="row">
@@ -115,7 +116,7 @@
 				</div>
 			</div>
 
-			<!-- Header Banner End -->
+			<!-- HR -->
 			<div class="mt-3 border-top border-start-0 border-bottom-0 border-end-0"></div>
 
 			<div class="mt-3"></div>
@@ -127,7 +128,7 @@
 					<article>
 						<figure>
 							<div class="card shadow p-2 mb-5 bg-body rounded">
-								<a href="{{ route('template.detail',$book->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+								<a href="{{ route('book.detail',$book->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
 									<img src="{{ asset('book/image/' . $book->image) }}" class="card-img-top" alt="...">
 								</a>
 								<figcaption>
@@ -158,6 +159,67 @@
 											<a href="{{ route('book.detail',$book->slug) }}" target="_self" type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download HTML">Details</a>
 											<a href="" target="_blank" type="button" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download Wordpress">Add to Cart</a>
 											<a href="" target="_blank" type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download Wordpress">Buy Now</a>
+										</div>
+									</div>
+								</figcaption>
+							</div>
+						</figure>
+					</article>
+				</div>
+				@endforeach
+			</div>
+
+			<!-- HR -->
+			<div class="mt-3 border-top border-start-0 border-bottom-0 border-end-0"></div>
+
+			<div class="mt-3"></div>
+
+			<!-- Related Blogs -->
+			<div class="row border-top-0 border-start-0 border-bottom-0 border-end-0">
+				<div class="col-lg-10">
+					<h2>প্রাসঙ্গিক ব্লগ</h2>
+
+					<!-- <p>আপনি হিফজ শুরুর পূর্বেই উপযুক্ত প্রস্তুতি নিতে চান? এই পথে আপনার সহায়তা করতে আমরা আপনাকে বইগুলোর সংগ্রহ করার জন্য উদ্বুদ্ধ করছি। আমাদের একটি বিশেষ সম্প্রদায়ে এই বইগুলো সংগ্রহ করে নিয়ে গেলে আপনি শুরুতে নিজেকে একটি সুষ্ঠু আধার দিতে পারেন। এই বইগুলো আপনাকে মূল্যবান তথ্য, পথনির্দেশিকা এবং প্রাথমিক বিষয়গুলি সরবরাহ করবে। আপনি সম্পূর্ণ পরিষ্কার ধারণা পেতে এই বইগুলো অবশ্যই সংগ্রহ করতে পারেন। তাই, এই বইগুলো আমাদের ওয়েবসাইট থেকে অর্ডার করুন এবং হিফজ পথে আগ্রহী চলে যান।</p> -->
+				</div>
+				<div class="col-lg-2 align-self-center">
+					<div class="row">
+						<div class="col-12 col-sm-12">
+							<a type="button" class="btn btn-outline-secondary float-end" href="{{ url('/blogs') }}">View all</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- HR -->
+			<div class="mt-3 border-top border-start-0 border-bottom-0 border-end-0"></div>
+
+			<div class="mt-3"></div>
+
+			<!-- Books Section -->
+			<div class="row">
+				@foreach ($relatedBlog as $blog)
+				<div class="col-lg-3">
+					<article>
+						<figure>
+							<div class="card shadow p-2 mb-5 bg-body rounded">
+								<a href="{{ route('blog.detail',$blog->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+									<img src="{{ asset('blog/image/featured/' . $blog->featured_image) }}" class="card-img-top" alt="...">
+								</a>
+								<figcaption>
+									<div class="card-body">
+										<p class="card-title lead">
+											<a href="{{ route('blog.detail',$blog->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+												{{ \Illuminate\Support\Str::limit($blog->title, 100, '...') }}
+											</a>
+											<p class="card-text">
+												<small><i>by</i> {{ $blog->author }}</small><br>
+												<small><i>in</i> <a href="{{ url('/' . $blog->slug) }}" target="_blank" class="link-dark">{{ $blog->category_name }}</a></small>
+											</p>
+										</p>
+									</div>
+									<div class="card-body">
+										<div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
+											<a href="{{ route('blog.detail',$blog->slug) }}" target="_self" type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download HTML">Details</a>
 										</div>
 									</div>
 								</figcaption>

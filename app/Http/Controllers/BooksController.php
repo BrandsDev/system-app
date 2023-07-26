@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Book;
 use App\Models\BookAuthor;
 use App\Models\BookPublisher;
@@ -126,10 +127,15 @@ class BooksController extends Controller
     public function detail($slug)
     {
         $book = Book::where('slug', $slug)->firstOrFail();
-
         $relatedBook = Book::take(4)->get();
 
-        return view('frontend.book.book-detail', ['book' => $book, 'relatedBook' => $relatedBook]);
+        $relatedBlog = Blog::take(4)->get();
+
+        return view('frontend.book.book-detail', [
+            'book' => $book,
+            'relatedBook' => $relatedBook,
+            'relatedBlog' => $relatedBlog
+        ]);
     }
 
     public function edit($id)
