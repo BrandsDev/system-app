@@ -4,6 +4,22 @@ Setup Environment
 # install local server, vendor, composer, nodeJS, npm install
 
 ---------------
+Generate Random Mobile Number
+---------------
+<?php
+function generateNumbers($start, $end) {
+    for ($i = $start; $i <= $end; $i++) {
+        $formattedNumber = '+880171' . str_pad($i, 7, '0', STR_PAD_LEFT);
+        echo $formattedNumber . PHP_EOL;
+    }
+}
+
+$startNumber = 2001;
+$endNumber = 3000;
+generateNumbers($startNumber, $endNumber);
+?>
+
+---------------
 New Domain & File Configuring
 ---------------
 sudo nano /etc/apache2/sites-available/subdomain.example.com.conf
@@ -23,3 +39,8 @@ $request->image->move(resource_path('images/templates'), $imageName);
 // $imageName = $uploadedImage->getClientOriginalName(); // Get the original file name
 // $path = $uploadedImage->storeAs(resource_path('images/templates'), $imageName); // Store the image with its original name
 // Save the image path or perform other necessary operations
+
+---------------
+Domain 
+---------------
+probnsol

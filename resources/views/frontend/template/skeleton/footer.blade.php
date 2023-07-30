@@ -21,10 +21,10 @@
 			<div class="row py-3 border border-start-0 border-top-0 border-end-0">
 				<div class="col-12">
 					<nav class="nav">
-						<a class="nav-link" href="{{ url('/privacy-policy') }}">Privacy Policy</a>
-						<a class="nav-link" href="{{ url('/terms-of-service') }}">Terms of Service</a>
-						<a class="nav-link" href="{{ url('/about/license') }}">Licenses</a>
-						<a class="nav-link" href="{{ url('/contact-us') }}">Contact Us</a>
+						<a class="nav-link" href="{{ route('template.privacy-policy') }}">Privacy Policy</a>
+						<a class="nav-link" href="{{ route('template.terms-of-service') }}">Terms of Service</a>
+						<a class="nav-link" href="{{ route('template.license') }}">Licenses</a>
+						<a class="nav-link" href="{{ route('template.contact-us') }}">Contact Us</a>
 					</nav>
 				</div>
 			</div>

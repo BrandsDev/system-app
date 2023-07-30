@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Templates;
 
+use App\Http\Controllers\Controller;
 use App\Models\Template;
 use App\Models\Category;
 use App\Models\Subcategory;
@@ -13,18 +14,21 @@ use Session;
 
 class TemplateController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
-        return view('frontend.template-detail');
+        $templates = Template::take(16)->get();
+
+        return view('frontend.template.welcome', ['templates' => $templates]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function template()
+    {
+        $featuredBlogs = Blog::where('is_featured', 1)->get();
+        $takeBlogs = Blog::take(2)->get();
+
+        return view('frontend.template.welcome', ['featuredBlogs' => $featuredBlogs, 'takeBlogs' => $takeBlogs]);
+    }
+
     public function create()
     {
         $categories = Category::all();
@@ -34,9 +38,6 @@ class TemplateController extends Controller
         return view('administration.templates.new-template', ['categories' => $categories, 'subcategories' => $subcategories, 'sub_subcategories' => $sub_subcategories]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request): RedirectResponse
     {
         // $request->validate([

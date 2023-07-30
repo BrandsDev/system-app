@@ -1,4 +1,4 @@
-@extends('frontend.skeleton.body')
+@extends('frontend.book.skeleton.body')
 @section('content')
   <main class="container p-3 py-5">
     <!-- Header Banner -->

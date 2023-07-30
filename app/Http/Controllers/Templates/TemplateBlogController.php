@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Templates;
 
+use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Book;
 use App\Models\BookAuthor;
@@ -14,12 +15,11 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Session;
 
-class BlogsController extends Controller
+class TemplateBlogController extends Controller
 {
     public function index()
     {
-        echo "string";
-        return view('frontend.book.blogs');
+        return view('frontend.template.blog');
     }
 
     public function blogs()

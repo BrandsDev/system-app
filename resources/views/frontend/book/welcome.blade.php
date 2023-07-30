@@ -59,7 +59,7 @@
 			<div class="col-lg-2 align-self-center">
 				<div class="row">
 					<div class="col-12 col-sm-12">
-						<a type="button" class="btn btn-outline-secondary float-end" href="{{ url('/books') }}">View all</a>
+						<a type="button" class="btn btn-outline-secondary float-end" href="{{ route('book.home') }}">View all</a>
 					</div>
 				</div>
 			</div>
@@ -74,7 +74,7 @@
 				<article>
 					<figure>
 						<div class="card shadow p-2 mb-5 bg-body rounded">
-							<a href="{{ route('template.detail',$book->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+							<a href="{{ route('book.detail',$book->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
 								<img src="{{ asset('book/image/' . $book->image) }}" class="card-img-top" alt="...">
 							</a>
 							<figcaption>

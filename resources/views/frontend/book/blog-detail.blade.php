@@ -7,8 +7,8 @@
 			<div class="col-12">
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-						<li class="breadcrumb-item"><a href="{{ route('blogs') }}">Blog</a></li>
+						<li class="breadcrumb-item"><a href="{{ route('book.home') }}">Home</a></li>
+						<li class="breadcrumb-item"><a href="{{ route('book.blog') }}">Blog</a></li>
 						<li class="breadcrumb-item active" aria-current="page">{{ \Illuminate\Support\Str::limit($blog->title, 100, '...') }}</li>
 					</ol>
 				</nav>
@@ -108,13 +108,13 @@
 				<article>
 					<figure>
 						<div class="card shadow p-2 mb-5 bg-body rounded">
-							<a href="{{ route('blog.detail',$blog->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+							<a href="{{ route('book.blog.detail',$blog->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
 								<img src="{{ asset('blog/image/featured/' . $blog->featured_image) }}" class="card-img-top" alt="...">
 							</a>
 							<figcaption>
 								<div class="card-body">
 									<p class="card-title lead">
-										<a href="{{ route('blog.detail',$blog->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+										<a href="{{ route('book.blog.detail',$blog->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
 											{{ \Illuminate\Support\Str::limit($blog->title, 100, '...') }}
 										</a>
 										<p class="card-text">
@@ -125,7 +125,7 @@
 								</div>
 								<div class="card-body">
 									<div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
-										<a href="{{ route('blog.detail',$blog->slug) }}" target="_self" type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download HTML">Details</a>
+										<a href="{{ route('book.blog.detail',$blog->slug) }}" target="_self" type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download HTML">Details</a>
 									</div>
 								</div>
 							</figcaption>

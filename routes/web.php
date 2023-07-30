@@ -3,19 +3,42 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoriesController;
-use App\Http\Controllers\WhyOurThemesController;
 use App\Http\Controllers\BlogsController;
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\HireController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\TermsOfServiceController;
-use App\Http\Controllers\SiteTemplatesController;
-use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\BookPublishersController;
 use App\Http\Controllers\BookAuthorsController;
 use App\Http\Controllers\AudiosController;
+
+// Book
+use App\Http\Controllers\Books\BookController;
+use App\Http\Controllers\Books\BookAboutController;
+use App\Http\Controllers\Books\BookProfileController;
+use App\Http\Controllers\Books\BookHomeController;
+use App\Http\Controllers\Books\BookCategoryController;
+use App\Http\Controllers\Books\BookBlogController;
+use App\Http\Controllers\Books\BookContactController;
+use App\Http\Controllers\Books\BookPrivacyController;
+use App\Http\Controllers\Books\BookTermController;
+use App\Http\Controllers\Books\BookAudioController;
+
+// Templates
+use App\Http\Controllers\Templates\TemplateController;
+use App\Http\Controllers\Templates\SiteTemplateController;
+use App\Http\Controllers\Templates\TemplateAboutController;
+use App\Http\Controllers\Templates\TemplateThemeController;
+use App\Http\Controllers\Templates\TemplateHireController;
+use App\Http\Controllers\Templates\TemplateProfileController;
+use App\Http\Controllers\Templates\TemplateHomeController;
+use App\Http\Controllers\Templates\TemplateCategoryController;
+use App\Http\Controllers\Templates\TemplateBlogController;
+use App\Http\Controllers\Templates\TemplateContactController;
+use App\Http\Controllers\Templates\TemplatePrivacyController;
+use App\Http\Controllers\Templates\TemplateTermController;
+use App\Http\Controllers\Templates\TemplateAudioController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,50 +54,84 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Frontend - Updated
+| Book Store
 |--------------------------------------------------------------------------
 */
 
 // Homepage
-Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Book
-Route::get('books', [BooksController::class, 'books'])->name('books');
-Route::get('book-detail/{slug}', [BooksController::class, 'detail'])->name('book.detail');
-    
-// Why Our Themes
-Route::get('why-our-themes', [WhyOurThemesController::class, 'index']);
+// Route::get('books', [BooksController::class, 'books'])->name('books');
+// Route::get('book-detail/{slug}', [BooksController::class, 'detail'])->name('book.detail');
 
 // Blog
-Route::get('blogs', [BlogsController::class, 'blogs'])->name('blogs');
-Route::get('blog-detail/{slug}', [BlogsController::class, 'detail'])->name('blog.detail');
+// Route::get('blogs', [BlogsController::class, 'blogs'])->name('blogs');
+// Route::get('blog-detail/{slug}', [BlogsController::class, 'detail'])->name('blog.detail');
 
-// About
-Route::get('about/overview', [AboutController::class, 'overview']);
-Route::get('about/brand', [AboutController::class, 'brand']);
-Route::get('about/license', [AboutController::class, 'license']);
 
-// Hire Us
-Route::get('hire-us', [HireController::class, 'index']);
+// Book Store
+Route::get('bookstore', [BookController::class, 'index'])->name('book.home');
+Route::get('book/shop', [BookController::class, 'bookshop'])->name('bookshop');
+Route::get('book-detail/{slug}', [BookController::class, 'detail'])->name('book.detail');
 
-// Contact Us
-Route::get('contact-us', [ContactController::class, 'index'])->name('book-contact-us');
+// Book Store -> Blog
+Route::get('book/blog', [BookBlogController::class, 'index'])->name('book.blog');
+Route::get('book/blog-detail/{slug}', [BookBlogController::class, 'detail'])->name('book.blog.detail');
 
-// Privacy Policy
-Route::get('privacy-policy', [PrivacyPolicyController::class, 'index']);
+// Book Store -> About
+Route::get('book/about/overview', [BookAboutController::class, 'overview'])->name('book.overview');
+Route::get('book/about/brand', [BookAboutController::class, 'brand'])->name('book.brand');
+Route::get('book/about/license', [BookAboutController::class, 'license'])->name('book.license');
 
-// Terms of Service
-Route::get('terms-of-service', [TermsOfServiceController::class, 'index']);
+// Book Store -> Contact Us
+Route::get('book/contact-us', [BookContactController::class, 'index'])->name('book.contact-us');
 
-// Site Templates
-Route::get('site-templates', [SiteTemplatesController::class, 'index']);
+// Book Store -> Privacy Policy
+Route::get('book/privacy-policy', [BookPrivacyController::class, 'index'])->name('book.privacy-policy');
+
+// Book Store -> Terms of Service
+Route::get('book/terms-of-service', [BookTermController::class, 'index'])->name('book.terms-of-service');
+
+/*
+|--------------------------------------------------------------------------
+| Template
+|--------------------------------------------------------------------------
+*/
 
 // Template
+Route::get('template-store', [TemplateController::class, 'index'])->name('template.home');
+Route::get('site-template', [TemplateController::class, 'siteTemplate'])->name('template.site');
+
 Route::get('template/detail/{slug}', [TemplateController::class, 'detail'])->name('template.detail');
 
-// QR Code Gennerator
-Route::get('qr-code-generator', function () {
-    return view('frontend.qr-code-generator');
+// Template -> Blog
+Route::get('template/blog', [TemplateBlogController::class, 'index'])->name('template.blog');
+Route::get('template/blog-detail/{slug}', [TemplateBlogController::class, 'detail'])->name('template.blog.detail');
+
+// Template -> About
+Route::get('template/about/overview', [TemplateAboutController::class, 'overview'])->name('template.overview');
+Route::get('template/about/brand', [TemplateAboutController::class, 'brand'])->name('template.brand');
+Route::get('template/about/license', [TemplateAboutController::class, 'license'])->name('template.license');
+
+// Template -> Hire Us
+Route::get('template/hire-us', [TemplateHireController::class, 'index'])->name('template.hire-us');
+
+// Template -> Contact Us
+Route::get('template/contact-us', [TemplateContactController::class, 'index'])->name('template.contact-us');
+
+// Template -> Privacy Policy
+Route::get('template/privacy-policy', [TemplatePrivacyController::class, 'index'])->name('template.privacy-policy');
+
+// Template -> Terms of Service
+Route::get('template/terms-of-service', [TemplateTermController::class, 'index'])->name('template.terms-of-service');
+    
+// Template -> Why Our Themes
+Route::get('template/why-our-themes', [TemplateThemeController::class, 'index'])->name('template.why-our-themes');
+
+// Template -> QR Code Gennerator
+Route::get('template/qr-code-generator', function () {
+    return view('frontend.template.qr-code-generator');
 });
 
 /*
@@ -111,12 +168,12 @@ Route::put('/categories/sub-subcategories/sub-subcategory/update/{id}', [Categor
 Route::delete('/categories/sub-subcategories/sub-subcategory/destroy/{id}', [CategoriesController::class, 'destroy'])->middleware(['auth', 'verified'])->name('sub-subcategory.destroy');
 
 // Templates
-Route::get('/manage-templates', [TemplateController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-templates');
-Route::get('/templates/new-template', [TemplateController::class, 'create'])->middleware(['auth', 'verified'])->name('new-template');
-Route::post('/templates/new-template/store', [TemplateController::class, 'store'])->middleware(['auth', 'verified'])->name('new-template.store');
-Route::get('/templates/edit/{id}', [TemplateController::class, 'edit'])->middleware(['auth', 'verified'])->name('templates.edit');
-Route::put('/templates/update/{id}', [TemplateController::class, 'update'])->middleware(['auth', 'verified'])->name('update-template');
-Route::delete('/templates/destroy/{id}', [TemplateController::class, 'destroy'])->middleware(['auth', 'verified'])->name('destroy-template');
+Route::get('/manage-templates', [TemplatesController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-templates');
+Route::get('/templates/new-template', [TemplatesController::class, 'create'])->middleware(['auth', 'verified'])->name('new-template');
+Route::post('/templates/new-template/store', [TemplatesController::class, 'store'])->middleware(['auth', 'verified'])->name('new-template.store');
+Route::get('/templates/edit/{id}', [TemplatesController::class, 'edit'])->middleware(['auth', 'verified'])->name('templates.edit');
+Route::put('/templates/update/{id}', [TemplatesController::class, 'update'])->middleware(['auth', 'verified'])->name('update-template');
+Route::delete('/templates/destroy/{id}', [TemplatesController::class, 'destroy'])->middleware(['auth', 'verified'])->name('destroy-template');
 
 // Books
 Route::get('/manage-books', [BooksController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-books');

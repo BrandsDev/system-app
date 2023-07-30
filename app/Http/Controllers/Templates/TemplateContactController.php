@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Templates;
 
-use App\Models\WhyOurThemes;
+use App\Http\Controllers\Controller;
+
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
-class WhyOurThemesController extends Controller
+class TemplateContactController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        return view('frontend.why-our-themes');
+        return view('frontend.template.contact-us');
     }
 
     /**
@@ -35,7 +36,7 @@ class WhyOurThemesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(WhyOurThemes $whyOurThemes)
+    public function show(Contact $contact)
     {
         //
     }
@@ -43,7 +44,7 @@ class WhyOurThemesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(WhyOurThemes $whyOurThemes)
+    public function edit(Contact $contact)
     {
         //
     }
@@ -51,7 +52,7 @@ class WhyOurThemesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, WhyOurThemes $whyOurThemes)
+    public function update(Request $request, Contact $contact)
     {
         //
     }
@@ -59,7 +60,7 @@ class WhyOurThemesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(WhyOurThemes $whyOurThemes)
+    public function destroy(Contact $contact)
     {
         //
     }

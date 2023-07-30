@@ -1,4 +1,4 @@
-@extends('frontend.skeleton.body')
+@extends('frontend.template.skeleton.body')
 @section('content')
 		<main class="container p-3 py-5">
 			<div class="my-5 text-center">
@@ -43,7 +43,7 @@
 								<p class="text-center">You'll hear from us within 1-2 business days.</p>
 							</div>
 							<div class="col-12">
-								<p class="text-center">Got project for us? <a href="{{ url('/hire-us') }}">Yes!</a></p>
+								<p class="text-center">Got project for us? <a href="{{ route('template.hire-us') }}">Yes!</a></p>
 							</div>
 						</div>
 					</form>

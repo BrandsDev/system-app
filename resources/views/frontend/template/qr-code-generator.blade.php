@@ -1,4 +1,4 @@
-@extends('frontend.skeleton.body')
+@extends('frontend.template.skeleton.body')
 @section('content')
         <main class="container p-3 py-5">
             <div class="my-5 text-center">
@@ -55,4 +55,4 @@
             </script>
         @endsection
 
-        @endsection
+@endsection

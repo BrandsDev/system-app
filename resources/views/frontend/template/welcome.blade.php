@@ -1,5 +1,6 @@
-@extends('frontend.skeleton.body')
+@extends('frontend.template.skeleton.body')
 @section('content')
+
 <main class="container p-3 py-5">
 		<!-- Header Banner -->
 		<div class="row">
@@ -46,7 +47,7 @@
 			<div class="col-lg-2 align-self-center">
 				<div class="row">
 					<div class="col-12 col-sm-12">
-						<a type="button" class="btn btn-outline-secondary float-end" href="/system/site-templates.html">View all</a>
+						<a type="button" class="btn btn-outline-secondary float-end" href="{{ route('template.site') }}">View all</a>
 					</div>
 				</div>
 			</div>
@@ -71,7 +72,7 @@
 										</a>
 									</p>
 									<p class="card-text">
-										<small><i>by</i> in <a href="{{ url('/site-templates/') }}" target="_blank" class="link-dark">Category</a></small>
+										<small><i>by</i> in <a href="{{ route('template.site') }}" target="_blank" class="link-dark">Category</a></small>
 									</p>
 								</div>
 								<div class="card-body">
@@ -89,7 +90,7 @@
 		</div>
 		<div class="row">
 			<div class="col-12">
-				<p class="text-center">Have questions or suggestions? <a href="{{ url('/contact-us') }}">Contact Us</a></p>
+				<p class="text-center">Have questions or suggestions? <a href="{{ route('template.contact-us') }}">Contact Us</a></p>
 			</div>
 		</div>
 	</main>

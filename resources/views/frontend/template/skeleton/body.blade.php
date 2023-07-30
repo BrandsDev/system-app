@@ -21,27 +21,27 @@
 		@yield('custom-head')
 
 		<!-- HTML Meta Tags -->
-		@include('frontend.skeleton.meta')
+		@include('frontend.template.skeleton.meta')
 		
 
 		<!-- Schema -->
-		@include('frontend.skeleton.schema')
+		@include('frontend.template.skeleton.schema')
 
 	</head>
 	<body>
 
 		<!-- Navigation -->
-		@include('frontend.skeleton.navigation')
+		@include('frontend.template.skeleton.navigation')
 
 
 		<!-- Content -->
 		@yield('content')
 
 		<!-- Footer -->
-		@include('frontend.skeleton.footer')
+		@include('frontend.template.skeleton.footer')
 
 		<!-- Scripts -->
-		@include('frontend.skeleton.scripts')
+		@include('frontend.template.skeleton.scripts')
 
 		<!-- Custom Scripts -->
 		@yield('custom-scripts')
