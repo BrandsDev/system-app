@@ -168,12 +168,12 @@ Route::put('/categories/sub-subcategories/sub-subcategory/update/{id}', [Categor
 Route::delete('/categories/sub-subcategories/sub-subcategory/destroy/{id}', [CategoriesController::class, 'destroy'])->middleware(['auth', 'verified'])->name('sub-subcategory.destroy');
 
 // Templates
-Route::get('/manage-templates', [TemplatesController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-templates');
-Route::get('/templates/new-template', [TemplatesController::class, 'create'])->middleware(['auth', 'verified'])->name('new-template');
-Route::post('/templates/new-template/store', [TemplatesController::class, 'store'])->middleware(['auth', 'verified'])->name('new-template.store');
-Route::get('/templates/edit/{id}', [TemplatesController::class, 'edit'])->middleware(['auth', 'verified'])->name('templates.edit');
-Route::put('/templates/update/{id}', [TemplatesController::class, 'update'])->middleware(['auth', 'verified'])->name('update-template');
-Route::delete('/templates/destroy/{id}', [TemplatesController::class, 'destroy'])->middleware(['auth', 'verified'])->name('destroy-template');
+Route::get('/template-store/manage-templates', [TemplateController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-templates');
+Route::get('/template-store/new-template', [TemplateController::class, 'create'])->middleware(['auth', 'verified'])->name('new-template');
+Route::post('/template-store/new-template/store', [TemplateController::class, 'store'])->middleware(['auth', 'verified'])->name('new-template.store');
+Route::get('/template-store/edit/{id}', [TemplateController::class, 'edit'])->middleware(['auth', 'verified'])->name('templates.edit');
+Route::put('/template-store/update/{id}', [TemplateController::class, 'update'])->middleware(['auth', 'verified'])->name('update-template');
+Route::delete('/template-store/destroy/{id}', [TemplateController::class, 'destroy'])->middleware(['auth', 'verified'])->name('destroy-template');
 
 // Books
 Route::get('/manage-books', [BooksController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-books');

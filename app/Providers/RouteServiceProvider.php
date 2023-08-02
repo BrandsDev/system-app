@@ -24,7 +24,7 @@ class RouteServiceProvider extends ServiceProvider
 
     public const Blog = '/manage-blog/new-blog';
     
-    public const Template = '/templates/new-template';
+    public const Template = '/template-store/new-template';
 
     public const Book = '/manage-book/new-book';
     public const Publisher = '/manage-publisher/new-publisher';

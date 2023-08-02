@@ -26,8 +26,15 @@
     <!-- Content -->
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-10">
             <h1>Templates</h1>
+        </div>
+        <div class="col-lg-2 align-self-center">
+            <div class="row">
+                <div class="col-12 col-sm-12">
+                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('new-template') }}">+ Add Template</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -50,6 +57,8 @@
                         <th>Image</th>
                         <th>Name</th>
                         <th>Seller Name</th>
+                        <th>Featured?</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -59,6 +68,8 @@
                         <td><img src="{{ asset('template/image/' . $template->image) }}" class="" alt="..." height="42" width="42" /></td>
                         <td>{{ $template->name }}</td>
                         <td>{{ $template->seller_name }}</td>
+                        <td>@if($template->is_featured == 1) Yes @else No @endif</td>
+                        <td>@if($template->status == 1) Published @else Draft @endif</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                               <a href="{{ route('templates.edit',$template->id) }}" class="btn btn-secondary">Edit</a>
@@ -97,6 +108,8 @@
                         <th>Image</th>
                         <th>Name</th>
                         <th>Seller Name</th>
+                        <th>Featured?</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>

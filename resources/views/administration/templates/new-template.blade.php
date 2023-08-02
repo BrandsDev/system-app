@@ -41,7 +41,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="mb-3">
-                            <label for="name" class="form-label">Name *</label>
+                            <label for="name" class="form-label">Name</label>
                             <input type="text" class="form-control" name="name" placeholder="Name" required />
                             <div class="valid-feedback">
                                 Looks good!
@@ -70,10 +70,10 @@
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="sub_category_name" class="form-label">Sub Category</label>
-                            <input class="form-control" list="datalistSubCategory" name="sub_category_name" placeholder="Search Sub Category" />
+                            <input class="form-control" list="datalistSubCategory" name="subcategory_name" placeholder="Search Sub Category" required />
                             <datalist id="datalistSubCategory">
                                 @foreach($subcategories as $subcategory)
-                                <option value="{{ $subcategory->sub_category_name }}"></option>
+                                <option value="{{ $subcategory->subcategory_name }}"></option>
                                 @endforeach
                             </datalist>
                         </div>
@@ -81,29 +81,35 @@
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="sub_sub_category_name" class="form-label">Sub Sub Category</label>
-                            <input class="form-control" list="datalistSubSubCategory" name="sub_sub_category_name" placeholder="Search Sub Sub Category" />
+                            <input class="form-control" list="datalistSubSubCategory" name="sub_subcategory_name" placeholder="Search Sub Sub Category" />
                             <datalist id="datalistSubSubCategory">
                                 @foreach($sub_subcategories as $sub_subcategory)
-                                <option value="{{ $sub_subcategory->sub_sub_category_name }}"></option>
+                                <option value="{{ $sub_subcategory->sub_subcategory_name }}"></option>
                                 @endforeach
                             </datalist>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
+                        <div class="mb-3">
+                            <label for="sale_price" class="form-label">SKU</label>
+                            <input type="text" class="form-control" name="sku" placeholder="SKU" required />
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
                         <div class="mb-3">
                             <label for="sale_price" class="form-label">Sale Price</label>
                             <input type="text" class="form-control" name="sale_price" placeholder="0.00" />
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="mb-3">
                             <label for="regular_price" class="form-label">Regular Price</label>
                             <input type="text" class="form-control" name="regular_price" placeholder="0.00" required />
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="mb-3">
                             <label for="commission" class="form-label">Commission</label>
                             <input type="text" class="form-control" name="commission" placeholder="0.00" />
@@ -174,13 +180,13 @@
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="youtube_iframe" class="form-label">Youtube Iframe</label>
-                            <textarea class="form-control" id="youtube_iframe" rows="2" name="youtube_iframe"></textarea>
+                            <textarea class="form-control" id="youtube_iframe" rows="5" name="youtube_iframe"></textarea>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="header_content" class="form-label">Header Content</label>
-                            <textarea class="form-control" id="header_content" rows="2" name="header_content"></textarea>
+                            <textarea class="form-control" id="header_content" rows="5" name="header_content"></textarea>
                         </div>
                     </div>
                 </div>
@@ -203,6 +209,24 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="mb-3">
+                            <label for="order_type" class="form-label">Order Type</label>
+                            <input class="form-control" list="datalistOrderType" name="order_type" value="{{ old('order_type', '0') }}" placeholder="Pre-Order" />
+                            <datalist id="datalistOrderType">
+                                <option value="1">Normal</option>
+                                <option value="0">Pre-Order</option>
+                            </datalist>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" name="is_featured" value="0" id="featuredCheckDefault">
+                                  <label class="form-check-label" for="featuredCheckDefault">Featured?</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="mb-3">
                             <label for="live_preview_link" class="form-label">Live Preview Link</label>
                             <input type="text" class="form-control" name="live_preview_link" placeholder="Live Preview Link" />
                         </div>
@@ -218,7 +242,13 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="image" class="form-label">Upload Image</label>
-                            <input class="form-control" type="file" name="image" />
+                            <input class="form-control" type="file" name="image" multiple />
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <label for="og" class="form-label">OG Image</label>
+                            <input class="form-control" type="file" name="og" />
                         </div>
                     </div>
                     <div class="col-sm-12">
@@ -232,7 +262,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="status" class="form-label">Status</label>
-                            <input class="form-control" list="datalistStatus" name="status" placeholder="Status" required />
+                            <input class="form-control" list="datalistStatus" name="status" value="{{ old('status', '0') }}" placeholder="Draft"/>
                             <datalist id="datalistStatus">
                                 <option value="1">Publish</option>
                                 <option value="0">Draft</option>
@@ -244,7 +274,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="comment" class="form-label">Comment</label>
-                            <textarea class="form-control" name="comment" rows="3"></textarea>
+                            <textarea class="form-control" id="custom-textarea" name="comment" rows="3"></textarea>
                         </div>
                     </div>
                 </div>
@@ -263,7 +293,7 @@
 @section('custom-scripts')
 <script>
     tinymce.init({
-        selector: 'textarea',
+        selector: '#custom-textarea',
         plugins: 'link image code',
         toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
     });
@@ -290,4 +320,6 @@
       })
     })()
 </script>
-@endsection @endsection
+@endsection
+
+@endsection

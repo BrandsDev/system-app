@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Template;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -20,6 +20,7 @@ class Template extends Model
         'category_name',
         'subcategory_name',
         'sub_subcategory_name',
+        'sku',
         'sale_price',
         'regular_price',
         'commission',
@@ -36,9 +37,12 @@ class Template extends Model
         'header_content',
         'meta_title',
         'meta_description',
+        'order_type',
+        'is_featured',
         'live_preview_link',
         'downloadable_link',
         'image',
+        'og',
         'file',
         'status',
         'comment',

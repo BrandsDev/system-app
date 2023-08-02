@@ -3,13 +3,18 @@
 namespace App\Http\Controllers\Templates;
 
 use App\Http\Controllers\Controller;
-use App\Models\Template;
+
+use App\Models\Template\Template;
+
 use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\SubSubcategory;
+
 use App\Providers\RouteServiceProvider;
+
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+
 use Session;
 
 class TemplateController extends Controller
@@ -48,11 +53,7 @@ class TemplateController extends Controller
         //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
         // ]);
 
-        $imageName = $request->image->getClientOriginalName();
-        $request->image->move(public_path('template/image'), $imageName);
-
-        $fileName = $request->file->getClientOriginalName();
-        $request->file->move(public_path('template/file'), $fileName);
+        // dd($request);
 
         $template = Template::create([
             'name' => $request->name,
@@ -60,6 +61,7 @@ class TemplateController extends Controller
             'category_name' => $request->category_name,
             'subcategory_name' => $request->subcategory_name,
             'sub_subcategory_name' => $request->sub_subcategory_name,
+            'sku' => $request->sku,
             'sale_price' => $request->sale_price,
             'regular_price' => $request->regular_price,
             'commission' => $request->commission,
@@ -76,15 +78,37 @@ class TemplateController extends Controller
             'header_content' => $request->header_content,
             'meta_title' => $request->meta_title,
             'meta_description' => $request->meta_description,
+            'order_type' => $request->order_type,
+            'is_featured' => $request->input('is_featured', 0),
             'live_preview_link' => $request->live_preview_link,
             'downloadable_link' => $request->downloadable_link,
-            'image' => $imageName,
-            'file' => $fileName,
             'status' => $request->status,
             'comment' => $request->comment,
         ]);
 
         $template->save();
+
+        if ($request->hasFile('image')) {
+            $imageName = $request->file('image')->getClientOriginalName();
+            $request->file('image')->move(public_path('template/image'), $imageName);
+            $template->image = $imageName;
+        }
+
+        if ($request->hasFile('og')) {
+            $og = $request->file('og')->getClientOriginalName();
+            $request->file('og')->move(public_path('template/image/og'), $og);
+            $template->og = $og;
+        }
+
+        if ($request->hasFile('file')) {
+            $fileName = $request->file('file')->getClientOriginalName();
+            $request->file('file')->move(public_path('template/file'), $fileName);
+            $template->file = $fileName;
+        }
+
+        if ($request->hasFile('image') || $request->hasFile('og') || $request->hasFile('file')) {
+            $template->save();
+        }
 
         Session::flash('message', __('New Template Successfully Added!'));
         
@@ -98,7 +122,7 @@ class TemplateController extends Controller
     {
         $templates = Template::all();
 
-        return view('administration.templates.templates', ['templates' => $templates]);
+        return view('administration.templates.manage-templates', ['templates' => $templates]);
     }
 
     /**
@@ -130,6 +154,7 @@ class TemplateController extends Controller
      */
     public function update(Request $request, $id): RedirectResponse
     {
+        // dd($request);
         // Retrieve the existing record from the database
         $template = Template::find($id);
 
@@ -150,6 +175,22 @@ class TemplateController extends Controller
 
                 // Update the image data in the model
                 $template->image = $newImageName;
+            }
+
+            $newImage = $request->file('og');
+
+            if ($newImage) {
+                // Validate the new OG file
+                $validatedData = $request->validate([
+                    // 'og' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+                ]);
+
+                // Process the new OG file (e.g., move to a specific directory, assign a new filename)
+                $newImageName = $request->og->getClientOriginalName();
+                $request->og->move(public_path('template/image/og'), $newImageName);
+
+                // Update the og data in the model
+                $template->og = $newImageName;
             }
 
             // Validate and process the new image
@@ -191,11 +232,13 @@ class TemplateController extends Controller
             $template->header_content = $request->input('header_content');
             $template->meta_title = $request->input('meta_title');
             $template->meta_description = $request->input('meta_description');
+            $template->order_type = $request->input('order_type');
+            $template->is_featured = $request->input('is_featured');
             $template->live_preview_link = $request->input('live_preview_link');
             $template->downloadable_link = $request->input('downloadable_link');
 
             if (!is_null($request->input('status'))) {
-                $audio->status = $request->input('status');
+                $template->status = $request->input('status');
             }
             
             $template->comment = $request->input('comment');

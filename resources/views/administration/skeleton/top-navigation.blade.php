@@ -19,7 +19,7 @@
 						<li><a class="dropdown-item" href="{{ route('manage-sub-subcategories') }}">Sub Subcategories</a></li>
 					</ul>
 				</li>
-				<!-- <li class="nav-item dropdown">
+				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Templates
 					</a>
@@ -27,7 +27,7 @@
 						<li><a class="dropdown-item" href="{{ route('new-template') }}">Add Template</a></li>
 						<li><a class="dropdown-item" href="{{ route('manage-templates') }}">Manage Templates</a></li>
 					</ul>
-				</li> -->
+				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Books

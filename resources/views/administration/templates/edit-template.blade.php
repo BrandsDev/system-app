@@ -70,8 +70,8 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="sub_category_name" class="form-label">Sub Category</label>
-                            <input class="form-control" list="datalistSubCategory" name="sub_category_name" value="{{ $template->sub_category_name }}" placeholder="Search Sub Category" />
+                            <label for="subcategory_name" class="form-label">Sub Category</label>
+                            <input class="form-control" list="datalistSubCategory" name="subcategory_name" value="{{ $template->subcategory_name }}" placeholder="Search Sub Category" />
                             <datalist id="datalistSubCategory">
                                 @foreach($subcategories as $subcategory)
                                 <option value="{{ $subcategory->sub_category_name }}"></option>
@@ -81,8 +81,8 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="sub_sub_category_name" class="form-label">Sub Sub Category</label>
-                            <input class="form-control" list="datalistSubSubCategory" name="sub_sub_category_name" value="{{ $template->sub_sub_category_name }}" placeholder="Search Sub Sub Category" />
+                            <label for="sub_subcategory_name" class="form-label">Sub Sub Category</label>
+                            <input class="form-control" list="datalistSubSubCategory" name="sub_subcategory_name" value="{{ $template->sub_subcategory_name }}" placeholder="Search Sub Sub Category" />
                             <datalist id="datalistSubSubCategory">
                                 @foreach($sub_subcategories as $sub_subcategory)
                                 <option value="{{ $sub_subcategory->sub_sub_category_name }}"></option>
@@ -92,19 +92,25 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
+                        <div class="mb-3">
+                            <label for="sku" class="form-label">SKU</label>
+                            <input type="text" class="form-control" name="sku" value="{{ $template->sku }}" placeholder="SKU" />
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
                         <div class="mb-3">
                             <label for="sale_price" class="form-label">Sale Price</label>
                             <input type="text" class="form-control" name="sale_price" value="{{ $template->sale_price }}" placeholder="0.00" />
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="mb-3">
                             <label for="regular_price" class="form-label">Regular Price</label>
                             <input type="text" class="form-control" name="regular_price" value="{{ $template->regular_price }}" placeholder="0.00" required />
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="mb-3">
                             <label for="commission" class="form-label">Commission</label>
                             <input type="text" class="form-control" name="commission" value="{{ $template->commission }}" placeholder="0.00" />
@@ -204,6 +210,26 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="mb-3">
+                            <label for="order_type" class="form-label">Order Type</label>
+                            <input class="form-control" list="datalistOrderType" name="order_type" placeholder="@if($template->order_type == 1) Normal @else Pre-Order @endif" />
+                            <datalist id="datalistOrderType">
+                                <option value="1">Normal</option>
+                                <option value="0">Pre-Order</option>
+                            </datalist>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" name="is_featured" value="1" id="featuredCheckDefault" @if($template->is_featured == 1) checked @endif>
+                                  <label class="form-check-label" for="featuredCheckDefault">Featured?</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="mb-3">
                             <label for="live_preview_link" class="form-label">Live Preview Link</label>
                             <input type="text" class="form-control" name="live_preview_link" value="{{ $template->live_preview_link }}" placeholder="Live Preview Link" />
                         </div>
@@ -230,6 +256,18 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
+                            <label for="og" class="form-label">OG Image</label>
+                            <img src="{{ asset('template/image/og/' . $template->og) }}" class="img-thumbnail" alt="...">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <label for="og" class="form-label">Upload OG</label>
+                            <input class="form-control" type="file" name="og" id="og" />
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="mb-3">
                             <label for="file" class="form-label">{{ asset('template/file/' . $template->file) }}</label>
                         </div>
                     </div>
@@ -244,7 +282,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="status" class="form-label">Status</label>
-                            <input class="form-control" list="datalistStatus" name="status" id="status" value="{{ $template->status }}" placeholder="Status" required />
+                            <input class="form-control" list="datalistStatus" name="status" placeholder="@if($template->status == 1) Published @else Draft @endif" />
                             <datalist id="datalistStatus">
                                 <option value="1">Publish</option>
                                 <option value="0">Draft</option>
@@ -256,7 +294,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="comment" class="form-label">Comment</label>
-                            <textarea class="form-control" name="comment" rows="3">{{ $template->comment }}</textarea>
+                            <textarea class="form-control" id="custom-textarea" name="comment" rows="3">{{ $template->comment }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -275,7 +313,7 @@
 @section('custom-scripts')
 <script>
     tinymce.init({
-        selector: 'textarea',
+        selector: '#custom-textarea',
         plugins: 'link image code',
         toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
     });

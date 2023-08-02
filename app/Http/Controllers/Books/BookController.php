@@ -217,8 +217,6 @@ class BookController extends Controller
                 $book->file = $newFileName;
             }
 
-            // dd($book->og);
-
             $book->name = $request->input('name');
             $book->slug = $request->input('slug');
             $book->category_name = $request->input('category_name');
@@ -242,7 +240,7 @@ class BookController extends Controller
             $book->is_featured = $request->input('is_featured');
 
             if (!is_null($request->input('status'))) {
-                $audio->status = $request->input('status');
+                $book->status = $request->input('status');
             }
             
             $book->comment = $request->input('comment');

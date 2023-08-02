@@ -22,10 +22,13 @@ generateNumbers($startNumber, $endNumber);
 ---------------
 New Domain & File Configuring
 ---------------
+sudo certbot --apache -d yourdomain.com -d www.yourdomain.com
+sudo service apache2 restart
+sudo a2ensite yourdomain.com-le-ssl.conf
+
 sudo nano /etc/apache2/sites-available/subdomain.example.com.conf
 SSLCertificateFile /etc/letsencrypt/live/subdomain.example.com/fullchain.pem
 SSLCertificateKeyFile /etc/letsencrypt/live/subdomain.example.com/privkey.pem
-
 ---------------
 Storing image 
 ---------------
@@ -44,3 +47,48 @@ $request->image->move(resource_path('images/templates'), $imageName);
 Domain 
 ---------------
 probnsol
+
+---------------
+SSL Configure 
+---------------
+To remove all Let's Encrypt SSL certificates related to the ilannoor.institute domain and generate a new one, you can follow these steps:
+
+    Stop the web server:
+
+    arduino
+
+sudo systemctl stop apache2
+
+Remove the existing SSL certificate files:
+
+bash
+
+sudo rm -rf /etc/letsencrypt/live/ilannoor.institute
+sudo rm -rf /etc/letsencrypt/archive/ilannoor.institute
+sudo rm -rf /etc/letsencrypt/renewal/ilannoor.institute.conf
+
+Remove the Certbot cron job for certificate renewal:
+
+sudo crontab -e
+
+Locate the line that refers to the Certbot renewal for the ilannoor.institute domain and remove it. Save and exit the editor.
+
+Generate a new SSL certificate using Certbot:
+
+css
+
+sudo certbot certonly --apache -d ilannoor.institute -d www.ilannoor.institute
+
+This command will request a new SSL certificate for the ilannoor.institute domain and its www subdomain, using the Apache authenticator.
+
+Follow the prompts to complete the certificate generation process. Make sure to provide valid email address and agree to the terms of service.
+
+Restart the web server:
+
+sql
+
+sudo systemctl start apache2
+
+Configure Apache2: 
+sudo a2ensite yourdomain.com-le-ssl.conf
+sudo service apache2 reload
