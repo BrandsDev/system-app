@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Templates;
 
 use App\Http\Controllers\Controller;
-use App\Models\About;
+
+use App\Models\Template\TemplateAbout;
+
 use Illuminate\Http\Request;
 
 class TemplateAboutController extends Controller

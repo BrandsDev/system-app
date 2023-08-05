@@ -3,13 +3,17 @@
 namespace App\Http\Controllers\Books;
 
 use App\Http\Controllers\Controller;
-use App\Models\Blog;
-use App\Models\Book;
-use App\Models\BookAuthor;
-use App\Models\Template;
-use App\Models\Category;
-use App\Models\Subcategory;
-use App\Models\SubSubcategory;
+
+use App\Models\Book\Book;
+use App\Models\Book\BookBlog;
+use App\Models\Book\BookBook;
+use App\Models\Book\BookBookAuthor;
+use App\Models\Book\BookCategory;
+use App\Models\Book\BookSubcategory;
+use App\Models\Book\BookSubSubcategory;
+
+use App\Models\Template\Template;
+
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -19,16 +23,16 @@ class BookBlogController extends Controller
 {
     public function index()
     {
-        $featuredBlogs = Blog::where('is_featured', 1)->get();
-        $takeBlogs = Blog::take(2)->get();
+        $featuredBlogs = BookBlog::where('is_featured', 1)->get();
+        $takeBlogs = BookBlog::take(2)->get();
 
         return view('frontend.book.blog', ['featuredBlogs' => $featuredBlogs, 'takeBlogs' => $takeBlogs]);
     }
 
     public function blogs()
     {
-        $featuredBlogs = Blog::where('is_featured', 1)->get();
-        $takeBlogs = Blog::take(2)->get();
+        $featuredBlogs = BookBlog::where('is_featured', 1)->get();
+        $takeBlogs = BookBlog::take(2)->get();
 
         return view('frontend.book.blog', ['featuredBlogs' => $featuredBlogs, 'takeBlogs' => $takeBlogs]);
     }
@@ -37,9 +41,9 @@ class BookBlogController extends Controller
     {
         $books = Book::all();
         $authors = BookAuthor::all();
-        $categories = Category::all();
-        $subcategories = Subcategory::all();
-        $sub_subcategories = SubSubcategory::all();
+        $categories = BookCategory::all();
+        $subcategories = BookSubcategory::all();
+        $sub_subcategories = BookSubSubcategory::all();
 
         return view('administration.blogs.new-blog', [
             'categories' => $categories, 
@@ -60,7 +64,7 @@ class BookBlogController extends Controller
         //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
         // ]);
 
-        $blog = Blog::create([
+        $blog = BookBlog::create([
             'title' => $request->title,
             'slug' => $request->slug,
             'tags' => $request->tags,
@@ -112,14 +116,14 @@ class BookBlogController extends Controller
 
     public function show(Request $request)
     {            
-        $blogs = Blog::all();
+        $blogs = BookBlog::all();
         
         return view('administration.blogs.manage-blogs', ['blogs' => $blogs]);
     }
 
     public function detail($slug)
     {
-        $blog = Blog::where('slug', $slug)->firstOrFail();
+        $blog = BookBlog::where('slug', $slug)->firstOrFail();
         $relatedBlog = Blog::take(4)->get();
 
         return view('frontend.book.blog-detail', [
@@ -130,12 +134,12 @@ class BookBlogController extends Controller
 
     public function edit($id)
     {
-        $blog = Blog::findOrFail($id);
+        $blog = BookBlog::findOrFail($id);
         $books = Book::all();
         $authors = BookAuthor::all();
-        $categories = Category::all();
-        $subcategories = Subcategory::all();
-        $sub_subcategories = SubSubcategory::all();
+        $categories = BookCategory::all();
+        $subcategories = BookSubcategory::all();
+        $sub_subcategories = BookSubSubcategory::all();
         
         return view('administration.blogs.edit-blog', [
             'blog' => $blog,
@@ -149,7 +153,7 @@ class BookBlogController extends Controller
 
     public function update(Request $request, $id): RedirectResponse
     {
-        $blog = Blog::find($id);
+        $blog = BookBlog::find($id);
 
         if ($blog) {
             $featuredImage = $request->file('featured_image');
@@ -233,7 +237,7 @@ class BookBlogController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        Blog::where('id',$id)->delete();
+        BookBlog::where('id',$id)->delete();
 
         Session::flash('delete', __('Blog Successfully Deleted!'));
         

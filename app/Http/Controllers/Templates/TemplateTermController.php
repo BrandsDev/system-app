@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Templates;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\TermsOfService;
+use App\Models\Template\TemplateTerm;
+
 use Illuminate\Http\Request;
 
 class TemplateTermController extends Controller

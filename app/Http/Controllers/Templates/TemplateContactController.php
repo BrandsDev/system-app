@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Templates;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\Contact;
+use App\Models\Template\TemplateContact;
+
 use Illuminate\Http\Request;
 
 class TemplateContactController extends Controller

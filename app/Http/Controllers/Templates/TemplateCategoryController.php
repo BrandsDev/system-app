@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Templates;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\Category;
-use App\Models\Subcategory;
-use App\Models\SubSubcategory;
+use App\Models\Template\TemplateCategory;
+use App\Models\Template\TemplateSubcategory;
+use App\Models\Template\TemplateSubSubcategory;
+
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -34,13 +35,13 @@ class TemplateCategoryController extends Controller
 
         } elseif ($request->routeIs('new-subcategory')) {
         
-            $categories = Category::select('category_name')->get();
+            $categories = TemplateCategory::select('category_name')->get();
             
             return view('administration.categories.new-subcategory', ['categories' => $categories]);
 
         } elseif ($request->routeIs('new-sub-subcategory')) {
         
-            $subcategories = Subcategory::select('subcategory_name')->get();
+            $subcategories = TemplateSubcategory::select('subcategory_name')->get();
             
             return view('administration.categories.new-sub-subcategory', ['subcategories' => $subcategories]);
         }
@@ -79,7 +80,7 @@ class TemplateCategoryController extends Controller
 
             // dd($request);
 
-            $category = Category::create([
+            $category = TemplateCategory::create([
                 'category_name' => $request->category_name,
                 'slug' => $request->slug,
                 'description' => $request->description,
@@ -121,7 +122,7 @@ class TemplateCategoryController extends Controller
             $og = $request->og_image->getClientOriginalName();
             $request->og_image->move(public_path('category/subcategory/og'), $og);
 
-            $category = SubCategory::create([
+            $category = TemplateSubCategory::create([
                 'category_name' => $request->category_name,
                 'subcategory_name' => $request->subcategory_name,
                 'slug' => $request->slug,
@@ -162,7 +163,7 @@ class TemplateCategoryController extends Controller
             $og = $request->og_image->getClientOriginalName();
             $request->og_image->move(public_path('category/subcategory/sub-subcategory/og'), $og);
 
-            $category = SubSubCategory::create([
+            $category = TemplateSubSubCategory::create([
                 'sub_subcategory_name' => $request->sub_subcategory_name,
                 'subcategory_name' => $request->subcategory_name,
                 'slug' => $request->slug,
@@ -194,19 +195,19 @@ class TemplateCategoryController extends Controller
     {
         if ($request->routeIs('manage-categories')) {
             
-            $categories = Category::all();
+            $categories = TemplateCategory::all();
             
             return view('administration.categories.manage-categories', ['categories' => $categories]);
 
         } elseif ($request->routeIs('manage-subcategories')) {
             
-            $subcategories = Subcategory::all();
+            $subcategories = TemplateSubcategory::all();
             
             return view('administration.categories.manage-subcategories', ['subcategories' => $subcategories]);
 
         } elseif ($request->routeIs('manage-sub-subcategories')) {
         
-            $sub_subcategories = SubSubcategory::all();
+            $sub_subcategories = TemplateSubSubcategory::all();
             
             return view('administration.categories.manage-sub-subcategories', ['sub_subcategories' => $sub_subcategories]);
 
@@ -223,23 +224,23 @@ class TemplateCategoryController extends Controller
     {
         if ($request->routeIs('category.edit')) {
 
-            $category = Category::findOrFail($id);
+            $category = TemplateCategory::findOrFail($id);
             
             return view('administration.categories.edit-category', ['category' => $category]);
 
         } elseif ($request->routeIs('subcategory.edit')) {
 
-            $categories = Category::select('category_name')->get();
+            $categories = TemplateCategory::select('category_name')->get();
 
-            $subcategory = Subcategory::findOrFail($id);
+            $subcategory = TemplateSubcategory::findOrFail($id);
             
             return view('administration.categories.edit-subcategory', ['categories' => $categories, 'subcategory' => $subcategory]);
 
         } elseif ($request->routeIs('sub-subcategory.edit')) {
 
-            $subcategories = Subcategory::select('subcategory_name')->get();
+            $subcategories = TemplateSubcategory::select('subcategory_name')->get();
 
-            $sub_subcategory = SubSubcategory::findOrFail($id);
+            $sub_subcategory = TemplateSubSubcategory::findOrFail($id);
             
             return view('administration.categories.edit-sub-subcategory', ['subcategories' => $subcategories, 'sub_subcategory' => $sub_subcategory]);
 
@@ -257,7 +258,7 @@ class TemplateCategoryController extends Controller
         if ($request->routeIs('category.update')) {
 
             // Retrieve the existing record from the database
-            $category = Category::find($id);
+            $category = TemplateCategory::find($id);
 
             // Make sure the record exists
             if ($category) {
@@ -353,7 +354,7 @@ class TemplateCategoryController extends Controller
 
         } elseif ($request->routeIs('subcategory.update')) {
 
-            $subcategory = SubCategory::find($id);
+            $subcategory = TemplateSubCategory::find($id);
 
             if ($subcategory) {
                 $newIcon = $request->file('icon');
@@ -429,7 +430,7 @@ class TemplateCategoryController extends Controller
 
         } elseif ($request->routeIs('sub-subcategory.update')) {
 
-            $sub_subcategory = SubSubcategory::find($id);
+            $sub_subcategory = TemplateSubSubcategory::find($id);
 
             if ($sub_subcategory) {
                 $newIcon = $request->file('icon');
@@ -515,7 +516,7 @@ class TemplateCategoryController extends Controller
     {
         if ($request->routeIs('category.destroy')) {
 
-            Category::where('id',$id)->delete();
+            TemplateCategory::where('id',$id)->delete();
 
             Session::flash('delete', __('Category Successfully Deleted!'));
             
@@ -523,7 +524,7 @@ class TemplateCategoryController extends Controller
 
         } elseif ($request->routeIs('subcategory.destroy')) {
             
-            Subcategory::where('id',$id)->delete();
+            TemplateSubcategory::where('id',$id)->delete();
 
             Session::flash('delete', __('Subcategory Successfully Deleted!'));
             
@@ -531,7 +532,7 @@ class TemplateCategoryController extends Controller
 
         } elseif ($request->routeIs('sub-subcategory.destroy')) {
             
-            SubSubcategory::where('id',$id)->delete();
+            TemplateSubSubcategory::where('id',$id)->delete();
 
             Session::flash('delete', __('Sub Subcategory Successfully Deleted!'));
             

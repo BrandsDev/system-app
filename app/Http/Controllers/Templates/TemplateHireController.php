@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Templates;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\Hire;
+use App\Models\Template\TemplateHire;
+
 use Illuminate\Http\Request;
 
 class TemplateHireController extends Controller

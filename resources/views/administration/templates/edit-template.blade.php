@@ -10,7 +10,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('manage-templates') }}">Templates</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('manage-templates') }}">Manage Templates</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Update Templates</li>
                 </ol>
             </nav>
@@ -107,7 +107,7 @@
                     <div class="col-sm-3">
                         <div class="mb-3">
                             <label for="regular_price" class="form-label">Regular Price</label>
-                            <input type="text" class="form-control" name="regular_price" value="{{ $template->regular_price }}" placeholder="0.00" required />
+                            <input type="text" class="form-control" name="regular_price" value="{{ $template->regular_price }}" placeholder="0.00" />
                         </div>
                     </div>
                     <div class="col-sm-3">
@@ -282,7 +282,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="status" class="form-label">Status</label>
-                            <input class="form-control" list="datalistStatus" name="status" placeholder="@if($template->status == 1) Published @else Draft @endif" />
+                            <input class="form-control" list="datalistStatus" name="status" id="status" placeholder="@if($template->status == 1) Published @else Draft @endif" />
                             <datalist id="datalistStatus">
                                 <option value="1">Publish</option>
                                 <option value="0">Draft</option>

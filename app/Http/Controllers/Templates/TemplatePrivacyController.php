@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Templates;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\PrivacyPolicy;
+use App\Models\Template\TemplatePrivacy;
+
 use Illuminate\Http\Request;
 
 class TemplatePrivacyController extends Controller

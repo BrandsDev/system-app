@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Books;
 
 use App\Http\Controllers\Controller;
-use App\Models\PrivacyPolicy;
+
+use App\Models\Book\BookPrivacy;
+
+use App\Providers\RouteServiceProvider;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Session;
 
 class BookPrivacyController extends Controller
 {

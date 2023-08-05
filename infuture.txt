@@ -3,6 +3,7 @@ Setup Environment
 ---------------
 # install local server, vendor, composer, nodeJS, npm install
 
+Version 1.3.0 
 ---------------
 Generate Random Mobile Number
 ---------------
@@ -14,8 +15,8 @@ function generateNumbers($start, $end) {
     }
 }
 
-$startNumber = 2001;
-$endNumber = 3000;
+$startNumber = 8001;
+$endNumber = 10000;
 generateNumbers($startNumber, $endNumber);
 ?>
 

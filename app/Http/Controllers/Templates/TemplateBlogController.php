@@ -3,13 +3,17 @@
 namespace App\Http\Controllers\Templates;
 
 use App\Http\Controllers\Controller;
-use App\Models\Blog;
-use App\Models\Book;
-use App\Models\BookAuthor;
-use App\Models\Template;
-use App\Models\Category;
-use App\Models\Subcategory;
-use App\Models\SubSubcategory;
+
+use App\Models\Template\Template;
+use App\Models\Template\TemplateBlog;
+use App\Models\Template\TemplateTemplate;
+use App\Models\Template\TemplateCategory;
+use App\Models\Template\TemplateSubcategory;
+use App\Models\Template\TemplateSubSubcategory;
+
+use App\Models\Book\Book;
+use App\Models\Book\BookAuthor;
+
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -34,9 +38,9 @@ class TemplateBlogController extends Controller
     {
         $books = Book::all();
         $authors = BookAuthor::all();
-        $categories = Category::all();
-        $subcategories = Subcategory::all();
-        $sub_subcategories = SubSubcategory::all();
+        $categories = TemplateCategory::all();
+        $subcategories = TemplateSubcategory::all();
+        $sub_subcategories = TemplateSubSubcategory::all();
 
         return view('administration.blogs.new-blog', [
             'categories' => $categories, 
@@ -57,7 +61,7 @@ class TemplateBlogController extends Controller
         //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
         // ]);
 
-        $blog = Blog::create([
+        $blog = TemplateBlog::create([
             'title' => $request->title,
             'slug' => $request->slug,
             'tags' => $request->tags,
@@ -109,14 +113,14 @@ class TemplateBlogController extends Controller
 
     public function show(Request $request)
     {            
-        $blogs = Blog::all();
+        $blogs = TemplateBlog::all();
         
         return view('administration.blogs.manage-blogs', ['blogs' => $blogs]);
     }
 
     public function detail($slug)
     {
-        $blog = Blog::where('slug', $slug)->firstOrFail();
+        $blog = TemplateBlog::where('slug', $slug)->firstOrFail();
         $relatedBlog = Blog::take(4)->get();
 
         return view('frontend.book.blog-detail', [
@@ -127,12 +131,12 @@ class TemplateBlogController extends Controller
 
     public function edit($id)
     {
-        $blog = Blog::findOrFail($id);
+        $blog = TemplateBlog::findOrFail($id);
         $books = Book::all();
         $authors = BookAuthor::all();
-        $categories = Category::all();
-        $subcategories = Subcategory::all();
-        $sub_subcategories = SubSubcategory::all();
+        $categories = TemplateCategory::all();
+        $subcategories = TemplateSubcategory::all();
+        $sub_subcategories = TemplateSubSubcategory::all();
         
         return view('administration.blogs.edit-blog', [
             'blog' => $blog,
@@ -230,7 +234,7 @@ class TemplateBlogController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        Blog::where('id',$id)->delete();
+        TemplateBlog::where('id',$id)->delete();
 
         Session::flash('delete', __('Blog Successfully Deleted!'));
         

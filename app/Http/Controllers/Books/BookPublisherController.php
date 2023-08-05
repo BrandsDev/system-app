@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Books;
 
 use App\Http\Controllers\Controller;
-use App\Models\BookPublisher;
-use App\Models\Category;
-use App\Models\Subcategory;
-use App\Models\SubSubcategory;
+
+use App\Models\Book\Book;
+use App\Models\Book\BookPublisher;
+use App\Models\Book\BookCategory;
+use App\Models\Book\BookSubcategory;
+use App\Models\Book\BookSubSubcategory;
+
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;

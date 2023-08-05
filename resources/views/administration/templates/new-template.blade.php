@@ -106,7 +106,7 @@
                     <div class="col-sm-3">
                         <div class="mb-3">
                             <label for="regular_price" class="form-label">Regular Price</label>
-                            <input type="text" class="form-control" name="regular_price" placeholder="0.00" required />
+                            <input type="text" class="form-control" name="regular_price" placeholder="0.00" />
                         </div>
                     </div>
                     <div class="col-sm-3">

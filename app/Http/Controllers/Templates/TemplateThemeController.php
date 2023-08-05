@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Templates;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\WhyOurThemes;
+use App\Models\Template\TemplateTheme;
+
 use Illuminate\Http\Request;
 
 class TemplateThemeController extends Controller

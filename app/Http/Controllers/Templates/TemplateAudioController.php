@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Templates;
 
 use App\Http\Controllers\Controller;
-use App\Models\Audio;
-use App\Models\Category;
-use App\Models\Subcategory;
-use App\Models\SubSubcategory;
+
+use App\Models\Template\Template;
+use App\Models\Template\TemplateAudio;
+use App\Models\Template\TemplateCategory;
+use App\Models\Template\TemplateSubcategory;
+use App\Models\Template\TemplateSubSubcategory;
+
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -23,10 +26,10 @@ class TemplateAudioController extends Controller
     {
         if ($request->routeIs('new-audio')) {
             
-            $audios = Audio::all();
-            $categories = Category::all();
-            $subcategories = Subcategory::all();
-            $sub_subcategories = SubSubcategory::all();
+            $audios = TemplateAudio::all();
+            $categories = TemplateCategory::all();
+            $subcategories = TemplateSubcategory::all();
+            $sub_subcategories = TemplateSubSubcategory::all();
 
             return view('administration.stream.audio.new-audio', [
                 'audios' => $audios,
@@ -37,10 +40,10 @@ class TemplateAudioController extends Controller
 
         } elseif ($request->routeIs('new-audio-playlist')) {
             
-            $audios = Audio::all();
-            $categories = Category::all();
-            $subcategories = Subcategory::all();
-            $sub_subcategories = SubSubcategory::all();
+            $audios = TemplateAudio::all();
+            $categories = TemplateCategory::all();
+            $subcategories = TemplateSubcategory::all();
+            $sub_subcategories = TemplateSubSubcategory::all();
 
             // dd($audios);
 
@@ -69,7 +72,7 @@ class TemplateAudioController extends Controller
             //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
             // ]);
 
-            $audio = Audio::create([
+            $audio = TemplateAudio::create([
                 'title' => $request->title,
                 'artist' => $request->artist,
                 'duration' => $request->duration,
@@ -130,7 +133,7 @@ class TemplateAudioController extends Controller
 
             dd($request);
 
-            $audio = Audio::create([
+            $audio = TemplateAudio::create([
                 'title' => $request->title,
                 'artist' => 'artist',
                 'category_name' => $request->category_name,
@@ -181,13 +184,13 @@ class TemplateAudioController extends Controller
     {
         if ($request->routeIs('manage-audios')) {
 
-            $audios = Audio::all();
+            $audios = TemplateAudio::all();
             
             return view('administration.stream.audio.manage-audios', ['audios' => $audios]);
 
         } elseif ($request->routeIs('manage-audio-playlists')) {
             
-            $audios = Audio::all();
+            $audios = TemplateAudio::all();
             
             return view('administration.stream.audio.playlist.manage-audio-playlists', ['audios' => $audios]);
         }
@@ -199,10 +202,10 @@ class TemplateAudioController extends Controller
     {
         if ($request->routeIs('audio.edit')) {
 
-            $audio = Audio::findOrFail($id);
-            $categories = Category::all();
-            $subcategories = Subcategory::all();
-            $sub_subcategories = SubSubcategory::all();
+            $audio = TemplateAudio::findOrFail($id);
+            $categories = TemplateCategory::all();
+            $subcategories = TemplateSubcategory::all();
+            $sub_subcategories = TemplateSubSubcategory::all();
             
             return view('administration.stream.audio.edit-audio', [
                 'audio' => $audio,
@@ -213,10 +216,10 @@ class TemplateAudioController extends Controller
 
         } elseif ($request->routeIs('audio-playlist.edit')) {
 
-            $audio = Audio::findOrFail($id);
-            $categories = Category::all();
-            $subcategories = Subcategory::all();
-            $sub_subcategories = SubSubcategory::all();
+            $audio = TemplateAudio::findOrFail($id);
+            $categories = TemplateCategory::all();
+            $subcategories = TemplateSubcategory::all();
+            $sub_subcategories = TemplateSubSubcategory::all();
             
             return view('administration.stream.audio.playlist.edit-audio-playlist', [
                 'audio' => $audio,
@@ -231,7 +234,7 @@ class TemplateAudioController extends Controller
 
     public function update(Request $request, $id): RedirectResponse
     {
-        $audio = Audio::find($id);
+        $audio = TemplateAudio::find($id);
 
         if ($audio) {
             $coverImage = $request->file('cover_image');
@@ -321,7 +324,7 @@ class TemplateAudioController extends Controller
     {
         if ($request->routeIs('audio.destroy')) {
         
-            Audio::where('id',$id)->delete();
+            TemplateAudio::where('id',$id)->delete();
 
             Session::flash('delete', __('Audio Successfully Destroyed!'));
             
@@ -329,7 +332,7 @@ class TemplateAudioController extends Controller
 
         } elseif ($request->routeIs('audio-playlist.destroy')) {
         
-            Audio::where('id',$id)->delete();
+            TemplateAudio::where('id',$id)->delete();
 
             Session::flash('delete', __('Audio Playlist Successfully Destroyed!'));
             

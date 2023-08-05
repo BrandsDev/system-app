@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Templates;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\Book;
-use App\Models\Template;
-use App\Models\Home;
+use App\Models\Template\Template;
+use App\Models\Template\TemplateHome;
+
 use Illuminate\Http\Request;
 
 class TemplateHomeController extends Controller
@@ -16,9 +16,9 @@ class TemplateHomeController extends Controller
      */
     public function index()
     {
-        $books = Book::take(16)->get();
+        $templates = Template::take(16)->get();
 
-        return view('frontend.template.welcome', ['books' => $books]);
+        return view('frontend.template.welcome', ['templates' => $templates]);
     }
 
     /**

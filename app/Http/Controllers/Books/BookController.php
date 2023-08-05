@@ -1,15 +1,17 @@
 <?php
 
 namespace App\Http\Controllers\Books;
-
 use App\Http\Controllers\Controller;
-use App\Models\Blog;
-use App\Models\Book;
-use App\Models\BookAuthor;
-use App\Models\BookPublisher;
-use App\Models\Category;
-use App\Models\Subcategory;
-use App\Models\SubSubcategory;
+
+use App\Models\Book\Book;
+use App\Models\Book\BookBlog;
+use App\Models\Book\BookBook;
+use App\Models\Book\BookBookAuthor;
+use App\Models\Book\BookBookPublisher;
+use App\Models\Book\BookCategory;
+use App\Models\Book\BookSubcategory;
+use App\Models\Book\BookSubSubcategory;
+
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -33,9 +35,9 @@ class BookController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
-        $subcategories = Subcategory::all();
-        $sub_subcategories = SubSubcategory::all();
+        $categories = BookCategory::all();
+        $subcategories = BookSubcategory::all();
+        $sub_subcategories = BookSubSubcategory::all();
 
         $authors = BookAuthor::all();
         $publishers = BookPublisher::all();        
@@ -132,7 +134,7 @@ class BookController extends Controller
         $book = Book::where('slug', $slug)->firstOrFail();
         $relatedBook = Book::take(4)->get();
 
-        $relatedBlog = Blog::take(4)->get();
+        $relatedBlog = BookBlog::take(4)->get();
 
         return view('frontend.book.book-detail', [
             'book' => $book,
@@ -146,9 +148,9 @@ class BookController extends Controller
         $book = Book::findOrFail($id);
         $bookAuthors = BookAuthor::all();
         $BookPublishers = BookPublisher::all();
-        $categories = Category::all();
-        $subcategories = Subcategory::all();
-        $sub_subcategories = SubSubcategory::all();
+        $categories = BookBookCategory::all();
+        $subcategories = BookBookSubcategory::all();
+        $sub_subcategories = BookBookSubSubcategory::all();
 
         return view('administration.books.edit-Book', [
             'book' => $book, 

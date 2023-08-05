@@ -74,13 +74,13 @@
 				<article>
 					<figure>
 						<div class="card shadow p-2 mb-5 bg-body rounded">
-							<a href="{{ route('book.detail',$book->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+							<a href="{{ route('book.detail', $book->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
 								<img src="{{ asset('book/image/' . $book->image) }}" class="card-img-top" alt="...">
 							</a>
 							<figcaption>
 								<div class="card-body">
 									<p class="card-title lead">
-										<a href="{{ route('book.detail',$book->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+										<a href="{{ route('book.detail', $book->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
 											{{ \Illuminate\Support\Str::limit($book->name, 100, '...') }}
 										</a>
 									</p>
@@ -114,6 +114,8 @@
 			</div>
 			@endforeach
 		</div>
+		<!-- Books Section End -->
+		
 		<!-- Latest Item -->
 		<div class="row border-top-0 border-start-0 border-bottom-0 border-end-0">
 			<div class="col-lg-9 align-self-center">

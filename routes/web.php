@@ -24,7 +24,7 @@ use App\Http\Controllers\Books\BookPrivacyController;
 use App\Http\Controllers\Books\BookTermController;
 use App\Http\Controllers\Books\BookAudioController;
 
-// Templates
+// Template
 use App\Http\Controllers\Templates\TemplateController;
 use App\Http\Controllers\Templates\SiteTemplateController;
 use App\Http\Controllers\Templates\TemplateAboutController;
@@ -54,21 +54,9 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Book Store
+| Frontend -> Bookstore
 |--------------------------------------------------------------------------
 */
-
-// Homepage
-// Route::get('/', [HomeController::class, 'index'])->name('home');
-
-// Book
-// Route::get('books', [BooksController::class, 'books'])->name('books');
-// Route::get('book-detail/{slug}', [BooksController::class, 'detail'])->name('book.detail');
-
-// Blog
-// Route::get('blogs', [BlogsController::class, 'blogs'])->name('blogs');
-// Route::get('blog-detail/{slug}', [BlogsController::class, 'detail'])->name('blog.detail');
-
 
 // Book Store
 Route::get('bookstore', [BookController::class, 'index'])->name('book.home');
@@ -95,162 +83,50 @@ Route::get('book/terms-of-service', [BookTermController::class, 'index'])->name(
 
 /*
 |--------------------------------------------------------------------------
-| Template
+| Frontend -> Template
 |--------------------------------------------------------------------------
 */
 
 // Template
 Route::get('template-store', [TemplateController::class, 'index'])->name('template.home');
-Route::get('site-template', [TemplateController::class, 'siteTemplate'])->name('template.site');
+Route::get('template-store/site-template', [TemplateController::class, 'siteTemplate'])->name('template.site');
 
-Route::get('template/detail/{slug}', [TemplateController::class, 'detail'])->name('template.detail');
+Route::get('template-store/detail/{slug}', [TemplateController::class, 'detail'])->name('template.detail');
 
 // Template -> Blog
-Route::get('template/blog', [TemplateBlogController::class, 'index'])->name('template.blog');
-Route::get('template/blog-detail/{slug}', [TemplateBlogController::class, 'detail'])->name('template.blog.detail');
+Route::get('template-store/blog', [TemplateBlogController::class, 'index'])->name('template.blog');
+Route::get('template-store/blog-detail/{slug}', [TemplateBlogController::class, 'detail'])->name('template.blog.detail');
 
 // Template -> About
-Route::get('template/about/overview', [TemplateAboutController::class, 'overview'])->name('template.overview');
-Route::get('template/about/brand', [TemplateAboutController::class, 'brand'])->name('template.brand');
-Route::get('template/about/license', [TemplateAboutController::class, 'license'])->name('template.license');
+Route::get('template-store/about/overview', [TemplateAboutController::class, 'overview'])->name('template.overview');
+Route::get('template-store/about/brand', [TemplateAboutController::class, 'brand'])->name('template.brand');
+Route::get('template-store/about/license', [TemplateAboutController::class, 'license'])->name('template.license');
 
 // Template -> Hire Us
-Route::get('template/hire-us', [TemplateHireController::class, 'index'])->name('template.hire-us');
+Route::get('template-store/hire-us', [TemplateHireController::class, 'index'])->name('template.hire-us');
 
 // Template -> Contact Us
-Route::get('template/contact-us', [TemplateContactController::class, 'index'])->name('template.contact-us');
+Route::get('template-store/contact-us', [TemplateContactController::class, 'index'])->name('template.contact-us');
 
 // Template -> Privacy Policy
-Route::get('template/privacy-policy', [TemplatePrivacyController::class, 'index'])->name('template.privacy-policy');
+Route::get('template-store/privacy-policy', [TemplatePrivacyController::class, 'index'])->name('template.privacy-policy');
 
 // Template -> Terms of Service
-Route::get('template/terms-of-service', [TemplateTermController::class, 'index'])->name('template.terms-of-service');
+Route::get('template-store/terms-of-service', [TemplateTermController::class, 'index'])->name('template.terms-of-service');
     
 // Template -> Why Our Themes
-Route::get('template/why-our-themes', [TemplateThemeController::class, 'index'])->name('template.why-our-themes');
+Route::get('template-store/why-our-themes', [TemplateThemeController::class, 'index'])->name('template.why-our-themes');
 
 // Template -> QR Code Gennerator
-Route::get('template/qr-code-generator', function () {
+Route::get('template-store/qr-code-generator', function () {
     return view('frontend.template.qr-code-generator');
 });
 
 /*
 |--------------------------------------------------------------------------
-| Backend
+| Backend -> Auth
 |--------------------------------------------------------------------------
 */
-
-// Dashboard
-Route::get('/dashboard', function () {
-    return view('administration.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-// Categories
-Route::get('/categories/manage-categories', [CategoriesController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-categories');
-Route::get('/categories/new-category', [CategoriesController::class, 'create'])->middleware(['auth', 'verified'])->name('new-category');
-Route::post('/categories/new-category/store', [CategoriesController::class, 'store'])->middleware(['auth', 'verified'])->name('new-category.store');
-Route::get('/categories/edit-category/{id}', [CategoriesController::class, 'edit'])->middleware(['auth', 'verified'])->name('category.edit');
-Route::put('/categories/update-category/{id}', [CategoriesController::class, 'update'])->middleware(['auth', 'verified'])->name('category.update');
-Route::delete('/categories/destroy-category/{id}', [CategoriesController::class, 'destroy'])->middleware(['auth', 'verified'])->name('category.destroy');
-
-Route::get('/categories/manage-subcategories', [CategoriesController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-subcategories');
-Route::get('/categories/subcategories/new-subcategory', [CategoriesController::class, 'create'])->middleware(['auth', 'verified'])->name('new-subcategory');
-Route::post('/categories/subcategories/new-subcategory/store', [CategoriesController::class, 'store'])->middleware(['auth', 'verified'])->name('new-subcategory.store');
-Route::get('/categories/subcategories/subcategory/edit/{id}', [CategoriesController::class, 'edit'])->middleware(['auth', 'verified'])->name('subcategory.edit');
-Route::put('/categories/subcategories/subcategory/update/{id}', [CategoriesController::class, 'update'])->middleware(['auth', 'verified'])->name('subcategory.update');
-Route::delete('/categories/subcategories/subcategory/destroy/{id}', [CategoriesController::class, 'destroy'])->middleware(['auth', 'verified'])->name('subcategory.destroy');
-
-Route::get('/categories/manage-sub-subcategories', [CategoriesController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-sub-subcategories');
-Route::get('/categories/sub-subcategories/new-subsubcategory', [CategoriesController::class, 'create'])->middleware(['auth', 'verified'])->name('new-sub-subcategory');
-Route::post('/categories/sub-subcategories/new-subsubcategory/store', [CategoriesController::class, 'store'])->middleware(['auth', 'verified'])->name('new-sub-subcategory.store');
-Route::get('/categories/sub-subcategories/sub-subcategory/edit/{id}', [CategoriesController::class, 'edit'])->middleware(['auth', 'verified'])->name('sub-subcategory.edit');
-Route::put('/categories/sub-subcategories/sub-subcategory/update/{id}', [CategoriesController::class, 'update'])->middleware(['auth', 'verified'])->name('sub-subcategory.update');
-Route::delete('/categories/sub-subcategories/sub-subcategory/destroy/{id}', [CategoriesController::class, 'destroy'])->middleware(['auth', 'verified'])->name('sub-subcategory.destroy');
-
-// Templates
-Route::get('/template-store/manage-templates', [TemplateController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-templates');
-Route::get('/template-store/new-template', [TemplateController::class, 'create'])->middleware(['auth', 'verified'])->name('new-template');
-Route::post('/template-store/new-template/store', [TemplateController::class, 'store'])->middleware(['auth', 'verified'])->name('new-template.store');
-Route::get('/template-store/edit/{id}', [TemplateController::class, 'edit'])->middleware(['auth', 'verified'])->name('templates.edit');
-Route::put('/template-store/update/{id}', [TemplateController::class, 'update'])->middleware(['auth', 'verified'])->name('update-template');
-Route::delete('/template-store/destroy/{id}', [TemplateController::class, 'destroy'])->middleware(['auth', 'verified'])->name('destroy-template');
-
-// Books
-Route::get('/manage-books', [BooksController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-books');
-Route::get('/manage-book/new-book', [BooksController::class, 'create'])->middleware(['auth', 'verified'])->name('new-book');
-Route::post('/manage-book/new-book/store', [BooksController::class, 'store'])->middleware(['auth', 'verified'])->name('new-book.store');
-Route::get('/manage-book/edit/{id}', [BooksController::class, 'edit'])->middleware(['auth', 'verified'])->name('book.edit');
-Route::put('/manage-book/update/{id}', [BooksController::class, 'update'])->middleware(['auth', 'verified'])->name('book.update');
-Route::delete('/manage-book/destroy/{id}', [BooksController::class, 'destroy'])->middleware(['auth', 'verified'])->name('book.destroy');
-
-// Book Publishers
-Route::get('/manage-publishers', [BookPublishersController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-publishers');
-Route::get('/manage-publisher/new-publisher', [BookPublishersController::class, 'create'])->middleware(['auth', 'verified'])->name('new-publisher');
-Route::post('/manage-publisher/new-publisher/store', [BookPublishersController::class, 'store'])->middleware(['auth', 'verified'])->name('new-publisher.store');
-Route::get('/manage-publisher/edit/{id}', [BookPublishersController::class, 'edit'])->middleware(['auth', 'verified'])->name('publisher.edit');
-Route::put('/manage-publisher/update/{id}', [BookPublishersController::class, 'update'])->middleware(['auth', 'verified'])->name('publisher.update');
-Route::delete('/manage-publisher/destroy/{id}', [BookPublishersController::class, 'destroy'])->middleware(['auth', 'verified'])->name('publisher.destroy');
-
-// Book Authors
-Route::get('/manage-authors', [BookAuthorsController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-authors');
-Route::get('/manage-author/new-author', [BookAuthorsController::class, 'create'])->middleware(['auth', 'verified'])->name('new-author');
-Route::post('/manage-author/new-author/store', [BookAuthorsController::class, 'store'])->middleware(['auth', 'verified'])->name('new-author.store');
-Route::get('/manage-author/edit/{id}', [BookAuthorsController::class, 'edit'])->middleware(['auth', 'verified'])->name('author.edit');
-Route::put('/manage-author/update/{id}', [BookAuthorsController::class, 'update'])->middleware(['auth', 'verified'])->name('author.update');
-Route::delete('/manage-author/destroy/{id}', [BookAuthorsController::class, 'destroy'])->middleware(['auth', 'verified'])->name('author.destroy');
-
-// Blogs
-Route::get('/manage-blogs', [BlogsController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-blogs');
-Route::get('/manage-blog/new-blog', [BlogsController::class, 'create'])->middleware(['auth', 'verified'])->name('new-blog');
-Route::post('/manage-blog/new-blog/store', [BlogsController::class, 'store'])->middleware(['auth', 'verified'])->name('new-blog.store');
-Route::get('/manage-blog/edit/{id}', [BlogsController::class, 'edit'])->middleware(['auth', 'verified'])->name('blog.edit');
-Route::put('/manage-blog/update/{id}', [BlogsController::class, 'update'])->middleware(['auth', 'verified'])->name('blog.update');
-Route::delete('/manage-blog/destroy/{id}', [BlogsController::class, 'destroy'])->middleware(['auth', 'verified'])->name('blog.destroy');
-
-// Streaming Audios
-Route::get('/manage-audios', [AudiosController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-audios');
-Route::get('/manage-audio/new-audio', [AudiosController::class, 'create'])->middleware(['auth', 'verified'])->name('new-audio');
-Route::post('/manage-audio/new-audio/store', [AudiosController::class, 'store'])->middleware(['auth', 'verified'])->name('new-audio.store');
-Route::get('/manage-audio/edit/{id}', [AudiosController::class, 'edit'])->middleware(['auth', 'verified'])->name('audio.edit');
-Route::put('/manage-audio/update/{id}', [AudiosController::class, 'update'])->middleware(['auth', 'verified'])->name('audio.update');
-Route::delete('/manage-audio/destroy/{id}', [AudiosController::class, 'destroy'])->middleware(['auth', 'verified'])->name('audio.destroy');
-
-Route::get('/manage-audio-playlists', [AudiosController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-audio-playlists');
-Route::get('/manage-audio-playlist/new-audio-playlist', [AudiosController::class, 'create'])->middleware(['auth', 'verified'])->name('new-audio-playlist');
-Route::post('/manage-audio-playlist/new-audio-playlist/store', [AudiosController::class, 'store'])->middleware(['auth', 'verified'])->name('new-audio-playlist.store');
-Route::get('/manage-audio-playlist/edit/{id}', [AudiosController::class, 'edit'])->middleware(['auth', 'verified'])->name('audio-playlist.edit');
-Route::put('/manage-audio-playlist/update/{id}', [AudiosController::class, 'update'])->middleware(['auth', 'verified'])->name('audio-playlist.update');
-Route::delete('/manage-audio-playlist/destroy/{id}', [AudiosController::class, 'destroy'])->middleware(['auth', 'verified'])->name('audio-playlist.destroy');
-
-// Blog Categories
-// Route::get('/blog-categories/manage-blog-categories', [CategoriesController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-blog-categories');
-// Route::get('/blog-categories/new-blog-category', [CategoriesController::class, 'create'])->middleware(['auth', 'verified'])->name('new-blog-category');
-// Route::post('/blog-categories/new-blog-category/store', [CategoriesController::class, 'store'])->middleware(['auth', 'verified'])->name('new-blog-category.store');
-// Route::get('/blog-categories/edit-blog-category/{id}', [CategoriesController::class, 'edit'])->middleware(['auth', 'verified'])->name('blog-category.edit');
-// Route::put('/blog-categories/update-blog-category/{id}', [CategoriesController::class, 'update'])->middleware(['auth', 'verified'])->name('blog-category.update');
-// Route::delete('/blog-categories/destroy-blog-category/{id}', [CategoriesController::class, 'destroy'])->middleware(['auth', 'verified'])->name('blog-category.destroy');
-
-// Route::get('/blog-categories/manage-blog-subcategories', [CategoriesController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-blog-subcategories');
-// Route::get('/blog-categories/blog-subcategories/new-blog-subcategory', [CategoriesController::class, 'create'])->middleware(['auth', 'verified'])->name('new-blog-subcategory');
-// Route::post('/blog-categories/blog-subcategories/new-blog-subcategory/store', [CategoriesController::class, 'store'])->middleware(['auth', 'verified'])->name('new-blog-subcategory.store');
-// Route::get('/blog-categories/blog-subcategories/blog-subcategory/edit/{id}', [CategoriesController::class, 'edit'])->middleware(['auth', 'verified'])->name('blog-subcategory.edit');
-// Route::put('/blog-categories/blog-subcategories/blog-subcategory/update/{id}', [CategoriesController::class, 'update'])->middleware(['auth', 'verified'])->name('blog-subcategory.update');
-// Route::delete('/blog-categories/blog-subcategories/blog-subcategory/destroy/{id}', [CategoriesController::class, 'destroy'])->middleware(['auth', 'verified'])->name('blog-subcategory.destroy');
-
-// Route::get('/blog-categories/manage-blog-sub-subcategories', [CategoriesController::class, 'show'])->middleware(['auth', 'verified'])->name('manage-blog-sub-subcategories');
-// Route::get('/blog-categories/blog-sub-subcategories/new-blog-subsubcategory', [CategoriesController::class, 'create'])->middleware(['auth', 'verified'])->name('new-blog-sub-subcategory');
-// Route::post('/blog-categories/blog-sub-subcategories/new-blog-subsubcategory/store', [CategoriesController::class, 'store'])->middleware(['auth', 'verified'])->name('new-blog-sub-subcategory.store');
-// Route::get('/blog-categories/blog-sub-subcategories/blog-sub-subcategory/edit/{id}', [CategoriesController::class, 'edit'])->middleware(['auth', 'verified'])->name('blog-sub-subcategory.edit');
-// Route::put('/blog-categories/blog-sub-subcategories/blog-sub-subcategory/update/{id}', [CategoriesController::class, 'update'])->middleware(['auth', 'verified'])->name('blog-sub-subcategory.update');
-// Route::delete('/blog-categories/blog-sub-subcategories/blog-sub-subcategory/destroy/{id}', [CategoriesController::class, 'destroy'])->middleware(['auth', 'verified'])->name('blog-sub-subcategory.destroy');
-
-// Route::get('/templates/edit-template', function () {
-//     return view('administration.templates.edit-template');
-// })->middleware(['auth', 'verified'])->name('edit-template');
-
-// Route::get('/templates/delete-template', function () {
-//     return view('administration.templates.delete-template');
-// })->middleware(['auth', 'verified'])->name('delete-template');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -259,3 +135,147 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+/*
+|--------------------------------------------------------------------------
+| Backend -> Book
+|--------------------------------------------------------------------------
+*/
+
+// Dashboard
+Route::get('/bookstore/dashboard', function () {
+    return view('administration.dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+// Categories
+Route::get('/bookstore/categories/manage-categories', [BookCategoryController::class, 'show'])->middleware(['auth', 'verified'])->name('book.manage-categories');
+Route::get('/bookstore/categories/new-category', [BookCategoryController::class, 'create'])->middleware(['auth', 'verified'])->name('book.new-category');
+Route::post('/bookstore/categories/new-category/store', [BookCategoryController::class, 'store'])->middleware(['auth', 'verified'])->name('book.new-category.store');
+Route::get('/bookstore/categories/edit-category/{id}', [BookCategoryController::class, 'edit'])->middleware(['auth', 'verified'])->name('book.category.edit');
+Route::put('/bookstore/categories/update-category/{id}', [BookCategoryController::class, 'update'])->middleware(['auth', 'verified'])->name('book.category.update');
+Route::delete('/bookstore/categories/destroy-category/{id}', [BookCategoryController::class, 'destroy'])->middleware(['auth', 'verified'])->name('book.category.destroy');
+
+Route::get('/bookstore/categories/manage-subcategories', [BookCategoryController::class, 'show'])->middleware(['auth', 'verified'])->name('book.manage-subcategories');
+Route::get('/bookstore/categories/subcategories/new-subcategory', [BookCategoryController::class, 'create'])->middleware(['auth', 'verified'])->name('book.new-subcategory');
+Route::post('/bookstore/categories/subcategories/new-subcategory/store', [BookCategoryController::class, 'store'])->middleware(['auth', 'verified'])->name('book.new-subcategory.store');
+Route::get('/bookstore/categories/subcategories/subcategory/edit/{id}', [BookCategoryController::class, 'edit'])->middleware(['auth', 'verified'])->name('book.subcategory.edit');
+Route::put('/bookstore/categories/subcategories/subcategory/update/{id}', [BookCategoryController::class, 'update'])->middleware(['auth', 'verified'])->name('book.subcategory.update');
+Route::delete('/bookstore/categories/subcategories/subcategory/destroy/{id}', [BookCategoryController::class, 'destroy'])->middleware(['auth', 'verified'])->name('book.subcategory.destroy');
+
+Route::get('/bookstore/categories/manage-sub-subcategories', [BookCategoryController::class, 'show'])->middleware(['auth', 'verified'])->name('book.manage-sub-subcategories');
+Route::get('/bookstore/categories/sub-subcategories/new-subsubcategory', [BookCategoryController::class, 'create'])->middleware(['auth', 'verified'])->name('book.new-sub-subcategory');
+Route::post('/bookstore/categories/sub-subcategories/new-subsubcategory/store', [BookCategoryController::class, 'store'])->middleware(['auth', 'verified'])->name('book.new-sub-subcategory.store');
+Route::get('/bookstore/categories/sub-subcategories/sub-subcategory/edit/{id}', [BookCategoryController::class, 'edit'])->middleware(['auth', 'verified'])->name('book.sub-subcategory.edit');
+Route::put('/bookstore/categories/sub-subcategories/sub-subcategory/update/{id}', [BookCategoryController::class, 'update'])->middleware(['auth', 'verified'])->name('book.sub-subcategory.update');
+Route::delete('/bookstore/categories/sub-subcategories/sub-subcategory/destroy/{id}', [BookCategoryController::class, 'destroy'])->middleware(['auth', 'verified'])->name('book.sub-subcategory.destroy');
+
+// Books
+Route::get('/bookstore/manage-books', [BookController::class, 'show'])->middleware(['auth', 'verified'])->name('book.manage-books');
+Route::get('/bookstore/manage-book/new-book', [BookController::class, 'create'])->middleware(['auth', 'verified'])->name('book.new-book');
+Route::post('/bookstore/manage-book/new-book/store', [BookController::class, 'store'])->middleware(['auth', 'verified'])->name('book.new-book.store');
+Route::get('/bookstore/manage-book/edit/{id}', [BookController::class, 'edit'])->middleware(['auth', 'verified'])->name('book.edit');
+Route::put('/bookstore/manage-book/update/{id}', [BookController::class, 'update'])->middleware(['auth', 'verified'])->name('book.update');
+Route::delete('/bookstore/manage-book/destroy/{id}', [BookController::class, 'destroy'])->middleware(['auth', 'verified'])->name('book.destroy');
+
+// Book Publishers
+Route::get('/bookstore/manage-publishers', [BookPublisherController::class, 'show'])->middleware(['auth', 'verified'])->name('book.manage-publishers');
+Route::get('/bookstore/manage-publisher/new-publisher', [BookPublisherController::class, 'create'])->middleware(['auth', 'verified'])->name('book.new-publisher');
+Route::post('/bookstore/manage-publisher/new-publisher/store', [BookPublisherController::class, 'store'])->middleware(['auth', 'verified'])->name('book.new-publisher.store');
+Route::get('/bookstore/manage-publisher/edit/{id}', [BookPublisherController::class, 'edit'])->middleware(['auth', 'verified'])->name('book.publisher.edit');
+Route::put('/bookstore/manage-publisher/update/{id}', [BookPublisherController::class, 'update'])->middleware(['auth', 'verified'])->name('book.publisher.update');
+Route::delete('/bookstore/manage-publisher/destroy/{id}', [BookPublisherController::class, 'destroy'])->middleware(['auth', 'verified'])->name('book.publisher.destroy');
+
+// Book Authors
+Route::get('/bookstore/manage-authors', [BookAuthorController::class, 'show'])->middleware(['auth', 'verified'])->name('book.manage-authors');
+Route::get('/bookstore/manage-author/new-author', [BookAuthorController::class, 'create'])->middleware(['auth', 'verified'])->name('book.new-author');
+Route::post('/bookstore/manage-author/new-author/store', [BookAuthorController::class, 'store'])->middleware(['auth', 'verified'])->name('book.new-author.store');
+Route::get('/bookstore/manage-author/edit/{id}', [BookAuthorController::class, 'edit'])->middleware(['auth', 'verified'])->name('book.author.edit');
+Route::put('/bookstore/manage-author/update/{id}', [BookAuthorController::class, 'update'])->middleware(['auth', 'verified'])->name('book.author.update');
+Route::delete('/bookstore/manage-author/destroy/{id}', [BookAuthorController::class, 'destroy'])->middleware(['auth', 'verified'])->name('book.author.destroy');
+
+// Blogs
+Route::get('/bookstore/manage-blogs', [BookBlogController::class, 'show'])->middleware(['auth', 'verified'])->name('book.manage-blogs');
+Route::get('/bookstore/manage-blog/new-blog', [BookBlogController::class, 'create'])->middleware(['auth', 'verified'])->name('book.new-blog');
+Route::post('/bookstore/manage-blog/new-blog/store', [BookBlogController::class, 'store'])->middleware(['auth', 'verified'])->name('book.new-blog.store');
+Route::get('/bookstore/manage-blog/edit/{id}', [BookBlogController::class, 'edit'])->middleware(['auth', 'verified'])->name('book.blog.edit');
+Route::put('/bookstore/manage-blog/update/{id}', [BookBlogController::class, 'update'])->middleware(['auth', 'verified'])->name('book.blog.update');
+Route::delete('/bookstore/manage-blog/destroy/{id}', [BookBlogController::class, 'destroy'])->middleware(['auth', 'verified'])->name('book.blog.destroy');
+
+// Streaming Audios
+Route::get('/bookstore/manage-audios', [BookAudioController::class, 'show'])->middleware(['auth', 'verified'])->name('book.manage-audios');
+Route::get('/bookstore/manage-audio/new-audio', [BookAudioController::class, 'create'])->middleware(['auth', 'verified'])->name('book.new-audio');
+Route::post('/bookstore/manage-audio/new-audio/store', [BookAudioController::class, 'store'])->middleware(['auth', 'verified'])->name('book.new-audio.store');
+Route::get('/bookstore/manage-audio/edit/{id}', [BookAudioController::class, 'edit'])->middleware(['auth', 'verified'])->name('book.audio.edit');
+Route::put('/bookstore/manage-audio/update/{id}', [BookAudioController::class, 'update'])->middleware(['auth', 'verified'])->name('book.audio.update');
+Route::delete('/bookstore/manage-audio/destroy/{id}', [BookAudioController::class, 'destroy'])->middleware(['auth', 'verified'])->name('book.audio.destroy');
+
+Route::get('/bookstore/manage-audio-playlists', [BookAudioController::class, 'show'])->middleware(['auth', 'verified'])->name('book.manage-audio-playlists');
+Route::get('/bookstore/manage-audio-playlist/new-audio-playlist', [BookAudioController::class, 'create'])->middleware(['auth', 'verified'])->name('book.new-audio-playlist');
+Route::post('/bookstore/manage-audio-playlist/new-audio-playlist/store', [BookAudioController::class, 'store'])->middleware(['auth', 'verified'])->name('book.new-audio-playlist.store');
+Route::get('/bookstore/manage-audio-playlist/edit/{id}', [BookAudioController::class, 'edit'])->middleware(['auth', 'verified'])->name('book.audio-playlist.edit');
+Route::put('/bookstore/manage-audio-playlist/update/{id}', [BookAudioController::class, 'update'])->middleware(['auth', 'verified'])->name('book.audio-playlist.update');
+Route::delete('/bookstore/manage-audio-playlist/destroy/{id}', [BookAudioController::class, 'destroy'])->middleware(['auth', 'verified'])->name('book.audio-playlist.destroy');
+
+/*
+|--------------------------------------------------------------------------
+| Backend -> Template
+|--------------------------------------------------------------------------
+*/
+
+// Dashboard
+Route::get('template-store/dashboard', function () {
+    return view('administration.dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+// Categories
+Route::get('/template-store/categories/manage-categories', [TemplateCategoryController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-categories');
+Route::get('/template-store/categories/new-category', [TemplateCategoryController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-category');
+Route::post('/template-store/categories/new-category/store', [TemplateCategoryController::class, 'store'])->middleware(['auth', 'verified'])->name('template.new-category.store');
+Route::get('/template-store/categories/edit-category/{id}', [TemplateCategoryController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.category.edit');
+Route::put('/template-store/categories/update-category/{id}', [TemplateCategoryController::class, 'update'])->middleware(['auth', 'verified'])->name('template.category.update');
+Route::delete('/categories/destroy-category/{id}', [TemplateCategoryController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.category.destroy');
+
+Route::get('/template-store/categories/manage-subcategories', [TemplateCategoryController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-subcategories');
+Route::get('/template-store/categories/subcategories/new-subcategory', [TemplateCategoryController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-subcategory');
+Route::post('/template-store/categories/subcategories/new-subcategory/store', [TemplateCategoryController::class, 'store'])->middleware(['auth', 'verified'])->name('template.new-subcategory.store');
+Route::get('/template-store/categories/subcategories/subcategory/edit/{id}', [TemplateCategoryController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.subcategory.edit');
+Route::put('/template-store/categories/subcategories/subcategory/update/{id}', [TemplateCategoryController::class, 'update'])->middleware(['auth', 'verified'])->name('template.subcategory.update');
+Route::delete('/template-store/categories/subcategories/subcategory/destroy/{id}', [TemplateCategoryController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.subcategory.destroy');
+
+Route::get('/template-store/categories/manage-sub-subcategories', [TemplateCategoryController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-sub-subcategories');
+Route::get('/template-store/categories/sub-subcategories/new-subsubcategory', [TemplateCategoryController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-sub-subcategory');
+Route::post('/template-store/categories/sub-subcategories/new-subsubcategory/store', [TemplateCategoryController::class, 'store'])->middleware(['auth', 'verified'])->name('template.new-sub-subcategory.store');
+Route::get('/template-store/categories/sub-subcategories/sub-subcategory/edit/{id}', [TemplateCategoryController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.sub-subcategory.edit');
+Route::put('/template-store/categories/sub-subcategories/sub-subcategory/update/{id}', [TemplateCategoryController::class, 'update'])->middleware(['auth', 'verified'])->name('template.sub-subcategory.update');
+Route::delete('/template-store/categories/sub-subcategories/sub-subcategory/destroy/{id}', [TemplateCategoryController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.sub-subcategory.destroy');
+
+// Templates
+Route::get('/template-store/manage-templates', [TemplateController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-templates');
+Route::get('/template-store/new-template', [TemplateController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-template');
+Route::post('/template-store/new-template/store', [TemplateController::class, 'store'])->middleware(['auth', 'verified'])->name('template.new-template.store');
+Route::get('/template-store/edit/{id}', [TemplateController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.edit');
+Route::put('/template-store/update/{id}', [TemplateController::class, 'update'])->middleware(['auth', 'verified'])->name('template.update-template');
+Route::delete('/template-store/destroy/{id}', [TemplateController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.destroy-template');
+
+// Blogs
+Route::get('/template-store/manage-blogs', [TemplateBlogController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-blogs');
+Route::get('/template-store/manage-blog/new-blog', [TemplateBlogController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-blog');
+Route::post('/template-store/manage-blog/new-blog/store', [TemplateBlogController::class, 'store'])->middleware(['auth', 'verified'])->name('template.new-blog.store');
+Route::get('/template-store/manage-blog/edit/{id}', [TemplateBlogController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.blog.edit');
+Route::put('/template-store/manage-blog/update/{id}', [TemplateBlogController::class, 'update'])->middleware(['auth', 'verified'])->name('template.blog.update');
+Route::delete('/manage-blog/destroy/{id}', [TemplateBlogController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.blog.destroy');
+
+// Streaming Audios
+Route::get('/template-store/manage-audios', [TemplateAudioController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-audios');
+Route::get('/template-store/manage-audio/new-audio', [TemplateAudioController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-audio');
+Route::post('/template-store/manage-audio/new-audio/store', [TemplateAudioController::class, 'store'])->middleware(['auth', 'verified'])->name('template.new-audio.store');
+Route::get('/template-store/manage-audio/edit/{id}', [TemplateAudioController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.audio.edit');
+Route::put('/template-store/manage-audio/update/{id}', [TemplateAudioController::class, 'update'])->middleware(['auth', 'verified'])->name('template.audio.update');
+Route::delete('/template-store/manage-audio/destroy/{id}', [TemplateAudioController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.audio.destroy');
+
+Route::get('/template-store/manage-audio-playlists', [TemplateAudioController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-audio-playlists');
+Route::get('/template-store/manage-audio-playlist/new-audio-playlist', [TemplateAudioController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-audio-playlist');
+Route::post('/template-store/manage-audio-playlist/new-audio-playlist/store', [TemplateAudioController::class, 'store'])->middleware(['auth', 'verified'])->name('template.new-audio-playlist.store');
+Route::get('/template-store/manage-audio-playlist/edit/{id}', [TemplateAudioController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.audio-playlist.edit');
+Route::put('/template-store/manage-audio-playlist/update/{id}', [TemplateAudioController::class, 'update'])->middleware(['auth', 'verified'])->name('template.audio-playlist.update');
+Route::delete('/template-store/manage-audio-playlist/destroy/{id}', [TemplateAudioController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.audio-playlist.destroy');

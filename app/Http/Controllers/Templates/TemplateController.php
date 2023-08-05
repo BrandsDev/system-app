@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Templates;
 use App\Http\Controllers\Controller;
 
 use App\Models\Template\Template;
+use App\Models\Template\TemplateBlog;
 
-use App\Models\Category;
-use App\Models\Subcategory;
-use App\Models\SubSubcategory;
+use App\Models\Template\TemplateCategory;
+use App\Models\Template\TemplateSubcategory;
+use App\Models\Template\TemplateSubSubcategory;
 
 use App\Providers\RouteServiceProvider;
 
@@ -36,9 +37,9 @@ class TemplateController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
-        $subcategories = Subcategory::all();
-        $sub_subcategories = SubSubcategory::all();
+        $categories = TemplateCategory::all();
+        $subcategories = TemplateSubcategory::all();
+        $sub_subcategories = TemplateSubSubcategory::all();
 
         return view('administration.templates.new-template', ['categories' => $categories, 'subcategories' => $subcategories, 'sub_subcategories' => $sub_subcategories]);
     }
@@ -131,9 +132,16 @@ class TemplateController extends Controller
     public function detail($slug)
     {
         $template = Template::where('slug', $slug)->firstOrFail();
+        $relatedTemplate = Template::take(4)->get();
 
+        $relatedBlog = TemplateBlog::take(4)->get();
 
-        return view('frontend.template-detail', compact('template'));
+        return view('frontend.template.template-detail', 
+            [
+                'templates' => $templates,
+                'relatedTemplate' => $relatedTemplate,
+                'relatedBlog' => $relatedBlog
+            ]);
     }
 
     /**
@@ -142,9 +150,9 @@ class TemplateController extends Controller
     public function edit($id)
     {
         $template = Template::findOrFail($id);     
-        $categories = Category::all();
-        $subcategories = Subcategory::all();
-        $sub_subcategories = SubSubcategory::all();
+        $categories = TemplateCategory::all();
+        $subcategories = TemplateSubcategory::all();
+        $sub_subcategories = TemplateSubSubcategory::all();
 
         return view('administration.templates.edit-template', ['template' => $template, 'categories' => $categories,'subcategories' => $subcategories, 'sub_subcategories' => $sub_subcategories]);
     }

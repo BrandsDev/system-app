@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Books;
 
 use App\Http\Controllers\Controller;
-use App\Models\TermsOfService;
+
+use App\Models\Book\BookTerm;
+
 use Illuminate\Http\Request;
 
 class BookTermController extends Controller

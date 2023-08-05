@@ -18,7 +18,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Templates</li>
+                    <li class="breadcrumb-item active" aria-current="page">Manage Templates</li>
                 </ol>
             </nav>
         </div>
@@ -27,7 +27,7 @@
 
     <div class="row">
         <div class="col-md-10">
-            <h1>Templates</h1>
+            <h1>Manage Templates</h1>
         </div>
         <div class="col-lg-2 align-self-center">
             <div class="row">

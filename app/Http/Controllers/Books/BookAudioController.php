@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Books;
 
 use App\Http\Controllers\Controller;
-use App\Models\Audio;
-use App\Models\Category;
-use App\Models\Subcategory;
-use App\Models\SubSubcategory;
+
+use App\Models\Book\BookAudio;
+use App\Models\Book\BookCategory;
+use App\Models\Book\BookSubcategory;
+use App\Models\Book\BookSubSubcategory;
+
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -24,9 +26,9 @@ class BookAudioController extends Controller
         if ($request->routeIs('new-audio')) {
             
             $audios = Audio::all();
-            $categories = Category::all();
-            $subcategories = Subcategory::all();
-            $sub_subcategories = SubSubcategory::all();
+            $categories = BookCategory::all();
+            $subcategories = BookSubcategory::all();
+            $sub_subcategories = BookSubSubcategory::all();
 
             return view('administration.stream.audio.new-audio', [
                 'audios' => $audios,
@@ -37,10 +39,10 @@ class BookAudioController extends Controller
 
         } elseif ($request->routeIs('new-audio-playlist')) {
             
-            $audios = Audio::all();
-            $categories = Category::all();
-            $subcategories = Subcategory::all();
-            $sub_subcategories = SubSubcategory::all();
+            $audios = BookAudio::all();
+            $categories = BookCategory::all();
+            $subcategories = BookSubcategory::all();
+            $sub_subcategories = BookSubSubcategory::all();
 
             // dd($audios);
 
@@ -69,7 +71,7 @@ class BookAudioController extends Controller
             //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
             // ]);
 
-            $audio = Audio::create([
+            $audio = BookAudio::create([
                 'title' => $request->title,
                 'artist' => $request->artist,
                 'duration' => $request->duration,
@@ -130,7 +132,7 @@ class BookAudioController extends Controller
 
             dd($request);
 
-            $audio = Audio::create([
+            $audio = BookAudio::create([
                 'title' => $request->title,
                 'artist' => 'artist',
                 'category_name' => $request->category_name,
@@ -181,13 +183,13 @@ class BookAudioController extends Controller
     {
         if ($request->routeIs('manage-audios')) {
 
-            $audios = Audio::all();
+            $audios = BookAudio::all();
             
             return view('administration.stream.audio.manage-audios', ['audios' => $audios]);
 
         } elseif ($request->routeIs('manage-audio-playlists')) {
             
-            $audios = Audio::all();
+            $audios = BookAudio::all();
             
             return view('administration.stream.audio.playlist.manage-audio-playlists', ['audios' => $audios]);
         }
@@ -199,10 +201,10 @@ class BookAudioController extends Controller
     {
         if ($request->routeIs('audio.edit')) {
 
-            $audio = Audio::findOrFail($id);
-            $categories = Category::all();
-            $subcategories = Subcategory::all();
-            $sub_subcategories = SubSubcategory::all();
+            $audio = BookAudio::findOrFail($id);
+            $categories = BookCategory::all();
+            $subcategories = BookSubcategory::all();
+            $sub_subcategories = BookSubSubcategory::all();
             
             return view('administration.stream.audio.edit-audio', [
                 'audio' => $audio,
@@ -213,10 +215,10 @@ class BookAudioController extends Controller
 
         } elseif ($request->routeIs('audio-playlist.edit')) {
 
-            $audio = Audio::findOrFail($id);
-            $categories = Category::all();
-            $subcategories = Subcategory::all();
-            $sub_subcategories = SubSubcategory::all();
+            $audio = BookAudio::findOrFail($id);
+            $categories = BookCategory::all();
+            $subcategories = BookSubcategory::all();
+            $sub_subcategories = BookSubSubcategory::all();
             
             return view('administration.stream.audio.playlist.edit-audio-playlist', [
                 'audio' => $audio,
@@ -321,7 +323,7 @@ class BookAudioController extends Controller
     {
         if ($request->routeIs('audio.destroy')) {
         
-            Audio::where('id',$id)->delete();
+            BookAudio::where('id',$id)->delete();
 
             Session::flash('delete', __('Audio Successfully Destroyed!'));
             
@@ -329,7 +331,7 @@ class BookAudioController extends Controller
 
         } elseif ($request->routeIs('audio-playlist.destroy')) {
         
-            Audio::where('id',$id)->delete();
+            BookAudio::where('id',$id)->delete();
 
             Session::flash('delete', __('Audio Playlist Successfully Destroyed!'));
             

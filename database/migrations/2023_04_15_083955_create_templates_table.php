@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('sub_subcategory_name', 100)->nullable();
             $table->string('sku', 100);
             $table->string('sale_price', 100)->nullable();
-            $table->string('regular_price', 100);
+            $table->string('regular_price', 100)->nullable();
             $table->string('commission', 100)->nullable();
             $table->string('bootstrap_v', 100);
             $table->dateTime('released', $precision = 0)->timestamps()->nullable();

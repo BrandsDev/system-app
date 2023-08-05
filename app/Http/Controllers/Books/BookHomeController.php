@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Books;
 
 use App\Http\Controllers\Controller;
-use App\Models\Book;
-use App\Models\Template;
-use App\Models\Home;
+
+use App\Models\Book\Book;
+
 use Illuminate\Http\Request;
 
 class BookHomeController extends Controller
