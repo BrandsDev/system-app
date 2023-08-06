@@ -1,44 +1,36 @@
 <?php
 
+// Auth
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CategoriesController;
-use App\Http\Controllers\BlogsController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\PrivacyPolicyController;
-use App\Http\Controllers\TermsOfServiceController;
-use App\Http\Controllers\BooksController;
-use App\Http\Controllers\BookPublishersController;
-use App\Http\Controllers\BookAuthorsController;
-use App\Http\Controllers\AudiosController;
 
 // Book
-use App\Http\Controllers\Books\BookController;
-use App\Http\Controllers\Books\BookAboutController;
-use App\Http\Controllers\Books\BookProfileController;
-use App\Http\Controllers\Books\BookHomeController;
-use App\Http\Controllers\Books\BookCategoryController;
-use App\Http\Controllers\Books\BookBlogController;
-use App\Http\Controllers\Books\BookContactController;
-use App\Http\Controllers\Books\BookPrivacyController;
-use App\Http\Controllers\Books\BookTermController;
-use App\Http\Controllers\Books\BookAudioController;
+use App\Http\Controllers\Book\BookController;
+use App\Http\Controllers\Book\BookAboutController;
+use App\Http\Controllers\Book\BookProfileController;
+use App\Http\Controllers\Book\BookHomeController;
+use App\Http\Controllers\Book\BookCategoryController;
+use App\Http\Controllers\Book\BookBlogController;
+use App\Http\Controllers\Book\BookContactController;
+use App\Http\Controllers\Book\BookPrivacyController;
+use App\Http\Controllers\Book\BookTermController;
+use App\Http\Controllers\Book\BookAudioController;
 
 // Template
-use App\Http\Controllers\Templates\TemplateController;
-use App\Http\Controllers\Templates\SiteTemplateController;
-use App\Http\Controllers\Templates\TemplateAboutController;
-use App\Http\Controllers\Templates\TemplateThemeController;
-use App\Http\Controllers\Templates\TemplateHireController;
-use App\Http\Controllers\Templates\TemplateProfileController;
-use App\Http\Controllers\Templates\TemplateHomeController;
-use App\Http\Controllers\Templates\TemplateCategoryController;
-use App\Http\Controllers\Templates\TemplateBlogController;
-use App\Http\Controllers\Templates\TemplateContactController;
-use App\Http\Controllers\Templates\TemplatePrivacyController;
-use App\Http\Controllers\Templates\TemplateTermController;
-use App\Http\Controllers\Templates\TemplateAudioController;
+use App\Http\Controllers\Template\TemplateController;
+use App\Http\Controllers\Template\SiteTemplateController;
+use App\Http\Controllers\Template\TemplateAboutController;
+use App\Http\Controllers\Template\TemplateThemeController;
+use App\Http\Controllers\Template\TemplateHireController;
+use App\Http\Controllers\Template\TemplateProfileController;
+use App\Http\Controllers\Template\TemplateHomeController;
+use App\Http\Controllers\Template\TemplateCategoryController;
+use App\Http\Controllers\Template\TemplateBlogController;
+use App\Http\Controllers\Template\TemplateContactController;
+use App\Http\Controllers\Template\TemplatePrivacyController;
+use App\Http\Controllers\Template\TemplateTermController;
+use App\Http\Controllers\Template\TemplateAudioController;
 
+// Default
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -144,8 +136,8 @@ require __DIR__.'/auth.php';
 
 // Dashboard
 Route::get('/bookstore/dashboard', function () {
-    return view('administration.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return view('administration.book.dashboard');
+})->middleware(['auth', 'verified'])->name('book.dashboard');
 
 // Categories
 Route::get('/bookstore/categories/manage-categories', [BookCategoryController::class, 'show'])->middleware(['auth', 'verified'])->name('book.manage-categories');
@@ -224,8 +216,8 @@ Route::delete('/bookstore/manage-audio-playlist/destroy/{id}', [BookAudioControl
 
 // Dashboard
 Route::get('template-store/dashboard', function () {
-    return view('administration.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return view('administration.template.dashboard');
+})->middleware(['auth', 'verified'])->name('template.dashboard');
 
 // Categories
 Route::get('/template-store/categories/manage-categories', [TemplateCategoryController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-categories');

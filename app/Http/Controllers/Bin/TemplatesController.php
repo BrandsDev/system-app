@@ -39,7 +39,7 @@ class TemplatesController extends Controller
         $subcategories = Subcategory::all();
         $sub_subcategories = SubSubcategory::all();
 
-        return view('administration.templates.new-template', ['categories' => $categories, 'subcategories' => $subcategories, 'sub_subcategories' => $sub_subcategories]);
+        return view('administration.template.new-template', ['categories' => $categories, 'subcategories' => $subcategories, 'sub_subcategories' => $sub_subcategories]);
     }
 
     /**
@@ -105,7 +105,7 @@ class TemplatesController extends Controller
     {
         $templates = Template::all();
 
-        return view('administration.templates.templates', ['templates' => $templates]);
+        return view('administration.template.manage-templates', ['templates' => $templates]);
     }
 
     /**
@@ -129,7 +129,7 @@ class TemplatesController extends Controller
         $subcategories = Subcategory::all();
         $sub_subcategories = SubSubcategory::all();
 
-        return view('administration.templates.edit-template', ['template' => $template, 'categories' => $categories,'subcategories' => $subcategories, 'sub_subcategories' => $sub_subcategories]);
+        return view('administration.template.edit-template', ['template' => $template, 'categories' => $categories,'subcategories' => $subcategories, 'sub_subcategories' => $sub_subcategories]);
     }
 
     /**

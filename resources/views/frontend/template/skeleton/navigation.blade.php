@@ -1,7 +1,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container">
-				<a class="navbar-brand" href="">
-					<img src="{{ Vite::asset('resources/file_manager/images/logo.png') }}" alt="Logo" width="50" height="50" />
+				<a class="navbar-brand" href="{{ route('template.home') }}">
+					<img src="{{ Vite::asset('template/image/logo.png') }}" alt="Logo" width="50" height="50" />
 				</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -21,7 +21,7 @@
 								<li><a class="dropdown-item" href="{{ route('template.license') }}">License</a></li>
 							</ul>
 						</li>
-						<li class="nav-item"><a href="{{ url('template/qr-code-generator') }}" class="nav-link">QR Code Gen</a></li>
+						<li class="nav-item"><a href="{{ url('template-store/qr-code-generator') }}" class="nav-link">QR Code Gen</a></li>
 						<li class="nav-item"><a href="{{ route('template.hire-us') }}" class="nav-link">Hire Us</a></li>
 					</ul>
 				</div>

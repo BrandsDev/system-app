@@ -6,8 +6,8 @@
 				<div class="col-12">
 					<nav aria-label="breadcrumb">
 		                <ol class="breadcrumb">
-		                    <li class="breadcrumb-item"><a href="{{ route('book.home') }}">Home</a></li>
-		                    <li class="breadcrumb-item"><a href="{{ route('bookshop') }}">Templates</a></li>
+		                    <li class="breadcrumb-item"><a href="{{ route('template.home') }}">Home</a></li>
+		                    <li class="breadcrumb-item"><a href="{{ route('template.site') }}">Templates</a></li>
 		                    <li class="breadcrumb-item active" aria-current="page">{{ $template->name }}</li>
 		                </ol>
 		            </nav>
