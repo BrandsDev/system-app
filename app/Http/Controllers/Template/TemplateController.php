@@ -27,12 +27,11 @@ class TemplateController extends Controller
         return view('frontend.template.welcome', ['templates' => $templates]);
     }
 
-    public function template()
+    public function templateStore()
     {
-        $featuredBlogs = Blog::where('is_featured', 1)->get();
-        $takeBlogs = Blog::take(2)->get();
+        $templates = Template::take(60)->get();
 
-        return view('frontend.template.welcome', ['featuredBlogs' => $featuredBlogs, 'takeBlogs' => $takeBlogs]);
+        return view('frontend.template.template-store', ['templates' => $templates]);
     }
 
     public function create()

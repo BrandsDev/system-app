@@ -18,7 +18,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('template.dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Blogs</li>
+                    <li class="breadcrumb-item active" aria-current="page">Manage Blogs</li>
                 </ol>
             </nav>
         </div>
@@ -27,7 +27,7 @@
 
     <div class="row">
         <div class="col-md-10">
-            <h1>Blogs</h1>
+            <h1>Manage Blogs</h1>
         </div>
         <div class="col-lg-2 align-self-center">
             <div class="row">
@@ -41,7 +41,7 @@
     @if(session()->has('delete'))
     <div class="row">
         <div class="col-md-12">
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-danger" role="alert">
                 {{ session('delete') }}
             </div>
         </div>

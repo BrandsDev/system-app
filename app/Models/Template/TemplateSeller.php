@@ -5,7 +5,7 @@ namespace App\Models\Template;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TemplateBlog extends Model
+class TemplateSeller extends Model
 {
     use HasFactory;
 
@@ -15,26 +15,20 @@ class TemplateBlog extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'title',
+        'name',
         'slug',
-        'tags',
-        'header_title',
-        'category_name',
-        'subcategory_name',
-        'sub_subcategory_name',
-        'template',
-        'seller_name',
-        'short_description',
-        'long_description',
+        'gender',
+        'bio',
+        'mobile',
+        'email',
+        'address',
+        'description',
         'youtube_iframe',
-        'header_content',
         'meta_title',
         'meta_description',
-        'is_featured',
-        'featured_image',
-        'file',
+        'image',
         'og_image',
+        'banner',
         'status',
-        'comment',
     ];
 }

@@ -24,10 +24,10 @@ return new class extends Migration
             $table->string('youtube_iframe', 199)->nullable();
             $table->string('meta_title', 199)->nullable();
             $table->string('meta_description', 199)->nullable();
-            $table->text('image')->nullable();
-            $table->text('og')->nullable();
-            $table->text('banner')->nullable();
-            $table->boolean('status')->default('0')->nullable();
+            $table->string('image', 255)->default('default-image.png');
+            $table->string('og_image', 255)->default('default-og-image.png');
+            $table->string('cover', 255)->default('default-cover.png');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

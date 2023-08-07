@@ -11,8 +11,7 @@ use App\Models\Template\TemplateCategory;
 use App\Models\Template\TemplateSubcategory;
 use App\Models\Template\TemplateSubSubcategory;
 
-use App\Models\Book\Book;
-use App\Models\Book\BookAuthor;
+use App\Models\Template\TemplateSeller;
 
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
@@ -23,31 +22,34 @@ class TemplateBlogController extends Controller
 {
     public function index()
     {
-        return view('frontend.template.blog');
+        $featuredBlogs = TemplateBlog::where('is_featured', 1)->get();
+        $takeBlogs = TemplateBlog::take(2)->get();
+
+        return view('frontend.template.blog', ['featuredBlogs' => $featuredBlogs, 'takeBlogs' => $takeBlogs]);
     }
 
     public function blogs()
     {
-        $featuredBlogs = Blog::where('is_featured', 1)->get();
-        $takeBlogs = Blog::take(2)->get();
+        $featuredBlogs = TemplateBlog::where('is_featured', 1)->get();
+        $takeBlogs = TemplateBlog::take(2)->get();
 
-        return view('frontend.book.blogs', ['featuredBlogs' => $featuredBlogs, 'takeBlogs' => $takeBlogs]);
+        return view('frontend.template.blog', ['featuredBlogs' => $featuredBlogs, 'takeBlogs' => $takeBlogs]);
     }
 
     public function create(Request $request)
     {
-        $books = Book::all();
-        $authors = BookAuthor::all();
+        $templates = Template::all();
+        $sellers = TemplateSeller::all();
         $categories = TemplateCategory::all();
         $subcategories = TemplateSubcategory::all();
         $sub_subcategories = TemplateSubSubcategory::all();
 
-        return view('administration.blogs.new-blog', [
+        return view('administration.template.blog.new-blog', [
+            'templates' => $templates,
+            'sellers' => $sellers,
             'categories' => $categories, 
             'subcategories' => $subcategories, 
-            'sub_subcategories' => $sub_subcategories, 
-            'books' => $books,
-            'authors' => $authors,
+            'sub_subcategories' => $sub_subcategories,
         ]);
     }
 
@@ -69,8 +71,8 @@ class TemplateBlogController extends Controller
             'category_name' => $request->category_name,
             'subcategory_name' => $request->subcategory_name,
             'sub_subcategory_name' => $request->sub_subcategory_name,
-            'book' => $request->book,
-            'author' => $request->author,
+            'template' => $request->template,
+            'seller_name' => $request->seller_name,
             'short_description' => $request->short_description,
             'long_description' => $request->long_description,
             'youtube_iframe' => $request->youtube_iframe,
@@ -86,44 +88,44 @@ class TemplateBlogController extends Controller
 
         if ($request->hasFile('featured_image')) {
             $featuredImage = $request->file('featured_image')->getClientOriginalName();
-            $request->file('featured_image')->move(public_path('blog/image/featured'), $featuredImage);
+            $request->file('featured_image')->move(public_path('template/template/blog/image/featured'), $featuredImage);
             $blog->featured_image = $featuredImage;
         }
 
         if ($request->hasFile('file')) {
             $file = $request->file('file')->getClientOriginalName();
-            $request->file('file')->move(public_path('blog/file'), $file);
+            $request->file('file')->move(public_path('template/template/blog/file'), $file);
             $blog->file = $file;
         }
 
-        if ($request->hasFile('og')) {
-            $og = $request->file('og')->getClientOriginalName();
-            $request->file('og')->move(public_path('blog/image/og'), $og);
-            $blog->og = $og;
+        if ($request->hasFile('og_image')) {
+            $oGImage = $request->file('og_image')->getClientOriginalName();
+            $request->file('og_image')->move(public_path('template/template/blog/image/og'), $oGImage);
+            $blog->og_image = $oGImage;
         }
 
-        if ($request->hasFile('featured_image') || $request->hasFile('file') || $request->hasFile('og')) {
+        if ($request->hasFile('featured_image') || $request->hasFile('file') || $request->hasFile('og_image')) {
             $blog->save();
         }
 
         Session::flash('message', __('New Blog Successfully Added!'));
         
-        return redirect(RouteServiceProvider::Blog);
+        return redirect(RouteServiceProvider::TemplateBlog);
     }
 
     public function show(Request $request)
     {            
         $blogs = TemplateBlog::all();
         
-        return view('administration.blogs.manage-blogs', ['blogs' => $blogs]);
+        return view('administration.template.blog.manage-blogs', ['blogs' => $blogs]);
     }
 
     public function detail($slug)
     {
         $blog = TemplateBlog::where('slug', $slug)->firstOrFail();
-        $relatedBlog = Blog::take(4)->get();
+        $relatedBlog = TemplateBlog::take(4)->get();
 
-        return view('frontend.book.blog-detail', [
+        return view('frontend.template.blog-detail', [
             'blog' => $blog,
             'relatedBlog' => $relatedBlog
         ]);
@@ -132,16 +134,17 @@ class TemplateBlogController extends Controller
     public function edit($id)
     {
         $blog = TemplateBlog::findOrFail($id);
-        $books = Book::all();
-        $authors = BookAuthor::all();
+
+        $templates = Template::all();
+        $sellers = TemplateSeller::all();
         $categories = TemplateCategory::all();
         $subcategories = TemplateSubcategory::all();
         $sub_subcategories = TemplateSubSubcategory::all();
         
-        return view('administration.blogs.edit-blog', [
+        return view('administration.template.blog.edit-blog', [
             'blog' => $blog,
-            'books' => $books,
-            'authors' => $authors,
+            'sellers' => $sellers,
+            'templates' => $templates,
             'categories' => $categories,
             'subcategories' => $subcategories,
             'sub_subcategories' => $sub_subcategories,
@@ -150,7 +153,7 @@ class TemplateBlogController extends Controller
 
     public function update(Request $request, $id): RedirectResponse
     {
-        $blog = Blog::find($id);
+        $blog = TemplateBlog::find($id);
 
         if ($blog) {
             $featuredImage = $request->file('featured_image');
@@ -161,7 +164,7 @@ class TemplateBlogController extends Controller
                 ]);
 
                 $featuredImageName = $request->featured_image->getClientOriginalName();
-                $request->featured_image->move(public_path('blog/image/featured'), $featuredImageName);
+                $request->featured_image->move(public_path('template/blog/image/featured'), $featuredImageName);
 
                 $blog->featured_image = $featuredImageName;
             }
@@ -174,22 +177,22 @@ class TemplateBlogController extends Controller
                 ]);
 
                 $Name = $request->file->getClientOriginalName();
-                $request->file->move(public_path('blog/file'), $Name);
+                $request->file->move(public_path('template/blog/file'), $Name);
 
                 $blog->file = $Name;
             }
 
-            $og = $request->file('og');
+            $og = $request->file('og_image');
 
             if ($og) {
                 $validatedData = $request->validate([
-                    // 'og' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+                    // 'og_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
                 ]);
 
-                $ogImageName = $request->og->getClientOriginalName();
-                $request->og->move(public_path('blog/image/og'), $ogImageName);
+                $ogImageName = $request->og_image->getClientOriginalName();
+                $request->og_image->move(public_path('template/blog/image/og'), $ogImageName);
 
-                $blog->og = $ogImageName;
+                $blog->og_image = $ogImageName;
             }
 
             // Update other fields of the request
@@ -200,8 +203,8 @@ class TemplateBlogController extends Controller
             $blog->category_name = $request->input('category_name');
             $blog->subcategory_name = $request->input('subcategory_name');
             $blog->sub_subcategory_name = $request->input('sub_subcategory_name');
-            $blog->book = $request->input('book');
-            $blog->author = $request->input('author');
+            $blog->template = $request->input('template');
+            $blog->seller_name = $request->input('seller_name');
             $blog->short_description = $request->input('short_description');
             $blog->long_description = $request->input('long_description');
             $blog->youtube_iframe = $request->input('youtube_iframe');
@@ -211,7 +214,7 @@ class TemplateBlogController extends Controller
             $blog->is_featured = $request->input('is_featured');
 
             if (!is_null($request->input('status'))) {
-                $audio->status = $request->input('status');
+                $blog->status = $request->input('status');
             }
             
             $blog->comment = $request->input('comment');

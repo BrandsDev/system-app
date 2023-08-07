@@ -17,7 +17,8 @@ use App\Http\Controllers\Book\BookAudioController;
 
 // Template
 use App\Http\Controllers\Template\TemplateController;
-use App\Http\Controllers\Template\SiteTemplateController;
+use App\Http\Controllers\Template\TemplateSellerController;
+use App\Http\Controllers\Template\TemplateSiteController;
 use App\Http\Controllers\Template\TemplateAboutController;
 use App\Http\Controllers\Template\TemplateThemeController;
 use App\Http\Controllers\Template\TemplateHireController;
@@ -81,7 +82,7 @@ Route::get('book/terms-of-service', [BookTermController::class, 'index'])->name(
 
 // Template
 Route::get('template-store', [TemplateController::class, 'index'])->name('template.home');
-Route::get('template-store/site-template', [TemplateController::class, 'siteTemplate'])->name('template.site');
+Route::get('template-store/site-template', [TemplateController::class, 'templateStore'])->name('template.site');
 
 Route::get('template-store/detail/{slug}', [TemplateController::class, 'detail'])->name('template.detail');
 
@@ -241,7 +242,15 @@ Route::get('/template-store/categories/sub-subcategories/sub-subcategory/edit/{i
 Route::put('/template-store/categories/sub-subcategories/sub-subcategory/update/{id}', [TemplateCategoryController::class, 'update'])->middleware(['auth', 'verified'])->name('template.sub-subcategory.update');
 Route::delete('/template-store/categories/sub-subcategories/sub-subcategory/destroy/{id}', [TemplateCategoryController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.sub-subcategory.destroy');
 
-// Templates
+// Template Seller
+Route::get('/template-store/manage-sellers', [TemplateSellerController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-sellers');
+Route::get('/template-store/manage-seller/new-seller', [TemplateSellerController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-seller');
+Route::post('/template-store/manage-seller/new-seller/store', [TemplateSellerController::class, 'store'])->middleware(['auth', 'verified'])->name('template.new-seller.store');
+Route::get('/template-store/manage-seller/edit/{id}', [TemplateSellerController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.seller.edit');
+Route::put('/template-store/manage-seller/update/{id}', [TemplateSellerController::class, 'update'])->middleware(['auth', 'verified'])->name('template.seller.update');
+Route::delete('/template-store/manage-seller/destroy/{id}', [TemplateSellerController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.seller.destroy');
+
+// Template
 Route::get('/template-store/manage-templates', [TemplateController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-templates');
 Route::get('/template-store/new-template', [TemplateController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-template');
 Route::post('/template-store/new-template/store', [TemplateController::class, 'store'])->middleware(['auth', 'verified'])->name('template.new-template.store');
@@ -249,7 +258,7 @@ Route::get('/template-store/edit/{id}', [TemplateController::class, 'edit'])->mi
 Route::put('/template-store/update/{id}', [TemplateController::class, 'update'])->middleware(['auth', 'verified'])->name('template.update-template');
 Route::delete('/template-store/destroy/{id}', [TemplateController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.destroy-template');
 
-// Blogs
+// Blog
 Route::get('/template-store/manage-blogs', [TemplateBlogController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-blogs');
 Route::get('/template-store/manage-blog/new-blog', [TemplateBlogController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-blog');
 Route::post('/template-store/manage-blog/new-blog/store', [TemplateBlogController::class, 'store'])->middleware(['auth', 'verified'])->name('template.new-blog.store');
@@ -257,7 +266,7 @@ Route::get('/template-store/manage-blog/edit/{id}', [TemplateBlogController::cla
 Route::put('/template-store/manage-blog/update/{id}', [TemplateBlogController::class, 'update'])->middleware(['auth', 'verified'])->name('template.blog.update');
 Route::delete('/manage-blog/destroy/{id}', [TemplateBlogController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.blog.destroy');
 
-// Streaming Audios
+// Streaming Audio
 Route::get('/template-store/manage-audios', [TemplateAudioController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-audios');
 Route::get('/template-store/manage-audio/new-audio', [TemplateAudioController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-audio');
 Route::post('/template-store/manage-audio/new-audio/store', [TemplateAudioController::class, 'store'])->middleware(['auth', 'verified'])->name('template.new-audio.store');

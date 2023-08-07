@@ -70,22 +70,22 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="subcategory_name" class="form-label">Sub Category</label>
-                            <input class="form-control" list="datalistSubCategory" name="subcategory_name" value="{{ $template->subcategory_name }}" placeholder="Search Sub Category" />
+                            <label for="subcategory_name" class="form-label">Subcategory</label>
+                            <input class="form-control" list="datalistSubCategory" name="subcategory_name" value="{{ $template->subcategory_name }}" placeholder="Search Subcategory" />
                             <datalist id="datalistSubCategory">
                                 @foreach($subcategories as $subcategory)
-                                <option value="{{ $subcategory->sub_category_name }}"></option>
+                                <option value="{{ $subcategory->subcategory_name }}"></option>
                                 @endforeach
                             </datalist>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="sub_subcategory_name" class="form-label">Sub Sub Category</label>
-                            <input class="form-control" list="datalistSubSubCategory" name="sub_subcategory_name" value="{{ $template->sub_subcategory_name }}" placeholder="Search Sub Sub Category" />
+                            <label for="sub_subcategory_name" class="form-label">Sub Subcategory</label>
+                            <input class="form-control" list="datalistSubSubCategory" name="sub_subcategory_name" value="{{ $template->sub_subcategory_name }}" placeholder="Search Sub Subcategory" />
                             <datalist id="datalistSubSubCategory">
                                 @foreach($sub_subcategories as $sub_subcategory)
-                                <option value="{{ $sub_subcategory->sub_sub_category_name }}"></option>
+                                <option value="{{ $sub_subcategory->sub_subcategory_name }}"></option>
                                 @endforeach
                             </datalist>
                         </div>

@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('description', 199)->nullable();
             $table->string('meta_title', 199)->nullable();
             $table->string('meta_description', 199)->nullable();
-            $table->text('icon')->default('default-icon.png');
-            $table->text('thumb')->default('default-icon.png');
-            $table->text('cover')->default('default-icon.png');
-            $table->text('og_image')->default('default-icon.png');
+            $table->string('icon', 255)->default('default-icon.png');
+            $table->string('thumb', 255)->default('default-icon.png');
+            $table->string('cover', 255)->default('default-icon.png');
+            $table->string('og_image', 255)->default('default-icon.png');
             $table->timestamps();
         });
     }

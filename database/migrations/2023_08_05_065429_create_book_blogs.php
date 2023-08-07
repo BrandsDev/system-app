@@ -28,11 +28,11 @@ return new class extends Migration
             $table->text('header_content')->nullable();
             $table->string('meta_title', 100)->nullable();
             $table->string('meta_description', 200)->nullable();
-            $table->boolean('is_featured')->nullable();
-            $table->string('featured_image', 255)->nullable();
-            $table->string('file', 255)->nullable();
-            $table->string('og', 255)->nullable();
-            $table->boolean('status')->nullable();
+            $table->tinyInteger('is_featured')->default(0);
+            $table->string('featured_image', 255)->default('default-featured-image.png');
+            $table->string('file', 255)->default('default-file.png');
+            $table->string('og_image', 255)->default('default-og-image.png');
+            $table->tinyInteger('status')->default(0);
             $table->text('comment')->nullable();
             $table->timestamps();
         });

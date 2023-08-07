@@ -29,7 +29,6 @@ $startNumber = 8001;
 $endNumber = 10000;
 generateNumbers($startNumber, $endNumber);
 ?>
-
 ---------------
 New Domain & File Configuring
 ---------------

@@ -21,6 +21,15 @@
 				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Sellers
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li><a class="dropdown-item" href="{{ route('template.new-seller') }}">Add Seller</a></li>
+						<li><a class="dropdown-item" href="{{ route('template.manage-sellers') }}">Manage Sellers</a></li>
+					</ul>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Template
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">

@@ -69,8 +69,8 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="sub_category_name" class="form-label">Sub Category</label>
-                            <input class="form-control" list="datalistSubCategory" name="subcategory_name" placeholder="Search Sub Category" required />
+                            <label for="subcategory_name" class="form-label">Subcategory</label>
+                            <input class="form-control" list="datalistSubCategory" name="subcategory_name" placeholder="Search Subcategory" required />
                             <datalist id="datalistSubCategory">
                                 @foreach($subcategories as $subcategory)
                                 <option value="{{ $subcategory->subcategory_name }}"></option>
@@ -80,8 +80,8 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="sub_sub_category_name" class="form-label">Sub Sub Category</label>
-                            <input class="form-control" list="datalistSubSubCategory" name="sub_subcategory_name" placeholder="Search Sub Sub Category" />
+                            <label for="sub_subcategory_name" class="form-label">Sub SubCategory</label>
+                            <input class="form-control" list="datalistSubSubCategory" name="sub_subcategory_name" placeholder="Search Sub SubCategory" />
                             <datalist id="datalistSubSubCategory">
                                 @foreach($sub_subcategories as $sub_subcategory)
                                 <option value="{{ $sub_subcategory->sub_subcategory_name }}"></option>
