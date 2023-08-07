@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 26, 2023 at 09:10 AM
+-- Generation Time: Aug 07, 2023 at 12:12 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,92 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `system-app`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `abouts`
---
-
-CREATE TABLE `abouts` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `audios`
---
-
-CREATE TABLE `audios` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(100) NOT NULL,
-  `artist` varchar(100) NOT NULL,
-  `duration` varchar(100) DEFAULT NULL,
-  `release_date` varchar(100) DEFAULT NULL,
-  `category_name` varchar(100) DEFAULT NULL,
-  `subcategory_name` varchar(100) DEFAULT NULL,
-  `sub_subcategory_name` varchar(100) DEFAULT NULL,
-  `genre` varchar(100) DEFAULT NULL,
-  `album` varchar(100) DEFAULT NULL,
-  `short_description` text DEFAULT NULL,
-  `long_description` text DEFAULT NULL,
-  `youtube_iframe` text DEFAULT NULL,
-  `header_content` text DEFAULT NULL,
-  `meta_title` varchar(100) DEFAULT NULL,
-  `meta_description` varchar(200) DEFAULT NULL,
-  `is_featured` tinyint(1) DEFAULT NULL,
-  `cover_image` varchar(255) DEFAULT NULL,
-  `audio_file` varchar(255) DEFAULT NULL,
-  `og` varchar(255) DEFAULT NULL,
-  `status` tinyint(1) DEFAULT NULL,
-  `comment` text DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `blogs`
---
-
-CREATE TABLE `blogs` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(100) NOT NULL,
-  `slug` varchar(100) NOT NULL,
-  `tags` varchar(100) DEFAULT NULL,
-  `header_title` varchar(100) DEFAULT NULL,
-  `category_name` varchar(100) DEFAULT NULL,
-  `subcategory_name` varchar(100) DEFAULT NULL,
-  `sub_subcategory_name` varchar(100) DEFAULT NULL,
-  `book` varchar(100) DEFAULT NULL,
-  `author` varchar(100) NOT NULL,
-  `short_description` text DEFAULT NULL,
-  `long_description` text DEFAULT NULL,
-  `youtube_iframe` text DEFAULT NULL,
-  `header_content` text DEFAULT NULL,
-  `meta_title` varchar(100) DEFAULT NULL,
-  `meta_description` varchar(200) DEFAULT NULL,
-  `is_featured` tinyint(1) DEFAULT NULL,
-  `featured_image` varchar(255) DEFAULT NULL,
-  `file` varchar(255) DEFAULT NULL,
-  `og` varchar(255) DEFAULT NULL,
-  `status` tinyint(1) DEFAULT NULL,
-  `comment` text DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `blogs`
---
-
-INSERT INTO `blogs` (`id`, `title`, `slug`, `tags`, `header_title`, `category_name`, `subcategory_name`, `sub_subcategory_name`, `book`, `author`, `short_description`, `long_description`, `youtube_iframe`, `header_content`, `meta_title`, `meta_description`, `is_featured`, `featured_image`, `file`, `og`, `status`, `comment`, `created_at`, `updated_at`) VALUES
-(1, 'মহিমান্বিত কুরআনের মু\'জিযা', 'miracles-of-mohimannito-quran', 'মহিমান্বিত কুরআন', NULL, 'কুরআন ও হাদিস', 'মহিমান্বিত কুরআন', NULL, 'মহিমান্বিত কুরআন – মর্মার্থ ও শাব্দিক অনুবাদ', 'ইলাননূর সম্পাদনা পরিষদ', '<p>&lsquo;&lsquo;তারপর মূসা নিজের লাঠিটি নিক্ষেপ করলেন। সে তাদের বানোয়াট কীর্তিগুলো গ্রাস করতে থাকলো। তখন সকল যাদুকর সাজদাবনত হয়ে পড়লো এবং বলে উঠলো, আমরা রাববুল আলামীনের প্রতি বিশ্বাস স্থাপন করলাম। মূসা ও হারুনের রবের প্রতি।\" (সূরা শুআরা: ৪৬-৪৮)</p>', '<p>القرأن</p>\r\n<p>□○◇□○◇□○◇□○◇□○◇□○◇</p>\r\n<p>মহিমান্বিত কুরআন আমাদের নাবি মুহাম্মাদ সাল্লাল্লাহু আলাইহি ওয়া সাল্লামের সবচেয়ে বড় মু\'জিযা। প্রত্যেক নাবির সময়কার প্রেক্ষাপট অনুযায়ী তার মু\'জিযা হয়ে থাকে। এ জন্যই ফিরআউন সম্প্রদায়ের মধ্যে যখন যাদু বিদ্যা ব্যাপকভাবে প্রসার লাভ করলো, তখন মূসা আলাইহিস সালাম এমন একটি লাঠি নিয়ে আসলেন, যা যাদুকরেরা ব্যবহার করতো। কিন্তু মূসা আলাইহিস সালামের লাঠি যাদুকরদের সাপ সদৃশ সব লাঠি গিলে ফেললো। এতে যাদুকররা হয়রান হয়ে গেলো এবং বিস্মিত হলো। তারা বিশ্বাস করে নিলো যে, মূসা আ. যা নিয়ে এসেছেন, তা সত্য-সঠিক; যাদু নয়। আল্লাহ তা&lsquo;আলা বলেন:</p>\r\n<p>﴿فَأَلْقَىٰ مُوسَىٰ عَصَاهُ فَإِذَا هِيَ تَلْقَفُ مَا يَأْفِكُونَ فَأُلْقِيَ السَّحَرَةُ سَاجِدِينَ قَالُوا آمَنَّا بِرَبِّ الْعَالَمِينَ رَبِّ مُوسَىٰ وَهَارُونَ﴾</p>\r\n<p>&lsquo;&lsquo;তারপর মূসা নিজের লাঠিটি নিক্ষেপ করলেন। সে তাদের বানোয়াট কীর্তিগুলো গ্রাস করতে থাকলো। তখন সকল যাদুকর সাজদাবনত হয়ে পড়লো এবং বলে উঠলো, আমরা রাববুল আলামীনের প্রতি বিশ্বাস স্থাপন করলাম। মূসা ও হারুনের রবের প্রতি।\" (সূরা শুআরা: ৪৬-৪৮)</p>\r\n<p>ঈসা আলাইহিস সালামের যুগে যখন ডাক্তারী বিদ্যা ব্যাপক উন্নতি লাভ করেছিল, তখন তিনি আল্লাহর পক্ষ থেকে এমন মু\'জিযা নিয়ে আসলেন, যা দেখে সে যুগের ডাক্তারগণ দিশেহারা হয়ে গেলেন। তিনি মৃতদেরকে জীবিত এবং জটিল ও কঠিন রোগ ভালো করতেন। যেমন জন্মান্ধ ও কুষ্ঠরোগীকে সুস্থ করতেন এবং মাটি দিয়ে পাখির আকৃতি বানিয়ে তাতে ফুঁ দিলেই তা আল্লাহর অনুমতিতে পাখি হয়ে যেতো। এতে ডাক্তারদের বিবেক-বুদ্ধি হয়রান হয়ে গেলো এবং তারা স্বীকার করে নিলো যে, এগুলো আল্লাহ তা&lsquo;আলার পক্ষ হতেই। ঐদিকে আরবরা যখন ফাসাহাত ও বালাগাত তথা বিশুদ্ধ আরবী ভাষায় বাগপটুতা ও উচ্চাঙ্গের সাহিত্যিক মান দিয়ে ভাষণ-বক্তৃতা দেয়ায় পারদর্শিতা অর্জন করেছিল, তখন আল্লাহ তা&lsquo;আলা আমাদের নবী মুহাম্মাদ সাল্লাল্লাহু আলাইহি ওয়া সাল্লামের জন্য এমন সাহিত্যিক মানসম্পন্ন মহিমান্বিত কুরআন দান করলেন, যার ভাষাগত মান তাদের কথা-বার্তা ও ভাষণ-বক্তৃতায় ব্যবহৃত বাক্যসমূহের বহু উর্ধ্বে এবং যার সম্মুখ অথবা পশ্চাৎ হতে বাতিল প্রবেশ করতে পারে না। আর এ কুরআন হলো সর্বযুগের চিরন্তন মু\'জিযা। আল্লাহ তা&lsquo;আলা সর্বযুগের সমস্ত মানুষের জন্য সর্বশেষ আসমানী রিসালাত হিসাবে মহিমান্বিত কুরআনকে একটি উজ্জ্বল মু\'জিযা বানিয়েছেন। প্রত্যেক যামানার লোকেরা কুরআনের মু\'জিযা প্রত্যক্ষ করছে এবং সেটা তিলাওয়াত করছে। তারা বিশ্বাস করতে বাধ্য হচ্ছে যে, কুরআন প্রকৃতপক্ষেই আল্লাহর কালাম। এটি কোনো মানুষের কালাম নয়। আল্লাহ তা&lsquo;আলা মানুষ ও জিনকে কুরআনের অনুরূপ একটি কিতাব অথবা কুরআনের সূরার অনুরূপ দশটি সূরা কিংবা সেটার সূরার অনুরূপ একটি সূরা রচনা করে নিয়ে আসার চ্যালেঞ্জ করেছেন। মুহাম্মাদ সাল্লাল্লাহু আলাইহি ওয়া সাল্লামকে নাবি হিসাবে প্রেরণ করার পর থেকে আজ পর্যন্ত কুরআনের চ্যালেঞ্জ রয়ে গেছে। ভবিষ্যতেও ইসলামের শত্রুরা কখনো কুরআনের অনুরূপ একটি কিতাব কিংবা কুরআনের সূরার ন্যায় একটি সূরা রচনা করে আনতে পারবে না। যদিও ইতিহাসের প্রত্যেক যুগেই রসূল সাল্লাল্লাহু আলাইহি ওয়া সাল্লাম ও দীন ইসলামের শত্রুর সংখ্যা প্রচুর।</p>\r\n<p>আল্লাহ তা&lsquo;আলা আরো বলেন:</p>\r\n<p>﴿وَإِن كُنتُمْ فِي رَيْبٍ مِّمَّا نَزَّلْنَا عَلَىٰ عَبْدِنَا فَأْتُوا بِسُورَةٍ مِّن مِّثْلِهِ وَادْعُوا شُهَدَاءَكُم مِّن دُونِ اللَّهِ إِن كُنتُمْ صَادِقِينَ فَإِن لَّمْ تَفْعَلُوا وَلَن تَفْعَلُوا فَاتَّقُوا النَّارَ الَّتِي وَقُودُهَا النَّاسُ وَالْحِجَارَةُ أُعِدَّتْ لِلْكَافِرِينَ﴾</p>\r\n<p>&lsquo;&lsquo;আর যে কিতাবটি আমি আমার বান্দার উপর নাযিল করেছি তাতে যদি তোমরা সন্দেহ পোষণ করো তাহলে তার মতো একটি সূরা তৈরি করে আনো এবং নিজেদের সমস্ত সমর্থক গোষ্টীকে ডেকে আনো আল্লাহকে ছাড়া। তোমরা যদি সত্যবাদী হয়ে থাকো। কিন্তু তোমরা যদি এমনটি না করো আর নিঃসন্দেহে কখনই তোমরা এটা করতে পারবেনা, তাহলে ভয় করো সেই আগুনকে, যার ইন্ধন হবে মানুষ ও পাথর যা তৈরি রাখা হয়েছে কাফেরদের জন্য।\" (সূরা আল বাকারা: ২৩-২৪)</p>\r\n<p>সুতরাং কুরআনের চ্যালেঞ্জ এখনো বিদ্যমান রয়েছে। এটা কিয়ামত পর্যন্ত বিদ্যমান থাকবে। আল্লাহ তা&lsquo;আলা বলেন, তোমরা যদি এখন এমনটি করতে না পারো, নিঃসন্দেহে কখনই তোমরা এটা করতে পারবে না। আল্লাহ তা&lsquo;আলা আরো বলেন:</p>\r\n<p>﴿أَمْ يَقُولُونَ تَقَوَّلَهُ بَل لَّا يُؤْمِنُونَ فَلْيَأْتُوا بِحَدِيثٍ مِّثْلِهِ إِن كَانُوا صَادِقِينَ﴾</p>\r\n<p>&lsquo;&lsquo;তারা কি বলে যে, এ ব্যক্তি নিজেই কুরআন রচনা করে নিয়েছে? প্রকৃত ব্যাপার হচ্ছে তারা ঈমান গ্রহণ করতে চায় না। তাদের এ কথার ব্যাপারে তারা যদি সত্যবাদী হয় তাহলে এ বাণীর মত একটি বাণী তৈরি করে আনুক।\" (সূরা তুর: ৩৩-৩৪)</p>\r\n<p>শাইখুল ইসলাম ইমাম ইবনে তাইমীয়া রাহিমাহুল্লাহ বলেন, এ চ্যালেঞ্জটি ছিল মাক্কায়। কেননা সূরা হুদ, সূরা ইউনুস এবং সূরা তুর মক্কী সূরার অন্তর্ভুক্ত। মাদিনায় হিজরত করার পর এ চ্যালেঞ্জের পুনরাবৃত্তি করা হয়েছে। মাদানি সূরা বাকারায় আল্লাহ তা&lsquo;আলা বলেন:</p>\r\n<p>﴿وَإِن كُنتُمْ فِي رَيْبٍ مِّمَّا نَزَّلْنَا عَلَىٰ عَبْدِنَا فَأْتُوا بِسُورَةٍ مِّن مِّثْلِهِ وَادْعُوا شُهَدَاءَكُم مِّن دُونِ اللَّهِ إِن كُنتُمْ صَادِقِينَ فَإِن لَّمْ تَفْعَلُوا وَلَن تَفْعَلُوا فَاتَّقُوا النَّارَ الَّتِي وَقُودُهَا النَّاسُ وَالْحِجَارَةُ أُعِدَّتْ لِلْكَافِرِينَ﴾</p>\r\n<p>&lsquo;&lsquo;আর যে কিতাবটি আমি আমার বান্দার উপর নাযিল করেছি তাতে যদি তোমরা সন্দেহ পোষণ করো তাহলে তার মতো একটি সূরা তৈরি করে আনো এবং নিজেদের সমস্ত সমর্থক গোষ্টীকে ডেকে আনো আল্লাহকে ছাড়া। তোমরা যদি সত্যবাদী হয়ে থাকো। কিন্তু তোমরা যদি এমনটি না করো আর নিসন্দেহে কখনই তোমরা এটা করতে পারবেনা, তাহলে ভয় করো সেই আগুনকে, যার ইন্ধন হবে মানুষ ও পাথর যা তৈরি রাখা হয়েছে কাফেরদের জন্য।\" (সূরা আল বাকারা: ২৩-২৪)</p>\r\n<p>এখানে দু&rsquo;টি বিষয় উল্লেখ করা হয়েছে।</p>\r\n<p>▪︎ ১. আল্লাহ তা&lsquo;আলা বলেন:</p>\r\n<p>﴿ فَإِن لَّمْ تَفْعَلُوا وَلَن تَفْعَلُوا فَاتَّقُوا النَّارَ الَّتِي وَقُودُهَا النَّاسُ وَالْحِجَارَةُ﴾</p>\r\n<p>&lsquo;&lsquo;কিন্তু তোমরা যদি এমনটি না করো আর নিঃসন্দেহে কখনই তোমরা এটা করতে পারবে না, তাহলে ভয় করো সেই আগুনকে, যার ইন্ধন হবে মানুষ ও পাথর&rsquo;&rsquo;। তোমরা যখন এমনটি করতে পারবেনা, তখন জেনে নিবে যে, এটি সত্য। সুতরাং তোমরা তাকে মিথ্যায়ন করার ব্যাপারে আল্লাহকে ভয় করো। আর তা না করলে, তোমাদেরকে পরিবেষ্টন করবে সেই আযাব, যার ওয়াদা করা হয়েছে সত্য অস্বীকার কারীদের জন্য।</p>\r\n<p>▪︎২.আল্লাহ তা&lsquo;আলা বলেন: وَلَن تَفْعَلُوا &lsquo;&lsquo;আর নিঃসন্দেহে কখনই তোমরা এটা করতে পারবেনা&rsquo;&rsquo;। এখানে لن অব্যয় দ্বারা ভবিষ্যতে তাদের ক্ষমতা অর্জিত হওয়াকে নাকোচ করা হয়েছে। এতে সাব্যস্ত করা হয়েছে যে, ভবিষ্যতেও তারা কুরআনের অনুরূপ একটি সূরা রচনা করে আনয়ন করতে পারবেনা। কুরআন এভাবেই সংবাদ প্রদান করেছে।</p>\r\n<p>কুরআনের সুস্পষ্ট বক্তব্য এবং মুতাওয়াতির হাদিসের মাধ্যমে সাব্যস্ত হয়েছে যে, সূরা বানি ইসরাঈল মাক্কি সূরা। ইসরা বা নাবি সাল্লাল্লাহু আলাইহি ওয়া সাল্লামের নৈশ ভ্রমণের মাধ্যমে এ সূরার সূচনা হয়েছে। আল্লাহ তা&lsquo;আলা বলেছেন:</p>\r\n<p>﴿قُلْ لَئِنِ اجْتَمَعَتِ الْإِنْسُ وَالْجِنُّ عَلَى أَنْ يَأْتُوا بِمِثْلِ هَذَا الْقُرْآنِ لاَ يَأْتُونَ بِمِثْلِهِ وَلَوْ كَانَ بَعْضُهُمْ لِبَعْضٍ ظَهِيرًا﴾</p>\r\n<p>&lsquo;&lsquo;হে নাবি তুমি বলো, সমস্ত মানব ও জিন যদি এ কুরআনের অনুরূপ রচনা করার জন্য জড়ো হয় এবং তারা পরস্পরের সাহায্যকারী হয়; তবুও তারা কখনো এর অনুরূপ রচনা করে আনতে পারবে না।\" (সূরা বনী ইসরাঈল: ৮৮)</p>\r\n<p>নাবি করীম সাল্লাল্লাহু আলাইহি ওয়া সাল্লামকে আল্লাহ তা&lsquo;আলা আদেশ করেছেন, তিনি যেন সমস্ত সৃষ্টিকে চ্যালেঞ্জ করে অকাট্যভাবে এ সংবাদ দিয়ে দেন যে, তারা সকলে মিলে ঐক্যবদ্ধভাবে চেষ্টা করলেও কুরআনের অনুরূপ কিতাব রচনা করতে পারবে না। যদিও তারা এ ব্যাপারে পরস্পরকে সাহায্য-সহযোগিতা করে। সমগ্র সৃষ্টির জন্যই কুরআনের এ চ্যালেঞ্জ। যারা কুরআন শুনেছে, তাদের প্রত্যেকেই এ চ্যালেঞ্জ সম্পর্কে অবগত আছে। কাছের কিংবা দূরের সকলেই এটি শুনেছে। সেই সঙ্গে এটি অবগত হওয়া গেছে যে, কাফেরদের কেউই কুরআনের মোকাবেলা করার সাহস পায়নি এবং কুরআনের অনুরূপ একটি সূরাও আনয়ন করতে পারেনি।</p>\r\n<p>নাবি করীম সাল্লাল্লাহু আলাইহি ওয়া সাল্লামকে প্রেরণ করার সময় থেকে শুরু করে আজ পর্যন্ত এ চ্যালেঞ্জ রয়ে গেছে। নাবি সাল্লাল্লাহু আলাইহি ওয়া সাল্লামের নবুওয়াত প্রাপ্তির পূর্বে আরবের সকলেই ছিল কাফের। তিনি যখন নবি হিসাবে প্রেরিত হলেন তখন অল্প সংখ্যক লোকই কেবল তার অনুসরণ করলো। কাফিররা নবি করীম সাল্লাল্লাহু আলাইহি ওয়া সাল্লামের কথাকে বাতিল প্রমাণ করার জন্য সর্বাত্মক প্রচেষ্টা চালিয়েছিল এবং সম্ভাব্য সকল পথ ও পদ্ধতি অবলম্বন করেছিল। তারা কখনো কখনো আহলে কিতাবদের কাছে গিয়ে গায়েবী বিষয়ে প্রশ্ন শিখে নিতো। যাতে পরবর্তীতে তারা এ বিষয়ে মুহাম্মাদ সাল্লাল্লাহু আলাইহি ওয়া সাল্লামকে প্রশ্ন করতে পারে। যেমন তারা প্রশ্ন করেছিল ইউসুফ আলাইহিস সালামের ঘটনা সম্পর্কে, আসহাফে কাহাফ সম্পর্কে এবং যুলকারনাইনের ঘটনা সম্পর্কে। সেই সঙ্গে তারা মুহাম্মাদ সাল্লাল্লাহু আলাইহি ওয়া সাল্লাম সম্পর্কে সম্মিলিতভাবে একটি মিথ্যা কথা বলার জন্য একাধিক বৈঠকে মিলিত হয়েছিল। তারা তার জন্য একাধিক উদাহরণ পেশ করতে লাগলো। অতঃপর তারা তাকে এমন ব্যক্তির সাথে সাদৃশ্য দিল, যার সাথে তার পার্থক্য সুস্পষ্ট। কখনো তারা তাকে পাগল বলেছে, কখনো যাদুকর বলেছে, কখনো গণক বলেছে এবং কখনো কবি বলেছে। তারা তার সম্পর্কে এমনসব কথা বলেছে, যা তারা নিজেরা এবং প্রত্যেক বিবেকবান লোক শুনে বুঝতে সক্ষম হতো যে সেটা সম্পূর্ণ মিথ্যা। কুরআন যেহেতু তাদের দাবিকে বাতিল করে সেটার মোকাবেলা করার জন্য চ্যালেঞ্জের পর চ্যালেঞ্জ করেছে, তাই জানা গেলো যে, তারা যদি মোকাবেলা করতে পারতো, তাহলে অবশ্যই তারা তা করতো। সুতরাং চ্যালেঞ্জের মোকাবেলা করার যথেষ্ট প্রয়োজন থাকা সত্ত্বেও যদি তাদের মোকাবেলা করার ক্ষমতা থাকতো, তাহলে অবশ্যই তারা কুরআনের অনুরূপ একটি কিতাব কিংবা সেটার অনুরূপ একটি সূরা রচনা করে নিয়ে আসতো। সমগ্র যমীনবাসীর জন্যই কুরআনের এ চ্যালেঞ্জ রয়ে গেছে। সুতরাং প্রত্যেকের কাছেই সুস্পষ্টভাবে প্রমাণিত হলো যে, সমস্ত যমীনবাসী কৌশল কিংবা বিনা কৌশলে এই কুরআনের অনুরূপ একটি কুরআন আনয়ন করতে অক্ষম। কুরআনের মু\'জিযা ঐসব নিদর্শনের চেয়েও অধিক সু্স্পষ্ট ও পরিপূর্ণ যা কুরআনে বারবার উল্লেখ করা হয়েছে। যেমন মৃতদেরকে জীবিত করার বিষয়টি উল্লেখ করা যেতে পারে। কুরআনের অনুরূপ মু\'জিযা আর কোনো নবী আনয়ন করতে পারেনি।</p>\r\n<p>ইসলামের প্রথম যুগে মাক্কাতে নবি সাল্লাল্লাহু আলাইহি ওয়া সাল্লামের অনুসারীর সংখ্যা যখন একদম কমছিল তখন তিনি আল্লাহর পক্ষ হতে একটি অকাট্য খবর দিয়েছেন যে, সমস্ত জিন এবং ইনসান যদি ঐক্যবদ্ধ হতো তবুও সে যুগে কুরআনের ন্যায় একটি কিতাব রচনা করে আনতে পারতো না। পরবর্তী যুগসমূহেও একই কথা। নবি করীম সাল্লাল্লাহু আলাইহি ওয়া সাল্লাম অত্যন্ত দৃঢ়তার সাথে ও সুদৃঢ় বিশ্বাস নিয়ে এ কথা বলেছেন। কিন্তু মনের মধ্যে সন্দেহ নিয়ে এ ধরণের কথা কেবল ঐ ব্যক্তিই বলতে পারে, যে নিজের মিথ্যাবাদিতা প্রকাশিত হওয়ার ভয় করে এবং অপদস্থ হওয়া ও মানুষ তার কথা সত্যায়ন না করার আশঙ্কা করে। আর যখন দৃঢ়চিত্তে ও পর্বত সদৃশ ঈমান নিয়ে বলবে, তখন আল্লাহর পক্ষ হতে নিশ্চিত সংবাদ নিয়েই বলবে। মানুষের পরিচিত ও স্বভাবগত যেসব ইলম রয়েছে, তার মধ্যে এমন কিছু আছে বলে মানুষ জানেনা, যা সমগ্র সৃষ্টি মিলে আনয়ন করতে অক্ষম। আলেমগণ কেবল ঐসব কালাম রচনা করতে অক্ষম, যা তাদের ক্ষমতার বাইরে। সুতরাং মানুষ যেহেতু কুরআনের অনুরূপ কালাম রচনা করে আনয়ন করতে পারে না, তখন এটি বিশ্বাস করা আবশ্যক যে, কুরআন একটি চিরন্তন মু\'জিযা। বিভিন্ন পদ্ধতিতেই কুরআনুল কারীমের মুজিযা প্রমাণ করা যায়। কুরআনের শব্দমালা, গ্রন্থনা, অলঙ্কারপূর্ণ শব্দের মাধ্যমে বিষয়বস্তুর প্রতি নির্দেশনা প্রদান, তার আদেশ-নিষেধ, আল্লাহ তা&lsquo;আলার অতি সুন্দর নাম ও সুউচ্চ গুণাবলীর সংবাদ প্রদান, তার ফেরেশতাদের খবরাদি, ভবিষ্যৎ ও অতীতের গায়েবী বিষয় সম্পর্কিত খবর, পুনরুত্থান দিবস সংক্রান্ত খবর, ঈমান ও ইয়াকীনের দলীল-প্রমাণাদি এবং অন্যান্য বিষয়েও কুরআন একটি চিরন্তন মু\'জিযা।</p>', NULL, NULL, NULL, NULL, 1, 'mohimannito-quran-marmartho-o-sabdik-onubad-front-cover.jpg', NULL, NULL, NULL, NULL, '2023-07-25 00:20:31', '2023-07-26 01:09:15'),
-(2, 'মহিমান্বিত কুরআনে গুনাহ মাফের দু‘আ', 'mohimannito-qurane-gunah-mafer-dua', 'মহিমান্বিত কুরআন', NULL, 'কুরআন ও হাদিস', 'মহিমান্বিত কুরআন', NULL, 'মহিমান্বিত কুরআন – মর্মার্থ ও শাব্দিক অনুবাদ, শুয়ুখ সংস্করণ', 'ইলাননূর সম্পাদনা পরিষদ', '<p>رَبِّ إِنِّىْ ظَلَمْتُ نَفْسِىْ فَاغْفِرْ لِىْ \"রব্বি ইন্নী যলামতু নাফসী ফাগফিরলী।\" \"হে আমার রব, নিশ্চয় আমি আমার নফ্সের প্রতি যুল্ম করেছি, সুতরাং আপনি আমাকে ক্ষমা করে দিন।\"</p>', '<div class=\"post_content\">\r\n<ul>\r\n<ul>\r\n<li>১. رَبِّ إِنِّىْ ظَلَمْتُ نَفْسِىْ فَاغْفِرْ لِىْ \"রব্বি ইন্নী যলামতু নাফসী ফাগফিরলী।\" \"হে আমার রব, নিশ্চয় আমি আমার নফ্সের প্রতি যুল্ম করেছি, সুতরাং আপনি আমাকে ক্ষমা করে দিন।\" [1]</li>\r\n<li>২. أَنْتَ وَلِيُّنَا فَاغْفِرْ لَنَا وَارْحَمْنَا وَأَنْتَ خَيْرُ الْغَافِرِينَ \"আনতা ওয়ালিয়্যুনা- ফাগফিরলানা- ওয়ারহামনা- ওয়া আনতা খাইরুল গা-ফিরীন।\" \"আপনি আমাদের অভিভাবক। সুতরাং আমাদের ক্ষমা করে দিন এবং আপনি উত্তম ক্ষমাশীল।\" [2]</li>\r\n<li>৩. رَبِّ اغْفِرْ وَارْحَمْ وَأَنْتَ خَيْرُ الرَّاحِمِينَ \"রব্বিগফির ওয়ারহাম ওয়া আনতা খাইরুর্ র-হিমীন।\" \"হে আমাদের রব! আপনি ক্ষমা করুন, দয়া করুন এবং আপনিই সর্বশ্রেষ্ঠ দয়ালু।\" [3]</li>\r\n<li>৪. رَبَّنَا أَتْمِمْ لَنَا نُورَنَا وَاغْفِرْ لَنَا إِنَّكَ عَلٰى كُلِّ شَيْءٍ قَدِيرٌ \'রব্বানা- আতমিম লানা- নূরানা- ওয়াগফিরলানা- ইন্নাকা &lsquo;আলা- কুল্লি শাইয়িন ক্বদীর।\" \"হে আমাদের রব! আমাদের জন্য আমাদের আলো পূর্ণ করে দিন এবং আমাদেরকে ক্ষমা করুন; নিশ্চয় আপনি সর্ববিষয়ে সর্বক্ষমতাবান।\" [4]</li>\r\n<li>৫. سَمِعْنَا وَأَطَعْنَا غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيرُ \"সামি&lsquo;না- ওয়া আত্বা&lsquo;না- গুফরা-নাকা রব্বানা- ওয়া ইলাইকাল মাসীর।\" \"আমরা শুনলাম এবং মানলাম। হে আমাদের রব! আমরা আপনারই (নিকট) ক্ষমা প্রার্থনা করি, আর আপনার দিকেই প্রত্যাবর্তনস্থল।\" [5]</li>\r\n<li>৬. رَبَّنَا تَقَبَّلْ مِنَّا إِنَّكَ أَنْتَ السَّمِيعُ الْعَلِيمُ &hellip; وَتُبْ عَلَيْنَا إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيمُ \"রব্বানা- তাক্বববাল মিন্না- ইন্নাকা আন্&zwnj;তাস্ সামী&lsquo;উল &lsquo;আলীম। ওয়াতুব &lsquo;আলায়না-, ইন্নাকা আনতাত্ তাওওয়া-বুর্ রহীম।\" \'&lsquo;হে আমাদের রব্! আপনি আমাদের পক্ষ হ&rsquo;তে এটি কবূল করুন। নিশ্চয় আপনি সর্বশ্রোতা ও সর্বজ্ঞ&rsquo;। &lsquo;আমাদের ক্ষমা করুন। নিশ্চয় আপনি অধিক তওবা কবূলকারী ও দয়াময়।\" [6]</li>\r\n<li>৭. ভুল-ভ্রান্তিবশতঃ কোন কাজ হয়ে গেলে তা থেকে ক্ষমা প্রার্থনার দু&lsquo;আ: رَبَّنَا لَاتُؤَاخِذْنَا إِنْ نَسِينَا أَوْ أَخْطَأْنَا \"রব্বানা- লা- তুআ-খিযনা ইন্নাসীনা- আও আখত্বা&rsquo;না-।\" \'&lsquo;হে আমাদের রব্! আমাদের দায়ী করেন না যদি আমরা ভুলে যাই কিংবা ভুল করি।\" [7]</li>\r\n<li>৮. কোন কাজ সহজ হওয়া ও কাজ সম্পাদনে ভুল-ত্রুটি ক্ষমা চাওয়া এবং বরকত চাওয়ার দু&lsquo;আ: رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَه عَلَى الَّذِينَ مِنْ قَبْلِنَا رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِه وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا أَنْتَ مَوْلَانَا فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ \"রব্বানা- ওয়ালা- তাহমিল &lsquo;আলায়না ইসরান কামা- হামালতাহূ &lsquo;আলাল্লাযীনা মিন ক্ববলিনা- রব্বানা- ওয়ালা- তুহাম্মিলনা- মা-লা- ত্বা-ক্বাতা লানা- বিহী, ওয়া&lsquo;ফু &lsquo;আন্না- ওয়াগফির লানা- ওয়ারহামনা- আনতা মাওলা-না- ফানসুরনা- &lsquo;আলাল ক্বওমিল কা-ফিরীন।\" \"হে আমাদের রব্! আমাদের ওপর ভারী ও কঠিন কাজের বোঝা অর্পণ করেন না, যেমন আমাদের পূর্ববর্তী লোকেদের ওপর অর্পণ করেছিলে। হে আমাদের রব! আমাদের ওপর এমন কঠিন দায়িত্ব দিয়েন না যা সম্পাদন করার শক্তি আমাদের নেই। আমাদের পাপ মোচন করুন, আমাদের ক্ষমা কর এবং আমাদের প্রতি দয়া করুন। তুমিই আমাদের রব্! সুতরাং কাফের সম্প্রদায়ের বিরুদ্ধে আমাদের সাহায্য করুন।\" [8]</li>\r\n<li>৯. গুনাহ মাফ ও জাহান্নামের &lsquo;আযাব থেকে বাঁচার দু&lsquo;আ: رَبَّنَا إِنَّنَا آمَنَّا فَاغْفِرْ لَنَا ذُنُوبَنَا وَقِنَا عَذَابَ النَّارِ \"রব্বানা- ইন্নানা- আ-মান্না- ফাগফিরলানা- যুনূবানা- ওয়াক্বিনা- &lsquo;আযা-বান্ন-র।\" \"হে আমাদের রব্! নিশ্চয় আমরা ঈমান এনেছি। অতএব আমাদের গুনাহসমূহ ক্ষমা করুন এবং আমাদেরকে জাহান্নামের &lsquo;আযাব হ&rsquo;তে রক্ষা করুন।\" [9]</li>\r\n<li>১০. জাহান্নামের &lsquo;আযাব থেকে বাঁচার এবং ঈমানের সাথে মৃত্যুবরণ করার জন্য দু&lsquo;আ: رَبَّنَا مَا خَلَقْتَ هٰذَا بَاطِلًا سُبْحَانَكَ فَقِنَا عَذَابَ النَّارِ 191 رَبَّنَا إِنَّكَ مَنْ تُدْخِلِ النَّارَ فَقَدْ أَخْزَيْتَه وَمَا لِلظَّالِمِينَ مِنْ أَنْصَارٍ 192 رَبَّنَا إِنَّنَا سَمِعْنَا مُنَادِيًا يُّنَادِىْ لِلْإِيمَانِ أَنْ آمِنُوا بِرَبِّكُمْ فَآمَنَّا رَبَّنَا فَاغْفِرْ لَنَا ذُنُوبَنَا وَكَفِّرْ عَنَّا سَيِّئَاتِنَا وَتَوَفَّنَا مَعَ الْأَبْرَارِ 193 \"রব্বানা- মা- খলাক্বতা হা-যা-বা-ত্বিলান, সুবহা-নাকা ফাক্বিনা- &lsquo;আযা-বান্ন-র। রব্বানা- ইন্নাকা মান্ তুদখিলিন্না-রা ফাক্বদ্ আখযাইতাহূ, ওয়া মা- লিযযা-লিমীনা মিন্ আনসা-র। রব্বানা- ইন্নানা- সামি&lsquo;না- মুনা-দিআয় ইউনা-দী লিল ঈমা-নি আন্ আ-মিনূ বিরব্বিকুম ফা- আ-মান্না-, রব্বানা- ফাগফিরলানা- যুনূবানা- ওয়া কাফফির &lsquo;আন্না- সাইয়িআ-তিনা- ওয়া ত্বওয়াফফানা- মা&lsquo;আল আবরা-র।\" \"&lsquo;হে আমাদের রব! তুমি এগুলিকে অনর্থক সৃষ্টি করেননি। মহা পবিত্র আপনি। অতএব আপনি আমাদেরকে জাহান্নামের &lsquo;আযাব থেকে বাঁচান&rsquo;! &lsquo;হে আমাদের রব! নিশ্চয় আপনি যাকে জাহান্নামে নিষ্পাপ করেন, তাকে আপনি লাঞ্ছিত করব। আর সীমালঙ্ঘনকারীদের জন্যে তো কোন সাহায্যকারী নেই&rsquo;। &lsquo;হে আমাদের রব! নিশ্চয় আমরা একজন আহবানকারীকে (মুহাম্মাদ) শুনেছি যিনি ঈমানের প্রতি আহবান করছেন এই বলে যে, তোমরা তোমাদের প্রতিপালকের প্রতি বিশ্বাস স্থাপন কর। অতঃপর সে মতে আমরা বিশ্বাস স্থাপন করেছি। অতএব হে আমাদের রব্! আমাদের পাপসমূহ ক্ষমা করুন ও আমাদের দোষ-ত্রুটিসমূহ মার্জনা করুন এবং আমাদেরকে সৎকর্মশীলদের সাথে মৃত্যুদান করুন (অর্থাৎ তাদের মধ্যে শামিল কর)।\" [10]</li>\r\n<li>১১. আল্লাহর হুকুম অমান্য করার পাপ থেকে ক্ষমা চাওয়ার দু&lsquo;আ: رَبَّنَا ظَلَمْنَا أَنْفُسَنَا وَإِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ \"রব্বানা যলামনা- আনফুসানা- ওয়া ইল্লাম তাগফিরলানা- ওয়া তারহামনা- লানাকূনান্না মিনাল খা-সিরীন।\" \"হে আমাদের রব! আমরা আমাদের নিজেদের উপর যুল্ম করেছি। এক্ষণে যদি আপনি আমাদের ক্ষমা না করেন ও দয়া না করেন, তাহ&rsquo;লে অবশ্যই আমরা ক্ষতিগ্রস্তদের অন্তর্ভুক্ত হয়ে পড়ব।\" [11]</li>\r\n<li>১২. নিজের ও ভাইয়ের জন্য ক্ষমা চেয়ে দু&lsquo;আ: رَبِّ اغْفِرْ لِىْ وَلِأَخِىْ وَأَدْخِلْنَا فِىْ رَحْمَتِكَ وَأَنْتَ أَرْحَمُ الرَّاحِمِينَ \"রব্বিগ্ ফিরলী ওয়ালি আখী ওয়া আদখিলনা- ফী রহমাতিকা ওয়া আনতা আরহামুর্ র-হিমীন।\" \"হে আমার রব! আমাকে মাফ করো এবং আমার ভাইকে মাফ করো। এবং আমাদেরকে তোমার রহমতের মধ্যে প্রবেশ করাও। বস্তুত তুমিই শ্রেষ্ঠ দয়ালু।\" [12]</li>\r\n<li>১৩. অবৈধ ও নিষিদ্ধ বিষয়ের কামনা করলে যে পাপ হয়, তা ক্ষমার জন্য দু&lsquo;আ : رَبِّ إِنِّىْ أَعُوذُ بِكَ أَنْ أَسْأَلَكَ مَا لَيْسَ لِىْ بِه عِلْمٌ وَإِلَّا تَغْفِرْ لِىْ وَتَرْحَمْنِىْ أَكُنْ مِّنَ الْخَاسِرِينَ \"রব্বি ইন্নী আ&lsquo;ঊযুবিকা আন্ আস্আলাকা মা- লায়সা লী বিহী &lsquo;ইলমুন্, ওয়া ইল্লা- তাগফিরলী ওয়া তারহামনী আকুম্ মিনাল খা-সিরীন।\" \'&lsquo;হে আমার রব! আমি তোমার নিকট এমন বিষয়ে আবেদন করা থেকে আশ্রয় প্রার্থনা করছি, যে বিষয়ে আমার কোন জ্ঞান নেই। এক্ষণে যদি আপনি আমাকে ক্ষমা না করেন এবং আমার প্রতি দয়া না করেন, তাহ&rsquo;লে আমি ক্ষতিগ্রস্তদের অন্তর্ভুক্ত হয়ে যাব।\" [13]</li>\r\n<li>১৪. সন্তানাদিসহ নিজে মুসল্লী হওয়া এবং পিতা-মাতা সহ সমস্ত মুসলিম ব্যক্তির জন্য দু&lsquo;আ (ইবরাহীম (আ.)-এর দু&lsquo;আ): رَبِّ اجْعَلْنِىْ مُقِيمَ الصَّلَاةِ وَمِنْ ذُرِّيَّتِىْ رَبَّنَا وَتَقَبَّلْ دُعَاءِ 40 رَبَّنَا اغْفِرْ لِىْ وَلِوَالِدَىَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابُ 41 \"রব্বিজ্&lsquo;আলনী মুক্বীমাস্ সলা-তি ওয়া মিন্ যুররিইয়্যাতী, রব্বানা- ওয়া তাক্বব্বাল্ দু&lsquo;আ-। রব্বানাগফিরলী ওয়ালি ওয়া-লি দাইয়্যা ওয়ালিল্ মু&rsquo;মিনীনা ইয়াওমা ইয়াকূমুল্ হিসা-ব।\" \"হে আমার রব! আমাকে ছালাত ক্বায়িমকারী করুন এবং আমার সন্তানদের মধ্য থেকেও। হে আমাদের রব! আমার দু&lsquo;আ কবূল করুন&rsquo;! &lsquo;হে আমাদের রব্! আমাকে ও আমার পিতা-মাতাকে এবং ঈমানদার সকলকে ক্ষমা করুন যেদিন হিসাব দন্ডায়মান হবে।\" [14]</li>\r\n<li>১৫. আল্লাহর রহমত কামনা ও ক্ষমা চাওয়ার দু&lsquo;আ : رَبَّنَا آمَنَّا فَاغْفِرْ لَنَا وَارْحَمْنَا وَأَنْتَ خَيْرُ الرَّاحِمِينَ \"রব্বানা- আ-মান্না- ফাগফির্ লানা- ওয়ার্&zwnj;হামনা- ওয়া আন্&zwnj;তা খাইরুর্ রা-হিমীন।\" \"হে আমাদের রব্! আমরা বিশ্বাস স্থাপন করেছি, তুমি আমাদেরকে ক্ষমা কর এবং আমাদের প্রতি রহম কর। তুমি তো সর্বশ্রেষ্ঠ দয়ালু।\" [15]</li>\r\n<li>১৬. হিংসা-বিদ্বেষ দূর করার দু&lsquo;আ: رَبَّنَا اغْفِرْ لَنَا وَلِإِخْوَانِنَا الَّذِينَ سَبَقُونَا بِالْإِيمَانِ وَلَا تَجْعَلْ فِىْ قُلُوبِنَا غِلًّا لِّلَّذِينَ آمَنُوا رَبَّنَا إِنَّكَ رَءُوفٌ رَّحِيمٌ \"রব্বানাগফির লানা- ওয়া লিইখ্ওয়া-নিনাল্লাযীনা সাবাকূনা- বিল ঈমা-নি ওয়ালা- তাজ্&lsquo;আল ফী কুলূবিনা- গিল্লাল লিল্লাযীনা আ-মানূ রব্বানা- ইন্নাকা রাঊফুর্ রহীম্।\" \"হে আমাদের রব! আমাদেরকে ও আমাদের পূর্ববর্তী ভাইয়েরা যারা ঈমান এনেছে তাদের ক্ষমা কর, ঈমানদারদের বিরুদ্ধে আমাদের অন্তরে কোন বিদ্বেষ রেখো না। হে আমাদের রব্! নিশ্চয় আপনি দয়ালু পরম করুণাময়।\" [16]</li>\r\n<li>১৭. কাফেরদের ওপর বিজয়ের জন্য আল্লাহর কাছে প্রার্থনা: رَبَّنَا اغْفِرْ لَنَا ذُنُوبَنَا وَإِسْرَافَنَا فِي أَمْرِنَا وَثَبِّتْ أَقْدَامَنَا وَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ \"রব্বানাগফির লানা- যুনূবানা- ওয়াইসরা-ফানা- ফী আমরিনা- ওয়া সাব্বিত আক্বদা-মানা- ওয়ানসুরনা- &lsquo;আলাল্ ক্বওমিল কা-ফিরীন।\" \'&lsquo;হে আমাদের রব! আমাদের পাপগুলো ক্ষমা করে দিন, আর আমাদের কাজে যতটুকু বাড়াবাড়ি হয়ে গেছে তাও মাফ করে দিন। আমাদেরকে দৃঢ় রাখুন এবং কাফেরদের ওপর আমাদেরকে সাহার্য করুন।\" [17]</li>\r\n<li>১৮. ফিতনা-ফাসাদ থেকে বাঁচার জন্য আল্লাহর নিকট প্রার্থনা: رَبَّنَا عَلَيْكَ تَوَكَّلْنَا وَإِلَيْكَ أَنَبْنَا وَإِلَيْكَ الْمَصِيرُ 4 رَبَّنَا لَا تَجْعَلْنَا فِتْنَةً لِّلَّذِينَ كَفَرُوا وَاغْفِرْ لَنَا رَبَّنَا إِنَّكَ أَنْتَ الْعَزِيزُ الْحَكِيمُ 5 \"রব্বানা- &lsquo;আলায়কা তাওয়াক্কালনা- ওয়া ইলায়কা আনাবনা- ওয়া ইলায়কাল মাসীর। রব্বানা- লা- তাজ্&lsquo;আলনা- ফিতনাতাল লিল্লাযীনা কাফারূ ওয়াগফিরলানা- রব্বানা- ইন্নাকা আন্&zwnj;তাল্ &lsquo;আযীযুল হাকীম।\" \'&lsquo;হে আমাদের রব! আমরা আপনার ওপরই ভরসা করেছি, আপনার দিকেই মুখ করেছি এবং আপনার দিকেই আমাদের ফিরে যেতে হবে। হে আমাদের রব্! আপনি আমাদেরকে কাফেরদের জন্য পরীক্ষার পাত্র করবেন না। হে আমাদের রব! আপনি আমাদের ক্ষমা করুন, নিশ্চয় আপনি মহা শক্তিধর ও প্রজ্ঞাময়।\" [18]</li>\r\n<li>১৯. বালা-মুসীবাত ও মহামারির সময় পিতা-মাতা ও মু&rsquo;মিনদের রক্ষার জন্য ও যালিমদের ধ্বংসের জন্য নূহ (আ.)-এর দু&lsquo;আ : رَبِّ اغْفِرْ لِىْ وَلِوَالِدَىَّ وَلِمَنْ دَخَلَ بَيْتِىَ مُؤْمِنًا وَّلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ وَلَا تَزِدِ الظَّالِمِينَ إِلَّا تَبَارًا \"রব্বিগফিরলী ওয়ালি ওয়া-লি দাইয়্যা ওয়ালিমান দাখালা বায়তিয়া মু&rsquo;মিনাও ওয়ালিল মু&rsquo;মিনীনা ওয়াল মু&rsquo;মিনা-তি ওয়ালা- তাযিদিযয-লিমীনা ইল্লা- তাবা-রা-।\" \"হে আমার রব্! আমাকে ও আমার পিতা-মাতাকে ক্ষমা করুন, আর যে ব্যক্তি আমার বাড়ীতে মু&rsquo;মিন অবস্থায় প্রবেশ করবে তাকে ক্ষমা করুন এবং সকল মু&rsquo;মিন নর-নারীকে ক্ষমা করুন। আর যালিমদের ধ্বংস বৃদ্ধি করুন।\" [19]</li>\r\n<li>২০. পাপ ক্ষমা চেয়ে জাহান্নামের আগুন থেকে বাঁচার জন্য দু&lsquo;আ: رَبَّنَا إِنَّنَا آمَنَّا فَاغْفِرْ لَنَا ذُنُوبَنَا وَقِنَا عَذَابَ النَّارِ \"রব্বানা- ইন্নানা আ-মান্না- ফাগফিরলানা- যুনূবানা-, ওয়া ক্বিনা- &lsquo;আযা-বান্না-র।\" \'&lsquo;হে আমাদের রব! আমরা ঈমান এনেছি, অতএব আপনি আমাদের গুনাহ ক্ষমা করে দিন এবং আমাদেরকে জাহান্নামের আগুন হ&rsquo;তে রক্ষা করুন&rsquo;।[20]</li>\r\n</ul>\r\n</ul>\r\n<p>&nbsp;</p>\r\n<ul>-----------------\r\n<li>[1]. সূরা আল ক্বসাস ২৮ : ১৬। [2]. সূরা আল আ&lsquo;রাফ ০৭ : ১৫৫।</li>\r\n<li>[3]. সূরা আল মু&rsquo;মিনূন ২৩ : ১১৮।</li>\r\n<li>[4]. সূরা আত্ তাহরীম ৬৬ : ০৮।</li>\r\n<li>[5]. সূরা আল বাক্বারাহ্ ০২ : ২৮৫।</li>\r\n<li>[6]. সূরা আল বাক্বারাহ্ ২ : ১২৭-২৮।</li>\r\n<li>[7]. সূরা আল বাক্বারাহ্ ০২ : ২৮৬। [8]. সূরা আল বাক্বারাহ্ ০২ : ২৮৬।</li>\r\n<li>[9]. সূরা আ-লি &lsquo;ইমরা-ন ৩ : ১৬।</li>\r\n<li>[10]. সূরা আ-লি &lsquo;ইমরা-ন ০৩ : ১৯১-১৯৩।</li>\r\n<li>[11]. সূরা আল আ&lsquo;রাফ ০৭ : ২৩।</li>\r\n<li>[12]. সূরা আল আ&lsquo;রাফ ০৭ : ১৫১।</li>\r\n<li>[13]. সূরা হূদ ১১ : ৪৭।</li>\r\n<li>[14]. সূরা ইব্রা-হীম ১৪ : ৪০-৪১। [15]. সূরা আল মু&rsquo;মিনূন ২৩ : ১০৯।</li>\r\n<li>[16]. সূরা আল হাশ্র ৫৯ : ১০।</li>\r\n<li>[17]. সূরা আ-লি &lsquo;ইমরা-ন ০৩ : ১৪৭।</li>\r\n<li>[18]. সূরা আল মুমতাহিনাহ্ ৬০ : ৪-৫।</li>\r\n<li>[19]. সূরা নূহ ৭১ : ২৮।</li>\r\n<li>[20] সূরা আ-লি &lsquo;ইমরা-ন ০৩ : ১৬।</li>\r\n--------------- IFM desk ---------------</ul>\r\n</div>\r\n<p>&nbsp;</p>', NULL, NULL, NULL, NULL, NULL, 'mohimannito-quran-shuyukh-songskoron-front-cover.jpg', NULL, NULL, 1, NULL, '2023-07-26 00:26:45', '2023-07-26 00:26:45');
 
 -- --------------------------------------------------------
 
@@ -159,6 +73,51 @@ INSERT INTO `books` (`id`, `name`, `slug`, `category_name`, `subcategory_name`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `book_abouts`
+--
+
+CREATE TABLE `book_abouts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book_audios`
+--
+
+CREATE TABLE `book_audios` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `artist` varchar(100) NOT NULL,
+  `duration` varchar(100) DEFAULT NULL,
+  `release_date` varchar(100) DEFAULT NULL,
+  `category_name` varchar(100) DEFAULT NULL,
+  `subcategory_name` varchar(100) DEFAULT NULL,
+  `sub_subcategory_name` varchar(100) DEFAULT NULL,
+  `genre` varchar(100) DEFAULT NULL,
+  `album` varchar(100) DEFAULT NULL,
+  `short_description` text DEFAULT NULL,
+  `long_description` text DEFAULT NULL,
+  `youtube_iframe` text DEFAULT NULL,
+  `header_content` text DEFAULT NULL,
+  `meta_title` varchar(100) DEFAULT NULL,
+  `meta_description` varchar(200) DEFAULT NULL,
+  `is_featured` tinyint(1) DEFAULT NULL,
+  `cover_image` varchar(255) DEFAULT NULL,
+  `audio_file` varchar(255) DEFAULT NULL,
+  `og` varchar(255) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `comment` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `book_authors`
 --
 
@@ -189,6 +148,84 @@ CREATE TABLE `book_authors` (
 
 INSERT INTO `book_authors` (`id`, `name`, `slug`, `gender`, `bio`, `mobile`, `email`, `address`, `description`, `youtube_iframe`, `meta_title`, `meta_description`, `image`, `og`, `banner`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'ইলাননূর সম্পাদনা পরিষদ', 'illanoor-sompadona-porisod', 'male', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ilannoor-publication-logo.png', 'ilannoor-publication-logo.png', 'ilannoor-publication-logo.png', NULL, '2023-07-24 22:51:09', '2023-07-24 22:51:09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book_blogs`
+--
+
+CREATE TABLE `book_blogs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `slug` varchar(100) NOT NULL,
+  `tags` varchar(100) DEFAULT NULL,
+  `header_title` varchar(100) DEFAULT NULL,
+  `category_name` varchar(100) DEFAULT NULL,
+  `subcategory_name` varchar(100) DEFAULT NULL,
+  `sub_subcategory_name` varchar(100) DEFAULT NULL,
+  `book` varchar(100) DEFAULT NULL,
+  `author` varchar(100) NOT NULL,
+  `short_description` text DEFAULT NULL,
+  `long_description` text DEFAULT NULL,
+  `youtube_iframe` text DEFAULT NULL,
+  `header_content` text DEFAULT NULL,
+  `meta_title` varchar(100) DEFAULT NULL,
+  `meta_description` varchar(200) DEFAULT NULL,
+  `is_featured` tinyint(1) DEFAULT NULL,
+  `featured_image` varchar(255) DEFAULT NULL,
+  `file` varchar(255) DEFAULT NULL,
+  `og` varchar(255) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `comment` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book_categories`
+--
+
+CREATE TABLE `book_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `category_name` varchar(199) NOT NULL,
+  `slug` varchar(199) NOT NULL,
+  `description` varchar(199) DEFAULT NULL,
+  `meta_title` varchar(199) DEFAULT NULL,
+  `meta_description` varchar(199) DEFAULT NULL,
+  `icon` text NOT NULL,
+  `thumb` text NOT NULL,
+  `cover` text NOT NULL,
+  `og_image` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book_contacts`
+--
+
+CREATE TABLE `book_contacts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book_privacys`
+--
+
+CREATE TABLE `book_privacys` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -225,16 +262,29 @@ INSERT INTO `book_publishers` (`id`, `name`, `slug`, `mobile`, `email`, `address
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Table structure for table `book_skeletons`
 --
 
-CREATE TABLE `categories` (
+CREATE TABLE `book_skeletons` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `category_name` varchar(199) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book_subcategories`
+--
+
+CREATE TABLE `book_subcategories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `subcategory_name` varchar(199) NOT NULL,
   `slug` varchar(199) NOT NULL,
-  `description` tinytext DEFAULT NULL,
-  `meta_title` tinytext DEFAULT NULL,
-  `meta_description` tinytext DEFAULT NULL,
+  `category_name` varchar(199) NOT NULL,
+  `description` varchar(199) DEFAULT NULL,
+  `meta_title` varchar(199) DEFAULT NULL,
+  `meta_description` varchar(199) DEFAULT NULL,
   `icon` text NOT NULL,
   `thumb` text NOT NULL,
   `cover` text NOT NULL,
@@ -243,20 +293,35 @@ CREATE TABLE `categories` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `categories`
+-- Table structure for table `book_sub_subcategories`
 --
 
-INSERT INTO `categories` (`id`, `category_name`, `slug`, `description`, `meta_title`, `meta_description`, `icon`, `thumb`, `cover`, `og_image`, `created_at`, `updated_at`) VALUES
-(1, 'কুরআন ও হাদিস', 'quran-and-hadith', NULL, NULL, NULL, 'ilannoor-publication-logo.png', 'ilannoor-publication-logo.png', 'ilannoor-publication-logo.png', 'ilannoor-publication-logo.png', '2023-07-24 22:52:13', '2023-07-24 22:52:13');
+CREATE TABLE `book_sub_subcategories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `sub_subcategory_name` varchar(199) NOT NULL,
+  `subcategory_name` varchar(199) NOT NULL,
+  `slug` varchar(199) NOT NULL,
+  `description` varchar(199) DEFAULT NULL,
+  `meta_title` varchar(199) DEFAULT NULL,
+  `meta_description` varchar(199) DEFAULT NULL,
+  `icon` text NOT NULL,
+  `thumb` text NOT NULL,
+  `cover` text NOT NULL,
+  `og_image` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contacts`
+-- Table structure for table `book_terms`
 --
 
-CREATE TABLE `contacts` (
+CREATE TABLE `book_terms` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -276,30 +341,6 @@ CREATE TABLE `failed_jobs` (
   `payload` longtext NOT NULL,
   `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `hires`
---
-
-CREATE TABLE `hires` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `homes`
---
-
-CREATE TABLE `homes` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -357,7 +398,32 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (37, '2023_06_11_061100_create_book_publishers', 1),
 (38, '2023_06_11_091106_create_book_authors', 1),
 (39, '2023_06_19_041400_create_audios', 2),
-(40, '2023_03_21_065117_create_blogs_table', 3);
+(40, '2023_03_21_065117_create_blogs_table', 3),
+(41, '2023_06_10_083431_create_books', 1),
+(45, '2023_08_05_064514_create_template_abouts', 4),
+(46, '2023_08_05_064523_create_template_audios', 4),
+(47, '2023_08_05_064531_create_template_blogs', 4),
+(48, '2023_08_05_064542_create_template_categories', 4),
+(49, '2023_08_05_064558_create_template_contacts', 4),
+(50, '2023_08_05_064605_create_template_hires', 4),
+(51, '2023_08_05_064706_create_template_privacys', 4),
+(52, '2023_08_05_064719_create_template_sites', 4),
+(53, '2023_08_05_064730_create_template_skeletons', 4),
+(54, '2023_08_05_064744_create_template_subcategories', 4),
+(55, '2023_08_05_064752_create_template_sub_subcategories', 4),
+(56, '2023_08_05_064803_create_template_terms', 4),
+(57, '2023_08_05_064809_create_template_themes', 4),
+(58, '2023_08_05_065232_create_book_terms', 5),
+(59, '2023_08_05_065257_create_book_subcategories', 5),
+(60, '2023_08_05_065309_create_book_sub_subcategories', 5),
+(61, '2023_08_05_065345_create_book_skeletons', 5),
+(62, '2023_08_05_065403_create_book_privacys', 5),
+(63, '2023_08_05_065429_create_book_blogs', 5),
+(64, '2023_08_05_065440_create_book_abouts', 5),
+(65, '2023_08_05_065445_create_book_audios', 5),
+(66, '2023_08_05_070223_create_book_categories', 5),
+(67, '2023_08_05_070313_create_book_contacts', 5),
+(68, '2023_08_07_050636_create_template_sellers', 6);
 
 -- --------------------------------------------------------
 
@@ -393,149 +459,6 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `privacy_policies`
---
-
-CREATE TABLE `privacy_policies` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `publishers`
---
-
-CREATE TABLE `publishers` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `site_templates`
---
-
-CREATE TABLE `site_templates` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `skeletons`
---
-
-CREATE TABLE `skeletons` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `subcategories`
---
-
-CREATE TABLE `subcategories` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `subcategory_name` varchar(199) NOT NULL,
-  `slug` varchar(199) NOT NULL,
-  `category_name` varchar(199) NOT NULL,
-  `description` varchar(199) DEFAULT NULL,
-  `meta_title` varchar(199) DEFAULT NULL,
-  `meta_description` varchar(199) DEFAULT NULL,
-  `icon` text NOT NULL,
-  `thumb` text NOT NULL,
-  `cover` text NOT NULL,
-  `og_image` text NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `subcategories`
---
-
-INSERT INTO `subcategories` (`id`, `subcategory_name`, `slug`, `category_name`, `description`, `meta_title`, `meta_description`, `icon`, `thumb`, `cover`, `og_image`, `created_at`, `updated_at`) VALUES
-(1, 'মহিমান্বিত কুরআন', 'mohimannito-quran', 'কুরআন ও হাদিস', NULL, NULL, NULL, 'ilannoor-publication-logo.png', 'ilannoor-publication-logo.png', 'ilannoor-publication-logo.png', 'ilannoor-publication-logo.png', '2023-07-24 22:52:58', '2023-07-24 22:52:58');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `sub_categories`
---
-
-CREATE TABLE `sub_categories` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `sub_category_name` varchar(199) NOT NULL,
-  `slug` varchar(199) NOT NULL,
-  `category_name` varchar(199) NOT NULL,
-  `description` varchar(199) DEFAULT NULL,
-  `meta_title` varchar(199) DEFAULT NULL,
-  `meta_description` varchar(199) DEFAULT NULL,
-  `icon` text NOT NULL,
-  `thumb` text NOT NULL,
-  `cover` text NOT NULL,
-  `og_image` text NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `sub_subcategories`
---
-
-CREATE TABLE `sub_subcategories` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `sub_subcategory_name` varchar(199) NOT NULL,
-  `subcategory_name` varchar(199) NOT NULL,
-  `slug` varchar(199) NOT NULL,
-  `description` varchar(199) DEFAULT NULL,
-  `meta_title` varchar(199) DEFAULT NULL,
-  `meta_description` varchar(199) DEFAULT NULL,
-  `icon` text NOT NULL,
-  `thumb` text NOT NULL,
-  `cover` text NOT NULL,
-  `og_image` text NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `sub_sub_categories`
---
-
-CREATE TABLE `sub_sub_categories` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `sub_sub_category_name` varchar(199) NOT NULL,
-  `sub_category_name` varchar(199) NOT NULL,
-  `slug` varchar(199) NOT NULL,
-  `description` varchar(199) DEFAULT NULL,
-  `meta_title` varchar(199) DEFAULT NULL,
-  `meta_description` varchar(199) DEFAULT NULL,
-  `icon` text NOT NULL,
-  `thumb` text NOT NULL,
-  `cover` text NOT NULL,
-  `og_image` text NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `templates`
 --
 
@@ -544,10 +467,11 @@ CREATE TABLE `templates` (
   `name` varchar(100) NOT NULL,
   `slug` varchar(100) NOT NULL,
   `category_name` varchar(100) NOT NULL,
-  `sub_category_name` varchar(100) DEFAULT NULL,
-  `sub_sub_category_name` varchar(100) DEFAULT NULL,
+  `subcategory_name` varchar(100) DEFAULT NULL,
+  `sub_subcategory_name` varchar(100) DEFAULT NULL,
+  `sku` varchar(100) NOT NULL,
   `sale_price` varchar(100) DEFAULT NULL,
-  `regular_price` varchar(100) NOT NULL,
+  `regular_price` varchar(100) DEFAULT NULL,
   `commission` varchar(100) DEFAULT NULL,
   `bootstrap_v` varchar(100) NOT NULL,
   `released` datetime DEFAULT NULL,
@@ -555,19 +479,325 @@ CREATE TABLE `templates` (
   `version` varchar(100) NOT NULL,
   `seller_name` varchar(100) NOT NULL,
   `seller_email` varchar(100) NOT NULL,
-  `short_description` tinytext DEFAULT NULL,
-  `long_description` tinytext DEFAULT NULL,
-  `change_log` tinytext DEFAULT NULL,
+  `short_description` text DEFAULT NULL,
+  `long_description` text DEFAULT NULL,
+  `change_log` text DEFAULT NULL,
   `youtube_iframe` text DEFAULT NULL,
   `header_content` text DEFAULT NULL,
   `meta_title` text DEFAULT NULL,
   `meta_description` text DEFAULT NULL,
+  `order_type` tinyint(1) NOT NULL DEFAULT 0,
+  `is_featured` tinyint(1) NOT NULL DEFAULT 0,
   `live_preview_link` text DEFAULT NULL,
   `downloadable_link` text DEFAULT NULL,
-  `image` text DEFAULT NULL,
-  `file` text DEFAULT NULL,
+  `image` varchar(255) NOT NULL DEFAULT 'default-image.png',
+  `og` varchar(255) NOT NULL DEFAULT 'default-og.png',
+  `file` varchar(255) NOT NULL DEFAULT 'default-file.docx',
   `status` tinyint(1) DEFAULT 0,
   `comment` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `templates`
+--
+
+INSERT INTO `templates` (`id`, `name`, `slug`, `category_name`, `subcategory_name`, `sub_subcategory_name`, `sku`, `sale_price`, `regular_price`, `commission`, `bootstrap_v`, `released`, `updated`, `version`, `seller_name`, `seller_email`, `short_description`, `long_description`, `change_log`, `youtube_iframe`, `header_content`, `meta_title`, `meta_description`, `order_type`, `is_featured`, `live_preview_link`, `downloadable_link`, `image`, `og`, `file`, `status`, `comment`, `created_at`, `updated_at`) VALUES
+(11, 'Phoenix – Admin Dashboard & WebApp Template', 'web-developer', 'OnePage', 'Portfolio', 'Personal', 'wd00001', NULL, NULL, NULL, '1', NULL, NULL, '1', 'Seller Name', 'a@a.a', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'default-file.docx', 0, NULL, '2023-08-06 03:49:04', '2023-08-06 05:05:18'),
+(13, 'Graphics Designer', 'graphics-designer', 'OnePage', 'Portfolio', 'Personal', 'gd00001', NULL, NULL, NULL, '1', NULL, NULL, '1', 'Seller Name', 'a@a.a', '<p>Short Description</p>', '<p>Long Description</p>', '<p>Change Log</p>', 'Youtube Iframe', 'Header Content', 'Meta Title', 'Meta Description', 0, 1, 'http://localhost/ilannoor.institute/public/', 'http://localhost/ilannoor.institute/public/', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'default-file.docx', 1, '<p><label class=\"form-label\" for=\"comment\">Comment</label></p>', '2023-08-06 03:52:26', '2023-08-06 04:01:45');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `template_abouts`
+--
+
+CREATE TABLE `template_abouts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `template_audios`
+--
+
+CREATE TABLE `template_audios` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `artist` varchar(100) NOT NULL,
+  `duration` varchar(100) DEFAULT NULL,
+  `release_date` varchar(100) DEFAULT NULL,
+  `category_name` varchar(100) DEFAULT NULL,
+  `subcategory_name` varchar(100) DEFAULT NULL,
+  `sub_subcategory_name` varchar(100) DEFAULT NULL,
+  `genre` varchar(100) DEFAULT NULL,
+  `album` varchar(100) DEFAULT NULL,
+  `short_description` text DEFAULT NULL,
+  `long_description` text DEFAULT NULL,
+  `youtube_iframe` text DEFAULT NULL,
+  `header_content` text DEFAULT NULL,
+  `meta_title` varchar(100) DEFAULT NULL,
+  `meta_description` varchar(200) DEFAULT NULL,
+  `is_featured` tinyint(1) DEFAULT NULL,
+  `cover_image` varchar(255) DEFAULT NULL,
+  `audio_file` varchar(255) DEFAULT NULL,
+  `og` varchar(255) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `comment` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `template_blogs`
+--
+
+CREATE TABLE `template_blogs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `slug` varchar(100) NOT NULL,
+  `tags` varchar(100) DEFAULT NULL,
+  `header_title` varchar(100) DEFAULT NULL,
+  `category_name` varchar(100) DEFAULT NULL,
+  `subcategory_name` varchar(100) DEFAULT NULL,
+  `sub_subcategory_name` varchar(100) DEFAULT NULL,
+  `template` varchar(100) DEFAULT NULL,
+  `seller_name` varchar(100) NOT NULL DEFAULT 'TempDev',
+  `short_description` text DEFAULT NULL,
+  `long_description` text DEFAULT NULL,
+  `youtube_iframe` text DEFAULT NULL,
+  `header_content` text DEFAULT NULL,
+  `meta_title` varchar(100) DEFAULT NULL,
+  `meta_description` varchar(200) DEFAULT NULL,
+  `is_featured` tinyint(4) DEFAULT 0,
+  `featured_image` varchar(255) NOT NULL DEFAULT 'default-featured-image.png',
+  `file` varchar(255) NOT NULL DEFAULT 'default-file.png',
+  `og_image` varchar(255) NOT NULL DEFAULT 'default-og-image.png',
+  `status` tinyint(4) DEFAULT 0,
+  `comment` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `template_blogs`
+--
+
+INSERT INTO `template_blogs` (`id`, `title`, `slug`, `tags`, `header_title`, `category_name`, `subcategory_name`, `sub_subcategory_name`, `template`, `seller_name`, `short_description`, `long_description`, `youtube_iframe`, `header_content`, `meta_title`, `meta_description`, `is_featured`, `featured_image`, `file`, `og_image`, `status`, `comment`, `created_at`, `updated_at`) VALUES
+(6, 'The Benefits of Downloading HTML Website Templates', 'the-benefits-of-downloading-html-website-templates', NULL, NULL, 'OnePage', 'Portfolio', 'Personal', NULL, 'TempDev', NULL, '<h1>The Benefits of Downloading <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> Website Templates</h1>\r\n<article id=\"listingBlog\" class=\"blog-post\">\r\n<p>If you\'re a web developer or designer, you know that creating a website from scratch can be a daunting task. It requires significant time and effort, and demands a high level of expertise in web development languages like <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> and <abbr class=\"initialism\" title=\"Cascading Style Sheet\">CSS</abbr>. However, there\'s a simpler way to design a website that requires minimal coding and design skills. <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates offer pre-designed layouts that can be customized to suit any purpose or aesthetic preference.</p>\r\n<p>In this blog post, we\'ll explore the benefits of downloading <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates and how they can help you create a professional-looking website with ease. We\'ll also provide some tips on how to choose the right template and customize it to meet your needs. What are <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates?</p>\r\n<p><abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates are pre-designed structures that provide the foundation for a website\'s layout and design. Templates come with pre-built components like headers, footers, and menus that can be customized with your own content and branding. <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> templates are compatible with popular web development languages like <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> and <abbr class=\"initialism\" title=\"Cascading Style Sheet\">CSS</abbr>, making it easy for web developers to customize and modify them to meet their specific needs. Why should you use <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates?</p>\r\n<p>Using <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates offers several benefits, including:</p>\r\n<ol class=\"list-group list-group-numbered\">\r\n<li class=\"list-group-item d-flex justify-content-between align-items-start\">\r\n<div class=\"ms-2 me-auto\">\r\n<div class=\"fw-bold\">Time savings</div>\r\nOne of the biggest benefits of using <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates is the time savings they offer. Instead of spending countless hours designing and developing a website from scratch, you can simply download a pre-designed template and customize it to suit your needs. This allows you to focus on creating high-quality content and refining the design and user experience of your website.</div>\r\n</li>\r\n<li class=\"list-group-item d-flex justify-content-between align-items-start\">\r\n<div class=\"ms-2 me-auto\">\r\n<div class=\"fw-bold\">Compatibility</div>\r\nUser-friendly design <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates come with pre-designed layouts and components that are optimized for user experience. This saves you the effort of designing it yourself and ensures that your website is easy to navigate and visually appealing to visitors.</div>\r\n</li>\r\n<li class=\"list-group-item d-flex justify-content-between align-items-start\">\r\n<div class=\"ms-2 me-auto\">\r\n<div class=\"fw-bold\">Compatibility</div>\r\n<abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates are compatible with popular web development languages like <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> and <abbr class=\"initialism\" title=\"Cascading Style Sheet\">CSS</abbr>, making it easy for web developers to customize and modify them to meet their specific needs. You don\'t need to be an expert in web development to use <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates, but having some basic knowledge can help you to make the most of the customization options available.</div>\r\n</li>\r\n<li class=\"list-group-item d-flex justify-content-between align-items-start\">\r\n<div class=\"ms-2 me-auto\">\r\n<div class=\"fw-bold\">Responsive design</div>\r\nMany <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates are designed with responsive layouts that can adapt to any device, including mobile phones and tablets. This ensures that your website is accessible and user-friendly regardless of the user\'s device. Responsive design is essential in today\'s mobile-first world, and <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates can help you to achieve it without the need for additional coding or design work.</div>\r\n</li>\r\n<li class=\"list-group-item d-flex justify-content-between align-items-start\">\r\n<div class=\"ms-2 me-auto\">\r\n<div class=\"fw-bold\">SEO-friendly</div>\r\n<abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates often include SEO best practices, such as properly structured headings, optimized images, and clean code. This ensures that your website is optimized for search engines, making it easier for users to find your site in search results. By using an SEO-friendly <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> template, you can give your website a boost in search engine rankings and increase the visibility of your content.</div>\r\n</li>\r\n</ol>\r\n<p>How to download <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates</p>\r\n<p>Downloading HTML website templates is simple and straightforward. There are many websites that offer free <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates, including our website [insert website name here]. Once you\'ve found a template that meets your needs, you can download it and open it in your favorite text editor to begin customizing it.</p>\r\n<p>When choosing an <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website template, it\'s important to consider factors like the purpose of your website, your branding and design preferences, and the level of customization you require. Look for templates that offer a good balance of pre-designed elements and customization options, and make sure that they are compatible with your web development platform of choice.</p>\r\n<p>In conclusion, <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates are a great option for web developers and designers who want to save time and effort</p>\r\n</article>\r\n<p><a href=\"../../../../system\">Download Now!</a></p>', NULL, NULL, NULL, NULL, 1, 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'default-file.png', 'default-og-image.png', NULL, NULL, '2023-08-07 03:49:54', '2023-08-07 03:57:35'),
+(7, 'Build Responsive, Mobile-Friendly Websites Effortlessly', 'the-benefits-of-downloading-bootstrap-website-templates', NULL, NULL, NULL, NULL, NULL, NULL, 'TempDev', NULL, '<p>If you\'re a web developer or designer, you know that building a website from scratch can take a significant amount of time and effort. It requires a strong understanding of web development languages like <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr>, <abbr class=\"initialism\" title=\"Cascading Style Sheet\">CSS</abbr>, and JavaScript, as well as design skills to create an aesthetically pleasing website. That\'s where <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates come in. <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> templates offer pre-designed layouts that can be easily customized, saving you time and helping you to create a professional-looking website.</p>\r\n<p>In this blog post, we\'ll explore the advantages of using <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates, and provide some tips on how to choose the right template and customize it to meet your needs.</p>\r\n<h2>Advantages of <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> Website Templates</h2>\r\n<p>Here are some of the benefits of using <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates:</p>\r\n<h3>1. Time savings</h3>\r\n<p>Building a website from scratch can take a lot of time, especially if you\'re not an experienced web developer or designer. <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates come pre-designed with various layouts, components, and features, which saves you time and effort. You don\'t need to start from scratch, and you can customize the template to suit your specific needs.</p>\r\n<h3>2. Professional-looking design</h3>\r\n<p><abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates come with professionally designed layouts and components that ensure your website looks great. Even if you don\'t have design skills, you can still create a website that looks professional and polished. <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates offer different designs that you can choose from, including eCommerce templates, portfolio templates, and business website templates.</p>\r\n<h3>3. User-friendly features</h3>\r\n<p><abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates are designed to provide a great user experience. They come with different features that help visitors navigate the site, such as menus, search bars, and call-to-action buttons. They also provide responsive design, which means your website will look great on any device, including desktops, laptops, tablets, and smartphones.</p>\r\n<h3>4. Customization options</h3>\r\n<p><abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates are highly customizable. You can change the color scheme, font styles, images, and other elements to suit your brand or business. You can also add or remove components, depending on your website\'s needs. Customization options allow you to create a unique website that stands out from the crowd.</p>\r\n<h3>5. Affordable pricing</h3>\r\n<p><abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates are generally affordable, especially compared to hiring a professional web designer or developer. You can choose from a wide variety of templates at different price points. Some templates are even available for free, which is a great option for those on a tight budget.</p>\r\n<h2>Conclusion</h2>\r\n<p><abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates offer many advantages, including time savings, professional-looking design, user-friendly features, customization options, and affordable pricing. By choosing the right template and customizing it to meet your needs, you can create a website that is visually appealing, easy to use, and helps you achieve your business goals. So why not give <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates a try and see how they can improve your web design?</p>\r\n<p><a href=\"../../../../system\">Download Now!</a></p>', NULL, NULL, NULL, NULL, NULL, 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'default-file.png', 'default-og-image.png', NULL, NULL, '2023-08-07 03:50:42', '2023-08-07 03:50:42');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `template_categories`
+--
+
+CREATE TABLE `template_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `category_name` varchar(199) NOT NULL,
+  `slug` varchar(199) NOT NULL,
+  `description` varchar(199) DEFAULT NULL,
+  `meta_title` varchar(199) DEFAULT NULL,
+  `meta_description` varchar(199) DEFAULT NULL,
+  `icon` varchar(255) NOT NULL DEFAULT 'default-icon.png',
+  `thumb` varchar(255) NOT NULL DEFAULT 'default-thumb.png',
+  `cover` varchar(255) NOT NULL DEFAULT 'default-cover.png',
+  `og_image` varchar(255) NOT NULL DEFAULT 'default-og-image.png',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `template_categories`
+--
+
+INSERT INTO `template_categories` (`id`, `category_name`, `slug`, `description`, `meta_title`, `meta_description`, `icon`, `thumb`, `cover`, `og_image`, `created_at`, `updated_at`) VALUES
+(1, 'OnePage', 'onepage', '<p>Description</p>', '<p>Meta Title</p>', '<p>Meta Description</p>', 'ilannoor-publication-logo.png', 'ilannoor-publication-logo.png', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', '2023-08-06 00:20:47', '2023-08-06 00:23:30'),
+(3, 'Portfolio', 'portfolio', '<p>Description</p>', 'Meta Title', 'Meta Description', 'ilannoor-publication-logo.png', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', '2023-08-06 00:25:50', '2023-08-06 00:25:50'),
+(4, 'Corporate', 'corporate', '<p>Description</p>', 'Meta Title', 'Meta Description', 'ilannoor-publication-logo.png', 'ilannoor-publication-logo.png', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', '2023-08-06 00:29:30', '2023-08-06 00:29:30'),
+(5, 'Restaurant', 'restaurant', '<p>Description</p>', 'Meta Title', 'Meta Description', 'ilannoor-publication-logo.png', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', '2023-08-06 01:54:06', '2023-08-06 01:54:06'),
+(6, 'Cafe 1', 'cafe1', '<p>Description1</p>', 'Meta Title1', 'Meta Description1', 'dummy-icon-2.png', 'dummy-thumb-2.png', 'dummy-cover.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og-2.jpg', '2023-08-06 01:58:10', '2023-08-06 02:27:06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `template_contacts`
+--
+
+CREATE TABLE `template_contacts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `template_hires`
+--
+
+CREATE TABLE `template_hires` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `template_privacys`
+--
+
+CREATE TABLE `template_privacys` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `template_sellers`
+--
+
+CREATE TABLE `template_sellers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(199) NOT NULL,
+  `slug` varchar(199) NOT NULL,
+  `gender` varchar(100) NOT NULL,
+  `bio` varchar(199) DEFAULT NULL,
+  `mobile` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `address` varchar(199) DEFAULT NULL,
+  `description` varchar(199) DEFAULT NULL,
+  `youtube_iframe` varchar(199) DEFAULT NULL,
+  `meta_title` varchar(199) DEFAULT NULL,
+  `meta_description` varchar(199) DEFAULT NULL,
+  `image` varchar(255) NOT NULL DEFAULT 'default-image.png',
+  `og_image` varchar(255) NOT NULL DEFAULT 'default-og-image.png',
+  `cover` varchar(255) NOT NULL DEFAULT 'default-cover.png',
+  `status` tinyint(4) DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `template_sellers`
+--
+
+INSERT INTO `template_sellers` (`id`, `name`, `slug`, `gender`, `bio`, `mobile`, `email`, `address`, `description`, `youtube_iframe`, `meta_title`, `meta_description`, `image`, `og_image`, `cover`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'TempDev', 'temp-dev', 'male', '<p>BIO</p>', '01711000001', 'a@a.a', 'Address', 'Description', 'Youtube Iframe', 'Meta Title', 'Meta Description', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'dummy-cover.jpg', 1, '2023-08-06 23:54:30', '2023-08-07 00:46:05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `template_sites`
+--
+
+CREATE TABLE `template_sites` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `template_skeletons`
+--
+
+CREATE TABLE `template_skeletons` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `template_subcategories`
+--
+
+CREATE TABLE `template_subcategories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `subcategory_name` varchar(199) NOT NULL,
+  `slug` varchar(199) NOT NULL,
+  `category_name` varchar(199) NOT NULL,
+  `description` varchar(199) DEFAULT NULL,
+  `meta_title` varchar(199) DEFAULT NULL,
+  `meta_description` varchar(199) DEFAULT NULL,
+  `icon` varchar(255) NOT NULL DEFAULT 'default-icon.png',
+  `thumb` varchar(255) NOT NULL DEFAULT 'default-thumb.png',
+  `cover` varchar(255) NOT NULL DEFAULT 'default-cover.png',
+  `og_image` varchar(255) NOT NULL DEFAULT 'default-og-image.png',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `template_subcategories`
+--
+
+INSERT INTO `template_subcategories` (`id`, `subcategory_name`, `slug`, `category_name`, `description`, `meta_title`, `meta_description`, `icon`, `thumb`, `cover`, `og_image`, `created_at`, `updated_at`) VALUES
+(1, 'Portfolio', 'portfolio', 'OnePage', '<p>Description</p>', 'Meta Title', 'Meta Description', 'dummy-icon.png', 'dummy-thumb.png', 'dummy-cover.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', '2023-08-06 02:44:22', '2023-08-06 02:44:22'),
+(2, 'Corporate', 'corporate', 'OnePage', '<p>Description</p>', '<p>Meta Title</p>', '<p>Meta Description</p>', 'dummy-icon.png', 'dummy-thumb.png', 'dummy-cover.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', '2023-08-06 02:50:53', '2023-08-06 02:54:13');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `template_sub_subcategories`
+--
+
+CREATE TABLE `template_sub_subcategories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `sub_subcategory_name` varchar(199) NOT NULL,
+  `subcategory_name` varchar(199) NOT NULL,
+  `slug` varchar(199) NOT NULL,
+  `description` varchar(199) DEFAULT NULL,
+  `meta_title` varchar(199) DEFAULT NULL,
+  `meta_description` varchar(199) DEFAULT NULL,
+  `icon` varchar(255) NOT NULL DEFAULT 'default-icon.png',
+  `thumb` varchar(255) NOT NULL DEFAULT 'default-thumb.png',
+  `cover` varchar(255) NOT NULL DEFAULT 'default-cover.png',
+  `og_image` varchar(255) NOT NULL DEFAULT 'default-og-image.png',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `template_sub_subcategories`
+--
+
+INSERT INTO `template_sub_subcategories` (`id`, `sub_subcategory_name`, `subcategory_name`, `slug`, `description`, `meta_title`, `meta_description`, `icon`, `thumb`, `cover`, `og_image`, `created_at`, `updated_at`) VALUES
+(1, 'Personal', 'Portfolio', 'personal', '<p>Description</p>', 'Meta Title', 'Meta Description', 'dummy-icon-2.png', 'dummy-thumb-2.png', 'dummy-cover-2.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og-2.jpg', '2023-08-06 03:00:31', '2023-08-06 03:18:16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `template_terms`
+--
+
+CREATE TABLE `template_terms` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `template_themes`
+--
+
+CREATE TABLE `template_themes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -608,44 +838,26 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'ilannoor', 'support@ilannoor.com', NULL, '$2y$10$EAtkKgoB61iAHY6SXLL8veoW7B/yhEnAFVok0EAM.A2yCmgZ99afG', NULL, '2023-07-24 00:34:30', '2023-07-24 00:34:30');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `why_our_themes`
---
-
-CREATE TABLE `why_our_themes` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `abouts`
---
-ALTER TABLE `abouts`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `audios`
---
-ALTER TABLE `audios`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `blogs`
---
-ALTER TABLE `blogs`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `books`
 --
 ALTER TABLE `books`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `book_abouts`
+--
+ALTER TABLE `book_abouts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `book_audios`
+--
+ALTER TABLE `book_audios`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -655,21 +867,57 @@ ALTER TABLE `book_authors`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `book_blogs`
+--
+ALTER TABLE `book_blogs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `book_categories`
+--
+ALTER TABLE `book_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `book_contacts`
+--
+ALTER TABLE `book_contacts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `book_privacys`
+--
+ALTER TABLE `book_privacys`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `book_publishers`
 --
 ALTER TABLE `book_publishers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `categories`
+-- Indexes for table `book_skeletons`
 --
-ALTER TABLE `categories`
+ALTER TABLE `book_skeletons`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `contacts`
+-- Indexes for table `book_subcategories`
 --
-ALTER TABLE `contacts`
+ALTER TABLE `book_subcategories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `book_sub_subcategories`
+--
+ALTER TABLE `book_sub_subcategories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `book_terms`
+--
+ALTER TABLE `book_terms`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -678,18 +926,6 @@ ALTER TABLE `contacts`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
-
---
--- Indexes for table `hires`
---
-ALTER TABLE `hires`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `homes`
---
-ALTER TABLE `homes`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `migrations`
@@ -712,57 +948,93 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indexes for table `privacy_policies`
---
-ALTER TABLE `privacy_policies`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `publishers`
---
-ALTER TABLE `publishers`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `site_templates`
---
-ALTER TABLE `site_templates`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `skeletons`
---
-ALTER TABLE `skeletons`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `subcategories`
---
-ALTER TABLE `subcategories`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `sub_categories`
---
-ALTER TABLE `sub_categories`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `sub_subcategories`
---
-ALTER TABLE `sub_subcategories`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `sub_sub_categories`
---
-ALTER TABLE `sub_sub_categories`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `templates`
 --
 ALTER TABLE `templates`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `template_abouts`
+--
+ALTER TABLE `template_abouts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `template_audios`
+--
+ALTER TABLE `template_audios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `template_blogs`
+--
+ALTER TABLE `template_blogs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `template_categories`
+--
+ALTER TABLE `template_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `template_contacts`
+--
+ALTER TABLE `template_contacts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `template_hires`
+--
+ALTER TABLE `template_hires`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `template_privacys`
+--
+ALTER TABLE `template_privacys`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `template_sellers`
+--
+ALTER TABLE `template_sellers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `template_sites`
+--
+ALTER TABLE `template_sites`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `template_skeletons`
+--
+ALTER TABLE `template_skeletons`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `template_subcategories`
+--
+ALTER TABLE `template_subcategories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `template_sub_subcategories`
+--
+ALTER TABLE `template_sub_subcategories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `template_terms`
+--
+ALTER TABLE `template_terms`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `template_themes`
+--
+ALTER TABLE `template_themes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -779,32 +1051,8 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- Indexes for table `why_our_themes`
---
-ALTER TABLE `why_our_themes`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `abouts`
---
-ALTER TABLE `abouts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `audios`
---
-ALTER TABLE `audios`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `blogs`
---
-ALTER TABLE `blogs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `books`
@@ -813,10 +1061,46 @@ ALTER TABLE `books`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `book_abouts`
+--
+ALTER TABLE `book_abouts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `book_audios`
+--
+ALTER TABLE `book_audios`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `book_authors`
 --
 ALTER TABLE `book_authors`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `book_blogs`
+--
+ALTER TABLE `book_blogs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `book_categories`
+--
+ALTER TABLE `book_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `book_contacts`
+--
+ALTER TABLE `book_contacts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `book_privacys`
+--
+ALTER TABLE `book_privacys`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `book_publishers`
@@ -825,15 +1109,27 @@ ALTER TABLE `book_publishers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `categories`
+-- AUTO_INCREMENT for table `book_skeletons`
 --
-ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `book_skeletons`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `contacts`
+-- AUTO_INCREMENT for table `book_subcategories`
 --
-ALTER TABLE `contacts`
+ALTER TABLE `book_subcategories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `book_sub_subcategories`
+--
+ALTER TABLE `book_sub_subcategories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `book_terms`
+--
+ALTER TABLE `book_terms`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -843,22 +1139,10 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `hires`
---
-ALTER TABLE `hires`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `homes`
---
-ALTER TABLE `homes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -867,57 +1151,93 @@ ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `privacy_policies`
---
-ALTER TABLE `privacy_policies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `publishers`
---
-ALTER TABLE `publishers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `site_templates`
---
-ALTER TABLE `site_templates`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `skeletons`
---
-ALTER TABLE `skeletons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `subcategories`
---
-ALTER TABLE `subcategories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `sub_categories`
---
-ALTER TABLE `sub_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `sub_subcategories`
---
-ALTER TABLE `sub_subcategories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `sub_sub_categories`
---
-ALTER TABLE `sub_sub_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `templates`
 --
 ALTER TABLE `templates`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `template_abouts`
+--
+ALTER TABLE `template_abouts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `template_audios`
+--
+ALTER TABLE `template_audios`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `template_blogs`
+--
+ALTER TABLE `template_blogs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `template_categories`
+--
+ALTER TABLE `template_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `template_contacts`
+--
+ALTER TABLE `template_contacts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `template_hires`
+--
+ALTER TABLE `template_hires`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `template_privacys`
+--
+ALTER TABLE `template_privacys`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `template_sellers`
+--
+ALTER TABLE `template_sellers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `template_sites`
+--
+ALTER TABLE `template_sites`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `template_skeletons`
+--
+ALTER TABLE `template_skeletons`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `template_subcategories`
+--
+ALTER TABLE `template_subcategories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `template_sub_subcategories`
+--
+ALTER TABLE `template_sub_subcategories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `template_terms`
+--
+ALTER TABLE `template_terms`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `template_themes`
+--
+ALTER TABLE `template_themes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -931,12 +1251,6 @@ ALTER TABLE `terms_of_services`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `why_our_themes`
---
-ALTER TABLE `why_our_themes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
