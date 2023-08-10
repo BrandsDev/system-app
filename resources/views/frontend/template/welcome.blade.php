@@ -47,7 +47,7 @@
 			<div class="col-lg-2 align-self-center">
 				<div class="row">
 					<div class="col-12 col-sm-12">
-						<a type="button" class="btn btn-outline-secondary float-end" href="{{ route('template.site') }}">View all</a>
+						<a type="button" class="btn btn-outline-secondary float-end" href="{{ route('template.store') }}">View all</a>
 					</div>
 				</div>
 			</div>
@@ -61,49 +61,46 @@
 			<div class="col-lg-6">
 				<article>
 					<figure>
-						<div class="card shadow p-2 mb-5 bg-body rounded">
+						<div class="card shadow mb-5 rounded-3 no-border-card">
 							<a href="{{ route('template.detail', $template->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
 								<img src="{{ asset('template/image/' . $template->image) }}" class="card-img-top" alt="...">
 							</a>
 							<figcaption>
 								<div class="card-body">	
-									<ul class="list-group text-end">
-										<li class="list-group-item d-flex justify-content-between align-items-start">
-											<div class="ms-2 me-auto">
-												<div>
-													<p class="card-title">
-														<a href="{{ route('template.detail', $template->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">{{ \Illuminate\Support\Str::limit($template->name, 100, '...') }}</a>
-													</p>
-												</div>												
-											</div>
-											@if($template->sale_price)
+									<ul class="d-flex list-unstyled mt-auto">
+						              <li class="me-auto">
+						                <a href="{{ route('template.detail', $template->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">{{ \Illuminate\Support\Str::limit($template->name, 100, '...') }}</a>
+						              </li>
+						              <li class="d-flex align-items-center">
+						                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
+						                <small>
+						                	@if($template->sale_price)
 
 											<span class="fw-bold fs-5 text-success">৳ {{ $template->sale_price }}</span> | <span class="list-group-item fw-bold text-decoration-line-through text-muted">৳ {{ $template->regular_price }}</span>
 
-											@else
+											@elseif($template->regular_price)
 
 											<span class="fw-bold fs-5 text-success">৳ {{ $template->regular_price }}</span>
 
+											@else
+
+											<span>Free</span>
+
 											@endif
-										</li>
-										<li class="list-group-item d-flex justify-content-between align-items-start">
-											<span>by {{ $template->seller_name }}</span>
-										</li>
-									</ul>
-									<!-- <p class="card-text">
-										<small><i>by</i> {{ $template->seller_name }}</small><br>
-										<small><i>in</i> <a href="{{ url('/' . $template->slug) }}" target="_blank" class="link-dark">{{ $template->category_name }}</a></small>
-									</p> -->
-								</div>
-								<div class="card-body">
-									<div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
-										<!-- <a href="{{ route('template.detail',$template->slug) }}" target="_self" type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download HTML">Details</a> -->
-										<!-- <a href="" target="_blank" type="button" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download Wordpress">Add to Cart</a> -->
-										<!-- <a href="" target="_blank" type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download Wordpress">Buy Now</a> -->
-									</div>
-								</div>
+						                </small>
+						              </li>
+						            </ul>
+						            <ul class="d-flex list-unstyled mt-auto">
+						              <li class="me-auto">
+						                <small><a href="{{ route('template.store') }}" target="_blank" class="link-dark">{{ $template->category_name }}</a></small>
+						              </li>
+						              <li class="d-flex align-items-center">
+						                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
+						                <small>{{ $template->seller_name }}</small>
+						              </li>
+						            </ul>
+						        </div>
 							</figcaption>
-						</div>
 					</figure>
 				</article>
 			</div>

@@ -30,7 +30,8 @@ class RouteServiceProvider extends ServiceProvider
     public const BookAudio = '/bookstore/manage-audios';
     public const BookAudioPlaylist = '/bookstore/manage-audio-playlists';
 
-    public const TemplateHOME = '/template-store/dashboard';
+    public const TemplateHome = '/';
+    public const TemplateDashboard = '/template-store/dashboard';
     public const TemplateCategories = '/template-store/categories/manage-categories';
     public const TemplateSubCategories = '/template-store/categories/manage-subcategories';
     public const TemplateSubSubCategories = '/template-store/categories/manage-sub-subcategories';
@@ -39,6 +40,7 @@ class RouteServiceProvider extends ServiceProvider
     public const TemplateSeller = '/template-store/manage-sellers';
     public const TemplateAudio = '/template-store/manage-audios';
     public const TemplateAudioPlaylist = '/template-store/manage-audio-playlists';
+    public const TemplateSubscription = '/template-store/manage-subscriptions';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.

@@ -35,14 +35,14 @@ return new class extends Migration
             $table->text('header_content')->nullable();
             $table->text('meta_title')->nullable();
             $table->text('meta_description')->nullable();
-            $table->tinyInteger('order_type')->default(0);
-            $table->tinyInteger('is_featured')->default(0);
+            $table->tinyInteger('order_type')->default(0)->nullable();
+            $table->tinyInteger('is_featured')->default(0)->nullable();
             $table->text('live_preview_link')->nullable();
             $table->text('downloadable_link')->nullable();
             $table->string('image', 255)->default('default-image.png');
             $table->string('og_image', 255)->default('default-og-image.png');
             $table->string('file', 255)->default('default-file.mp3');
-            $table->tinyInteger('status')->default(0);
+            $table->tinyInteger('status')->default(0)->nullable();
             $table->text('comment')->nullable();
             $table->timestamps();
         });

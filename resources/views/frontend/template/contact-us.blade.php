@@ -1,4 +1,7 @@
 @extends('frontend.template.skeleton.body')
+@section('content') @section('custom-head')
+<script src="https://cdn.tiny.cloud/1/m9g2pjluv64jkrzcnksdf4ur6nd9lvyrbatcjua3iazeof63/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+@endsection
 @section('content')
 		<main class="container p-3 py-5">
 			<div class="my-5 text-center">
@@ -34,7 +37,7 @@
 							</div>
 							<div class="col-12">
 								<label for="exampleFormControlTextarea1" class="form-label fw-bold">Tell us about your thoughts<span class="text-danger">*</span></label>
-								<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="I want to tell." required></textarea>
+								<textarea class="form-control" id="custom-textarea" rows="3" placeholder="I want to tell." required></textarea>
 							</div>
 							<div class="col-12">
 								<button class="w-100 btn btn-primary btn-lg" type="submit">Let's Start Discussion</button>
@@ -51,5 +54,37 @@
 				<div class="col"></div>
 			</div>
 		</main>
-		
-		@endsection
+
+	@section('custom-scripts')
+	<script>
+	    tinymce.init({
+	        selector: '#custom-textarea',
+	        plugins: 'link image code',
+	        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
+	    });
+	</script>
+
+	<script>
+	    // Example starter JavaScript for disabling form submissions if there are invalid fields
+	    (() => {
+	      'use strict'
+
+	      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+	      const forms = document.querySelectorAll('.needs-validation')
+
+	      // Loop over them and prevent submission
+	      Array.from(forms).forEach(form => {
+	        form.addEventListener('submit', event => {
+	          if (!form.checkValidity()) {
+	            event.preventDefault()
+	            event.stopPropagation()
+	          }
+
+	          form.classList.add('was-validated')
+	        }, false)
+	      })
+	    })()
+	</script>
+	@endsection
+
+@endsection

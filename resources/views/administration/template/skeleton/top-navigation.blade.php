@@ -58,6 +58,7 @@
 						<li><a class="dropdown-item" href="{{ route('template.manage-blogs') }}">Manage Blogs</a></li>
 					</ul>
 				</li>
+				<li class="nav-item"><a href="{{ route('template.subscription') }}" class="nav-link">Subscription</a></li>
 				<li class="nav-item"><a href="{{ route('template.home') }}" class="nav-link" target="_blank">Visit Site</a></li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

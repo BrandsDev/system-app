@@ -19,11 +19,12 @@
 		          <strong class="d-inline-block mb-2 text-primary">{{ $blog->tags }}</strong>
 		          <h3 class="mb-0">{{ \Illuminate\Support\Str::limit($blog->title, 100, '...') }}</h3>
 		          <div class="mb-1 text-muted">{{ $blog->created_at }}</div>
-		          {!! $blog->short_description !!}
+		          {!! \Illuminate\Support\Str::limit($blog->short_description, 150, '...') !!}
+		          <br>
 		          <a href="{{ route('template.blog.detail',$blog->slug) }}" class="stretched-link">Continue reading</a>
 		        </div>
 		        <div class="col-auto d-none d-lg-block">
-		          <img src="{{ asset('blog/image/featured/' . $blog->featured_image) }}" class="img-fluid rounded-start" width="200" height="250" alt="...">
+		          <img src="{{ asset('template/blog/image/featured/' . $blog->featured_image) }}" class="img-fluid rounded-start" width="200" height="250" alt="...">
 		        </div>
 		      </div>
 		    </div>
@@ -52,7 +53,7 @@
 						<p>
 							Download our free website templates with <abbr title="HyperText Markup Language" class="initialism">HTML</abbr>, <abbr title="Cascading Style Sheet" class="initialism">CSS</abbr>, and Bootstrap components to build high-quality, responsive websites quickly and easily. Our templates are optimized for mobile devices, customizable to meet your needs, and will save you time and effort in web development. Start creating professional websites today!
 							<br>
-							<a href="{{ url('/site-templates') }}">Download Now!</a>
+							<a href="{{ route('template.store') }}">Download Now!</a>
 						</p>
 					</div>
 

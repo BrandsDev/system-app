@@ -30,6 +30,7 @@ use App\Http\Controllers\Template\TemplateContactController;
 use App\Http\Controllers\Template\TemplatePrivacyController;
 use App\Http\Controllers\Template\TemplateTermController;
 use App\Http\Controllers\Template\TemplateAudioController;
+use App\Http\Controllers\Template\TemplateSubscriptionController;
 
 // Default
 use Illuminate\Support\Facades\Route;
@@ -82,8 +83,7 @@ Route::get('book/terms-of-service', [BookTermController::class, 'index'])->name(
 
 // Template
 Route::get('template-store', [TemplateController::class, 'index'])->name('template.home');
-Route::get('template-store/site-template', [TemplateController::class, 'templateStore'])->name('template.site');
-
+Route::get('template-store/store', [TemplateController::class, 'templateStore'])->name('template.store');
 Route::get('template-store/detail/{slug}', [TemplateController::class, 'detail'])->name('template.detail');
 
 // Template -> Blog
@@ -109,6 +109,8 @@ Route::get('template-store/terms-of-service', [TemplateTermController::class, 'i
     
 // Template -> Why Our Themes
 Route::get('template-store/why-our-themes', [TemplateThemeController::class, 'index'])->name('template.why-our-themes');
+
+Route::post('/template-store/new-subscriber', [TemplateSubscriptionController::class, 'subscriber'])->name('template.new-subscriber');
 
 // Template -> QR Code Gennerator
 Route::get('template-store/qr-code-generator', function () {
@@ -280,3 +282,11 @@ Route::post('/template-store/manage-audio-playlist/new-audio-playlist/store', [T
 Route::get('/template-store/manage-audio-playlist/edit/{id}', [TemplateAudioController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.audio-playlist.edit');
 Route::put('/template-store/manage-audio-playlist/update/{id}', [TemplateAudioController::class, 'update'])->middleware(['auth', 'verified'])->name('template.audio-playlist.update');
 Route::delete('/template-store/manage-audio-playlist/destroy/{id}', [TemplateAudioController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.audio-playlist.destroy');
+
+// Subscription
+Route::get('/template-store/manage-subscriptions', [TemplateSubscriptionController::class, 'show'])->middleware(['auth', 'verified'])->name('template.subscription');
+Route::get('/template-store/manage-subscriptions/new-subscription', [TemplateSubscriptionController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-subscription');
+Route::post('/template-store/manage-subscriptions/new-subscription/store', [TemplateSubscriptionController::class, 'store'])->middleware(['auth', 'verified'])->name('template.new-subscription.store');
+Route::get('/template-store/manage-subscriptions/edit/{id}', [TemplateSubscriptionController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.subscription.edit');
+Route::put('/template-store/manage-subscriptions/update/{id}', [TemplateSubscriptionController::class, 'update'])->middleware(['auth', 'verified'])->name('template.subscription.update');
+Route::delete('/manage-subscriptions/destroy/{id}', [TemplateSubscriptionController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.subscription.destroy');

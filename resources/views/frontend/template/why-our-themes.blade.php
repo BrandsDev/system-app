@@ -6,7 +6,7 @@
 			<div class="col-12">
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+						<li class="breadcrumb-item"><a href="{{ route('template.home') }}">Home</a></li>
 						<li class="breadcrumb-item active" aria-current="page">Why Our Templates?</li>
 					</ol>
 				</nav>
@@ -49,7 +49,7 @@
 
 				<h2>How to download <abbr title="HyperText Markup Language" class="initialism">HTML</abbr> website templates</h2>
 
-				<p>Downloading <abbr title="HyperText Markup Language" class="initialism">HTML</abbr> website templates is simple and straightforward. There are many websites that offer free <abbr title="HyperText Markup Language" class="initialism">HTML</abbr> website templates, including our website <a href="{{ url('/site-templates') }}" target="_self">System</a>. Once you've found a template that meets your needs, you can download it and open it in your favorite text editor to begin customizing it.
+				<p>Downloading <abbr title="HyperText Markup Language" class="initialism">HTML</abbr> website templates is simple and straightforward. There are many websites that offer free <abbr title="HyperText Markup Language" class="initialism">HTML</abbr> website templates, including our website <a href="{{ route('template.store') }}" target="_self">System</a>. Once you've found a template that meets your needs, you can download it and open it in your favorite text editor to begin customizing it.
 
 				<p>In conclusion, <abbr title="HyperText Markup Language" class="initialism">HTML</abbr> website templates offer an efficient and user-friendly solution for web development that requires minimal coding and design skills. By using templates, you can save time and effort while creating a professional-looking website that is optimized for user experience and search engines.</p>
 
