@@ -10,8 +10,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('template.dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('template.manage-subscriptions') }}">Manage Subscriptions</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Subscription</li>
+                    <li class="breadcrumb-item"><a href="{{ route('template.manage-contacts') }}">Manage Contacts</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Contact</li>
                 </ol>
             </nav>
         </div>
@@ -20,7 +20,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1>Add Subscription</h1>
+            <h1>Add Contact</h1>
         </div>
     </div>
 
@@ -34,18 +34,32 @@
     </div>
     @endif
 
-    <form class="needs-validation" method="POST" action="{{ route('template.new-subscription.store') }}" novalidate>
+    <form class="needs-validation" method="POST" action="{{ route('template.new-contact.store') }}" enctype="multipart/form-data" novalidate>
         @csrf
         <div class="row">
             <div class="col-sm-9">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="mb-3">
-                            <label for="title" class="form-label">Email *</label>
-                            <input type="text" class="form-control" name="email" placeholder="Title" required />
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" name="name" placeholder="Name" required />
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" placeholder="email" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea id="custom-textarea" name="description"></textarea>
                         </div>
                     </div>
                 </div>
@@ -54,6 +68,8 @@
         <div class="row">
             <div class="col-sm-12">
                 <button type="submit" class="btn btn-primary">Publish</button>
+                <button type="submit" class="btn btn-primary">Draft</button>
+                <button type="submit" class="btn btn-secondary">Publish & Add Another</button>
             </div>
         </div>
     </form>

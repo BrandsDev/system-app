@@ -1,6 +1,5 @@
 @extends('frontend.template.skeleton.body')
 @section('content')
-		<main class="container p-3 align-items-center py-5">
 			<div class="row">
 				<div class="col-12">
 					<h1>Privacy Policy</h1>
@@ -55,6 +54,5 @@
 					If you have any questions or concerns about our Privacy Policy, please contact us at: Email: [insert email address] Phone: [insert phone number] Address: [insert address]
 				</div>
 			</div>
-		</main>
 		
 		@endsection

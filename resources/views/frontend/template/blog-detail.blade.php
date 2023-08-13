@@ -1,7 +1,5 @@
 @extends('frontend.template.skeleton.body')
 @section('content')
-	<!-- Body -->
-	<main class="container p-3 py-5">
 		<!-- Breadcrumb -->
 		<div class="row">
 			<div class="col-12">
@@ -134,9 +132,8 @@
 		</div>
 		<div class="row">
 			<div class="col-12">
-				<p class="text-center">Have questions or suggestions? <a href="{{ url('/contact-us') }}">Contact Us</a></p>
+				<p class="text-center">Have questions or suggestions? <a href="{{ route('template.contact-us') }}">Contact Us</a></p>
 			</div>
 		</div>
-	</main>
 	
 	@endsection

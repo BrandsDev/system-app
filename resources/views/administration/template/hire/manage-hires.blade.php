@@ -18,7 +18,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('template.dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Manage Subscriptions</li>
+                    <li class="breadcrumb-item active" aria-current="page">Manage Hires</li>
                 </ol>
             </nav>
         </div>
@@ -27,12 +27,12 @@
 
     <div class="row">
         <div class="col-md-10">
-            <h1>Manage Subscriptions</h1>
+            <h1>Manage Hires</h1>
         </div>
         <div class="col-lg-2 align-self-center">
             <div class="row">
                 <div class="col-12 col-sm-12">
-                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('template.new-subscription') }}">+ Add Subscription</a>
+                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('template.new-hire') }}">+ Add Hire</a>
                 </div>
             </div>
         </div>
@@ -46,11 +46,11 @@
             </div>
         </div>
     </div>
-    @elseif(session()->has('error'))
+    @elseif(session()->has('update'))
     <div class="row">
         <div class="col-md-12">
-            <div class="alert alert-danger" role="alert">
-                {{ session('error') }}
+            <div class="alert alert-success" role="alert">
+                {{ session('update') }}
             </div>
         </div>
     </div>
@@ -70,22 +70,25 @@
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
+                        <th>Name</th>
                         <th>Email</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($subscriptions as $subscription)
+                    @foreach ($hires as $hire)
                     <tr>
-                        <td>{{ $subscription->email }}</td>
+                        <td>{{ $hire->name }}</td>
+                        <td>{{ $hire->email }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                              <a href="{{ route('template.subscription.edit',$subscription->id) }}" class="btn btn-secondary">Edit</a>
+                              <a href="{{ route('template.hire.view',$hire->id) }}" class="btn btn-info">View</a>
+                              <a href="{{ route('template.hire.edit',$hire->id) }}" class="btn btn-secondary">Edit</a>
 
-                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deletesubscription{{ $subscription->id }}">Destroy</button>
+                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deletehire{{ $hire->id }}">Destroy</button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="deletesubscription{{ $subscription->id }}" tabindex="-1" aria-labelledby="deletesubscriptionLabel" aria-hidden="true">
+                                <div class="modal fade" id="deletehire{{ $hire->id }}" tabindex="-1" aria-labelledby="deletehireLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                     <div class="modal-content">
                                       <div class="modal-header">
@@ -95,7 +98,7 @@
                                       <div class="modal-body">
                                         <p>Do you really want to delete. This process cannot be undone.</p>
                                       </div>
-                                      <form method="POST" action="{{ route('template.subscription.destroy',$subscription->id) }}">
+                                      <form method="POST" action="{{ route('template.hire.destroy',$hire->id) }}">
                                         @csrf
                                         @method('DELETE')
                                       <div class="modal-footer">
@@ -113,6 +116,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
+                        <th>Name</th>
                         <th>Email</th>
                         <th>Action</th>
                     </tr>

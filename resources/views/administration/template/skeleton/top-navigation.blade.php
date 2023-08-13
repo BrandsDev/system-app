@@ -21,23 +21,20 @@
 				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Sellers
+						Template
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item" href="{{ route('template.new-seller') }}">Add Seller</a></li>
 						<li><a class="dropdown-item" href="{{ route('template.manage-sellers') }}">Manage Sellers</a></li>
-					</ul>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Template
-					</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item" href="{{ route('template.new-template') }}">Add Template</a></li>
 						<li><a class="dropdown-item" href="{{ route('template.manage-templates') }}">Manage Templates</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="{{ route('template.new-blog') }}">Add Blog</a></li>
+						<li><a class="dropdown-item" href="{{ route('template.manage-blogs') }}">Manage Blogs</a></li>
 					</ul>
 				</li>
-				<li class="nav-item dropdown">
+				<!-- <li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Streaming
 					</a>
@@ -48,17 +45,10 @@
 						<li><a class="dropdown-item" href="{{ route('template.new-audio-playlist') }}">Add Audio Playlist</a></li>
 						<li><a class="dropdown-item" href="{{ route('template.manage-audio-playlists') }}">Manage Audio Playlists</a></li>
 					</ul>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Blog
-					</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item" href="{{ route('template.new-blog') }}">Add Blog</a></li>
-						<li><a class="dropdown-item" href="{{ route('template.manage-blogs') }}">Manage Blogs</a></li>
-					</ul>
-				</li>
-				<li class="nav-item"><a href="{{ route('template.subscription') }}" class="nav-link">Subscription</a></li>
+				</li> -->
+				<li class="nav-item"><a href="{{ route('template.manage-subscriptions') }}" class="nav-link">Subscription</a></li>
+				<li class="nav-item"><a href="{{ route('template.manage-contacts') }}" class="nav-link">Contacts</a></li>
+				<li class="nav-item"><a href="{{ route('template.manage-hires') }}" class="nav-link">Hires</a></li>
 				<li class="nav-item"><a href="{{ route('template.home') }}" class="nav-link" target="_blank">Visit Site</a></li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -1,6 +1,5 @@
 @extends('frontend.template.skeleton.body')
 @section('content')
-	<main class="container p-3 py-5">
 		@foreach($featuredBlogs as $blog)
 		<div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
 			<div class="col-md-12 px-0">
@@ -86,6 +85,10 @@
 				</div>
 			</div>
 		</div>
-	</main>
+		<div class="row">
+			<div class="col-12">
+				<p class="text-center">Have questions or suggestions? <a href="{{ route('template.contact-us') }}">Contact Us</a></p>
+			</div>
+		</div>
 	
 	@endsection

@@ -6,13 +6,6 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Template\TemplateSubscription;
 
-use App\Models\Template\Template;
-use App\Models\Template\TemplateBlog;
-use App\Models\Template\TemplateTemplate;
-use App\Models\Template\TemplateCategory;
-use App\Models\Template\TemplateSubcategory;
-use App\Models\Template\TemplateSubSubcategory;
-
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -22,18 +15,7 @@ class TemplateSubscriptionController extends Controller
 {
     public function index()
     {
-        $featuredBlogs = TemplateBlog::where('is_featured', 1)->get();
-        $takeBlogs = TemplateBlog::take(2)->get();
-
-        return view('frontend.template.blog', ['featuredBlogs' => $featuredBlogs, 'takeBlogs' => $takeBlogs]);
-    }
-
-    public function blogs()
-    {
-        $featuredBlogs = TemplateBlog::where('is_featured', 1)->get();
-        $takeBlogs = TemplateBlog::take(2)->get();
-
-        return view('frontend.template.blog', ['featuredBlogs' => $featuredBlogs, 'takeBlogs' => $takeBlogs]);
+        return back();
     }
 
     public function create(Request $request)
@@ -45,11 +27,17 @@ class TemplateSubscriptionController extends Controller
     {
         // dd($request);
 
-        $request->validate([
-            'email' => 'required|email|unique:template_subscriptions,email',
-        ]);
-
         try {
+            // Validate the request
+            $request->validate([
+                'email' => 'nullable|email|unique:template_subscriptions,email',
+            ]);
+
+            if (!$request->has('email')) {
+                // The email input is null, do not show required message
+                return back();
+            }
+
             // Create a new subscription
             $subscription = TemplateSubscription::create([
                 'email' => $request->email,
@@ -61,14 +49,55 @@ class TemplateSubscriptionController extends Controller
 
             // Redirect back with a success message
             return back()->with('success', 'You have been subscribed!');
-
-        } catch (\Illuminate\Database\QueryException $e) {
-            // Handle the case when a duplicate entry is detected
-            if ($e->errorInfo[1] == 1062) {
-                return back()->with('error', 'You are already subscribed.');
+        } catch (ValidationException $e) {
+            // Handle the case when the email is already taken
+            if ($e->errorBag['email'][0] == 'The email has already been taken.') {
+                return back();
             }
+            // Handle other validation exceptions if needed
+            return back()->withErrors($e->errors())->withInput();
+        } catch (\Exception $e) {
             // Handle other exceptions if needed
             return back()->with('error', 'An error occurred. Please try again.');
+        }
+    }
+
+    public function store(Request $request): RedirectResponse
+    {
+        // dd($request);
+
+        try {
+            // Validate the request
+            $request->validate([
+                'email' => 'nullable|email|unique:template_subscriptions,email',
+            ]);
+
+            if (!$request->has('email')) {
+                // The email input is null, do not show required message
+                return redirect(RouteServiceProvider::TemplateSubscription);
+            }
+
+            // Create a new subscription
+            $subscription = TemplateSubscription::create([
+                'email' => $request->email,
+            ]);
+
+            $subscription->save();
+
+            // Send a confirmation email to the subscriber (optional)
+
+            // Redirect back with a success message
+            return redirect(RouteServiceProvider::TemplateSubscription)->with('success', 'You have been subscribed!');
+        } catch (ValidationException $e) {
+            // Handle the case when the email is already taken
+            if ($e->errorBag['email'][0] == 'The email has already been taken.') {
+                return redirect(RouteServiceProvider::TemplateSubscription);
+            }
+            // Handle other validation exceptions if needed
+            return redirect(RouteServiceProvider::TemplateSubscription)->withErrors($e->errors())->withInput();
+        } catch (\Exception $e) {
+            // Handle other exceptions if needed
+            return redirect(RouteServiceProvider::TemplateSubscription)->with('error', 'An error occurred. Please try again.');
         }
     }
 
@@ -79,126 +108,40 @@ class TemplateSubscriptionController extends Controller
         return view('administration.template.subscription.manage-subscriptions', ['subscriptions' => $subscriptions]);
     }
 
-    public function detail($slug)
-    {
-        $blog = TemplateBlog::where('slug', $slug)->firstOrFail();
-        $relatedBlog = TemplateBlog::take(4)->get();
-
-        return view('frontend.template.blog-detail', [
-            'blog' => $blog,
-            'relatedBlog' => $relatedBlog
-        ]);
-    }
-
     public function edit($id)
     {
-        $blog = TemplateBlog::findOrFail($id);
-
-        $templates = Template::all();
-        $sellers = TemplateSeller::all();
-        $categories = TemplateCategory::all();
-        $subcategories = TemplateSubcategory::all();
-        $sub_subcategories = TemplateSubSubcategory::all();
+        $subscription = TemplateSubscription::findOrFail($id);
         
-        return view('administration.template.blog.edit-blog', [
-            'blog' => $blog,
-            'sellers' => $sellers,
-            'templates' => $templates,
-            'categories' => $categories,
-            'subcategories' => $subcategories,
-            'sub_subcategories' => $sub_subcategories,
-        ]);
+        return view('administration.template.subscription.edit-subscription', ['subscription' => $subscription]);
     }
 
     public function update(Request $request, $id): RedirectResponse
     {
-        $blog = TemplateBlog::find($id);
+        $subscription = TemplateSubscription::find($id);
 
-        if ($blog) {
-            $featuredImage = $request->file('featured_image');
+        if ($subscription) {
 
-            if ($featuredImage) {
-                $validatedData = $request->validate([
-                    // 'featured_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-                ]);
+            $subscription->email = $request->input('email');
 
-                $featuredImageName = $request->featured_image->getClientOriginalName();
-                $request->featured_image->move(public_path('template/blog/image/featured'), $featuredImageName);
+            $subscription->save();
 
-                $blog->featured_image = $featuredImageName;
-            }
-
-            $file = $request->file('file');
-
-            if ($file) {
-                $validatedData = $request->validate([
-                    // 'file' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-                ]);
-
-                $Name = $request->file->getClientOriginalName();
-                $request->file->move(public_path('template/blog/file'), $Name);
-
-                $blog->file = $Name;
-            }
-
-            $og = $request->file('og_image');
-
-            if ($og) {
-                $validatedData = $request->validate([
-                    // 'og_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-                ]);
-
-                $ogImageName = $request->og_image->getClientOriginalName();
-                $request->og_image->move(public_path('template/blog/image/og'), $ogImageName);
-
-                $blog->og_image = $ogImageName;
-            }
-
-            // Update other fields of the request
-            $blog->title = $request->input('title');
-            $blog->slug = $request->input('slug');            
-            $blog->tags = $request->input('tags');
-            $blog->header_title = $request->input('header_title');
-            $blog->category_name = $request->input('category_name');
-            $blog->subcategory_name = $request->input('subcategory_name');
-            $blog->sub_subcategory_name = $request->input('sub_subcategory_name');
-            $blog->template = $request->input('template');
-            $blog->seller_name = $request->input('seller_name');
-            $blog->short_description = $request->input('short_description');
-            $blog->long_description = $request->input('long_description');
-            $blog->youtube_iframe = $request->input('youtube_iframe');
-            $blog->header_content = $request->input('header_content');
-            $blog->meta_title = $request->input('meta_title');
-            $blog->meta_description = $request->input('meta_description');
-            $blog->is_featured = $request->input('is_featured');
-
-            if (!is_null($request->input('status'))) {
-                $blog->status = $request->input('status');
-            }
-            
-            $blog->comment = $request->input('comment');
-
-            // Save the changes
-            $blog->save();
-
-            // Perform any additional actions or redirect as needed
         } else {
             // Handle the case when the record doesn't exist
-            Session::flash('update', __('There is a problem!'));
+            Session::flash('update', __('An issue has arisen! Please return and update once more.'));
 
             return back();
         }
 
-        Session::flash('update', __('Blog Successfully Updated!'));
+        Session::flash('update', __('Congratulations! The subscription update operation has been executed successfully.'));
         
-        return back();
+        return redirect(RouteServiceProvider::TemplateSubscription);
     }
 
     public function destroy(Request $request, $id)
     {
-        TemplateBlog::where('id',$id)->delete();
+        TemplateSubscription::where('id',$id)->delete();
 
-        Session::flash('delete', __('Blog Successfully Deleted!'));
+        Session::flash('delete', __('Congratulations! The contact deletion operation has been successfully executed.'));
         
         return back();
     }

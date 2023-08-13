@@ -97,9 +97,11 @@ Route::get('template-store/about/license', [TemplateAboutController::class, 'lic
 
 // Template -> Hire Us
 Route::get('template-store/hire-us', [TemplateHireController::class, 'index'])->name('template.hire-us');
+Route::post('template-store/hire-us/new-hire', [TemplateHireController::class, 'newHire'])->name('template.front.newHire');
 
 // Template -> Contact Us
 Route::get('template-store/contact-us', [TemplateContactController::class, 'index'])->name('template.contact-us');
+Route::post('template-store/contact-us/new-contact', [TemplateContactController::class, 'newContact'])->name('template.front.new-contact');
 
 // Template -> Privacy Policy
 Route::get('template-store/privacy-policy', [TemplatePrivacyController::class, 'index'])->name('template.privacy-policy');
@@ -284,9 +286,27 @@ Route::put('/template-store/manage-audio-playlist/update/{id}', [TemplateAudioCo
 Route::delete('/template-store/manage-audio-playlist/destroy/{id}', [TemplateAudioController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.audio-playlist.destroy');
 
 // Subscription
-Route::get('/template-store/manage-subscriptions', [TemplateSubscriptionController::class, 'show'])->middleware(['auth', 'verified'])->name('template.subscription');
+Route::get('/template-store/manage-subscriptions', [TemplateSubscriptionController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-subscriptions');
 Route::get('/template-store/manage-subscriptions/new-subscription', [TemplateSubscriptionController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-subscription');
 Route::post('/template-store/manage-subscriptions/new-subscription/store', [TemplateSubscriptionController::class, 'store'])->middleware(['auth', 'verified'])->name('template.new-subscription.store');
 Route::get('/template-store/manage-subscriptions/edit/{id}', [TemplateSubscriptionController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.subscription.edit');
 Route::put('/template-store/manage-subscriptions/update/{id}', [TemplateSubscriptionController::class, 'update'])->middleware(['auth', 'verified'])->name('template.subscription.update');
 Route::delete('/manage-subscriptions/destroy/{id}', [TemplateSubscriptionController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.subscription.destroy');
+
+// Contact
+Route::get('/template-store/manage-contacts', [TemplateContactController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-contacts');
+Route::get('/template-store/manage-contacts/new-contact', [TemplateContactController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-contact');
+Route::post('/template-store/manage-contacts/new-contact/store', [TemplateContactController::class, 'store'])->middleware(['auth', 'verified'])->name('template.new-contact.store');
+Route::get('/template-store/manage-contacts/edit/{id}', [TemplateContactController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.contact.edit');
+Route::get('/template-store/manage-contacts/view/{id}', [TemplateContactController::class, 'view'])->middleware(['auth', 'verified'])->name('template.contact.view');
+Route::put('/template-store/manage-contacts/update/{id}', [TemplateContactController::class, 'update'])->middleware(['auth', 'verified'])->name('template.contact.update');
+Route::delete('/manage-contacts/destroy/{id}', [TemplateContactController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.contact.destroy');
+
+// Contact
+Route::get('/template-store/manage-hires', [TemplateHireController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-hires');
+Route::get('/template-store/manage-hires/new-hire', [TemplateHireController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-hire');
+Route::post('/template-store/manage-hires/new-hire/store', [TemplateHireController::class, 'store'])->middleware(['auth', 'verified'])->name('template.new-hire.store');
+Route::get('/template-store/manage-hires/edit/{id}', [TemplateHireController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.hire.edit');
+Route::get('/template-store/manage-hires/view/{id}', [TemplateHireController::class, 'view'])->middleware(['auth', 'verified'])->name('template.hire.view');
+Route::put('/template-store/manage-hires/update/{id}', [TemplateHireController::class, 'update'])->middleware(['auth', 'verified'])->name('template.hire.update');
+Route::delete('/manage-hires/destroy/{id}', [TemplateHireController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.hire.destroy');

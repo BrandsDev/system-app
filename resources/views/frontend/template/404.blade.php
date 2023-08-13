@@ -1,6 +1,5 @@
 @extends('frontend.template.skeleton.body')
 @section('content')
-  <main class="container p-3 py-5">
     <!-- Header Banner -->
     <div class="row">
       <div class="col-lg-12">
@@ -9,6 +8,5 @@
         <p>Please check the URL or return to the <a href="{{ url('/template') }}">homepage</a>.</p>
       </div>
     </div>
-  </main>
 
   @endsection

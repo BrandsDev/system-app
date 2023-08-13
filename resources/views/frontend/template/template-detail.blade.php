@@ -10,17 +10,16 @@
 </style>
 @endsection
 @section('content')
-		<main class="container p-3 py-5">
 			<!-- Breadcrumb -->
 			<div class="row mb-3">
 				<div class="col-12">
 					<nav aria-label="breadcrumb">
-		                <ol class="breadcrumb">
-		                    <li class="breadcrumb-item"><a href="{{ route('template.home') }}">Home</a></li>
-		                    <li class="breadcrumb-item"><a href="{{ route('template.store') }}">Templates</a></li>
-		                    <li class="breadcrumb-item active" aria-current="page">{{ $template->name }}</li>
-		                </ol>
-		            </nav>
+              <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{{ route('template.home') }}">Home</a></li>
+                  <li class="breadcrumb-item"><a href="{{ route('template.store') }}">Templates</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">{{ $template->name }}</li>
+              </ol>
+          </nav>
 				</div>
 			</div>
 
@@ -265,9 +264,8 @@
 			</div>
 			<div class="row">
 				<div class="col-12">
-					<p class="text-center">Have questions or suggestions? <a href="{{ url('/contact-us') }}">Contact Us</a></p>
+					<p class="text-center">Have questions or suggestions? <a href="{{ route('template.contact-us') }}">Contact Us</a></p>
 				</div>
 			</div>
-		</main>
 		
 		@endsection

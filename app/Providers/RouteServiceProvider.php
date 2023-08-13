@@ -41,6 +41,8 @@ class RouteServiceProvider extends ServiceProvider
     public const TemplateAudio = '/template-store/manage-audios';
     public const TemplateAudioPlaylist = '/template-store/manage-audio-playlists';
     public const TemplateSubscription = '/template-store/manage-subscriptions';
+    public const TemplateContact = '/template-store/manage-contacts';
+    public const TemplateHire = '/template-store/manage-hires';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.

@@ -18,7 +18,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('template.dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Manage Subscriptions</li>
+                    <li class="breadcrumb-item active" aria-current="page">Manage Contacts</li>
                 </ol>
             </nav>
         </div>
@@ -27,34 +27,18 @@
 
     <div class="row">
         <div class="col-md-10">
-            <h1>Manage Subscriptions</h1>
+            <h1>Manage Contacts</h1>
         </div>
         <div class="col-lg-2 align-self-center">
             <div class="row">
                 <div class="col-12 col-sm-12">
-                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('template.new-subscription') }}">+ Add Subscription</a>
+                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('template.new-contact') }}">+ Add Contact</a>
                 </div>
             </div>
         </div>
     </div>
 
-    @if(session()->has('success'))
-    <div class="row">
-        <div class="col-md-12">
-            <div class="alert alert-success" role="alert">
-                {{ session('success') }}
-            </div>
-        </div>
-    </div>
-    @elseif(session()->has('error'))
-    <div class="row">
-        <div class="col-md-12">
-            <div class="alert alert-danger" role="alert">
-                {{ session('error') }}
-            </div>
-        </div>
-    </div>
-    @elseif(session()->has('delete'))
+    @if(session()->has('delete'))
     <div class="row">
         <div class="col-md-12">
             <div class="alert alert-danger" role="alert">
@@ -70,22 +54,25 @@
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
+                        <th>Name</th>
                         <th>Email</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($subscriptions as $subscription)
+                    @foreach ($contacts as $contact)
                     <tr>
-                        <td>{{ $subscription->email }}</td>
+                        <td>{{ $contact->name }}</td>
+                        <td>{{ $contact->email }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                              <a href="{{ route('template.subscription.edit',$subscription->id) }}" class="btn btn-secondary">Edit</a>
+                              <a href="{{ route('template.contact.view',$contact->id) }}" class="btn btn-info">View</a>
+                              <a href="{{ route('template.contact.edit',$contact->id) }}" class="btn btn-secondary">Edit</a>
 
-                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deletesubscription{{ $subscription->id }}">Destroy</button>
+                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deletecontact{{ $contact->id }}">Destroy</button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="deletesubscription{{ $subscription->id }}" tabindex="-1" aria-labelledby="deletesubscriptionLabel" aria-hidden="true">
+                                <div class="modal fade" id="deletecontact{{ $contact->id }}" tabindex="-1" aria-labelledby="deletecontactLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                     <div class="modal-content">
                                       <div class="modal-header">
@@ -95,7 +82,7 @@
                                       <div class="modal-body">
                                         <p>Do you really want to delete. This process cannot be undone.</p>
                                       </div>
-                                      <form method="POST" action="{{ route('template.subscription.destroy',$subscription->id) }}">
+                                      <form method="POST" action="{{ route('template.contact.destroy',$contact->id) }}">
                                         @csrf
                                         @method('DELETE')
                                       <div class="modal-footer">
@@ -113,6 +100,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
+                        <th>Name</th>
                         <th>Email</th>
                         <th>Action</th>
                     </tr>

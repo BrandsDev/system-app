@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('book_contacts', function (Blueprint $table) {
+        Schema::create('template_hires', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255)->unique();
-            $table->string('email', 255)->unique();
-            $table->text('description')->nullable();
+            $table->string('name', 100);
+            $table->string('email', 255);
+            $table->string('budget')->default('below')->nullable();
+            $table->text('details')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('book_contacts');
+        Schema::dropIfExists('template_hires');
     }
 };

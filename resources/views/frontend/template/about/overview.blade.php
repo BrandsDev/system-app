@@ -1,6 +1,5 @@
 @extends('frontend.template.skeleton.body')
 @section('content')
-		<main class="container p-3 py-5">
 			<!-- Breadcrumb -->
 			<div class="row">
 				<div class="col-12">
@@ -66,6 +65,5 @@
 					<p>Have questions or suggestions? <a href="{{ route('template.contact-us') }}">Contact Us</a></p>
 				</div>
 			</div>
-		</main>
 		
 		@endsection

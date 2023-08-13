@@ -5,25 +5,16 @@
 					<h6 class="display-6">Subscribe now for free <abbr title="HyperText Markup Language" class="initialism">HTML</abbr> website templates!</h6>
 					<p>By subscribing to our email list, you'll receive free <abbr title="HyperText Markup Language" class="initialism">HTML5</abbr>, Bootstrap 5, and SEO-Friendly website templates straight to your inbox! Don't miss out on the latest designs and updates - subscribe now to stay up to date and elevate your web development game.</p>
 				</div>
-				@if(session()->has('success'))
-			    <div class="modal-dialog modal-dialog-centered">
-		            <div class="alert alert-success" role="alert">
-		                {{ session('success') }}
-		            </div>
-			    </div>
-			    @else(session()->has('error'))
-			    <div class="modal-dialog modal-dialog-centered">
-		            <div class="alert alert-danger" role="alert">
-		                {{ session('error') }}
-		            </div>
-			    </div>
-			    @endif
+				
 				<div class="col-md-4 align-self-center">
-					<form class="row g-3 float-end" method="POST" action="{{ route('template.new-subscriber') }}" enctype="multipart/form-data" novalidate>
+					<form class="row g-3 float-end needs-validation" method="POST" action="{{ route('template.new-subscriber') }}" novalidate>
 						@csrf
 						<div class="col-auto">
 							<label for="staticEmail2" class="visually-hidden"></label>
-							<input type="email" class="form-control" name="email" value="" placeholder="Email address" required />
+							<input type="email" class="form-control" name="email" placeholder="name@example.com" required />
+						    <div class="valid-feedback">
+						      Looks good!
+						    </div>
 						</div>
 						<div class="col-auto">
 							<button type="submit" class="btn btn-primary mb-3">Subscribe</button>

@@ -1,6 +1,5 @@
 @extends('frontend.template.skeleton.body')
 @section('content')
-		<main class="container p-3 py-5">
 			<!-- Header Banner End -->
 			<div class="mt-3"></div>
 			<!-- Latest Item -->
@@ -77,6 +76,5 @@
 					<p class="text-center">Have questions or suggestions? <a href="{{ route('template.contact-us') }}">Contact Us</a></p>
 				</div>
 			</div>
-		</main>
 		
 		@endsection

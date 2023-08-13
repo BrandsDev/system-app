@@ -10,8 +10,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('template.dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('template.manage-subscriptions') }}">Manage Subscriptions</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Subscription</li>
+                    <li class="breadcrumb-item"><a href="{{ route('template.manage-contacts') }}">Manage Contacts</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">View Contact</li>
                 </ol>
             </nav>
         </div>
@@ -20,43 +20,35 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1>Add Subscription</h1>
+            <h1>View Contact</h1>
         </div>
     </div>
 
-    @if(session()->has('message'))
     <div class="row">
-        <div class="col-md-12">
-            <div class="alert alert-success" role="alert">
-                {{ session('message') }}
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="mb-3">
+                        <input type="text" readonly class="form-control-plaintext" value="{{ $contact->name }}" />
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    @endif
-
-    <form class="needs-validation" method="POST" action="{{ route('template.new-subscription.store') }}" novalidate>
-        @csrf
-        <div class="row">
-            <div class="col-sm-9">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="mb-3">
-                            <label for="title" class="form-label">Email *</label>
-                            <input type="text" class="form-control" name="email" placeholder="Title" required />
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="mb-3">
+                        <input type="text" readonly class="form-control-plaintext" value="{{ $contact->email }}" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="mb-3">
+                        {!! $contact->description !!}
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <button type="submit" class="btn btn-primary">Publish</button>
-            </div>
-        </div>
-    </form>
+    </div>
 </main>
 
 @section('custom-scripts')

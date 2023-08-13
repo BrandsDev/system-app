@@ -1,6 +1,5 @@
 @extends('frontend.template.skeleton.body')
 @section('content')
-	<main class="container p-3 py-5">
 		<!-- Breadcrumb -->
 		<div class="row">
 			<div class="col-12">
@@ -56,6 +55,5 @@
 				<p>So why not give it a try? Download an <abbr title="HyperText Markup Language" class="initialism">HTML</abbr> website template today and start creating a website that will meet your needs and impress your visitors.</p>
 			</div>
 		</div>
-	</main>
 	
 	@endsection

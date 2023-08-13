@@ -1,6 +1,5 @@
 @extends('frontend.template.skeleton.body')
 @section('content')
-        <main class="container p-3 py-5">
             <div class="my-5 text-center">
                 <img class="qr-code d-block mx-auto mb-4" src="https://chart.googleapis.com/chart?cht=qr&chl=Generate+Barcode&chs=540x540&chld=L|0" alt="" width="320" height="320" />
             </div>
@@ -19,9 +18,7 @@
                     </div>
                 </div>
                 <div class="col"></div>
-            </div>
-        </main>
-        
+            </div>        
 
         @section('custom-scripts')
             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

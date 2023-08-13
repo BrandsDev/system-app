@@ -1,6 +1,5 @@
 @extends('frontend.template.skeleton.body')
 @section('content')
-		<main class="container p-3 py-5">
 			<div class="row">
 				<div class="col-12">
 					<h1>Terms of Service</h1>
@@ -38,6 +37,5 @@
 					</article>
 				</div>
 			</div>
-		</main>
 		
 		@endsection

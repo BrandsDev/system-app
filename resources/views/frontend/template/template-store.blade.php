@@ -1,6 +1,5 @@
 @extends('frontend.template.skeleton.body')
 @section('content')
-		<main class="container p-3 py-5">
 			<!-- Header Banner End -->
 			<div class="mt-3"></div>
 			<!-- Latest Item -->
@@ -58,7 +57,7 @@
 						            </ul>
 						            <ul class="d-flex list-unstyled mt-auto">
 						              <li class="me-auto">
-						                <small><a href="{{ route('template.store') }}" target="_blank" class="link-dark">{{ $template->category_name }}</a></small>
+						                <small><a href="{{ route('template.store') }}" class="link-dark">{{ $template->category_name }}</a></small>
 						              </li>
 						              <li class="d-flex align-items-center">
 						                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
@@ -77,6 +76,5 @@
 					<p class="text-center">Have questions or suggestions? <a href="{{ route('template.contact-us') }}">Contact Us</a></p>
 				</div>
 			</div>
-		</main>
 		
 		@endsection

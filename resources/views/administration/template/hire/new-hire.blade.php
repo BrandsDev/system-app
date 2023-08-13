@@ -10,8 +10,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('template.dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('template.manage-subscriptions') }}">Manage Subscriptions</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Subscription</li>
+                    <li class="breadcrumb-item"><a href="{{ route('template.manage-hires') }}">Manage Hires</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Hire</li>
                 </ol>
             </nav>
         </div>
@@ -20,7 +20,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1>Add Subscription</h1>
+            <h1>Add Hire</h1>
         </div>
     </div>
 
@@ -34,18 +34,47 @@
     </div>
     @endif
 
-    <form class="needs-validation" method="POST" action="{{ route('template.new-subscription.store') }}" novalidate>
+    <form class="needs-validation" method="POST" action="{{ route('template.new-hire.store') }}" novalidate>
         @csrf
         <div class="row">
             <div class="col-sm-9">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="mb-3">
-                            <label for="title" class="form-label">Email *</label>
-                            <input type="text" class="form-control" name="email" placeholder="Title" required />
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" name="name" placeholder="Name" required />
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" placeholder="email" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label fw-bold">Choose your budget</label>
+                            <br />
+                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                <input type="radio" class="btn-check" name="budget" id="below" value="below" autocomplete="off" />
+                                <label class="btn btn-outline-primary btn-lg" for="below">Below $15,000</label>
+
+                                <input type="radio" class="btn-check" name="budget" id="above" value="above" autocomplete="off" />
+                                <label class="btn btn-outline-primary btn-lg" for="above">Above $15,000</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <label for="details" class="form-label">Details</label>
+                            <textarea id="custom-textarea" name="details"></textarea>
                         </div>
                     </div>
                 </div>
@@ -54,6 +83,8 @@
         <div class="row">
             <div class="col-sm-12">
                 <button type="submit" class="btn btn-primary">Publish</button>
+                <button type="submit" class="btn btn-primary">Draft</button>
+                <button type="submit" class="btn btn-secondary">Publish & Add Another</button>
             </div>
         </div>
     </form>
