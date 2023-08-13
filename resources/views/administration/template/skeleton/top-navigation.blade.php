@@ -47,8 +47,8 @@
 					</ul>
 				</li> -->
 				<li class="nav-item"><a href="{{ route('template.manage-subscriptions') }}" class="nav-link">Subscription</a></li>
-				<li class="nav-item"><a href="{{ route('template.manage-contacts') }}" class="nav-link">Contacts</a></li>
-				<li class="nav-item"><a href="{{ route('template.manage-hires') }}" class="nav-link">Hires</a></li>
+				<li class="nav-item"><a href="{{ route('template.manage-contacts') }}" class="nav-link">Contact</a></li>
+				<li class="nav-item"><a href="{{ route('template.manage-hires') }}" class="nav-link">Hire</a></li>
 				<li class="nav-item"><a href="{{ route('template.home') }}" class="nav-link" target="_blank">Visit Site</a></li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

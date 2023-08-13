@@ -20,7 +20,7 @@
 					<li class="list-group-item">Customizable components such as menus, sliders and forms</li>
 					<li class="list-group-item">
 						Compatibility with popular browsers such as <a href="https://en.wikipedia.org/wiki/Google_Chrome" target="_blank" rel="no-referrer">Chrome</a>,
-						<a href="https://en.wikipedia.org/wiki/Firefox" target="_blank" rel="no-referrer">Firefox</a>, <a href="https://en.wikipedia.org/wiki/UC_Browser" target="_blank" rel="no-referrer">UC</a>, <a href="https://en.wikipedia.org/wiki/Opera_(web_browser)" target="_blank" rel="no-referrer">Opera</a> and <a href="https://en.wikipedia.org/wiki/Safari_(web_browser)" target="_blank" rel="no-referrer">Safari</a>
+						<a href="https://en.wikipedia.org/wiki/Firefox" target="_blank" rel="no-referrer">Firefox</a>, <a href="https://en.wikipedia.org/wiki/UC_Browser" target="_blank" rel="no-referrer">UC</a>, <a href="https://en.wikipedia.org/wiki/Opera_(web_browser)" target="_blank" rel="no-referrer">Opera</a> and <a href="https://en.wikipedia.org/wiki/Safari_(web_browser)" target="_blank" rel="no-referrer">Safari</a> etc.
 					</li>
 				</ul>
 			</div>
