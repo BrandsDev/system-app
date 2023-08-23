@@ -3,6 +3,7 @@ Setup Environment
 ---------------
 # install local server, vendor, composer, nodeJS, npm install
 
+https://forms.gle/5v6epY8wdiXfHykM9
 ---------------
 Domain 
 ---------------
@@ -11,51 +12,51 @@ probnsol
 ---------------
 To Do
 ---------------
-- Banding (Name, Color, Logo, Intro & Tagline)
+- Banding (Name, Color, Logo, Intro & Tagline) *****
 
 - Technical SEO
 - - DOM Structure
-- - Heading Structure
-- - Pera Structure with STRONG Tag
+- - Heading Structure ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
+- - Pera Structure with STRONG Tag ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
 - - UL, OL, Blockquote, EM, Cite, B & I Tags
-- - Img ALT & Title Tags
+- - Img ALT & Title Tags *****
 - - HTML5 Doctype
-- - <header> Tag
-- - <aside> Tags
-- - <article> Tags
-- - <section> Tag
-- - <footer> Tag
-- - <nav> Tag
-- - <details> Tag
+- - <header> Tag ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, qr-code-generator, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
+- - <aside> Tags ***** (welcome, )
+- - <article> Tags ***** (welcome, blog, blog-detail, about - overview, brand, license, )
+- - <section> Tag ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, qr-code-generator, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
+- - <footer> Tag ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, qr-code-generator, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
+- - <nav> Tag ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, qr-code-generator, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
+- - <details> Tag ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, qr-code-generator, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
 - - HTML Microdata
 - - ARIA Roles: Element: div with the role: tabpanel 
-- - Open Graph protocol
-- - Twitter Cards
+- - Open Graph protocol *****
+- - Twitter Cards *****
 - - Meta Keywords
-- - Meta Robots: index, follow
-- - robots.txt
+- - Meta Robots: index, follow ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, qr-code-generator, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
+- - robots.txt ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, qr-code-generator, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
 - - HTML Errors in the Source Code
 - - Canonical Tag / rel Next rel Prev / hreflang Tags
 - - Does the site respond for multiple URLs (Duplicate Content)
 - - Url: directory depth, dynamic parameters
 - - HTTP Header / GZIP
-- - sitemap.xml
+- - sitemap.xml *****
 - - CSS / JavaScript / Flash (CSS files to 3-4, JavaScript files to 2-3)
 - - Frames - <frame> or <iframe> Tag (No)
 
 - OnPage SEO
-- - Meta Title & Description
-- - Internal & External Links with nofollow & noreferrer
+- - Meta Title & Description *****
+- - Internal & External Links with nofollow & noreferrer ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, qr-code-generator, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
 
 - OffPage SEO
-- - Backlinks
-- - Wikipedia Backlinks
+- - Backlinks *****
+- - Wikipedia Backlinks *****
 - - Keyword Frequency
-- - SMM & Business Directory
+- - SMM & Business Directory *****
 
-- New temp.
-- New tech sol
-- Category binary tree
+- New temp. *****
+- New tech sol *****
+- Category binary tree *****
 - Filter
 
 Institute

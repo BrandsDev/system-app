@@ -24,6 +24,7 @@
 
 		<!-- HTML Meta Tags -->
 		@include('administration.template.skeleton.meta')
+		<meta name="robots" content="noindex, nofollow">
 		
 
 		<!-- Schema -->

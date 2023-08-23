@@ -22,6 +22,7 @@
 
 		<!-- HTML Meta Tags -->
 		@include('frontend.book.skeleton.meta')
+		<meta name="robots" content="index, follow">
 		
 
 		<!-- Schema -->

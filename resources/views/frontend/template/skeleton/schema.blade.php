@@ -15,14 +15,14 @@
 			        "postalCode": "",
 			        "addressCountry": ""
 			    },
-			    "priceRange": "$$$",
-			    "telephone": "+8801407070260",
+			    "priceRange": "",
+			    "telephone": "",
 			    "geo": { "@type": "GeoCoordinates", "latitude": "", "longitude": "" },
-			    "openingHours": ["Sa-Th 08:00-20:00"],
+			    "openingHours": [""],
 			    "contactPoint": {
 			        "@type": "ContactPoint",
-			        "contactType": "Customer Support & Query",
-			        "telephone": "+8801"
+			        "contactType": "",
+			        "telephone": ""
 			    },
 			    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "", "reviewCount": "" },
 			    "review": {

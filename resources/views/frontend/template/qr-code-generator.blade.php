@@ -1,5 +1,22 @@
 @extends('frontend.template.skeleton.body')
 @section('content')
+        <!-- Breadcrumb -->
+        <section>
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{ route('template.home') }}">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Generate QR Code</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </section>
+        <!-- End Breadcrumb -->
+
+        <!-- Content -->
+        <section>
             <div class="my-5 text-center">
                 <img class="qr-code d-block mx-auto mb-4" src="https://chart.googleapis.com/chart?cht=qr&chl=Generate+Barcode&chs=540x540&chld=L|0" alt="" width="320" height="320" />
             </div>
@@ -18,7 +35,19 @@
                     </div>
                 </div>
                 <div class="col"></div>
-            </div>        
+            </div>
+        </section>
+        <!-- End Content -->
+
+        <!-- Questions or Suggestions -->
+        <section>
+            <div class="row">
+                <div class="col-12">
+                    <p class="text-center mt-3">Have questions or suggestions? <a href="{{ route('template.contact-us') }}">Contact Us</a></p>
+                </div>
+            </div>
+        </section>
+        <!-- End Questions or Suggestions -->
 
         @section('custom-scripts')
             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

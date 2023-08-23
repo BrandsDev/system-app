@@ -3,7 +3,7 @@
 			<div class="row py-3 border border-start-0 border-end-0">
 				<div class="col-md-8">
 					<h6 class="display-6">Subscribe now for free <abbr title="HyperText Markup Language" class="initialism">HTML</abbr> website templates!</h6>
-					<p>By subscribing to our email list, you'll receive free <abbr title="HyperText Markup Language" class="initialism">HTML5</abbr>, Bootstrap 5, and SEO-Friendly website templates straight to your inbox! Don't miss out on the latest designs and updates - subscribe now to stay up to date and elevate your web development game.</p>
+					<p>By subscribing to our email list, you'll receive free <abbr title="HyperText Markup Language" class="initialism"><strong>HTML5</strong></abbr><strong>, Bootstrap 5, and SEO-Friendly website templates</strong> straight to your inbox! Don't miss out on the latest designs and updates - subscribe now to stay up to date and elevate your web development game.</p>
 				</div>
 				
 				<div class="col-md-4 align-self-center">

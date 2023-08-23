@@ -25,3 +25,5 @@
 		<meta name="twitter:description" content="Build responsive, mobile-friendly websites with our free HTML website templates. Get high-quality designs for web development, technical SEO, on-page SEO, off-page SEO, WordPress install & setup, website maintenance, copywriting, creative content & graphics design services. #HTMLtemplates #WebDevelopment #SEO #WordPress #WebsiteMaintenance #Copywriting #ContentCreation #GraphicsDesign" />
 		<meta name="twitter:image" content="" />
 		<meta property="twitter:url" content="" />
+
+		<meta name="robots" content="index, follow">
