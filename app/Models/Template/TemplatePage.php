@@ -5,7 +5,7 @@ namespace App\Models\Template;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TemplateSubcategory extends Model
+class TemplatePage extends Model
 {
     use HasFactory;
 
@@ -15,21 +15,24 @@ class TemplateSubcategory extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'subcategory_name',
+        'name',
+        'title',
         'slug',
+        'tags',
         'category_name',
-        'description',
+        'subcategory_name',
+        'sub_subcategory_name',
+        'short_description',
+        'long_description',
+        'youtube_iframe',
+        'header_content',
         'meta_title',
         'meta_description',
-        'icon',
         'thumb',
-        'cover',
+        'breadcrumb_image',
+        'cover_image',
         'og_image',
+        'status',
+        'comment',
     ];
-
-    public function subSubcategories()
-    {
-        return $this->hasMany(TemplateSubSubcategory::class, 'subcategory_name', 'subcategory_name');
-    }
-
 }

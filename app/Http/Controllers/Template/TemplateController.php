@@ -29,9 +29,84 @@ class TemplateController extends Controller
 
     public function templateStore()
     {
+        $categories = TemplateCategory::all();
+        $subcategories = TemplateSubcategory::all();
+        $sub_subcategories = TemplateSubSubcategory::all();
+
         $templates = Template::take(60)->get();
 
-        return view('frontend.template.template-store', ['templates' => $templates]);
+        return view('frontend.template.template-store', [
+            'templates' => $templates,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+            'sub_subcategories' => $sub_subcategories,
+        ]);
+    }
+
+    public function showByCategory(TemplateCategory $category)
+    {
+        $categories = TemplateCategory::all();
+        $subcategories = TemplateSubcategory::all();
+        $sub_subcategories = TemplateSubSubcategory::all();
+
+        // Retrieve templates with related category
+        $templates = Template::with('category')
+            ->whereHas('category', function ($query) {
+                $query->where('slug', request()->segment(3)); // Assuming the slug is the second URL segment
+            })
+            ->take(60)
+            ->get();
+
+        return view('frontend.template.template-store', [
+            'templates' => $templates,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+            'sub_subcategories' => $sub_subcategories,
+        ]);
+    }
+
+    public function showBySubcategory(TemplateSubcategory $subcategory)
+    {
+        $categories = TemplateCategory::all();
+        $subcategories = TemplateSubcategory::all();
+        $sub_subcategories = TemplateSubSubcategory::all();
+
+        // Retrieve templates with related category
+        $templates = Template::with('subcategory')
+            ->whereHas('subcategory', function ($query) {
+                $query->where('slug', request()->segment(4)); // Assuming the slug is the second URL segment
+            })
+            ->take(60)
+            ->get();
+
+        return view('frontend.template.template-store', [
+            'templates' => $templates,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+            'sub_subcategories' => $sub_subcategories,
+        ]);
+    }
+
+    public function showBySubSubcategory(TemplateSubSubcategory $subSubcategory)
+    {
+        $categories = TemplateCategory::all();
+        $subcategories = TemplateSubcategory::all();
+        $sub_subcategories = TemplateSubSubcategory::all();
+
+        // Retrieve templates with related category
+        $templates = Template::with('subSubcategory')
+            ->whereHas('subSubcategory', function ($query) {
+                $query->where('slug', request()->segment(5)); // Assuming the slug is the second URL segment
+            })
+            ->take(60)
+            ->get();
+
+        return view('frontend.template.template-store', [
+            'templates' => $templates,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+            'sub_subcategories' => $sub_subcategories,
+        ]);
     }
 
     public function create()

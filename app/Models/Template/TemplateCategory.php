@@ -25,4 +25,10 @@ class TemplateCategory extends Model
         'cover',
         'og_image',
     ];
+
+    public function subcategories()
+    {
+        return $this->hasMany(TemplateSubcategory::class, 'category_name', 'category_name');
+    }
+
 }

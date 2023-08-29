@@ -46,9 +46,21 @@
 						<li><a class="dropdown-item" href="{{ route('template.manage-audio-playlists') }}">Manage Audio Playlists</a></li>
 					</ul>
 				</li> -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Pages
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li><a class="dropdown-item" href="{{ route('template.new-page') }}">Add Page</a></li>
+						<li><a class="dropdown-item" href="{{ route('template.manage-pages') }}" class="nav-link">Manage Pages</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="{{ route('template.manage-contacts') }}" class="nav-link">Manage Contact</a></li>
+						<li><a class="dropdown-item" href="{{ route('template.manage-hires') }}" class="nav-link">Manage Hire</a></li>
+					</ul>
+				</li>
+				
 				<li class="nav-item"><a href="{{ route('template.manage-subscriptions') }}" class="nav-link">Subscription</a></li>
-				<li class="nav-item"><a href="{{ route('template.manage-contacts') }}" class="nav-link">Contact</a></li>
-				<li class="nav-item"><a href="{{ route('template.manage-hires') }}" class="nav-link">Hire</a></li>
+				
 				<li class="nav-item"><a href="{{ route('template.home') }}" class="nav-link" target="_blank">Visit Site</a></li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

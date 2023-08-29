@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Template;
 use App\Http\Controllers\Controller;
 
 use App\Models\Template\Template;
+use App\Models\Template\TemplatePage;
 use App\Models\Template\TemplateHome;
 
 use Illuminate\Http\Request;
@@ -16,9 +17,11 @@ class TemplateHomeController extends Controller
      */
     public function index()
     {
+        $pages = TemplatePage::take(6)->get();
+
         $templates = Template::take(16)->get();
 
-        return view('frontend.template.welcome', ['templates' => $templates]);
+        return view('frontend.template.welcome', ['templates' => $templates, 'pages' => $pages]);
     }
 
     /**

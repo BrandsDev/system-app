@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Template;
 use App\Http\Controllers\Controller;
 
 use App\Models\Template\TemplateTheme;
+use App\Models\Template\TemplatePage;
 
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class TemplateThemeController extends Controller
      */
     public function index()
     {
-        //
+        // $page = TemplatePage::findOrFail($id);
+        
         return view('frontend.template.why-our-themes');
     }
 

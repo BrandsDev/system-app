@@ -17,32 +17,33 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/dashboard';
+    public const HOME = '/private/dashboard';
 
-    public const BookHOME = '/bookstore/dashboard';
-    public const BookCategories = '/bookstore/categories/manage-categories';
-    public const BookSubCategories = '/bookstore/categories/manage-subcategories';
-    public const BookSubSubCategories = '/bookstore/categories/manage-sub-subcategories';
-    public const BookBlog = '/bookstore/manage-blog/new-blog';
-    public const BookNew = '/bookstore/manage-books';
-    public const BookPublisher = '/bookstore/manage-publishers';
-    public const BookAuthor = '/bookstore/manage-author/new-author';
-    public const BookAudio = '/bookstore/manage-audios';
-    public const BookAudioPlaylist = '/bookstore/manage-audio-playlists';
+    public const BookHOME = '/private/bookstore/dashboard';
+    public const BookCategories = '/private/bookstore/categories/manage-categories';
+    public const BookSubCategories = '/private/bookstore/categories/manage-subcategories';
+    public const BookSubSubCategories = '/private/bookstore/categories/manage-sub-subcategories';
+    public const BookBlog = '/private/bookstore/manage-blog/new-blog';
+    public const BookNew = '/private/bookstore/manage-books';
+    public const BookPublisher = '/private/bookstore/manage-publishers';
+    public const BookAuthor = '/private/bookstore/manage-author/new-author';
+    public const BookAudio = '/private/bookstore/manage-audios';
+    public const BookAudioPlaylist = '/private/bookstore/manage-audio-playlists';
 
     public const TemplateHome = '/';
-    public const TemplateDashboard = '/template-store/dashboard';
-    public const TemplateCategories = '/template-store/categories/manage-categories';
-    public const TemplateSubCategories = '/template-store/categories/manage-subcategories';
-    public const TemplateSubSubCategories = '/template-store/categories/manage-sub-subcategories';
-    public const TemplateBlog = '/template-store/manage-blogs';
-    public const TemplateNew = '/template-store/new-template';
-    public const TemplateSeller = '/template-store/manage-sellers';
-    public const TemplateAudio = '/template-store/manage-audios';
-    public const TemplateAudioPlaylist = '/template-store/manage-audio-playlists';
-    public const TemplateSubscription = '/template-store/manage-subscriptions';
-    public const TemplateContact = '/template-store/manage-contacts';
-    public const TemplateHire = '/template-store/manage-hires';
+    public const TemplateDashboard = '/private/template-store/dashboard';
+    public const TemplateCategories = '/private/template-store/categories/manage-categories';
+    public const TemplateSubCategories = '/private/template-store/categories/manage-subcategories';
+    public const TemplateSubSubCategories = '/private/template-store/categories/manage-sub-subcategories';
+    public const TemplateBlog = '/private/template-store/manage-blogs';
+    public const TemplateNew = '/private/template-store/new-template';
+    public const TemplateSeller = '/private/template-store/manage-sellers';
+    public const TemplateAudio = '/private/template-store/manage-audios';
+    public const TemplateAudioPlaylist = '/private/template-store/manage-audio-playlists';
+    public const TemplatePage = '/private/template-store/manage-pages';
+    public const TemplateSubscription = '/private/template-store/manage-subscriptions';
+    public const TemplateContact = '/private/template-store/manage-contacts';
+    public const TemplateHire = '/private/template-store/manage-hires';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.

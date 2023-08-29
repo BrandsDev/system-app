@@ -47,4 +47,20 @@ class Template extends Model
         'status',
         'comment',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(TemplateCategory::class, 'category_name', 'category_name');
+    }
+
+    public function subcategory()
+    {
+        return $this->belongsTo(TemplateSubcategory::class, 'subcategory_name', 'subcategory_name');
+    }
+
+    public function subSubcategory()
+    {
+        return $this->belongsTo(TemplateSubSubcategory::class, 'sub_subcategory_name', 'sub_subcategory_name');
+    }
+
 }

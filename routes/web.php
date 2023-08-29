@@ -17,6 +17,7 @@ use App\Http\Controllers\Book\BookAudioController;
 
 // Template
 use App\Http\Controllers\Template\TemplateController;
+use App\Http\Controllers\Template\TemplatePageController;
 use App\Http\Controllers\Template\TemplateSellerController;
 use App\Http\Controllers\Template\TemplateSiteController;
 use App\Http\Controllers\Template\TemplateAboutController;
@@ -83,8 +84,17 @@ Route::get('book/terms-of-service', [BookTermController::class, 'index'])->name(
 
 // Template
 Route::get('template-store', [TemplateController::class, 'index'])->name('template.home');
-Route::get('template-store/store', [TemplateController::class, 'templateStore'])->name('template.store');
+Route::get('template-store/templates', [TemplateController::class, 'templateStore'])->name('template.store');
 Route::get('template-store/detail/{slug}', [TemplateController::class, 'detail'])->name('template.detail');
+
+// Menu
+Route::get('template-store/templates/{category:slug}', [TemplateController::class, 'showByCategory'])->name('category.show');
+Route::get('template-store/templates/category/{subcategory:slug}', [TemplateController::class, 'showBySubcategory'])->name('subcategory.show');
+Route::get('template-store/templates/category/subcategory/{subSubcategory:slug}', [TemplateController::class, 'showBySubSubcategory'])->name('subSubcategory.show');
+
+// Route::get('/{primaryMenuSlug}', [TemplatePageController::class, 'showPrimaryMenu'])->name('template.showPrimaryMenu');
+// Route::get('/{primaryMenuSlug}/{subPrimaryMenuSlug}', [TemplatePageController::class, 'showSubPrimaryMenu'])->name('template.showSubPrimaryMenu');
+// Route::get('/{primaryMenuSlug}/{subPrimaryMenuSlug}/{subSubPrimaryMenuSlug}', [TemplatePageController::class, 'showSubSubPrimaryMenu'])->name('template.showSubSubPrimaryMenu');
 
 // Template -> Blog
 Route::get('template-store/blog', [TemplateBlogController::class, 'index'])->name('template.blog');
@@ -290,6 +300,15 @@ Route::get('/private/template-store/manage-audio-playlist/edit/{id}', [TemplateA
 Route::put('/private/template-store/manage-audio-playlist/update/{id}', [TemplateAudioController::class, 'update'])->middleware(['auth', 'verified'])->name('template.audio-playlist.update');
 Route::delete('/private/template-store/manage-audio-playlist/destroy/{id}', [TemplateAudioController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.audio-playlist.destroy');
 
+// Pages
+Route::get('/private/template-store/manage-pages', [TemplatePageController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-pages');
+Route::get('/private/template-store/manage-pages/new-page', [TemplatePageController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-page');
+Route::post('/private/template-store/manage-pages/new-page/store', [TemplatePageController::class, 'store'])->middleware(['auth', 'verified'])->name('template.new-page.store');
+Route::get('/private/template-store/manage-pages/view/{id}', [TemplatePageController::class, 'view'])->middleware(['auth', 'verified'])->name('template.page.view');
+Route::get('/private/template-store/manage-pages/edit/{id}', [TemplatePageController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.page.edit');
+Route::put('/private/template-store/manage-pages/update/{id}', [TemplatePageController::class, 'update'])->middleware(['auth', 'verified'])->name('template.page.update');
+Route::delete('/private/template-store/manage-pages/destroy/{id}', [TemplatePageController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.page.destroy');
+
 // Subscription
 Route::get('/private/template-store/manage-subscriptions', [TemplateSubscriptionController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-subscriptions');
 Route::get('/private/template-store/manage-subscriptions/new-subscription', [TemplateSubscriptionController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-subscription');
@@ -307,7 +326,7 @@ Route::get('/private/template-store/manage-contacts/view/{id}', [TemplateContact
 Route::put('/private/template-store/manage-contacts/update/{id}', [TemplateContactController::class, 'update'])->middleware(['auth', 'verified'])->name('template.contact.update');
 Route::delete('/private/template-store/manage-contacts/destroy/{id}', [TemplateContactController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.contact.destroy');
 
-// Contact
+// Hire
 Route::get('/private/template-store/manage-hires', [TemplateHireController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-hires');
 Route::get('/private/template-store/manage-hires/new-hire', [TemplateHireController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-hire');
 Route::post('/private/template-store/manage-hires/new-hire/store', [TemplateHireController::class, 'store'])->middleware(['auth', 'verified'])->name('template.new-hire.store');
