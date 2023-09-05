@@ -56,7 +56,8 @@
                     <tr>
                         <th>Image</th>
                         <th>Name</th>
-                        <th>Seller Name</th>
+                        <th>Category</th>
+                        <th>Seller</th>
                         <th>Featured?</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -67,6 +68,7 @@
                     <tr>
                         <td><img src="{{ asset('template/image/' . $template->image) }}" class="" alt="..." height="42" width="42" /></td>
                         <td>{{ $template->name }}</td>
+                        <td>{{ $template->sub_subcategory_name ?: ($template->subcategory_name ?: $template->category_name) }}</td>
                         <td>{{ $template->seller_name }}</td>
                         <td>@if($template->is_featured == 1) Yes @else No @endif</td>
                         <td>@if($template->status == 1) Published @else Draft @endif</td>
@@ -107,7 +109,8 @@
                     <tr>
                         <th>Image</th>
                         <th>Name</th>
-                        <th>Seller Name</th>
+                        <th>Category</th>
+                        <th>Seller</th>
                         <th>Featured?</th>
                         <th>Status</th>
                         <th>Action</th>

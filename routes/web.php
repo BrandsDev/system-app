@@ -87,14 +87,13 @@ Route::get('template-store', [TemplateController::class, 'index'])->name('templa
 Route::get('template-store/templates', [TemplateController::class, 'templateStore'])->name('template.store');
 Route::get('template-store/detail/{slug}', [TemplateController::class, 'detail'])->name('template.detail');
 
-// Menu
-Route::get('template-store/templates/{category:slug}', [TemplateController::class, 'showByCategory'])->name('category.show');
-Route::get('template-store/templates/category/{subcategory:slug}', [TemplateController::class, 'showBySubcategory'])->name('subcategory.show');
-Route::get('template-store/templates/category/subcategory/{subSubcategory:slug}', [TemplateController::class, 'showBySubSubcategory'])->name('subSubcategory.show');
+// Template Pages
+// Route::get('template-store/{slug}', [TemplatePageController::class, 'index'])->name('template.page');
 
-// Route::get('/{primaryMenuSlug}', [TemplatePageController::class, 'showPrimaryMenu'])->name('template.showPrimaryMenu');
-// Route::get('/{primaryMenuSlug}/{subPrimaryMenuSlug}', [TemplatePageController::class, 'showSubPrimaryMenu'])->name('template.showSubPrimaryMenu');
-// Route::get('/{primaryMenuSlug}/{subPrimaryMenuSlug}/{subSubPrimaryMenuSlug}', [TemplatePageController::class, 'showSubSubPrimaryMenu'])->name('template.showSubSubPrimaryMenu');
+// Menu
+Route::get('template-store/template/category/{category:slug}', [TemplateController::class, 'showByCategory'])->name('category.show');
+Route::get('template-store/template/category/{category:slug}/{subcategory:slug}', [TemplateController::class, 'showBySubcategory'])->name('subcategory.show');
+Route::get('template-store/template/category/{category:slug}/{subcategory:slug}/{subSubcategory:slug}', [TemplateController::class, 'showBySubSubcategory'])->name('subSubcategory.show');
 
 // Template -> Blog
 Route::get('template-store/blog', [TemplateBlogController::class, 'index'])->name('template.blog');

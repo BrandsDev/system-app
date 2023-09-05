@@ -1,9 +1,16 @@
+{{ $template->sub_subcategory_name ?: ($template->subcategory_name ?: $template->category_name) }}
 ---------------
 Setup Environment
 ---------------
 # install local server, vendor, composer, nodeJS, npm install
 
 https://forms.gle/5v6epY8wdiXfHykM9
+database
+user
+HtArnSHaaqMch7gYJCpF
+
+Site User: site-user-ssh
+Site User Password: 5yNUcdQPQ5cgvyiO2Xp1
 ---------------
 Domain 
 ---------------

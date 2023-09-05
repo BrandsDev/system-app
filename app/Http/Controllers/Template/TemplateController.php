@@ -15,6 +15,7 @@ use App\Providers\RouteServiceProvider;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use Session;
 
@@ -27,8 +28,51 @@ class TemplateController extends Controller
         return view('frontend.template.welcome', ['templates' => $templates]);
     }
 
+    public function generateBreadcrumbs($url)
+    {
+        $breadcrumbs = [];
+
+        $segments = explode('/', $url);
+
+        // Remove empty segments
+        $segments = array_filter($segments);
+
+        $currentUrl = '';
+
+        foreach ($segments as $segment) {
+            $currentUrl .= '/' . $segment;
+
+            // Get the category, subcategory, or sub-subcategory based on the URL segment
+            $category = TemplateCategory::where('slug', $segment)->first();
+            $subcategory = TemplateSubcategory::where('slug', $segment)->first();
+            $subSubcategory = TemplateSubSubcategory::where('slug', $segment)->first();
+
+            if ($category) {
+                $breadcrumbs[] = [
+                    'name' => $category->category_name,
+                    'url' => url($currentUrl),
+                ];
+            } elseif ($subcategory) {
+                $breadcrumbs[] = [
+                    'name' => $subcategory->subcategory_name,
+                    'url' => url($currentUrl),
+                ];
+            } elseif ($subSubcategory) {
+                $breadcrumbs[] = [
+                    'name' => $subSubcategory->sub_subcategory_name,
+                    'url' => url($currentUrl),
+                ];
+            }
+        }
+
+        return $breadcrumbs;
+    }
+
+
     public function templateStore()
     {
+        $breadcrumbs = $this->generateBreadcrumbs(request()->getPathInfo());
+        
         $categories = TemplateCategory::all();
         $subcategories = TemplateSubcategory::all();
         $sub_subcategories = TemplateSubSubcategory::all();
@@ -36,6 +80,7 @@ class TemplateController extends Controller
         $templates = Template::take(60)->get();
 
         return view('frontend.template.template-store', [
+            'breadcrumbs' => $breadcrumbs,
             'templates' => $templates,
             'categories' => $categories,
             'subcategories' => $subcategories,
@@ -45,6 +90,8 @@ class TemplateController extends Controller
 
     public function showByCategory(TemplateCategory $category)
     {
+        $breadcrumbs = $this->generateBreadcrumbs(request()->getPathInfo());
+
         $categories = TemplateCategory::all();
         $subcategories = TemplateSubcategory::all();
         $sub_subcategories = TemplateSubSubcategory::all();
@@ -52,34 +99,13 @@ class TemplateController extends Controller
         // Retrieve templates with related category
         $templates = Template::with('category')
             ->whereHas('category', function ($query) {
-                $query->where('slug', request()->segment(3)); // Assuming the slug is the second URL segment
-            })
-            ->take(60)
-            ->get();
-
-        return view('frontend.template.template-store', [
-            'templates' => $templates,
-            'categories' => $categories,
-            'subcategories' => $subcategories,
-            'sub_subcategories' => $sub_subcategories,
-        ]);
-    }
-
-    public function showBySubcategory(TemplateSubcategory $subcategory)
-    {
-        $categories = TemplateCategory::all();
-        $subcategories = TemplateSubcategory::all();
-        $sub_subcategories = TemplateSubSubcategory::all();
-
-        // Retrieve templates with related category
-        $templates = Template::with('subcategory')
-            ->whereHas('subcategory', function ($query) {
                 $query->where('slug', request()->segment(4)); // Assuming the slug is the second URL segment
             })
             ->take(60)
             ->get();
 
         return view('frontend.template.template-store', [
+            'breadcrumbs' => $breadcrumbs,
             'templates' => $templates,
             'categories' => $categories,
             'subcategories' => $subcategories,
@@ -87,21 +113,48 @@ class TemplateController extends Controller
         ]);
     }
 
-    public function showBySubSubcategory(TemplateSubSubcategory $subSubcategory)
+    public function showBySubcategory(TemplateCategory $category, TemplateSubcategory $subcategory)
     {
+        $breadcrumbs = $this->generateBreadcrumbs(request()->getPathInfo());
+
         $categories = TemplateCategory::all();
         $subcategories = TemplateSubcategory::all();
         $sub_subcategories = TemplateSubSubcategory::all();
 
-        // Retrieve templates with related category
-        $templates = Template::with('subSubcategory')
-            ->whereHas('subSubcategory', function ($query) {
-                $query->where('slug', request()->segment(5)); // Assuming the slug is the second URL segment
-            })
+        // Retrieve templates with related category and subcategory
+        $templates = Template::with(['category', 'subcategory'])
+            ->where('category_name', $category->category_name)
+            ->where('subcategory_name', $subcategory->subcategory_name)
             ->take(60)
             ->get();
 
         return view('frontend.template.template-store', [
+            'breadcrumbs' => $breadcrumbs,
+            'templates' => $templates,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+            'sub_subcategories' => $sub_subcategories,
+        ]);
+    }
+
+    public function showBySubSubcategory(TemplateCategory $category, TemplateSubcategory $subcategory, TemplateSubSubcategory $subSubcategory)
+    {
+        $breadcrumbs = $this->generateBreadcrumbs(request()->getPathInfo());
+
+        $categories = TemplateCategory::all();
+        $subcategories = TemplateSubcategory::all();
+        $sub_subcategories = TemplateSubSubcategory::all();
+
+        // Retrieve templates with related category, subcategory, and sub-subcategory
+        $templates = Template::with(['category', 'subcategory', 'subSubcategory'])
+            ->where('category_name', $category->category_name)
+            ->where('subcategory_name', $subcategory->subcategory_name)
+            ->where('sub_subcategory_name', $subSubcategory->sub_subcategory_name)
+            ->take(60)
+            ->get();
+
+        return view('frontend.template.template-store', [
+            'breadcrumbs' => $breadcrumbs,
             'templates' => $templates,
             'categories' => $categories,
             'subcategories' => $subcategories,

@@ -7,7 +7,7 @@
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="{{ route('template.home') }}">Home</a></li>
-							<li class="breadcrumb-item active" aria-current="page">{{ $page->name }}</li>
+							<li class="breadcrumb-item active" aria-current="page">{{ $pageContent->name }}</li>
 						</ol>
 					</nav>
 				</div>
@@ -18,7 +18,7 @@
 		<section>
 			<div class="row">
 				<div class="col-12">
-					{!! $page->long_description !!}
+					{!! $pageContent->long_description !!}
 				</div>
 			</div>
 		</section>

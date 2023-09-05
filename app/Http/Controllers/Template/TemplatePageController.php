@@ -16,9 +16,12 @@ use Session;
 
 class TemplatePageController extends Controller
 {
-    public function index()
+    public function index($slug)
     {
-        return redirect()->back();
+        $pages = TemplatePage::all();
+        $pageContent = TemplatePage::where('slug', $slug)->firstOrFail();
+
+        return view('frontend.template.skeleton.body', ['pages' => $pages, 'pageContent' => $pageContent]);
     }
 
     public function showPrimaryMenu($primaryMenuSlug)
@@ -240,7 +243,7 @@ class TemplatePageController extends Controller
 
         Session::flash('update', __('Page Successfully Updated!'));
         
-        return redirect()->back();
+        return redirect(RouteServiceProvider::TemplatePage);
     }
 
     public function destroy(Request $request, $id)

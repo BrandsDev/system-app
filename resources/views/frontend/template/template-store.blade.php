@@ -14,11 +14,14 @@
             <div class="row">
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
+					    <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('template.home') }}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Template Store</li>
-                        </ol>
-                    </nav>
+                            <li class="breadcrumb-item"><a href="{{ route('template.store') }}">Templates</a></li>
+					        @foreach ($breadcrumbs as $breadcrumb)
+					            <li class="breadcrumb-item"><a href="{{ $breadcrumb['url'] }}">{{ $breadcrumb['name'] }}</a></li>
+					        @endforeach
+					    </ol>
+					</nav>
                 </div>
             </div>
         </section>
@@ -50,13 +53,13 @@
 						                                                <ul class="navbar-nav flex-column">
 						                                                    @foreach($subcategory->subSubcategories as $subSubcategory)
 						                                                        <li class="nav-item">
-						                                                            <a class="nav-link custom-margin" href="{{ route('subSubcategory.show', $subSubcategory->slug) }}">{{ $subSubcategory->sub_subcategory_name }}</a>
+						                                                            <a class="nav-link custom-margin" href="{{ route('subSubcategory.show', ['category' => $category->slug, 'subcategory' => $subcategory->slug, 'subSubcategory' => $subSubcategory->slug]) }}">{{ $subSubcategory->sub_subcategory_name }}</a>
 						                                                        </li>
 						                                                    @endforeach
 						                                                </ul>
 						                                            </div>
 						                                        @else
-						                                            <a class="nav-link ms-3" href="{{ route('subcategory.show', $subcategory->slug) }}">{{ $subcategory->subcategory_name }}</a>
+						                                            <a class="nav-link ms-3" href="{{ route('subcategory.show', ['category' => $category->slug, 'subcategory' => $subcategory->slug]) }}">{{ $subcategory->subcategory_name }}</a>
 						                                        @endif
 						                                    </li>
 						                                @endforeach
@@ -120,7 +123,34 @@
 										            </ul>
 										            <ul class="d-flex list-unstyled mt-auto">
 										              <li class="me-auto">
-										                <small><a href="{{ route('template.store') }}" class="link-dark">{{ $template->category_name }}</a></small>
+										                <small>
+															@if ($template->category_name)
+															    @if ($template->category)
+															        <a href="{{ route('category.show', ['category' => $template->category->slug]) }}" class="link-dark">
+															            {{ $template->category_name }}
+															        </a>
+															    @endif
+															@elseif ($template->subcategory_name)
+															    @if ($template->subcategory)
+															        <a href="{{ route('subcategory.show', [
+															                        'category' => $template->subcategory->category->slug,
+															                        'subcategory' => $template->subcategory->slug,
+															                    ]) }}" class="link-dark">
+															            {{ $template->subcategory_name }}
+															        </a>
+															    @endif
+															@elseif ($template->sub_subcategory_name)
+															    @if ($template->sub_subcategory)
+															        <a href="{{ route('subSubcategory.show', [
+															                        'category' => $template->subcategory->category->slug,
+															                        'subcategory' => $template->subcategory->slug,
+															                        'subSubcategory' => $template->sub_subcategory->slug,
+															                    ]) }}" class="link-dark">
+															            {{ $template->sub_subcategory_name }}
+															        </a>
+															    @endif
+															@endif
+												        </small>
 										              </li>
 										              <li class="d-flex align-items-center">
 										                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
@@ -140,52 +170,6 @@
             </div>
             <!-- End Templates -->
         </div>
-
-		<div class="row">
-			<div class="col-sm-3">
-				
-			</div>
-			<div class="col-sm-9">
-				<div class="row">
-					<div class="col-8 col-sm-12">
-						
-					</div>
-				</div>
-			</div>
-		</div>
-
-        <!-- Content -->
-        <section>
-			<div class="mt-3"></div>
-	  <div class="row">
-	    <div class="col-sm-3">
-			
-		</div>
-    </div>
-    <div class="col-sm-9">
-      <div class="row">
-        <div class="col-8 col-sm-6">
-          	
-        </div>
-      </div>
-    </div>
-  </div>
-
-			<div class="row border-top-0 border-start-0 border-bottom-0 border-end-0">
-				
-
-				<!-- Latest Item -->
-				<div class="row border-top-0 border-start-0 border-bottom-0 border-end-0">
-					<div class="col-lg-9">
-						
-					</div>
-
-					<!-- Template Section -->
-					
-				</div>
-			</div>
-        </section>
-        <!-- End Content -->
 
         <!-- Questions or Suggestions -->
         <section>

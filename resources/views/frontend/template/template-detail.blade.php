@@ -104,7 +104,33 @@
 						</li>
 						<li class="list-group-item d-flex justify-content-between align-items-center bg-light">
 							Category
-							<a href="{{ url('/' . $template->slug) }}" class="link-dark">{{ $template->category_name }}</a>
+							
+							@if ($template->category_name)
+							    @if ($template->category)
+							        <a href="{{ route('category.show', ['category' => $template->category->slug]) }}" class="link-dark">
+							            {{ $template->category_name }}
+							        </a>
+							    @endif
+							@elseif ($template->subcategory_name)
+							    @if ($template->subcategory)
+							        <a href="{{ route('subcategory.show', [
+							                        'category' => $template->subcategory->category->slug,
+							                        'subcategory' => $template->subcategory->slug,
+							                    ]) }}" class="link-dark">
+							            {{ $template->subcategory_name }}
+							        </a>
+							    @endif
+							@elseif ($template->sub_subcategory_name)
+							    @if ($template->sub_subcategory)
+							        <a href="{{ route('subSubcategory.show', [
+							                        'category' => $template->subcategory->category->slug,
+							                        'subcategory' => $template->subcategory->slug,
+							                        'subSubcategory' => $template->sub_subcategory->slug,
+							                    ]) }}" class="link-dark">
+							            {{ $template->sub_subcategory_name }}
+							        </a>
+							    @endif
+							@endif
 						</li>
 						<li class="list-group-item d-flex justify-content-between align-items-center bg-light">
 							Questions?
@@ -188,7 +214,34 @@
 							            </ul>
 							            <ul class="d-flex list-unstyled mt-auto">
 							              <li class="me-auto">
-							                <small><a href="{{ route('template.store') }}" class="link-dark">{{ $template->category_name }}</a></small>
+							                <small>
+																@if ($template->category_name)
+																    @if ($template->category)
+																        <a href="{{ route('category.show', ['category' => $template->category->slug]) }}" class="link-dark">
+																            {{ $template->category_name }}
+																        </a>
+																    @endif
+																@elseif ($template->subcategory_name)
+																    @if ($template->subcategory)
+																        <a href="{{ route('subcategory.show', [
+																                        'category' => $template->subcategory->category->slug,
+																                        'subcategory' => $template->subcategory->slug,
+																                    ]) }}" class="link-dark">
+																            {{ $template->subcategory_name }}
+																        </a>
+																    @endif
+																@elseif ($template->sub_subcategory_name)
+																    @if ($template->sub_subcategory)
+																        <a href="{{ route('subSubcategory.show', [
+																                        'category' => $template->subcategory->category->slug,
+																                        'subcategory' => $template->subcategory->slug,
+																                        'subSubcategory' => $template->sub_subcategory->slug,
+																                    ]) }}" class="link-dark">
+																            {{ $template->sub_subcategory_name }}
+																        </a>
+																    @endif
+																@endif
+															</small>
 							              </li>
 							              <li class="d-flex align-items-center">
 							                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Template;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\Template\TemplatePrivacy;
+use App\Models\Template\TemplatePage;
 
 use Illuminate\Http\Request;
 
@@ -15,8 +15,9 @@ class TemplatePrivacyController extends Controller
      */
     public function index()
     {
-        //
-        return view('frontend.template.privacy-policy');
+        $page = TemplatePage::where('slug', 'privacy-policy')->firstOrFail();
+
+        return view('frontend.template.privacy-policy', ['page' => $page]);
     }
 
     /**

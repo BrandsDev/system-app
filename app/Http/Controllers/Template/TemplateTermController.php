@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Template;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\Template\TemplateTerm;
+use App\Models\Template\TemplatePage;
 
 use Illuminate\Http\Request;
 
@@ -15,8 +15,9 @@ class TemplateTermController extends Controller
      */
     public function index()
     {
-        //
-        return view('frontend.template.terms-of-service');
+        $page = TemplatePage::where('slug', 'terms-of-service')->firstOrFail();
+        
+        return view('frontend.template.terms-of-service', ['page' => $page]);
     }
 
     /**

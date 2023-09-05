@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Template;
 
 use App\Http\Controllers\Controller;
 
-use App\Models\Template\TemplateAbout;
+use App\Models\Template\TemplatePage;
 
 use Illuminate\Http\Request;
 
@@ -23,8 +23,9 @@ class TemplateAboutController extends Controller
      */
     public function overview()
     {
-        //
-        return view('frontend.template.about.overview');
+        $page = TemplatePage::where('slug', 'overview')->firstOrFail();
+
+        return view('frontend.template.about.overview', ['page' => $page]);
     }
 
     /**
@@ -32,8 +33,9 @@ class TemplateAboutController extends Controller
      */
     public function brand()
     {
-        //
-        return view('frontend.template.about.brand');
+        $page = TemplatePage::where('slug', 'brand')->firstOrFail();
+
+        return view('frontend.template.about.brand', ['page' => $page]);
     }
 
     /**
@@ -41,8 +43,9 @@ class TemplateAboutController extends Controller
      */
     public function license()
     {
-        //
-        return view('frontend.template.about.license');
+        $page = TemplatePage::where('slug', 'license')->firstOrFail();
+
+        return view('frontend.template.about.license', ['page' => $page]);
     }
 
     /**

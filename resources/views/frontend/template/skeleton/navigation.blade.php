@@ -10,7 +10,6 @@
 					<div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
 						<ul class="navbar-nav">
 							<li class="nav-item"><a href="{{ route('template.why-our-themes') }}" class="nav-link">Why Our Templates?</a></li>
-							<!-- <li class="nav-item"><a href="{{ url('/fix-errors') }}" class="nav-link">Fix Errors</a></li> -->
 							<li class="nav-item"><a href="{{ route('template.blog') }}" class="nav-link">Blog</a></li>
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -24,6 +23,7 @@
 							</li>
 							<li class="nav-item"><a href="{{ url('template-store/qr-code-generator') }}" class="nav-link">QR Code Gen</a></li>
 							<li class="nav-item"><a href="{{ route('template.hire-us') }}" class="nav-link">Hire Us</a></li>
+							<!-- <li class="nav-item"><a href="{{ url('/fix-errors') }}" class="nav-link">Fix Errors</a></li> -->
 						</ul>
 					</div>
 				</div>
