@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2023 at 11:01 AM
+-- Generation Time: Sep 05, 2023 at 08:50 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -69,18 +69,6 @@ INSERT INTO `books` (`id`, `name`, `slug`, `category_name`, `subcategory_name`, 
 (2, 'মহিমান্বিত কুরআন – মর্মার্থ ও শাব্দিক অনুবাদ, শুয়ুখ সংস্করণ', 'mohimannito-quran-shuyukh-songskoron', 'কুরআন ও হাদিস', 'মহিমান্বিত কুরআন', NULL, 'MQ002', '1200', '1200', NULL, 'ইলাননূর পাবলিকেশন', NULL, 'ইলাননূর সম্পাদনা পরিষদ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 'mohimannito-quran-shuyukh-songskoron-front-cover.jpg', NULL, NULL, NULL, NULL, NULL, '2023-07-24 22:54:20', '2023-07-24 22:58:15'),
 (3, 'The Glorious Quran', 'the-glorious-quran-6', 'কুরআন ও হাদিস', 'মহিমান্বিত কুরআন', NULL, 'GQ001', '1350', '1500', NULL, 'ইলাননূর পাবলিকেশন', NULL, 'ইলাননূর সম্পাদনা পরিষদ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 'the-glorious-quran-front-cover.jpg', NULL, NULL, NULL, NULL, NULL, '2023-07-24 22:54:53', '2023-07-24 22:57:59'),
 (4, 'Le Glorieux Saint QUR’AN', 'le-glorieux-saint-quran', 'কুরআন ও হাদিস', 'মহিমান্বিত কুরআন', NULL, 'FQ001', '1250', '1000', NULL, 'ইলাননূর পাবলিকেশন', NULL, 'ইলাননূর সম্পাদনা পরিষদ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 'le-glorieux-saint-quran-fornt-cover.jpg', NULL, NULL, NULL, NULL, NULL, '2023-07-24 22:56:09', '2023-07-24 22:58:26');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `book_abouts`
---
-
-CREATE TABLE `book_abouts` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -218,18 +206,6 @@ CREATE TABLE `book_contacts` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `book_privacys`
---
-
-CREATE TABLE `book_privacys` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `book_publishers`
 --
 
@@ -258,18 +234,6 @@ CREATE TABLE `book_publishers` (
 
 INSERT INTO `book_publishers` (`id`, `name`, `slug`, `mobile`, `email`, `address`, `description`, `youtube_iframe`, `meta_title`, `meta_description`, `image`, `og`, `banner`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'ইলাননূর পাবলিকেশন', 'ilannoor-publication', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ilannoor-publication-logo.png', 'ilannoor-publication-logo.png', 'ilannoor-publication-logo.png', NULL, '2023-07-24 22:50:26', '2023-07-24 22:50:26');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `book_skeletons`
---
-
-CREATE TABLE `book_skeletons` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -311,18 +275,6 @@ CREATE TABLE `book_sub_subcategories` (
   `thumb` text NOT NULL,
   `cover` text NOT NULL,
   `og_image` text NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `book_terms`
---
-
-CREATE TABLE `book_terms` (
-  `id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -427,7 +379,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (69, '2023_08_10_095108_create_template_subscriptions', 7),
 (70, '2023_08_12_101049_create_template_contacts', 8),
 (71, '2023_08_12_102208_create_template_contacts', 9),
-(72, '2023_08_13_061731_create_template_hires', 10);
+(72, '2023_08_13_061731_create_template_hires', 10),
+(73, '2023_08_24_040247_create_template_pages', 11);
 
 -- --------------------------------------------------------
 
@@ -508,20 +461,9 @@ CREATE TABLE `templates` (
 --
 
 INSERT INTO `templates` (`id`, `name`, `slug`, `category_name`, `subcategory_name`, `sub_subcategory_name`, `sku`, `sale_price`, `regular_price`, `commission`, `bootstrap_v`, `released`, `updated`, `version`, `seller_name`, `seller_email`, `short_description`, `long_description`, `change_log`, `youtube_iframe`, `header_content`, `meta_title`, `meta_description`, `order_type`, `is_featured`, `live_preview_link`, `downloadable_link`, `image`, `og`, `file`, `status`, `comment`, `created_at`, `updated_at`) VALUES
-(11, 'Phoenix – Admin Dashboard & WebApp Template', 'web-developer', 'OnePage', 'Portfolio', 'Personal', 'wd00001', NULL, NULL, NULL, '1', NULL, NULL, '1', 'Seller Name', 'a@a.a', '<p>From the creators of Falcon, Falcon React, and Sparrow, the core ThemeWagon team has built Phoenix to surpass all previous experiences. It is designed with a solid experience base of designing UX/UI for over a decade, along with the feedback from thousands of satisfied customers to contain a distilled experience of the team.</p>', '<p>From the creators of Falcon, Falcon React, and Sparrow, the core ThemeWagon team has built Phoenix to surpass all previous experiences. It is designed with a solid experience base of designing UX/UI for over a decade, along with the feedback from thousands of satisfied customers to contain a distilled experience of the team and the best of our designing experiences along with the front-end development with Bootstrap and modern JavaScript. Start with the solid base of Phoenix &ndash; not just to look good from the outside but also to have a code base that is solid, performant, and well-documented to modify without much hassle. The clean codes will help you rank higher in search engine results. The theme is built to be fully responsive to all screen sizes and devices, including retina screens, and is cross-browser compatible. In addition to the latest technologies, this template features all modern amenities like a burger menu, dark mode, geolocation, built-in fonts and icons, predefined HTML pages, and more on a meticulously designed layout. This template will surely help you excel in your next admin dashboard project. Enjoy creating with Phoenix!</p>\r\n<h3><strong>Key Features:</strong></h3>\r\n<ul>\r\n<li>Built on Bootstrap 5</li>\r\n<li>CSS3 &amp; HTML5</li>\r\n<li>Clean &amp; minimal design</li>\r\n<li>Fully Responsive</li>\r\n<li>No jQuery dependencies</li>\r\n<li>Cross-browser tested &amp; optimized</li>\r\n<li>Gulp &amp; Rollup based workflow</li>\r\n<li>Compatible with WebPack</li>\r\n<li>Modular markup based on Cards &amp; Utility classes</li>\r\n<li>W3C-validated HTML pages</li>\r\n<li>Dark and Light Modes Enabled</li>\r\n<li>100+ sets of UI Components</li>\r\n<li>35 sets of Plugins</li>\r\n<li>Thoughtfully redesigned popular plugins</li>\r\n<li>3 Sets of Icons</li>\r\n<li>Cross-browser tested &amp; optimized</li>\r\n<li>Lifetime free updates</li>\r\n<li>Full-width layouts</li>\r\n<li>Modular markup based on Cards &amp; Utility classes</li>\r\n<li>Interactive and functional components and pages</li>\r\n<li>FontAwesome 6 Icons Fonts Integrated</li>\r\n<li>Functional ChartJS, Echarts &amp; Leaflet Maps</li>\r\n<li>Figma design file</li>\r\n</ul>\r\n<h3>In the Box:</h3>\r\n<ul>\r\n<li>189 HTML files</li>\r\n<li>JavaScript source codes</li>\r\n<li>CSS &amp; SCSS source codes</li>\r\n<li>All demo images &amp; videos</li>\r\n<li>Pug source codes</li>\r\n<li>All plugins &amp; libraries</li>\r\n<li>Documentation</li>\r\n<li>Design Files (Figma)</li>\r\n</ul>\r\n<h3>Library &amp; Plug-ins</h3>\r\n<ul>\r\n<li>Echarts</li>\r\n<li>Chart.js</li>\r\n<li>List.js</li>\r\n<li>FontAwesome 6 Icons Fonts</li>\r\n<li>Feather Icons</li>\r\n<li>Unicons</li>\r\n<li>Choices.js</li>\r\n<li>Dropzone.js</li>\r\n<li>Tinymce</li>\r\n<li>Swiper</li>\r\n<li>Flatpickr&nbsp;</li>\r\n<li>Isotope</li>\r\n<li>Dayjs</li>\r\n<li>Is.js</li>\r\n<li>Lodash</li>\r\n</ul>', '<h3>v1.13.0&nbsp;&ndash; Auxo</h3>\r\n<p>18 June, 2023</p>\r\n<p><strong>New</strong></p>\r\n<ul>\r\n<li>PAGE :&nbsp;public/pages/faq/faq-tab.html</li>\r\n<li>PAGE :&nbsp;public/pages/errors/403.html</li>\r\n<li>PAGE :&nbsp;public/pages/authentication/simple/2FA.html</li>\r\n<li>PAGE :&nbsp;public/pages/authentication/split/2FA.html</li>\r\n<li>PAGE :&nbsp;public/pages/authentication/card/2FA.html</li>\r\n<li>JS :&nbsp;src/js/theme/faq-tab.js</li>\r\n<li>JS :&nbsp;src/js/theme/2fa-verification.js</li>\r\n<li>JS :&nbsp;src/js/theme/sortable.js</li>\r\n<li>JS :src/js/theme/kanban.js</li>\r\n<li>DOC :&nbsp;public/modules/components/sortable.html</li>\r\n</ul>\r\n<p><strong>Update</strong></p>\r\n<ul>\r\n<li>Added text-decoration-underline at links.</li>\r\n<li>JS :src/js/theme/calendar/app-calendar.js</li>\r\n</ul>\r\n<h3>Fix</h3>\r\n<ul>\r\n<li>Advance table issue fixed</li>\r\n<li>Other minor bugs</li>\r\n</ul>\r\n<hr>\r\n<h3>v1.12.0&nbsp;&ndash; Notus</h3>\r\n<p>15 May, 2023</p>\r\n<p><strong>New</strong></p>\r\n<ul>\r\n<li>PAGE :&nbsp;public/apps/kanban/boards.html</li>\r\n<li>PAGE :&nbsp;public/widgets.html</li>\r\n<li>FEATURE :&nbsp;Double top navigation</li>\r\n<li>FEATURE :&nbsp;Popover added in all avatar</li>\r\n<li>FEATURE :&nbsp;Bootstrap validation added of each advanced input fields</li>\r\n<li>JS :&nbsp;src/js/theme/create-board.js</li>\r\n<li>JS :&nbsp;src/js/theme/advance-ajax-table.js</li>\r\n</ul>\r\n<p><strong>Update</strong></p>\r\n<ul>\r\n<li>PAGE :&nbsp;public/apps/kanban/create-kanban-board.html</li>\r\n<li>DOC :&nbsp;public/documentation/layouts/vertical-navbar.html</li>\r\n<li>DOC :&nbsp;public/modules/tables/advance-tables.html</li>\r\n<li>DOC :&nbsp;public/modules/forms/advance/advance-select.html</li>\r\n<li>DOC :&nbsp;public/modules/forms/advance/date-picker.html</li>\r\n<li>JS :&nbsp;src/js/theme/wizard.js</li>\r\n</ul>\r\n<p><strong>Fix</strong></p>\r\n<ul>\r\n<li>SCSS !default issue fixed</li>\r\n<li>Page scroll issue fixed after navbar vertical collapsed</li>\r\n</ul>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'default-file.docx', 0, NULL, '2023-08-06 03:49:04', '2023-08-08 02:10:33'),
-(13, 'Graphics Designer', 'graphics-designer', 'OnePage', 'Portfolio', 'Personal', 'gd00001', NULL, NULL, NULL, '1', NULL, NULL, '1', 'Seller Name', 'a@a.a', '<p>Short Description</p>', '<p>Long Description</p>', '<p>Change Log</p>', 'Youtube Iframe', 'Header Content', 'Meta Title', 'Meta Description', 0, 1, 'http://localhost/ilannoor.institute/public/', 'http://localhost/ilannoor.institute/public/', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'default-file.docx', 1, '<p><label class=\"form-label\" for=\"comment\">Comment</label></p>', '2023-08-06 03:52:26', '2023-08-06 04:01:45');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `template_abouts`
---
-
-CREATE TABLE `template_abouts` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+(11, 'Portfolio', 'web-developer', 'Portfolio', NULL, NULL, 'wd00001', NULL, NULL, NULL, '1', NULL, NULL, '1', 'Seller Name', 'a@a.a', '<p>From the creators of Falcon, Falcon React, and Sparrow, the core ThemeWagon team has built Phoenix to surpass all previous experiences. It is designed with a solid experience base of designing UX/UI for over a decade, along with the feedback from thousands of satisfied customers to contain a distilled experience of the team.</p>', '<p>From the creators of Falcon, Falcon React, and Sparrow, the core ThemeWagon team has built Phoenix to surpass all previous experiences. It is designed with a solid experience base of designing UX/UI for over a decade, along with the feedback from thousands of satisfied customers to contain a distilled experience of the team and the best of our designing experiences along with the front-end development with Bootstrap and modern JavaScript. Start with the solid base of Phoenix &ndash; not just to look good from the outside but also to have a code base that is solid, performant, and well-documented to modify without much hassle. The clean codes will help you rank higher in search engine results. The theme is built to be fully responsive to all screen sizes and devices, including retina screens, and is cross-browser compatible. In addition to the latest technologies, this template features all modern amenities like a burger menu, dark mode, geolocation, built-in fonts and icons, predefined HTML pages, and more on a meticulously designed layout. This template will surely help you excel in your next admin dashboard project. Enjoy creating with Phoenix!</p>\r\n<h3><strong>Key Features:</strong></h3>\r\n<ul>\r\n<li>Built on Bootstrap 5</li>\r\n<li>CSS3 &amp; HTML5</li>\r\n<li>Clean &amp; minimal design</li>\r\n<li>Fully Responsive</li>\r\n<li>No jQuery dependencies</li>\r\n<li>Cross-browser tested &amp; optimized</li>\r\n<li>Gulp &amp; Rollup based workflow</li>\r\n<li>Compatible with WebPack</li>\r\n<li>Modular markup based on Cards &amp; Utility classes</li>\r\n<li>W3C-validated HTML pages</li>\r\n<li>Dark and Light Modes Enabled</li>\r\n<li>100+ sets of UI Components</li>\r\n<li>35 sets of Plugins</li>\r\n<li>Thoughtfully redesigned popular plugins</li>\r\n<li>3 Sets of Icons</li>\r\n<li>Cross-browser tested &amp; optimized</li>\r\n<li>Lifetime free updates</li>\r\n<li>Full-width layouts</li>\r\n<li>Modular markup based on Cards &amp; Utility classes</li>\r\n<li>Interactive and functional components and pages</li>\r\n<li>FontAwesome 6 Icons Fonts Integrated</li>\r\n<li>Functional ChartJS, Echarts &amp; Leaflet Maps</li>\r\n<li>Figma design file</li>\r\n</ul>\r\n<h3>In the Box:</h3>\r\n<ul>\r\n<li>189 HTML files</li>\r\n<li>JavaScript source codes</li>\r\n<li>CSS &amp; SCSS source codes</li>\r\n<li>All demo images &amp; videos</li>\r\n<li>Pug source codes</li>\r\n<li>All plugins &amp; libraries</li>\r\n<li>Documentation</li>\r\n<li>Design Files (Figma)</li>\r\n</ul>\r\n<h3>Library &amp; Plug-ins</h3>\r\n<ul>\r\n<li>Echarts</li>\r\n<li>Chart.js</li>\r\n<li>List.js</li>\r\n<li>FontAwesome 6 Icons Fonts</li>\r\n<li>Feather Icons</li>\r\n<li>Unicons</li>\r\n<li>Choices.js</li>\r\n<li>Dropzone.js</li>\r\n<li>Tinymce</li>\r\n<li>Swiper</li>\r\n<li>Flatpickr&nbsp;</li>\r\n<li>Isotope</li>\r\n<li>Dayjs</li>\r\n<li>Is.js</li>\r\n<li>Lodash</li>\r\n</ul>', '<h3>v1.13.0&nbsp;&ndash; Auxo</h3>\r\n<p>18 June, 2023</p>\r\n<p><strong>New</strong></p>\r\n<ul>\r\n<li>PAGE :&nbsp;public/pages/faq/faq-tab.html</li>\r\n<li>PAGE :&nbsp;public/pages/errors/403.html</li>\r\n<li>PAGE :&nbsp;public/pages/authentication/simple/2FA.html</li>\r\n<li>PAGE :&nbsp;public/pages/authentication/split/2FA.html</li>\r\n<li>PAGE :&nbsp;public/pages/authentication/card/2FA.html</li>\r\n<li>JS :&nbsp;src/js/theme/faq-tab.js</li>\r\n<li>JS :&nbsp;src/js/theme/2fa-verification.js</li>\r\n<li>JS :&nbsp;src/js/theme/sortable.js</li>\r\n<li>JS :src/js/theme/kanban.js</li>\r\n<li>DOC :&nbsp;public/modules/components/sortable.html</li>\r\n</ul>\r\n<p><strong>Update</strong></p>\r\n<ul>\r\n<li>Added text-decoration-underline at links.</li>\r\n<li>JS :src/js/theme/calendar/app-calendar.js</li>\r\n</ul>\r\n<h3>Fix</h3>\r\n<ul>\r\n<li>Advance table issue fixed</li>\r\n<li>Other minor bugs</li>\r\n</ul>\r\n<hr>\r\n<h3>v1.12.0&nbsp;&ndash; Notus</h3>\r\n<p>15 May, 2023</p>\r\n<p><strong>New</strong></p>\r\n<ul>\r\n<li>PAGE :&nbsp;public/apps/kanban/boards.html</li>\r\n<li>PAGE :&nbsp;public/widgets.html</li>\r\n<li>FEATURE :&nbsp;Double top navigation</li>\r\n<li>FEATURE :&nbsp;Popover added in all avatar</li>\r\n<li>FEATURE :&nbsp;Bootstrap validation added of each advanced input fields</li>\r\n<li>JS :&nbsp;src/js/theme/create-board.js</li>\r\n<li>JS :&nbsp;src/js/theme/advance-ajax-table.js</li>\r\n</ul>\r\n<p><strong>Update</strong></p>\r\n<ul>\r\n<li>PAGE :&nbsp;public/apps/kanban/create-kanban-board.html</li>\r\n<li>DOC :&nbsp;public/documentation/layouts/vertical-navbar.html</li>\r\n<li>DOC :&nbsp;public/modules/tables/advance-tables.html</li>\r\n<li>DOC :&nbsp;public/modules/forms/advance/advance-select.html</li>\r\n<li>DOC :&nbsp;public/modules/forms/advance/date-picker.html</li>\r\n<li>JS :&nbsp;src/js/theme/wizard.js</li>\r\n</ul>\r\n<p><strong>Fix</strong></p>\r\n<ul>\r\n<li>SCSS !default issue fixed</li>\r\n<li>Page scroll issue fixed after navbar vertical collapsed</li>\r\n</ul>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'default-file.docx', 0, NULL, '2023-08-06 03:49:04', '2023-08-29 23:11:42'),
+(13, 'OnePage -> Corporate', 'graphics-designer', 'OnePage', 'Corporate', NULL, 'gd00001', NULL, NULL, NULL, '1', NULL, NULL, '1', 'Seller Name', 'a@a.a', '<p>Short Description</p>', '<p>Long Description</p>', '<p>Change Log</p>', 'Youtube Iframe', 'Header Content', 'Meta Title', 'Meta Description', NULL, 1, 'http://localhost/ilannoor.institute/public/', 'http://localhost/ilannoor.institute/public/', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'default-file.docx', 1, '<p><label class=\"form-label\" for=\"comment\">Comment</label></p>', '2023-08-06 03:52:26', '2023-08-29 23:11:56'),
+(15, 'OnePage - Portfolio - Personal', 'onepage-portfolio-personal', 'OnePage', 'Portfolio', 'Personal', 'opp', NULL, NULL, NULL, '5.2', NULL, NULL, '1', 'Seller Name', 'a@a.a', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'default-og.png', 'default-file.docx', 0, NULL, '2023-08-28 22:44:33', '2023-08-28 22:44:33');
 
 -- --------------------------------------------------------
 
@@ -687,14 +629,46 @@ INSERT INTO `template_hires` (`id`, `name`, `email`, `budget`, `details`, `creat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `template_privacys`
+-- Table structure for table `template_pages`
 --
 
-CREATE TABLE `template_privacys` (
+CREATE TABLE `template_pages` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `slug` varchar(100) NOT NULL,
+  `tags` varchar(255) DEFAULT NULL,
+  `category_name` varchar(100) DEFAULT NULL,
+  `subcategory_name` varchar(100) DEFAULT NULL,
+  `sub_subcategory_name` varchar(100) DEFAULT NULL,
+  `short_description` text DEFAULT NULL,
+  `long_description` text DEFAULT NULL,
+  `youtube_iframe` text DEFAULT NULL,
+  `header_content` text DEFAULT NULL,
+  `meta_title` varchar(100) DEFAULT NULL,
+  `meta_description` varchar(200) DEFAULT NULL,
+  `thumb` varchar(255) NOT NULL DEFAULT 'default-thumb.png',
+  `breadcrumb_image` varchar(255) NOT NULL DEFAULT 'default-breadcrumb.png',
+  `cover_image` varchar(255) NOT NULL DEFAULT 'default-cover.png',
+  `og_image` varchar(255) NOT NULL DEFAULT 'default-og.png',
+  `status` tinyint(4) DEFAULT 0,
+  `comment` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `template_pages`
+--
+
+INSERT INTO `template_pages` (`id`, `name`, `title`, `slug`, `tags`, `category_name`, `subcategory_name`, `sub_subcategory_name`, `short_description`, `long_description`, `youtube_iframe`, `header_content`, `meta_title`, `meta_description`, `thumb`, `breadcrumb_image`, `cover_image`, `og_image`, `status`, `comment`, `created_at`, `updated_at`) VALUES
+(3, 'Why Our Templates?', 'Why Our Templates?', 'why-our-themes', 'Templates', NULL, NULL, NULL, NULL, '<h1>Download <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> Website Templates for Effortless Web Design</h1>\r\n<p>If you\'re a web developer or designer, you understand the challenges of creating a website from scratch. Not only does it require significant time and effort, but it also demands a high level of expertise in web development languages like <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> and <abbr class=\"initialism\" title=\"Cascading Style Sheet\">CSS</abbr>.</p>\r\n<p>However, there\'s an easier way to design a website that requires minimal coding and design skills. <abbr class=\"initialism\" title=\"HyperText Markup Language\"><strong>HTML</strong></abbr> <strong>website templates</strong> offer pre-designed layouts that can be customized to suit any purpose or aesthetic preference.</p>\r\n<p>In this article, we\'ll explore the benefits of downloading <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates and how they can help you create a professional-looking website with ease.</p>\r\n<h2>What are <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates?</h2>\r\n<p><abbr class=\"initialism\" title=\"HyperText Markup Language\"><strong>HTML</strong></abbr> <strong>website templates</strong> are pre-designed structures that provide the foundation for a website\'s layout and design. Templates come with pre-built components like headers, footers, and menus that can be customized with your own content and branding.</p>\r\n<p><abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> templates are compatible with popular web development languages like <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> and <abbr class=\"initialism\" title=\"Cascading Style Sheet\">CSS</abbr>, making it easy for web developers to customize and modify them to meet their specific needs.</p>\r\n<h2>Why should you use <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates?</h2>\r\n<p>Using HTML website templates offers several benefits, including:</p>\r\n<ul>\r\n<li class=\"fw-bold\">Time savings:</li>\r\n<li>Navigate to the website of your choice and download the desired <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> template. This saves you time in creating a website from scratch, enabling you to focus on the customizing the design and content of your website.</li>\r\n<li class=\"fw-bold\">User-friendly design:</li>\r\n<li><abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates come with pre-designed layouts and components that are optimized for user experience, saving you the effort of designing it yourself.</li>\r\n<li class=\"fw-bold\">Compatibility:</li>\r\n<li><abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates are compatible with popular web development languages like <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> and <abbr class=\"initialism\" title=\"Cascading Style Sheet\">CSS</abbr>. This means that you can easily modify and customize the templates to meet your specific needs.</li>\r\n<li class=\"fw-bold\">Responsive design:</li>\r\n<li>Many <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates are designed with responsive layouts that can adapt to any device, including mobile phones and tablets. This ensures that your website is accessible and user-friendly regardless of the user\'s device.</li>\r\n<li class=\"fw-bold\">SEO-friendly:</li>\r\n<li><abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates often include SEO best practices, such as properly structured headings, optimized images, and clean code. This ensures that your website is optimized for search engines, making it easier for users to find your site in search results.</li>\r\n</ul>\r\n<h2>How to download <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates</h2>\r\n<p>Downloading <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates is simple and straightforward. There are many websites that offer free <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website templates, including our website <a href=\"../../../../template-store/store\" target=\"_self\">System</a>. Once you\'ve found a template that meets your needs, you can download it and open it in your favorite text editor to begin customizing it.</p>\r\n<p>In conclusion, <abbr class=\"initialism\" title=\"HyperText Markup Language\"><strong>HTML</strong></abbr> <strong>website templates</strong> offer an efficient and user-friendly solution for web development that requires minimal coding and design skills. By using templates, you can save time and effort while creating a professional-looking website that is optimized for user experience and search engines.</p>\r\n<p>So why not give it a try? Download an <abbr class=\"initialism\" title=\"HyperText Markup Language\">HTML</abbr> website template today and start creating a website that will meet your needs and impress your visitors.</p>', NULL, NULL, NULL, NULL, 'dummy-icon-2.png', 'dummy-cover-2.jpg', 'dummy-cover-2.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og-2.jpg', 1, NULL, '2023-08-24 00:30:28', '2023-09-02 00:34:10'),
+(6, 'Blog', 'Blog', 'blog', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'default-thumb.png', 'default-breadcrumb.png', 'default-cover.png', 'default-og.png', NULL, NULL, '2023-09-02 23:28:13', '2023-09-02 23:28:13'),
+(7, 'Overview', 'Overview', 'overview', NULL, NULL, NULL, NULL, NULL, '<h1>About Our Company: Your Partner in Web Development</h1>\r\n<p>At our company, we pride ourselves on offering a wide range of web development services to our clients. Whether you\'re in need of a stunning <strong>website design, technical SEO expertise, or comprehensive on-page and off-page optimization</strong>, we\'ve got you covered.</p>\r\n<h2>Comprehensive Web Development Services</h2>\r\n<p>But that\'s not all we offer. We also specialize in <strong>WordPress installation and setup, website maintenance, copywriting, creative content creation, and graphic design</strong>. In other words, if you can dream it, we can build it.</p>\r\n<h3>Customized Plans for Every Client</h3>\r\n<p>We understand that every client has unique needs and goals, which is why we work closely with you to develop a customized plan that meets your specific requirements. From start to finish, we\'re committed to delivering exceptional results that exceed your expectations and <strong>help your business thrive in today\'s digital landscape</strong>.</p>\r\n<h4>Meet Our Talented Team</h4>\r\n<p>Our team is made up of <strong>experienced web developers, designers, SEO specialists, and content creators</strong> who are passionate about helping our clients succeed online. With a wide range of skills and expertise, we work together to deliver high-quality results that make a real impact.</p>\r\n<h5>A History of Success</h5>\r\n<p>Since our founding, we\'ve helped countless clients achieve their online goals, from small businesses just getting started to large corporations looking to revamp their online presence. Our dedication to excellence and commitment to our clients has earned us a reputation as one of the leading <strong>web development firms in the industry</strong>.</p>\r\n<h5>Get Involved</h5>\r\n<p>Ready to take your online presence to the next level? We invite you to explore all that our website has to offer, from our <strong>free website templates</strong> to our <strong>full suite of web development services</strong>. Contact us today to learn more about how we can help you achieve your online goals.</p>', NULL, NULL, NULL, NULL, 'default-thumb.png', 'default-breadcrumb.png', 'default-cover.png', 'default-og.png', 1, NULL, '2023-09-04 03:58:26', '2023-09-04 03:58:26'),
+(8, 'Brand', 'Brand', 'brand', NULL, NULL, NULL, NULL, NULL, '<h1>Brand Guidelines for Our Company: Your Partner in Web Development</h1>\r\n<p>At our company, we take our brand seriously. We know that our brand is more than just a logo and a color scheme. It\'s the way we communicate with our clients and the world, and it\'s how we represent ourselves as a <strong>leader in web development</strong>.</p>\r\n<h2>Our Brand Values</h2>\r\n<p>At our company, we are committed to the following brand values:</p>\r\n<ul>\r\n<li><strong>Excellence:</strong> We strive for excellence in everything we do, from the quality of our web development services to our communication with clients.</li>\r\n<li><strong>Innovation:</strong> We are always looking for new and better ways to help our clients succeed online, whether through cutting-edge technology or creative solutions.</li>\r\n<li><strong>Collaboration:</strong> We believe that collaboration is key to success, both within our team and with our clients.</li>\r\n<li><strong>Integrity:</strong> We are committed to honesty, transparency, and ethical business practices.</li>\r\n</ul>\r\n<h3>Our Logo</h3>\r\n<p>Our logo is an important representation of our brand, and we ask that it be used consistently and appropriately. The <strong>logo</strong> should not be altered in any way, and should always be displayed in its original colors and proportions.</p>\r\n<p>We also request that our logo never be used in a way that implies endorsement or partnership without our prior approval.</p>\r\n<div class=\"row border\">\r\n<div class=\"col text-center bg-light p-5\"><img src=\"../../../../../system/img/about/bootstrap-logo.svg\" alt=\"\" width=\"256\" height=\"204\"></div>\r\n</div>\r\n<div class=\"row border\">\r\n<div class=\"col\">\r\n<p class=\"mt-3\">Our <strong>logo</strong> mark is also available in black and white. All rules for our primary logo apply to these as well.</p>\r\n</div>\r\n</div>\r\n<div class=\"row border\">\r\n<div class=\"col text-center bg-light p-5\"><img src=\"../../../../../system/img/about/bootstrap-logo-black.svg\" alt=\"\" width=\"128\" height=\"102\"></div>\r\n<div class=\"col text-center bg-dark p-5\"><img src=\"../../../../../system/img/about/bootstrap-logo-white.svg\" alt=\"\" width=\"128\" height=\"102\"></div>\r\n</div>\r\n<div class=\"row mt-3\">\r\n<div class=\"col-12\">\r\n<h3>Our Name</h3>\r\n<p>Bootstrap should always be referred to as just Bootstrap. No Twitter before it and no capital s.</p>\r\n</div>\r\n<div class=\"col-4 p-4 text-center bg-light\">\r\n<p class=\"fs-3 fst-italic border-bottom\">Bootstrap</p>\r\n<p class=\"text-success fw-bold\">Correct</p>\r\n</div>\r\n<div class=\"col-4 p-4 text-center bg-light\">\r\n<p class=\"fs-3 fst-italic border-bottom\">BootStrap</p>\r\n<p class=\"text-danger fw-bold\">Incorrect</p>\r\n</div>\r\n<div class=\"col-4 p-4 text-center bg-light\">\r\n<p class=\"fs-3 fst-italic border-bottom\">Twitter Bootstrap</p>\r\n<p class=\"text-danger fw-bold\">Incorrect</p>\r\n</div>\r\n</div>\r\n<h4 class=\"mt-3\">Our Color Scheme</h4>\r\n<p>Our color scheme is an important part of our brand identity. Our primary colors are blue (#0065A4) and green (#66A023), and we ask that these colors be used consistently in all branding materials.</p>\r\n<p>Other colors may be used in a complementary way, but should not detract from the overall impact of our primary colors.</p>\r\n<h4>Our Tone of Voice</h4>\r\n<p>Our tone of voice is friendly, approachable, and professional. We strive to communicate clearly and effectively with our clients, while maintaining a positive and engaging attitude.</p>\r\n<p>We also recognize the importance of SEO-friendly content, and strive to incorporate relevant keywords and phrases in our content without sacrificing the quality or readability of our writing.</p>\r\n<h4>Get Involved</h4>\r\n<p>We invite our partners and clients to use our branding materials in a way that accurately represents our brand values and identity. If you have any questions about our brand guidelines, please don\'t hesitate to contact us.</p>', NULL, NULL, NULL, NULL, 'default-thumb.png', 'default-breadcrumb.png', 'default-cover.png', 'default-og.png', NULL, NULL, '2023-09-04 04:01:42', '2023-09-04 04:01:42'),
+(9, 'License', 'License', 'license', NULL, NULL, NULL, NULL, NULL, '<h1>License FAQs</h1>\r\n<h2>What are the Requirements of the License?</h2>\r\n<ul>\r\n<li>To use our <strong>templates</strong>, you must:</li>\r\n<ul>\r\n<li>Acknowledge our company as the original creator of the <strong>templates</strong>.</li>\r\n<li>Keep the copyright notice intact in the source code.</li>\r\n<li>Purchase a license if you want to use our <strong>templates</strong> for commercial projects.</li>\r\n</ul>\r\n</ul>\r\n<h3>What are the Permissions of the License?</h3>\r\n<ul>\r\n<li>Our license permits you to:</li>\r\n<ul>\r\n<li>Use the <strong>templates</strong>for personal or commercial projects.</li>\r\n<li>Modify the <strong>templates</strong> according to your needs.</li>\r\n<li>Distribute the modified <strong>templates</strong> under the same license.</li>\r\n</ul>\r\n</ul>\r\n<h3>What are the Prohibitions of the License?</h3>\r\n<ul>\r\n<li>Our license forbids you to:</li>\r\n<ul>\r\n<li>Sell or redistribute our <strong>templates</strong> without proper attribution.</li>\r\n<li>Use our <strong>templates</strong> for illegal or immoral purposes.</li>\r\n<li>Claim our <strong>templates</strong> as your own work.</li>\r\n</ul>\r\n</ul>\r\n<h4>What are the Non-Requirements of the License?</h4>\r\n<ul>\r\n<li>Our license does not require you to:</li>\r\n<ul>\r\n<li>Use our <strong>templates</strong> exclusively.</li>\r\n<li>Include any specific attribution format.</li>\r\n<li>Notify us about the use of our <strong>templates</strong>.</li>\r\n</ul>\r\n</ul>\r\n<p>By using our <strong>templates</strong>, you agree to the terms and conditions of our license. If you have any questions or concerns, please do not hesitate to contact us.</p>\r\n<h4>Conclusion</h4>\r\n<p>We aim to provide <strong>high-quality templates</strong> to help you create stunning websites and digital projects. We hope this guide has clarified the terms and conditions of our license. If you have any questions or suggestions, feel free to get in touch with our team. Thank you for choosing our templates!</p>', NULL, NULL, NULL, NULL, 'default-thumb.png', 'default-breadcrumb.png', 'default-cover.png', 'default-og.png', NULL, NULL, '2023-09-04 04:03:15', '2023-09-04 04:03:15'),
+(10, 'Privacy Policy', 'Privacy Policy', 'privacy-policy', NULL, NULL, NULL, NULL, NULL, '<h1>Privacy Policy</h1>\r\n<p>At our company, we are committed to protecting the privacy and security of our clients\' personal information. This Privacy Policy outlines the types of information we collect, how we use it, and the measures we take to keep it safe.</p>\r\n<h2>Information We Collect</h2>\r\n<p>We collect personal information such as your name, email address, phone number, and other contact details when you use our services. We may also collect other information such as your IP address, browser type, and device information.</p>\r\n<h3>How We Use Your Information</h3>\r\n<p>We use your personal information to provide you with the services you have requested, such as website development, technical SEO, on-page SEO, off-page SEO, WordPress installation and setup, website maintenance, copywriting, and creative content and graphics design. We may also use your information for marketing purposes, such as sending you newsletters or promotional offers. However, we will always give you the option to opt-out of these communications.</p>\r\n<h3>How We Protect Your Information</h3>\r\n<p>We take security seriously and have implemented measures to protect your personal information from unauthorized access, use, and disclosure. We use encryption, firewalls, and other security technologies to safeguard your information. We also limit access to your information to only those employees who need it to perform their job functions.</p>\r\n<h3>Sharing Your Information</h3>\r\n<p>We will never sell or rent your personal information to third parties. We may share your information with our trusted partners who provide services on our behalf, such as web hosting, payment processing, or customer support. We require these partners to protect your information in accordance with our Privacy Policy and applicable laws and regulations.</p>\r\n<h4>Your Rights and Choices</h4>\r\n<p>You have the right to access, correct, and delete your personal information. You can also object to the processing of your information or restrict the use of your information. To exercise these rights, please contact us using the information provided below.</p>\r\n<h4>Changes to Our Privacy Policy</h4>\r\n<p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal obligations. We encourage you to review this page periodically for the latest information.</p>\r\n<h4>Contact Us</h4>\r\n<p>If you have any questions or concerns about our Privacy Policy, please contact us at: Email: [insert email address] Phone: [insert phone number] Address: [insert address]</p>', NULL, NULL, NULL, NULL, 'default-thumb.png', 'default-breadcrumb.png', 'default-cover.png', 'default-og.png', NULL, NULL, '2023-09-04 04:07:36', '2023-09-04 04:07:36'),
+(11, 'Terms of Service', 'Terms of Service', 'terms-of-service', NULL, NULL, NULL, NULL, NULL, '<h1>Terms of Service</h1>\r\n<p>Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our Privacy Policy govern our relationship with you in relation to this website.</p>\r\n<h2>Products</h2>\r\n<p>Our website offers website templates, web development, technical SEO, on-page SEO, off-page SEO, WordPress installation and setup, website maintenance, copywriting, creative content, and graphic design services. All products and services offered are subject to availability and may be withdrawn at any time. We reserve the right to refuse to provide any product or service to anyone for any reason at any time.</p>\r\n<h3>Security</h3>\r\n<p>We are committed to ensuring that your information is secure. In order to prevent unauthorized access or disclosure, we have put in place suitable physical, electronic and managerial procedures to safeguard and secure the information we collect online.</p>\r\n<h3>Ownership</h3>\r\n<p>All content and materials available on our website, including but not limited to text, graphics, website name, code, images, and logos, are the intellectual property of our company and are protected by applicable copyright and trademark law. Any unauthorized use, including but not limited to reproduction, distribution, display or transmission of any content on this website is strictly prohibited, unless specifically authorized by our company.</p>\r\n<h3>Changes to terms</h3>\r\n<p>We reserve the right to modify these terms and conditions at any time, and without prior notice. Your continued use of our website after any such changes constitutes your acceptance of the new terms and conditions. It is your responsibility to check this page regularly for any updates or changes.</p>', NULL, NULL, NULL, NULL, 'default-thumb.png', 'default-breadcrumb.png', 'default-cover.png', 'default-og.png', NULL, NULL, '2023-09-04 04:08:47', '2023-09-04 04:08:47');
 
 -- --------------------------------------------------------
 
@@ -733,30 +707,6 @@ INSERT INTO `template_sellers` (`id`, `name`, `slug`, `gender`, `bio`, `mobile`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `template_sites`
---
-
-CREATE TABLE `template_sites` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `template_skeletons`
---
-
-CREATE TABLE `template_skeletons` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `template_subcategories`
 --
 
@@ -782,7 +732,8 @@ CREATE TABLE `template_subcategories` (
 
 INSERT INTO `template_subcategories` (`id`, `subcategory_name`, `slug`, `category_name`, `description`, `meta_title`, `meta_description`, `icon`, `thumb`, `cover`, `og_image`, `created_at`, `updated_at`) VALUES
 (1, 'Portfolio', 'portfolio', 'OnePage', '<p>Description</p>', 'Meta Title', 'Meta Description', 'dummy-icon.png', 'dummy-thumb.png', 'dummy-cover.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', '2023-08-06 02:44:22', '2023-08-06 02:44:22'),
-(2, 'Corporate', 'corporate', 'OnePage', '<p>Description</p>', '<p>Meta Title</p>', '<p>Meta Description</p>', 'dummy-icon.png', 'dummy-thumb.png', 'dummy-cover.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', '2023-08-06 02:50:53', '2023-08-06 02:54:13');
+(2, 'Corporate', 'corporate', 'OnePage', '<p>Description</p>', '<p>Meta Title</p>', '<p>Meta Description</p>', 'dummy-icon.png', 'dummy-thumb.png', 'dummy-cover.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', '2023-08-06 02:50:53', '2023-08-06 02:54:13'),
+(4, 'Food', 'food', 'Corporate', NULL, NULL, NULL, 'dummy-icon.png', 'dummy-thumb.png', 'dummy-cover.jpg', 'default-og-image.png', '2023-08-27 01:27:17', '2023-08-27 01:27:17');
 
 -- --------------------------------------------------------
 
@@ -803,7 +754,8 @@ CREATE TABLE `template_subscriptions` (
 
 INSERT INTO `template_subscriptions` (`id`, `email`, `created_at`, `updated_at`) VALUES
 (1, 'a11@a.a', '2023-08-10 04:33:17', '2023-08-12 23:22:49'),
-(14, 'support@ilannoor.com', '2023-08-12 22:59:38', '2023-08-12 22:59:38');
+(14, 'support@ilannoor.com', '2023-08-12 22:59:38', '2023-08-12 22:59:38'),
+(17, 'z@z.z', '2023-08-22 23:32:33', '2023-08-22 23:32:33');
 
 -- --------------------------------------------------------
 
@@ -833,42 +785,6 @@ CREATE TABLE `template_sub_subcategories` (
 
 INSERT INTO `template_sub_subcategories` (`id`, `sub_subcategory_name`, `subcategory_name`, `slug`, `description`, `meta_title`, `meta_description`, `icon`, `thumb`, `cover`, `og_image`, `created_at`, `updated_at`) VALUES
 (1, 'Personal', 'Portfolio', 'personal', '<p>Description</p>', 'Meta Title', 'Meta Description', 'dummy-icon-2.png', 'dummy-thumb-2.png', 'dummy-cover-2.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og-2.jpg', '2023-08-06 03:00:31', '2023-08-06 03:18:16');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `template_terms`
---
-
-CREATE TABLE `template_terms` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `template_themes`
---
-
-CREATE TABLE `template_themes` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `terms_of_services`
---
-
-CREATE TABLE `terms_of_services` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -905,12 +821,6 @@ ALTER TABLE `books`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `book_abouts`
---
-ALTER TABLE `book_abouts`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `book_audios`
 --
 ALTER TABLE `book_audios`
@@ -941,21 +851,9 @@ ALTER TABLE `book_contacts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `book_privacys`
---
-ALTER TABLE `book_privacys`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `book_publishers`
 --
 ALTER TABLE `book_publishers`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `book_skeletons`
---
-ALTER TABLE `book_skeletons`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -968,12 +866,6 @@ ALTER TABLE `book_subcategories`
 -- Indexes for table `book_sub_subcategories`
 --
 ALTER TABLE `book_sub_subcategories`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `book_terms`
---
-ALTER TABLE `book_terms`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1010,12 +902,6 @@ ALTER TABLE `templates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `template_abouts`
---
-ALTER TABLE `template_abouts`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `template_audios`
 --
 ALTER TABLE `template_audios`
@@ -1046,27 +932,15 @@ ALTER TABLE `template_hires`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `template_privacys`
+-- Indexes for table `template_pages`
 --
-ALTER TABLE `template_privacys`
+ALTER TABLE `template_pages`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `template_sellers`
 --
 ALTER TABLE `template_sellers`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `template_sites`
---
-ALTER TABLE `template_sites`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `template_skeletons`
---
-ALTER TABLE `template_skeletons`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1089,24 +963,6 @@ ALTER TABLE `template_sub_subcategories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `template_terms`
---
-ALTER TABLE `template_terms`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `template_themes`
---
-ALTER TABLE `template_themes`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `terms_of_services`
---
-ALTER TABLE `terms_of_services`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -1122,12 +978,6 @@ ALTER TABLE `users`
 --
 ALTER TABLE `books`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `book_abouts`
---
-ALTER TABLE `book_abouts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `book_audios`
@@ -1160,22 +1010,10 @@ ALTER TABLE `book_contacts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `book_privacys`
---
-ALTER TABLE `book_privacys`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `book_publishers`
 --
 ALTER TABLE `book_publishers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `book_skeletons`
---
-ALTER TABLE `book_skeletons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `book_subcategories`
@@ -1190,12 +1028,6 @@ ALTER TABLE `book_sub_subcategories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `book_terms`
---
-ALTER TABLE `book_terms`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -1205,7 +1037,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1217,13 +1049,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `templates`
 --
 ALTER TABLE `templates`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT for table `template_abouts`
---
-ALTER TABLE `template_abouts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `template_audios`
@@ -1256,10 +1082,10 @@ ALTER TABLE `template_hires`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `template_privacys`
+-- AUTO_INCREMENT for table `template_pages`
 --
-ALTER TABLE `template_privacys`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `template_pages`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `template_sellers`
@@ -1268,52 +1094,22 @@ ALTER TABLE `template_sellers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `template_sites`
---
-ALTER TABLE `template_sites`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `template_skeletons`
---
-ALTER TABLE `template_skeletons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `template_subcategories`
 --
 ALTER TABLE `template_subcategories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `template_subscriptions`
 --
 ALTER TABLE `template_subscriptions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `template_sub_subcategories`
 --
 ALTER TABLE `template_sub_subcategories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `template_terms`
---
-ALTER TABLE `template_terms`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `template_themes`
---
-ALTER TABLE `template_themes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `terms_of_services`
---
-ALTER TABLE `terms_of_services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
