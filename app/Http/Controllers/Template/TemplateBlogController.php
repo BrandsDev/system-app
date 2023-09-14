@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Template;
 use App\Http\Controllers\Controller;
 
 use App\Models\Template\Template;
+use App\Models\Template\TemplatePage;
 use App\Models\Template\TemplateBlog;
 use App\Models\Template\TemplateTemplate;
 use App\Models\Template\TemplateCategory;
@@ -22,10 +23,15 @@ class TemplateBlogController extends Controller
 {
     public function index()
     {
+        $page = TemplatePage::where('slug', 'blog')->firstOrFail();
         $featuredBlogs = TemplateBlog::where('is_featured', 1)->get();
         $takeBlogs = TemplateBlog::take(2)->get();
 
-        return view('frontend.template.blog', ['featuredBlogs' => $featuredBlogs, 'takeBlogs' => $takeBlogs]);
+        return view('frontend.template.blog', [
+            'featuredBlogs' => $featuredBlogs,
+            'takeBlogs' => $takeBlogs,
+            'page' => $page,
+        ]);
     }
 
     public function blogs()
@@ -122,11 +128,11 @@ class TemplateBlogController extends Controller
 
     public function detail($slug)
     {
-        $blog = TemplateBlog::where('slug', $slug)->firstOrFail();
+        $page = TemplateBlog::where('slug', $slug)->firstOrFail();
         $relatedBlog = TemplateBlog::take(4)->get();
 
         return view('frontend.template.blog-detail', [
-            'blog' => $blog,
+            'page' => $page,
             'relatedBlog' => $relatedBlog
         ]);
     }

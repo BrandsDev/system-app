@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Template;
 use App\Http\Controllers\Controller;
 
 use App\Models\Template\TemplateHire;
+use App\Models\Template\TemplatePage;
 
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
@@ -15,8 +16,9 @@ class TemplateHireController extends Controller
 {
     public function index()
     {
+        $page = TemplatePage::where('slug', 'hire-us')->firstOrFail();
 
-        return view('frontend.template.hire-us');
+        return view('frontend.template.hire-us', ['page' => $page]);
     }
 
     public function newHire(Request $request)

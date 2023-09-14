@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Template;
 use App\Http\Controllers\Controller;
 
 use App\Models\Template\Template;
+use App\Models\Template\TemplatePage;
 use App\Models\Template\TemplateBlog;
 
 use App\Models\Template\TemplateCategory;
@@ -23,9 +24,10 @@ class TemplateController extends Controller
 {
     public function index()
     {
+        $page = TemplatePage::where('slug', 'template-store')->firstOrFail();
         $templates = Template::take(16)->get();
 
-        return view('frontend.template.welcome', ['templates' => $templates]);
+        return view('frontend.template.welcome', ['page' => $page, 'templates' => $templates]);
     }
 
     public function generateBreadcrumbs($url)
@@ -71,6 +73,7 @@ class TemplateController extends Controller
 
     public function templateStore()
     {
+        $page = TemplatePage::where('slug', 'templates')->firstOrFail();
         $breadcrumbs = $this->generateBreadcrumbs(request()->getPathInfo());
         
         $categories = TemplateCategory::all();
@@ -80,6 +83,7 @@ class TemplateController extends Controller
         $templates = Template::take(60)->get();
 
         return view('frontend.template.template-store', [
+            'page' => $page,
             'breadcrumbs' => $breadcrumbs,
             'templates' => $templates,
             'categories' => $categories,
@@ -258,14 +262,14 @@ class TemplateController extends Controller
      */
     public function detail($slug)
     {
-        $template = Template::where('slug', $slug)->firstOrFail();
+        $page = Template::where('slug', $slug)->firstOrFail();
         $relatedTemplate = Template::take(4)->get();
 
         $relatedBlog = TemplateBlog::take(4)->get();
 
         return view('frontend.template.template-detail', 
             [
-                'template' => $template,
+                'page' => $page,
                 'relatedTemplate' => $relatedTemplate,
                 'relatedBlog' => $relatedBlog
             ]);

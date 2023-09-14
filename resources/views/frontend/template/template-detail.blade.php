@@ -17,7 +17,7 @@
               <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="{{ route('template.home') }}">Home</a></li>
                   <li class="breadcrumb-item"><a href="{{ route('template.store') }}">Templates</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">{{ $template->name }}</li>
+                  <li class="breadcrumb-item active" aria-current="page">{{ $page->name }}</li>
               </ol>
           </nav>
 				</div>
@@ -29,7 +29,7 @@
 					<form class="needs-validation" novalidate>
 						<div class="row g-3">
 							<div class="col-sm-12">
-								<img src="{{ asset('template/image/' . $template->image) }}" alt="" width="100%" height="100%" class="d-inline-block rounded-3 align-text-top" />
+								<img src="{{ asset('template/image/' . $page->image) }}" alt="" width="100%" height="100%" class="d-inline-block rounded-3 align-text-top" />
 							</div>
 						</div>
 					</form>
@@ -48,16 +48,16 @@
 					</ul>
 					<div class="tab-content" id="pills-tabContent">
 						<div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
-							{!! $template->long_description !!}
+							{!! $page->long_description !!}
 						</div>
 						<div class="tab-pane fade" id="pills-changelog" role="tabpanel" aria-labelledby="pills-changelog-tab">
-							{!! $template->change_log !!}
+							{!! $page->change_log !!}
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
-					<h1>{{ $template->name }}</h1>
-					<p>{!! $template->short_description !!}</p>
+					<h1>{{ $page->name }}</h1>
+					<p>{!! $page->short_description !!}</p>
 					<span class="text-primary">Grab it now!</span>
 					<span class="badge bg-primary rounded-pill">Free</span>
 					<div class="d-grid mt-3 gap-2">
@@ -88,46 +88,46 @@
 					<ul class="list-group list-group-flush mt-3">
 						<li class="list-group-item d-flex justify-content-between align-items-center bg-light">
 							Bootstrap
-							<span class="text-muted">{{ $template->bootstrap_v }}</span>
+							<span class="text-muted">{{ $page->bootstrap_v }}</span>
 						</li>
 						<li class="list-group-item d-flex justify-content-between align-items-center bg-light">
 							Released
-							<span class="text-muted">{{ $template->created_at }}</span>
+							<span class="text-muted">{{ $page->created_at }}</span>
 						</li>
 						<li class="list-group-item d-flex justify-content-between align-items-center bg-light">
 							Updated
-							<span class="text-muted">{{ $template->updated_at }}</span>
+							<span class="text-muted">{{ $page->updated_at }}</span>
 						</li>
 						<li class="list-group-item d-flex justify-content-between align-items-center bg-light">
 							Version
-							<span class="text-muted">{{ $template->version }}</span>
+							<span class="text-muted">{{ $page->version }}</span>
 						</li>
 						<li class="list-group-item d-flex justify-content-between align-items-center bg-light">
 							Category
 							
-							@if ($template->category_name)
-							    @if ($template->category)
-							        <a href="{{ route('category.show', ['category' => $template->category->slug]) }}" class="link-dark">
-							            {{ $template->category_name }}
+							@if ($page->category_name)
+							    @if ($page->category)
+							        <a href="{{ route('category.show', ['category' => $page->category->slug]) }}" class="link-dark">
+							            {{ $page->category_name }}
 							        </a>
 							    @endif
-							@elseif ($template->subcategory_name)
-							    @if ($template->subcategory)
+							@elseif ($page->subcategory_name)
+							    @if ($page->subcategory)
 							        <a href="{{ route('subcategory.show', [
-							                        'category' => $template->subcategory->category->slug,
-							                        'subcategory' => $template->subcategory->slug,
+							                        'category' => $page->subcategory->category->slug,
+							                        'subcategory' => $page->subcategory->slug,
 							                    ]) }}" class="link-dark">
-							            {{ $template->subcategory_name }}
+							            {{ $page->subcategory_name }}
 							        </a>
 							    @endif
-							@elseif ($template->sub_subcategory_name)
-							    @if ($template->sub_subcategory)
+							@elseif ($page->sub_subcategory_name)
+							    @if ($page->sub_subcategory)
 							        <a href="{{ route('subSubcategory.show', [
-							                        'category' => $template->subcategory->category->slug,
-							                        'subcategory' => $template->subcategory->slug,
-							                        'subSubcategory' => $template->sub_subcategory->slug,
+							                        'category' => $page->subcategory->category->slug,
+							                        'subcategory' => $page->subcategory->slug,
+							                        'subSubcategory' => $page->sub_subcategory->slug,
 							                    ]) }}" class="link-dark">
-							            {{ $template->sub_subcategory_name }}
+							            {{ $page->sub_subcategory_name }}
 							        </a>
 							    @endif
 							@endif
@@ -139,12 +139,12 @@
 						<li class="list-group-item d-flex justify-content-between align-items-center p-3 bg-light">
 							<div class="d-flex align-items-center">
 								<div class="flex-shrink-0 card shadow rounded-4">
-									<img src="{{ asset('template/seller/image/' . $template->image) }}" alt="..." width="69" height="69">
+									<img src="{{ asset('template/seller/image/' . $page->image) }}" alt="..." width="69" height="69">
 								</div>
 								<div class="flex-grow-1 ms-3">
 									<div class="ms-2 me-auto">
 										<div class="fw-bold">Created by</div>
-										{{ $template->seller_name }}
+										{{ $page->seller_name }}
 									</div>
 								</div>
 							</div>
@@ -179,30 +179,30 @@
 
 			<!-- Template Section -->
 			<div class="row">
-				@foreach ($relatedTemplate as $template)
+				@foreach ($relatedTemplate as $page)
 				<div class="col-lg-6">
 					<article>
 						<figure>
 							<div class="card shadow mb-5 rounded-3 no-border-card">
-								<a href="{{ route('template.detail', $template->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-									<img src="{{ asset('template/image/' . $template->image) }}" class="card-img-top" alt="...">
+								<a href="{{ route('template.detail', $page->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+									<img src="{{ asset('template/image/' . $page->image) }}" class="card-img-top" alt="...">
 								</a>
 								<figcaption>
 									<div class="card-body">	
 										<ul class="d-flex list-unstyled mt-auto">
 							              <li class="me-auto">
-							                <a href="{{ route('template.detail', $template->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">{{ \Illuminate\Support\Str::limit($template->name, 100, '...') }}</a>
+							                <a href="{{ route('template.detail', $page->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">{{ \Illuminate\Support\Str::limit($page->name, 100, '...') }}</a>
 							              </li>
 							              <li class="d-flex align-items-center">
 							                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
 							                <small>
-							                	@if($template->sale_price)
+							                	@if($page->sale_price)
 
-												<span class="fw-bold fs-5 text-success">৳ {{ $template->sale_price }}</span> | <span class="list-group-item fw-bold text-decoration-line-through text-muted">৳ {{ $template->regular_price }}</span>
+												<span class="fw-bold fs-5 text-success">৳ {{ $page->sale_price }}</span> | <span class="list-group-item fw-bold text-decoration-line-through text-muted">৳ {{ $page->regular_price }}</span>
 
-												@elseif($template->regular_price)
+												@elseif($page->regular_price)
 
-												<span class="fw-bold fs-5 text-success">৳ {{ $template->regular_price }}</span>
+												<span class="fw-bold fs-5 text-success">৳ {{ $page->regular_price }}</span>
 
 												@else
 
@@ -215,29 +215,29 @@
 							            <ul class="d-flex list-unstyled mt-auto">
 							              <li class="me-auto">
 							                <small>
-																@if ($template->category_name)
-																    @if ($template->category)
-																        <a href="{{ route('category.show', ['category' => $template->category->slug]) }}" class="link-dark">
-																            {{ $template->category_name }}
+																@if ($page->category_name)
+																    @if ($page->category)
+																        <a href="{{ route('category.show', ['category' => $page->category->slug]) }}" class="link-dark">
+																            {{ $page->category_name }}
 																        </a>
 																    @endif
-																@elseif ($template->subcategory_name)
-																    @if ($template->subcategory)
+																@elseif ($page->subcategory_name)
+																    @if ($page->subcategory)
 																        <a href="{{ route('subcategory.show', [
-																                        'category' => $template->subcategory->category->slug,
-																                        'subcategory' => $template->subcategory->slug,
+																                        'category' => $page->subcategory->category->slug,
+																                        'subcategory' => $page->subcategory->slug,
 																                    ]) }}" class="link-dark">
-																            {{ $template->subcategory_name }}
+																            {{ $page->subcategory_name }}
 																        </a>
 																    @endif
-																@elseif ($template->sub_subcategory_name)
-																    @if ($template->sub_subcategory)
+																@elseif ($page->sub_subcategory_name)
+																    @if ($page->sub_subcategory)
 																        <a href="{{ route('subSubcategory.show', [
-																                        'category' => $template->subcategory->category->slug,
-																                        'subcategory' => $template->subcategory->slug,
-																                        'subSubcategory' => $template->sub_subcategory->slug,
+																                        'category' => $page->subcategory->category->slug,
+																                        'subcategory' => $page->subcategory->slug,
+																                        'subSubcategory' => $page->sub_subcategory->slug,
 																                    ]) }}" class="link-dark">
-																            {{ $template->sub_subcategory_name }}
+																            {{ $page->sub_subcategory_name }}
 																        </a>
 																    @endif
 																@endif
@@ -245,7 +245,7 @@
 							              </li>
 							              <li class="d-flex align-items-center">
 							                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
-							                <small>{{ $template->seller_name }}</small>
+							                <small>{{ $page->seller_name }}</small>
 							              </li>
 							            </ul>
 							        </div>

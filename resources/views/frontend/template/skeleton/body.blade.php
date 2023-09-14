@@ -9,7 +9,7 @@
 		<!-- Bootstrap -->
 		@vite(['resources/css/bootstrap.min.css'])
 
-		<title>Download Free HTML Website Templates | Responsive & SEO Friendly</title>
+		<title>{{ $page->meta_title }}</title>
 		
 		@vite(['resources/js/fontawesome-6.4.0.js'])
 
@@ -22,7 +22,7 @@
 		<!-- End Custom Head -->
 
 		<!-- HTML Meta Tags -->
-		@include('frontend.template.skeleton.meta')
+		@include('frontend.template.skeleton.meta', ['page' => $page])
 		<!-- End HTML Meta Tags -->
 		
 

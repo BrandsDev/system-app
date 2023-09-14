@@ -1,8 +1,9 @@
-{{ $template->sub_subcategory_name ?: ($template->subcategory_name ?: $template->category_name) }}
----------------
-Setup Environment
----------------
-# install local server, vendor, composer, nodeJS, npm install
+Institute
+http://localhost/ilannoor.institute/public/all/purchase
+http://localhost/ilannoor.institute/public/my/leaderboard
+http://localhost/ilannoor.institute/public/affilate/report
+http://localhost/ilannoor.institute/public/send
+http://localhost/ilannoor.institute/public/allinstructor/profile/98
 
 https://forms.gle/5v6epY8wdiXfHykM9
 database
@@ -11,6 +12,22 @@ HtArnSHaaqMch7gYJCpF
 
 Site User: site-user-ssh
 Site User Password: 5yNUcdQPQ5cgvyiO2Xp1
+
+---------------
+Notes
+---------------
+{{ $template->sub_subcategory_name ?: ($template->subcategory_name ?: $template->category_name) }}
+
+---------------
+Setup Local Environment
+---------------
+# install local server, vendor, composer, nodeJS, npm install, TemplateSitemapController - sitemap url, robot.txt - sitemap url, generate new app, app_url
+
+---------------
+Setup Server Environment
+---------------
+# install local server, vendor, composer, nodeJS, npm install
+
 ---------------
 Domain 
 ---------------
@@ -19,59 +36,53 @@ probnsol
 ---------------
 To Do
 ---------------
-- Banding (Name, Color, Logo, Intro & Tagline) *****
+- - - Banding (Name, Color, Logo, Intro & Tagline) *****
 
 - Technical SEO
 - - DOM Structure
 - - Heading Structure ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
 - - Pera Structure with STRONG Tag ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
 - - UL, OL, Blockquote, EM, Cite, B & I Tags
-- - Img ALT & Title Tags *****
+- - - Img ALT (Need this feature) & Title Tags *****
 - - HTML5 Doctype
 - - <header> Tag ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, qr-code-generator, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
-- - <aside> Tags ***** (welcome, )
-- - <article> Tags ***** (welcome, blog, blog-detail, about - overview, brand, license, )
+- - - <aside> Tags ***** (welcome, )
+- - - <article> Tags ***** (welcome, blog, blog-detail, about - overview, brand, license, )
 - - <section> Tag ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, qr-code-generator, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
 - - <footer> Tag ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, qr-code-generator, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
 - - <nav> Tag ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, qr-code-generator, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
 - - <details> Tag ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, qr-code-generator, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
 - - HTML Microdata
 - - ARIA Roles: Element: div with the role: tabpanel 
-- - Open Graph protocol *****
-- - Twitter Cards *****
-- - Meta Keywords
+- - - Open Graph protocol (Different meta title & description for generel, fb & twitter) *****
+- - - Twitter Cards *****
+- - - Meta Keywords
 - - Meta Robots: index, follow ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, qr-code-generator, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
-- - robots.txt ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, qr-code-generator, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
+- - - robots.txt ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, qr-code-generator, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
 - - HTML Errors in the Source Code
 - - Canonical Tag / rel Next rel Prev / hreflang Tags
 - - Does the site respond for multiple URLs (Duplicate Content)
 - - Url: directory depth, dynamic parameters
 - - HTTP Header / GZIP
-- - sitemap.xml *****
+- - - sitemap.xml ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, qr-code-generator, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
 - - CSS / JavaScript / Flash (CSS files to 3-4, JavaScript files to 2-3)
 - - Frames - <frame> or <iframe> Tag (No)
 
 - OnPage SEO
-- - Meta Title & Description *****
+- - Meta Title & Description ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, qr-code-generator, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
 - - Internal & External Links with nofollow & noreferrer ***** (welcome, why-our-themes, blog, blog-detail, about - overview, brand, license, qr-code-generator, hire-us, contact-us, privacy-policy, terms-of-service, 404, teplate-store)
 
 - OffPage SEO
-- - Backlinks *****
-- - Wikipedia Backlinks *****
-- - Keyword Frequency
-- - SMM & Business Directory *****
+- - - Backlinks *****
+- - - Wikipedia Backlinks *****
+- - - Keyword Frequency
+- - - SMM & Business Directory *****
 
-- New temp. *****
-- New tech sol *****
-- Category binary tree *****
-- Filter
+- - New templates *****
+- - New tech solutions *****
+- - Category binary tree *****
+- - Filter
 
-Institute
-http://localhost/ilannoor.institute/public/all/purchase
-http://localhost/ilannoor.institute/public/my/leaderboard
-http://localhost/ilannoor.institute/public/affilate/report
-http://localhost/ilannoor.institute/public/send
-http://localhost/ilannoor.institute/public/allinstructor/profile/98
 ---------------
 Generate Random Mobile Number
 ---------------

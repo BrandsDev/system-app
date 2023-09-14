@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Template;
 use App\Http\Controllers\Controller;
 
 use App\Models\Template\TemplateContact;
+use App\Models\Template\TemplatePage;
 
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
@@ -15,8 +16,9 @@ class TemplateContactController extends Controller
 {
     public function index()
     {
+        $page = TemplatePage::where('slug', 'contact-us')->firstOrFail();
 
-        return view('frontend.template.contact-us');
+        return view('frontend.template.contact-us', ['page' => $page]);
     }
 
     public function newContact(Request $request)

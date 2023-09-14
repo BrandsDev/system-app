@@ -32,6 +32,7 @@ use App\Http\Controllers\Template\TemplatePrivacyController;
 use App\Http\Controllers\Template\TemplateTermController;
 use App\Http\Controllers\Template\TemplateAudioController;
 use App\Http\Controllers\Template\TemplateSubscriptionController;
+use App\Http\Controllers\Template\TemplateSitemapController;
 
 // Default
 use Illuminate\Support\Facades\Route;
@@ -121,17 +122,17 @@ Route::get('template-store/terms-of-service', [TemplateTermController::class, 'i
 // Template -> Why Our Themes
 Route::get('template-store/why-our-themes', [TemplateThemeController::class, 'index'])->name('template.why-our-themes');
 
+// Template -> QR Code Gennerator
+Route::get('/template-store/qr-code-generator', [TemplatePageController::class, 'qrCodeGen'])->name('template.qr-code-generator');
+
+// Template -> Subscriber
 Route::post('/template-store/new-subscriber', [TemplateSubscriptionController::class, 'subscriber'])->name('template.new-subscriber');
 
-// Template -> QR Code Gennerator
-Route::get('template-store/qr-code-generator', function () {
-    return view('frontend.template.qr-code-generator');
-});
+// Template -> 404
+Route::get('/template-store/404', [TemplatePageController::class, 'error404'])->name('template.404');
 
-// Template -> QR Code Gennerator
-Route::get('template-store/404', function () {
-    return view('frontend.template.404');
-});
+// Template -> Sitemap
+Route::get('/template-store/sitemap.xml', [TemplateSitemapController::class, 'index'])->name('sitemap');
 
 /*
 |--------------------------------------------------------------------------

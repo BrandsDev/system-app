@@ -24,6 +24,20 @@ class TemplatePageController extends Controller
         return view('frontend.template.skeleton.body', ['pages' => $pages, 'pageContent' => $pageContent]);
     }
 
+    public function qrCodeGen()
+    {
+        $page = TemplatePage::where('slug', 'qr-code-generator')->firstOrFail();
+        
+        return view('frontend.template.qr-code-generator', ['page' => $page]);
+    }
+    
+    public function error404()
+    {
+        $page = TemplatePage::where('slug', '404')->firstOrFail();
+        
+        return view('frontend.template.404', ['page' => $page]);
+    }
+
     public function showPrimaryMenu($primaryMenuSlug)
     {
         $primaryMenu = TemplateCategory::where('slug', $primaryMenuSlug)->firstOrFail();
