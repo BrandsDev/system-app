@@ -18,6 +18,13 @@ Notes
 ---------------
 {{ $template->sub_subcategory_name ?: ($template->subcategory_name ?: $template->category_name) }}
 
+
+    // "scripts": {
+    //     "dev": "vite",
+    //     "build": "vite build",
+    //     "clear-vite-cache": "npx vite clear",
+    // },
+
 ---------------
 Setup Local Environment
 ---------------
