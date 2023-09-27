@@ -1,6 +1,9 @@
 {
     "private": true,
     "scripts": {
+        "dev-ex": "vite",
+        "build": "vite build",
+        "clear-vite-cache": "npx vite clear",
         "dev": "npm run development",
         "development": "mix",
         "watch": "mix watch",

@@ -94,6 +94,7 @@ class TemplateController extends Controller
 
     public function showByCategory(TemplateCategory $category)
     {
+        $page = TemplateCategory::where('slug', $category->slug)->firstOrFail();
         $breadcrumbs = $this->generateBreadcrumbs(request()->getPathInfo());
 
         $categories = TemplateCategory::all();
@@ -103,12 +104,13 @@ class TemplateController extends Controller
         // Retrieve templates with related category
         $templates = Template::with('category')
             ->whereHas('category', function ($query) {
-                $query->where('slug', request()->segment(4)); // Assuming the slug is the second URL segment
+                $query->where('slug'); // Assuming the slug is the second URL segment
             })
             ->take(60)
             ->get();
 
         return view('frontend.template.template-store', [
+            'page' => $page,
             'breadcrumbs' => $breadcrumbs,
             'templates' => $templates,
             'categories' => $categories,
@@ -119,6 +121,7 @@ class TemplateController extends Controller
 
     public function showBySubcategory(TemplateCategory $category, TemplateSubcategory $subcategory)
     {
+        $page = TemplateCategory::where('slug', $subcategory->slug)->firstOrFail();
         $breadcrumbs = $this->generateBreadcrumbs(request()->getPathInfo());
 
         $categories = TemplateCategory::all();
@@ -133,6 +136,7 @@ class TemplateController extends Controller
             ->get();
 
         return view('frontend.template.template-store', [
+            'page' => $page,
             'breadcrumbs' => $breadcrumbs,
             'templates' => $templates,
             'categories' => $categories,
@@ -143,6 +147,7 @@ class TemplateController extends Controller
 
     public function showBySubSubcategory(TemplateCategory $category, TemplateSubcategory $subcategory, TemplateSubSubcategory $subSubcategory)
     {
+        $page = TemplateCategory::where('slug', $subSubcategory->slug)->firstOrFail();
         $breadcrumbs = $this->generateBreadcrumbs(request()->getPathInfo());
 
         $categories = TemplateCategory::all();
@@ -158,6 +163,7 @@ class TemplateController extends Controller
             ->get();
 
         return view('frontend.template.template-store', [
+            'page' => $page,
             'breadcrumbs' => $breadcrumbs,
             'templates' => $templates,
             'categories' => $categories,
