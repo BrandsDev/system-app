@@ -33,9 +33,39 @@
 
 		<!-- Navigation -->
 		@include('administration.template.skeleton.top-navigation')
+		<!-- Alert -->
+		<section>
+			<div class="row">
+				<div class="col-lg-12">
+					@if(session()->has('success'))
+					<div class="alert alert-success alert-dismissible fade show" role="alert">
+						{{ session('success') }}
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				    @elseif(session()->has('update'))
+					<div class="alert alert-warning alert-dismissible fade show" role="alert">
+						{{ session('error') }}
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				    @elseif(session()->has('delete'))
+					<div class="alert alert-warning alert-dismissible fade show" role="alert">
+						{{ session('error') }}
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				    @elseif(session()->has('error'))
+					<div class="alert alert-warning alert-dismissible fade show" role="alert">
+						{{ session('error') }}
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				    @endif
+				</div>
+			</div>
+		</section>
+		<!-- End Alert -->
 
 		<!-- Content -->
 		@yield('content')
+		<!-- End Content -->
 
 		<!-- Footer -->
 		@include('administration.template.skeleton.footer')

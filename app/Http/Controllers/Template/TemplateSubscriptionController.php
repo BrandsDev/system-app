@@ -58,7 +58,7 @@ class TemplateSubscriptionController extends Controller
             return back()->withErrors($e->errors())->withInput();
         } catch (\Exception $e) {
             // Handle other exceptions if needed
-            return back()->with('error', 'An error occurred. Please try again.');
+            return back()->with('error', 'An error occurred (We think, the email has already been taken.). Please try again.');
         }
     }
 

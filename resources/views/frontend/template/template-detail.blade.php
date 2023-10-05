@@ -2,12 +2,12 @@
 
 @section('custom-head')
 <!-- Custom CSS -->
-<style>
-/* Define a custom class to remove card border */
-.no-border-card {
-  border: none;
-}
-</style>
+		<style>
+			/* Define a custom class to remove card border */
+			.no-border-card {
+			  border: none;
+			}
+		</style>
 @endsection
 @section('content')
 			<!-- Breadcrumb -->

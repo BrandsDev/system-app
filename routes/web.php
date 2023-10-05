@@ -84,8 +84,8 @@ Route::get('book/terms-of-service', [BookTermController::class, 'index'])->name(
 */
 
 // Template
-Route::get('template-store', [TemplateController::class, 'index'])->name('template.home');
-Route::get('template-store/templates', [TemplateController::class, 'templateStore'])->name('template.store');
+Route::get('template-store', [TemplateHomeController::class, 'index'])->name('template.home');
+Route::get('template-store/templates', [TemplateController::class, 'index'])->name('template.store');
 Route::get('template-store/detail/{slug}', [TemplateController::class, 'detail'])->name('template.detail');
 
 // Template Pages

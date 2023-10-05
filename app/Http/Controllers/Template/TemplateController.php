@@ -24,10 +24,36 @@ class TemplateController extends Controller
 {
     public function index()
     {
-        $page = TemplatePage::where('slug', 'template-store')->firstOrFail();
-        $templates = Template::take(16)->get();
+        $page = TemplatePage::where('slug', 'templates')->firstOrFail();
+        $breadcrumbs = $this->generateBreadcrumbs(request()->getPathInfo());
+        
+        $categories = TemplateCategory::all();
+        $subcategories = TemplateSubcategory::all();
+        $sub_subcategories = TemplateSubSubcategory::all();
 
-        return view('frontend.template.welcome', ['page' => $page, 'templates' => $templates]);
+        $templates = Template::take(60)->get();
+
+        return view('frontend.template.template-store', [
+            'page' => $page,
+            'breadcrumbs' => $breadcrumbs,
+            'templates' => $templates,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+            'sub_subcategories' => $sub_subcategories,
+        ]);
+    }
+
+    public function detail($slug)
+    {
+        $page = Template::where('slug', $slug)->firstOrFail();
+        $relatedTemplate = Template::take(4)->get();
+        $relatedBlog = TemplateBlog::take(4)->get();
+
+        return view('frontend.template.template-detail', [
+                'page' => $page,
+                'relatedTemplate' => $relatedTemplate,
+                'relatedBlog' => $relatedBlog
+            ]);
     }
 
     public function generateBreadcrumbs($url)
@@ -70,28 +96,6 @@ class TemplateController extends Controller
         return $breadcrumbs;
     }
 
-
-    public function templateStore()
-    {
-        $page = TemplatePage::where('slug', 'templates')->firstOrFail();
-        $breadcrumbs = $this->generateBreadcrumbs(request()->getPathInfo());
-        
-        $categories = TemplateCategory::all();
-        $subcategories = TemplateSubcategory::all();
-        $sub_subcategories = TemplateSubSubcategory::all();
-
-        $templates = Template::take(60)->get();
-
-        return view('frontend.template.template-store', [
-            'page' => $page,
-            'breadcrumbs' => $breadcrumbs,
-            'templates' => $templates,
-            'categories' => $categories,
-            'subcategories' => $subcategories,
-            'sub_subcategories' => $sub_subcategories,
-        ]);
-    }
-
     public function showByCategory(TemplateCategory $category)
     {
         $page = TemplateCategory::where('slug', $category->slug)->firstOrFail();
@@ -104,7 +108,7 @@ class TemplateController extends Controller
         // Retrieve templates with related category
         $templates = Template::with('category')
             ->whereHas('category', function ($query) {
-                $query->where('slug'); // Assuming the slug is the second URL segment
+                $query->where('slug', request()->segment(4)); // Assuming the slug is the second URL segment
             })
             ->take(60)
             ->get();
@@ -121,7 +125,7 @@ class TemplateController extends Controller
 
     public function showBySubcategory(TemplateCategory $category, TemplateSubcategory $subcategory)
     {
-        $page = TemplateCategory::where('slug', $subcategory->slug)->firstOrFail();
+        $page = TemplateSubcategory::where('slug', $subcategory->slug)->firstOrFail();
         $breadcrumbs = $this->generateBreadcrumbs(request()->getPathInfo());
 
         $categories = TemplateCategory::all();
@@ -147,7 +151,7 @@ class TemplateController extends Controller
 
     public function showBySubSubcategory(TemplateCategory $category, TemplateSubcategory $subcategory, TemplateSubSubcategory $subSubcategory)
     {
-        $page = TemplateCategory::where('slug', $subSubcategory->slug)->firstOrFail();
+        $page = TemplateSubSubcategory::where('slug', $subSubcategory->slug)->firstOrFail();
         $breadcrumbs = $this->generateBreadcrumbs(request()->getPathInfo());
 
         $categories = TemplateCategory::all();
@@ -253,9 +257,6 @@ class TemplateController extends Controller
         return redirect(RouteServiceProvider::TemplateNew);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Request $templateDetail)
     {
         $templates = Template::all();
@@ -263,27 +264,6 @@ class TemplateController extends Controller
         return view('administration.template.manage-templates', ['templates' => $templates]);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function detail($slug)
-    {
-        $page = Template::where('slug', $slug)->firstOrFail();
-        $relatedTemplate = Template::take(4)->get();
-
-        $relatedBlog = TemplateBlog::take(4)->get();
-
-        return view('frontend.template.template-detail', 
-            [
-                'page' => $page,
-                'relatedTemplate' => $relatedTemplate,
-                'relatedBlog' => $relatedBlog
-            ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit($id)
     {
         $template = Template::findOrFail($id);     
@@ -294,9 +274,6 @@ class TemplateController extends Controller
         return view('administration.template.edit-template', ['template' => $template, 'categories' => $categories,'subcategories' => $subcategories, 'sub_subcategories' => $sub_subcategories]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id): RedirectResponse
     {
         // dd($request);

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Template\Template;
 use App\Models\Template\TemplatePage;
-use App\Models\Template\TemplateHome;
+use App\Models\Template\TemplateBlog;
 
 use Illuminate\Http\Request;
 
@@ -17,11 +17,15 @@ class TemplateHomeController extends Controller
      */
     public function index()
     {
-        $pages = TemplatePage::take(6)->get();
-
+        $page = TemplatePage::where('slug', 'template-store')->firstOrFail();
         $templates = Template::take(16)->get();
+        $relatedBlog = TemplateBlog::take(4)->get();
 
-        return view('frontend.template.welcome', ['templates' => $templates, 'pages' => $pages]);
+        return view('frontend.template.welcome', [
+            'page' => $page,
+            'templates' => $templates,
+            'relatedBlog' => $relatedBlog
+        ]);
     }
 
     /**

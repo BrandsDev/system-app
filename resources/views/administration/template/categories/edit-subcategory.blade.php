@@ -69,7 +69,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control" name="description" rows="3">{{ $subcategory->description }}</textarea>
+                            <textarea class="form-control" id="custom-textarea" name="description" rows="3">{{ $subcategory->description }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -142,7 +142,7 @@
 @section('custom-scripts')
 <script>
     tinymce.init({
-        selector: 'textarea',
+        selector: '#custom-textarea',
         plugins: 'link image code',
         toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
     });

@@ -41,7 +41,7 @@ probnsol
 ---------------
 To Do
 ---------------
-- - - Banding (Name, Color, Logo, Intro & Tagline) *****
+- - - Branding (Name, Color, Logo, Intro & Tagline) *****
 
 - Technical SEO
 - - DOM Structure
@@ -83,10 +83,11 @@ To Do
 - - - Keyword Frequency
 - - - SMM & Business Directory *****
 
-- - New templates *****
+- - New templates ***** (10 categories & 50 templates)
 - - New tech solutions *****
-- - Category binary tree *****
+- - Category binary tree ***** ok
 - - Filter
+- - 
 
 - CSS & JS link to file
 ---------------
