@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('category_name', 199);
             $table->string('slug', 199);
-            $table->string('description', 199)->nullable();
-            $table->string('meta_title', 199)->nullable();
-            $table->string('meta_description', 199)->nullable();
+            $table->text('description')->nullable();
+            $table->text('meta_title', 199)->nullable();
+            $table->text('meta_description', 199)->nullable();
             $table->string('icon', 255)->default('default-icon.png');
             $table->string('thumb', 255)->default('default-icon.png');
             $table->string('cover', 255)->default('default-icon.png');

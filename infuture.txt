@@ -83,11 +83,11 @@ To Do
 - - - Keyword Frequency
 - - - SMM & Business Directory *****
 
-- - New templates ***** (10 categories & 50 templates)
+- - New templates ***** (10 categories & 50 templates) [Remember to focus on providing templates with modern and responsive designs that cater to the needs of your target audience. Additionally, consider offering customization options and support to help users make the most of the templates you provide.]
 - - New tech solutions *****
 - - Category binary tree ***** ok
 - - Filter
-- - 
+- - SEO friendly content making - Now make this individual categories slug, short description, long description, meta title, meta description, twitter meta title, twitter meta description, facebook meta title, facebook meta description, icon image, thumb image, cover image & og image seo friendly svg format images with alt name based on best seo practices.
 
 - CSS & JS link to file
 ---------------
