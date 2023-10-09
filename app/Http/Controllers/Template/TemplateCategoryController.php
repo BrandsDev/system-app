@@ -71,9 +71,18 @@ class TemplateCategoryController extends Controller
             $category = TemplateCategory::create([
                 'category_name' => $request->category_name,
                 'slug' => $request->slug,
+                'title' => $request->title,
                 'description' => $request->description,
                 'meta_title' => $request->meta_title,
                 'meta_description' => $request->meta_description,
+                'facebook_meta_title' => $request->facebook_meta_title,
+                'facebook_meta_description' => $request->facebook_meta_description,
+                'twitter_meta_title' => $request->twitter_meta_title,
+                'twitter_meta_description' => $request->twitter_meta_description,
+                'icon_alt_text' => $request->icon_alt_text,
+                'thumb_alt_text' => $request->thumb_alt_text,
+                'cover_alt_text' => $request->cover_alt_text,
+                'og_img_alt_text' => $request->og_img_alt_text,
             ]);
 
             $category->save();
@@ -348,9 +357,18 @@ class TemplateCategoryController extends Controller
 
                 $category->category_name = $request->input('category_name');
                 $category->slug = $request->input('slug');
+                $category->title = $request->input('title');
                 $category->description = $request->input('description');
                 $category->meta_title = $request->input('meta_title');
                 $category->meta_description = $request->input('meta_description');
+                $category->facebook_meta_title = $request->input('facebook_meta_title');
+                $category->facebook_meta_description = $request->input('facebook_meta_description');
+                $category->twitter_meta_title = $request->input('twitter_meta_title');
+                $category->twitter_meta_description = $request->input('twitter_meta_description');
+                $category->icon_alt_text = $request->input('icon_alt_text');
+                $category->thumb_alt_text = $request->input('thumb_alt_text');
+                $category->cover_alt_text = $request->input('cover_alt_text');
+                $category->og_img_alt_text = $request->input('og_img_alt_text');
 
                 $category->save();
 

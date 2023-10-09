@@ -13,15 +13,6 @@
         <section>
             <div class="row">
                 <div class="col-12">
-                    <nav aria-label="breadcrumb">
-					    <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('template.home') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('template.store') }}">Templates</a></li>
-					        @foreach ($breadcrumbs as $breadcrumb)
-					            <li class="breadcrumb-item"><a href="{{ $breadcrumb['url'] }}">{{ $breadcrumb['name'] }}</a></li>
-					        @endforeach
-					    </ol>
-					</nav>
                 </div>
             </div>
         </section>
@@ -83,10 +74,22 @@
                 <div class="right-side">
                     <!-- Additional sections under right side -->
                     <div class="mb-3">
-                        <h1>Unleash the Potential of <abbr title="HyperText Markup Language" class="initialism">HTML5</abbr> and Bootstrap 5</h1>
-
-						<p>Harness the power of <abbr title="HyperText Markup Language" class="initialism"><strong>HTML5</strong></abbr><strong>, Bootstrap 5, and SEO-Friendly website templates</strong> to create responsive and visually appealing web pages. Our templates are optimized for search engines, ensuring your content reaches a wider audience. Dive into our diverse range of templates, each tailored to meet different needs and industries.</p>
-
+                    	<img src="{{ asset('template/image/category/cover/' . $page->cover) }}" class="card-img-top" alt="{{ $page->cover_alt_text }}">
+                    </div>
+                    <div class="mb-3">
+	                    <nav aria-label="breadcrumb">
+						    <ol class="breadcrumb">
+	                            <li class="breadcrumb-item"><a href="{{ route('template.home') }}">Home</a></li>
+	                            <li class="breadcrumb-item"><a href="{{ route('template.store') }}">Templates</a></li>
+						        @foreach ($breadcrumbs as $breadcrumb)
+						            <li class="breadcrumb-item"><a href="{{ $breadcrumb['url'] }}">{{ $breadcrumb['name'] }}</a></li>
+						        @endforeach
+						    </ol>
+						</nav>
+                    </div>
+                    <div class="mb-3">
+                        <h1 class="fs-3">{{ $page->title }}</h1>
+						<p>{!! $page->description !!}</p>
 						<div class="row">
 							@foreach ($templates as $template)
 							<div class="col-md-6">

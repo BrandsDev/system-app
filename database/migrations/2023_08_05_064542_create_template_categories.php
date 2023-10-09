@@ -15,13 +15,22 @@ return new class extends Migration
             $table->id();
             $table->string('category_name', 199);
             $table->string('slug', 199);
+            $table->text('title')->nullable();
             $table->text('description')->nullable();
-            $table->text('meta_title', 199)->nullable();
-            $table->text('meta_description', 199)->nullable();
+            $table->text('meta_title', 70)->nullable();
+            $table->text('meta_description', 170)->nullable();
+            $table->text('facebook_meta_title', 70)->nullable();
+            $table->text('facebook_meta_description', 170)->nullable();
+            $table->text('twitter_meta_title', 70)->nullable();
+            $table->text('twitter_meta_description', 170)->nullable();
             $table->string('icon', 255)->default('default-icon.png');
+            $table->string('icon_alt_text', 255)->nullable();
             $table->string('thumb', 255)->default('default-icon.png');
+            $table->string('thumb_alt_text', 255)->nullable();
             $table->string('cover', 255)->default('default-icon.png');
+            $table->string('cover_alt_text', 255)->nullable();
             $table->string('og_image', 255)->default('default-icon.png');
+            $table->string('og_img_alt_text', 255)->nullable();
             $table->timestamps();
         });
     }
