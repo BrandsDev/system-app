@@ -1,14 +1,4 @@
 @extends('frontend.template.skeleton.body')
-
-@section('custom-head')
-<!-- Custom CSS -->
-		<style>
-			/* Define a custom class to remove card border */
-			.no-border-card {
-			  border: none;
-			}
-		</style>
-@endsection
 @section('content')
 			<!-- Breadcrumb -->
 			<div class="row mb-3">
@@ -23,17 +13,28 @@
 				</div>
 			</div>
 
-			<!-- Header Short Description -->
 			<div class="row mb-3">
 				<div class="col-md-8 mb-3">
 					<form class="needs-validation" novalidate>
-						<div class="row g-3">
-							<div class="col-sm-12">
-								<img src="{{ asset('template/image/' . $page->image) }}" alt="" width="100%" height="100%" class="d-inline-block rounded-3 align-text-top" />
-							</div>
-						</div>
+						<img src="{{ asset('template/image/' . $page->image) }}" alt="" width="100%" height="100%" class="d-inline-block rounded-3 align-text-top" />
 					</form>
-
+				</div>
+				<div class="col-md-4 mb-3">
+					<h1>{{ $page->name }}</h1>
+					<p>{!! $page->short_description !!}</p>
+					<span class="text-primary">Grab it now!</span>
+					<span class="badge bg-primary rounded-pill">Free</span>
+					<div class="d-grid mt-3 gap-2">
+						<div class="btn-group" role="group" aria-label="Basic mixed styles example">
+							<button type="button" class="btn btn-outline-primary">Live Preview</button>
+						</div>
+						<div class="btn-group" role="group" aria-label="Basic mixed styles example">
+							<button type="button" class="btn btn-primary position-relative" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download HTML"><i class="fa-solid fa-download"></i> HTML</button>
+							<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Github"><i class="fa-solid fa-download"></i> Github</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8 mb-3">
 					<ul class="nav nav-pills mt-3 mb-3" id="pills-tab" role="tablist">
 						<li class="nav-item" role="presentation">
 							<button class="nav-link active mb-3" id="pills-description-tab" data-bs-toggle="pill" data-bs-target="#pills-description" type="button" role="tab" aria-controls="pills-description" aria-selected="true">
@@ -55,36 +56,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
-					<h1>{{ $page->name }}</h1>
-					<p>{!! $page->short_description !!}</p>
-					<span class="text-primary">Grab it now!</span>
-					<span class="badge bg-primary rounded-pill">Free</span>
-					<div class="d-grid mt-3 gap-2">
-						<div class="btn-group" role="group" aria-label="Basic mixed styles example">
-							<button type="button" class="btn btn-outline-primary">Live Preview</button>
-						</div>
-						<div class="btn-group" role="group" aria-label="Basic mixed styles example">
-							<button type="button" class="btn btn-primary position-relative" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download HTML"><i class="fa-solid fa-download"></i> HTML</button>
-							<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Github"><i class="fa-solid fa-download"></i> Github</button>
-						</div>
-					</div>
-
-					<!-- <ul class="list-group list-group-flush mt-3">
-						<li class="list-group-item bg-light">
-							<input class="form-check-input me-1" type="checkbox" value="" aria-label="..." checked disabled />
-							Reviewed by the Bootstrap team
-						</li>
-						<li class="list-group-item bg-light">
-							<input class="form-check-input me-1" type="checkbox" value="" aria-label="..." checked disabled />
-							6 months technical support
-						</li>
-						<li class="list-group-item bg-light">
-							<input class="form-check-input me-1" type="checkbox" value="" aria-label="..." checked disabled />
-							100% money back guarantee
-						</li>
-					</ul> -->
-
+				<div class="col-md-4 mb-3">
 					<ul class="list-group list-group-flush mt-3">
 						<li class="list-group-item d-flex justify-content-between align-items-center bg-light">
 							Bootstrap

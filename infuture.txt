@@ -85,11 +85,19 @@ To Do
 
 - - New templates ***** (10 categories & 50 templates) [Remember to focus on providing templates with modern and responsive designs that cater to the needs of your target audience. Additionally, consider offering customization options and support to help users make the most of the templates you provide.]
 - - New tech solutions *****
+- - Free CV Maker *****
 - - Category binary tree ***** ok
 - - Filter
 - - SEO friendly content making - Now make this individual categories slug, short description, long description, meta title, meta description, twitter meta title, twitter meta description, facebook meta title, facebook meta description, icon image, thumb image, cover image & og image seo friendly svg format images with alt name based on best seo practices.
 
 - CSS & JS link to file
+
+-----------------
+Wordpress
+-----------------
+# Remove homepage features by Homepage Control plugin by WooThemes
+# Adding slider to Child theme -> template-homepage.php after get_header(); ?>
+
 ---------------
 Generate Random Mobile Number
 ---------------
@@ -173,3 +181,23 @@ sudo systemctl start apache2
 Configure Apache2: 
 sudo a2ensite yourdomain.com-le-ssl.conf
 sudo service apache2 reload
+
+-----------------
+Solutions
+-----------------
+hello, how are you? recently I changed my server name. after that, I can't access my server via ssh.
+
+ssh-keygen -R [vps-ip]
+
+-----------------
+User
+-----------------
+User:
+luisinfoluis@gmail.com
+BNG2023intcorp
+
+Admin User:
+usuario@bngstores.com
+BngCR2023
+
+LuisBNG2023
