@@ -176,6 +176,34 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="facebook_meta_title" class="form-label">Facebook Meta Title</label>
+                            <textarea class="form-control" name="facebook_meta_title" rows="5">{{ $blog->facebook_meta_title }}</textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="facebook_meta_description" class="form-label">Facebook Meta Description</label>
+                            <textarea class="form-control" name="facebook_meta_description" rows="5">{{ $blog->facebook_meta_description }}</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="twitter_meta_title" class="form-label">Twitter Meta Title</label>
+                            <textarea class="form-control" name="twitter_meta_title" rows="5">{{ $blog->twitter_meta_title }}</textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="twitter_meta_description" class="form-label">Twitter Meta Description</label>
+                            <textarea class="form-control" name="twitter_meta_description" rows="5">{{ $blog->twitter_meta_description }}</textarea>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-sm-3">
                 <div class="row">
@@ -203,6 +231,9 @@
                             <label for="featured-image" class="form-label">Featured Image</label>
                             <input class="form-control" type="file" name="featured_image" />
                         </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="featured_img_alt_text" value="{{ $blog->featured_img_alt_text }}" placeholder="Alt Text" />
+                        </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
@@ -214,6 +245,9 @@
                         <div class="mb-3">
                             <label for="og_image" class="form-label">OG</label>
                             <img src="{{ asset('template/blog/image/og/' . $blog->og_image) }}" class="img-thumbnail" alt="...">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="og_img_alt_text" value="{{ $blog->og_img_alt_text }}" placeholder="Alt Text" />
                         </div>
                     </div>
                     <div class="col-sm-12">

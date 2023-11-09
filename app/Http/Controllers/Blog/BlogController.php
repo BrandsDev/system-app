@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Template;
+namespace App\Http\Controllers\Blog;
 
 use App\Http\Controllers\Controller;
+
+use App\Models\Blog\Blog;
 
 use App\Models\Template\Template;
 use App\Models\Template\TemplatePage;
@@ -19,27 +21,32 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Session;
 
-class TemplateBlogController extends Controller
+class BlogController extends Controller
 {
     public function index()
     {
         $page = TemplatePage::where('slug', 'blog')->firstOrFail();
-        $featuredBlogs = TemplateBlog::where('is_featured', 1)->get();
-        $takeBlogs = TemplateBlog::take(2)->get();
+        $featuredBlogs = Blog::where('is_featured', 1)->get();
+        $takeBlogs = Blog::take(2)->get();
 
-        return view('frontend.template.blog', [
+        return view('frontend.blog.home', [
             'featuredBlogs' => $featuredBlogs,
             'takeBlogs' => $takeBlogs,
             'page' => $page,
         ]);
     }
 
+    public function dashboard()
+    {
+        return view('administration.blog.dashboard');
+    }
+
     public function blogs()
     {
-        $featuredBlogs = TemplateBlog::where('is_featured', 1)->get();
-        $takeBlogs = TemplateBlog::take(2)->get();
+        $featuredBlogs = Blog::where('is_featured', 1)->get();
+        $takeBlogs = Blog::take(2)->get();
 
-        return view('frontend.template.blog', ['featuredBlogs' => $featuredBlogs, 'takeBlogs' => $takeBlogs]);
+        return view('frontend.blog.home', ['featuredBlogs' => $featuredBlogs, 'takeBlogs' => $takeBlogs]);
     }
 
     public function create(Request $request)
@@ -50,7 +57,7 @@ class TemplateBlogController extends Controller
         $subcategories = TemplateSubcategory::all();
         $sub_subcategories = TemplateSubSubcategory::all();
 
-        return view('administration.template.blog.new-blog', [
+        return view('administration.blog.home.new-blog', [
             'templates' => $templates,
             'sellers' => $sellers,
             'categories' => $categories, 
@@ -69,7 +76,7 @@ class TemplateBlogController extends Controller
         //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
         // ]);
 
-        $blog = TemplateBlog::create([
+        $blog = Blog::create([
             'title' => $request->title,
             'slug' => $request->slug,
             'tags' => $request->tags,
@@ -85,13 +92,7 @@ class TemplateBlogController extends Controller
             'header_content' => $request->header_content,
             'meta_title' => $request->meta_title,
             'meta_description' => $request->meta_description,
-            'facebook_meta_title' => $request->facebook_meta_title,
-            'facebook_meta_description' => $request->facebook_meta_description,
-            'twitter_meta_title' => $request->twitter_meta_title,
-            'twitter_meta_description' => $request->twitter_meta_description,
             'is_featured' => $request->is_featured,
-            'featured_img_alt_text' => $request->featured_img_alt_text,
-            'og_img_alt_text' => $request->og_img_alt_text,
             'status' => $request->status,
             'comment' => $request->comment,
         ]);
@@ -122,22 +123,22 @@ class TemplateBlogController extends Controller
 
         Session::flash('message', __('New Blog Successfully Added!'));
         
-        return redirect(RouteServiceProvider::TemplateBlog);
+        return redirect(RouteServiceProvider::Blog);
     }
 
     public function show(Request $request)
     {            
-        $blogs = TemplateBlog::all();
+        $blogs = Blog::all();
         
-        return view('administration.template.blog.manage-blogs', ['blogs' => $blogs]);
+        return view('administration.blog.home.manage-blogs', ['blogs' => $blogs]);
     }
 
     public function detail($slug)
     {
-        $page = TemplateBlog::where('slug', $slug)->firstOrFail();
-        $relatedBlog = TemplateBlog::take(4)->get();
+        $page = Blog::where('slug', $slug)->firstOrFail();
+        $relatedBlog = Blog::take(4)->get();
 
-        return view('frontend.template.blog-detail', [
+        return view('frontend.blog.home-detail', [
             'page' => $page,
             'relatedBlog' => $relatedBlog
         ]);
@@ -145,7 +146,7 @@ class TemplateBlogController extends Controller
 
     public function edit($id)
     {
-        $blog = TemplateBlog::findOrFail($id);
+        $blog = Blog::findOrFail($id);
 
         $templates = Template::all();
         $sellers = TemplateSeller::all();
@@ -153,7 +154,7 @@ class TemplateBlogController extends Controller
         $subcategories = TemplateSubcategory::all();
         $sub_subcategories = TemplateSubSubcategory::all();
         
-        return view('administration.template.blog.edit-blog', [
+        return view('administration.blog.home.edit-blog', [
             'blog' => $blog,
             'sellers' => $sellers,
             'templates' => $templates,
@@ -165,7 +166,7 @@ class TemplateBlogController extends Controller
 
     public function update(Request $request, $id): RedirectResponse
     {
-        $blog = TemplateBlog::find($id);
+        $blog = Blog::find($id);
 
         if ($blog) {
             $featuredImage = $request->file('featured_image');
@@ -223,13 +224,7 @@ class TemplateBlogController extends Controller
             $blog->header_content = $request->input('header_content');
             $blog->meta_title = $request->input('meta_title');
             $blog->meta_description = $request->input('meta_description');
-            $blog->facebook_meta_title = $request->input('facebook_meta_title');
-            $blog->facebook_meta_description = $request->input('facebook_meta_description');
-            $blog->twitter_meta_title = $request->input('twitter_meta_title');
-            $blog->twitter_meta_description = $request->input('twitter_meta_description');
             $blog->is_featured = $request->input('is_featured');
-            $blog->featured_img_alt_text = $request->input('featured_img_alt_text');
-            $blog->og_img_alt_text = $request->input('og_img_alt_text');
 
             if (!is_null($request->input('status'))) {
                 $blog->status = $request->input('status');
@@ -255,7 +250,7 @@ class TemplateBlogController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        TemplateBlog::where('id',$id)->delete();
+        Blog::where('id',$id)->delete();
 
         Session::flash('delete', __('Blog Successfully Deleted!'));
         

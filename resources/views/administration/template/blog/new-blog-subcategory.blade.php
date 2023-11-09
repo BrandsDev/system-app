@@ -1,4 +1,4 @@
-@extends('administration.skeleton.body')
+@extends('administration.template.skeleton.body')
 @section('content') @section('custom-head')
 <script src="https://cdn.tiny.cloud/1/m9g2pjluv64jkrzcnksdf4ur6nd9lvyrbatcjua3iazeof63/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 @endsection
@@ -9,9 +9,9 @@
         <div class="col-12">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('manage-categories') }}">Categories</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Add Sub Category</li>
+                    <li class="breadcrumb-item"><a href="{{ route('template.dashboard') }}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('template.manage-categories') }}">Categories</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Subcategory</li>
                 </ol>
             </nav>
         </div>
@@ -20,7 +20,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1>Add Sub Category</h1>
+            <h1>Add Subcategory</h1>
         </div>
     </div>
 
@@ -34,7 +34,7 @@
     </div>
     @endif
 
-    <form class="needs-validation" method="POST" action="{{ route('new-subcategory.store') }}" enctype="multipart/form-data" novalidate>
+    <form class="needs-validation" method="POST" action="{{ route('template.new-subcategory.store') }}" enctype="multipart/form-data" novalidate>
         @csrf
         <div class="row">
             <div class="col-sm-9">
@@ -42,7 +42,7 @@
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="category_name" class="form-label">Category Name *</label>
-                            <input class="form-control" list="datalistCategory" name="category_name" id="category_name" placeholder="Search Category" />
+                            <input class="form-control" list="datalistCategory" name="category_name" id="category_name" placeholder="Search Category" required />
                             <datalist id="datalistCategory">
                                 @foreach($categories as $category)
                                 <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
@@ -52,8 +52,8 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="sub_category_name" class="form-label">Sub Category Name *</label>
-                            <input type="text" class="form-control" name="sub_category_name" id="sub_category_name" placeholder="Sub Category Name" />
+                            <label for="subcategory_name" class="form-label">Subcategory Name *</label>
+                            <input type="text" class="form-control" name="subcategory_name" id="subcategory_name" placeholder="Subcategory Name" required />
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -61,28 +61,30 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="slug" class="form-label">Sub Category Slug *</label>
-                            <input type="text" class="form-control" name="slug" id="slug" placeholder="Sub Category Slug" />
+                            <label for="slug" class="form-label">Subcategory Slug *</label>
+                            <input type="text" class="form-control" name="slug" id="slug" placeholder="Subcategory Slug" required />
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                            <textarea class="form-control" id="custom-textarea" name="description" rows="3"></textarea>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="meta_title" class="form-label">Meta Title</label>
-                            <textarea class="form-control" id="meta_title" name="meta_title" rows="3"></textarea>
+                            <textarea class="form-control" name="meta_title" rows="3"></textarea>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="meta_description" class="form-label">Meta Description</label>
-                            <textarea class="form-control" id="meta_description" name="meta_description" rows="3"></textarea>
+                            <textarea class="form-control" name="meta_description" rows="3"></textarea>
                         </div>
                     </div>
                 </div>
@@ -92,19 +94,19 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="icon" class="form-label">Category Icon *</label>
-                            <input class="form-control" type="file" name="icon" id="icon" />
+                            <input class="form-control" type="file" name="icon" id="icon" required />
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="thumb" class="form-label">Category Thumb *</label>
-                            <input class="form-control" type="file" name="thumb" id="thumb" />
+                            <input class="form-control" type="file" name="thumb" id="thumb" required />
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="cover" class="form-label">Category Cover *</label>
-                            <input class="form-control" type="file" name="cover" id="cover" />
+                            <input class="form-control" type="file" name="cover" id="cover" required />
                         </div>
                     </div>
                     <div class="col-sm-12">
@@ -129,7 +131,7 @@
 @section('custom-scripts')
 <script>
     tinymce.init({
-        selector: 'textarea',
+        selector: '#custom-textarea',
         plugins: 'link image code',
         toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
     });

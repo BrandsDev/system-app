@@ -1,4 +1,4 @@
-@extends('administration.skeleton.body')
+@extends('administration.template.skeleton.body')
 
 @section('custom-head')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
@@ -17,10 +17,10 @@
         <div class="col-12">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('manage-categories') }}">Categories</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('manage-subcategories') }}">Subcategories</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Sub Subcategories</li>
+                    <li class="breadcrumb-item"><a href="{{ route('template.dashboard') }}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('template.manage-categories') }}">Manage Categories</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('template.manage-subcategories') }}">Manage Subcategories</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Manage Sub Subcategories</li>
                 </ol>
             </nav>
         </div>
@@ -29,12 +29,12 @@
 
     <div class="row">
         <div class="col-lg-10">
-            <h1>Sub Subcategories</h1>
+            <h1>Manage Sub Subcategories</h1>
         </div>
         <div class="col-lg-2 align-self-center">
             <div class="row">
                 <div class="col-12 col-sm-12">
-                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('new-sub-subcategory') }}">+ Add Subcategory</a>
+                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('template.new-sub-subcategory') }}">+ Add Sub Subcategory</a>
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@
     @if(session()->has('delete'))
     <div class="row">
         <div class="col-md-12">
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-danger" role="alert">
                 {{ session('delete') }}
             </div>
         </div>
@@ -66,26 +66,28 @@
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Sub Subcategory Name</th>
+                        <th>Icon</th>
                         <th>Subcategory Name</th>
+                        <th>Sub Subcategory Name</th>
                         <th>Sub Subcategory Slug</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($sub_subcategories as $category)
+                    @foreach ($sub_subcategories as $sub_subcategory)
                     <tr>
-                        <td>{{ $category->sub_sub_category_name }}</td>
-                        <td>{{ $category->sub_category_name }}</td>
-                        <td>{{ $category->slug }}</td>
+                        <td><img src="{{ asset('template/image/category/subcategory/sub-subcategory/icon/' . $sub_subcategory->icon) }}" class="" alt="..." height="42" width="42" /></td>
+                        <td>{{ $sub_subcategory->subcategory_name }}</td>
+                        <td>{{ $sub_subcategory->sub_subcategory_name }}</td>
+                        <td>{{ $sub_subcategory->slug }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                              <a href="{{ route('sub-subcategory.edit',$category->id) }}" class="btn btn-secondary">Edit</a>
+                              <a href="{{ route('template.sub-subcategory.edit',$sub_subcategory->id) }}" class="btn btn-secondary">Edit</a>
 
-                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteSubSubcategories{{ $category->id }}">Destroy</button>
+                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteSubSubcategories{{ $sub_subcategory->id }}">Destroy</button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="deleteSubSubcategories{{ $category->id }}" tabindex="-1" aria-labelledby="deleteSubSubcategoriesLabel" aria-hidden="true">
+                                <div class="modal fade" id="deleteSubSubcategories{{ $sub_subcategory->id }}" tabindex="-1" aria-labelledby="deleteSubSubcategoriesLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                     <div class="modal-content">
                                       <div class="modal-header">
@@ -95,7 +97,7 @@
                                       <div class="modal-body">
                                         <p>Do you really want to delete. This process cannot be undone.</p>
                                       </div>
-                                      <form method="POST" action="{{ route('sub-subcategory.destroy',$category->id) }}">
+                                      <form method="POST" action="{{ route('template.sub-subcategory.destroy',$sub_subcategory->id) }}">
                                         @csrf
                                         @method('DELETE')
                                       <div class="modal-footer">
@@ -113,8 +115,9 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>Sub Subcategory Name</th>
+                        <th>Icon</th>
                         <th>Subcategory Name</th>
+                        <th>Sub Subcategory Name</th>
                         <th>Sub Subcategory Slug</th>
                         <th>Action</th>
                     </tr>

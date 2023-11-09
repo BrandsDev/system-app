@@ -31,7 +31,10 @@
 						<li><a class="dropdown-item" href="{{ route('template.manage-templates') }}">Manage Templates</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item" href="{{ route('template.new-blog') }}">Add Blog</a></li>
-						<li><a class="dropdown-item" href="{{ route('template.manage-blogs') }}">Manage Blogs</a></li>
+						<li><a class="dropdown-item" href="{{ route('template.manage-blog') }}">Manage Blog</a></li>
+						<li><a class="dropdown-item" href="{{ route('template.manage-blog-categories') }}">Manage Categories</a></li>
+						<li><a class="dropdown-item" href="{{ route('template.manage-blog-subcategories') }}">Manage Subcategories</a></li>
+						<li><a class="dropdown-item" href="{{ route('template.manage-blog-sub-subcategories') }}">Manage Sub Subcategories</a></li>
 					</ul>
 				</li>
 				<!-- <li class="nav-item dropdown">

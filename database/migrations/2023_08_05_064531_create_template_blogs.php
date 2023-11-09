@@ -28,10 +28,16 @@ return new class extends Migration
             $table->text('header_content')->nullable();
             $table->string('meta_title', 100)->nullable();
             $table->string('meta_description', 200)->nullable();
+            $table->string('facebook_meta_title', 100)->nullable();
+            $table->string('facebook_meta_description', 200)->nullable();
+            $table->string('twitter_meta_title', 100)->nullable();
+            $table->string('twitter_meta_description', 200)->nullable();
             $table->tinyInteger('is_featured')->default(0)->nullable();
             $table->string('featured_image', 255)->default('default-featured-image.png');
+            $table->string('featured_img_alt_text', 255)->nullable();
             $table->string('file', 255)->default('default-file.png');
             $table->string('og_image', 255)->default('default-og-image.png');
+            $table->string('og_img_alt_text', 255)->nullable();
             $table->tinyInteger('status')->default(0)->nullable();
             $table->text('comment')->nullable();
             $table->timestamps();

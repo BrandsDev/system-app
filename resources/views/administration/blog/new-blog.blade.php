@@ -175,34 +175,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="mb-3">
-                            <label for="facebook_meta_title" class="form-label">Facebook Meta Title</label>
-                            <textarea class="form-control" name="facebook_meta_title" rows="3"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="mb-3">
-                            <label for="facebook_meta_description" class="form-label">Facebook Meta Description</label>
-                            <textarea class="form-control" name="facebook_meta_description" rows="3"></textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="mb-3">
-                            <label for="twitter_meta_title" class="form-label">Twitter Meta Title</label>
-                            <textarea class="form-control" name="twitter_meta_title" rows="3"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="mb-3">
-                            <label for="twitter_meta_description" class="form-label">Twitter Meta Description</label>
-                            <textarea class="form-control" name="twitter_meta_description" rows="3"></textarea>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="col-sm-3">
                 <div class="row">
@@ -224,11 +196,8 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="featured_image" class="form-label">Featured Image</label>
+                            <label for="featured-image" class="form-label">Featured Image</label>
                             <input class="form-control" type="file" name="featured_image" required />
-                        </div>
-                        <div class="mb-3">
-                            <input class="form-control" type="text" name="featured_img_alt_text" placeholder="Alt Text" />
                         </div>
                     </div>
                     <div class="col-sm-12">
@@ -239,11 +208,8 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="og_image" class="form-label">Upload OG</label>
-                            <input class="form-control" type="file" name="og_image" multiple />
-                        </div>
-                        <div class="mb-3">
-                            <input class="form-control" type="text" name="og_img_alt_text" placeholder="Alt Text" />
+                            <label for="og" class="form-label">Upload OG</label>
+                            <input class="form-control" type="file" name="og" multiple />
                         </div>
                     </div>
                     <div class="col-sm-12">

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\Template;
+namespace App\Models\Blog;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TemplateBlog extends Model
+class Blog extends Model
 {
     use HasFactory;
 
@@ -30,16 +30,10 @@ class TemplateBlog extends Model
         'header_content',
         'meta_title',
         'meta_description',
-        'facebook_meta_title',
-        'facebook_meta_description',
-        'twitter_meta_title',
-        'twitter_meta_description',
         'is_featured',
         'featured_image',
-        'featured_img_alt_text',
         'file',
         'og_image',
-        'og_img_alt_text',
         'status',
         'comment',
     ];

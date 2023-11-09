@@ -1,4 +1,4 @@
-@extends('administration.skeleton.body')
+@extends('administration.template.skeleton.body')
 
 @section('custom-head')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
@@ -17,9 +17,8 @@
         <div class="col-12">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('manage-categories') }}">Categories</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Sub Categories</li>
+                    <li class="breadcrumb-item"><a href="{{ route('template.dashboard') }}">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Manage Blogs</li>
                 </ol>
             </nav>
         </div>
@@ -27,32 +26,22 @@
     <!-- Content -->
 
     <div class="row">
-        <div class="col-lg-10">
-            <h1>Sub Categories</h1>
+        <div class="col-md-10">
+            <h1>Manage Blogs</h1>
         </div>
         <div class="col-lg-2 align-self-center">
             <div class="row">
                 <div class="col-12 col-sm-12">
-                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('new-subcategory') }}">+ Add Sub Category</a>
+                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('template.new-blog') }}">+ Add Blog</a>
                 </div>
             </div>
         </div>
     </div>
 
-    @if(session()->has('message'))
-    <div class="row">
-        <div class="col-md-12">
-            <div class="alert alert-success" role="alert">
-                {{ session('message') }}
-            </div>
-        </div>
-    </div>
-    @endif
-
     @if(session()->has('delete'))
     <div class="row">
         <div class="col-md-12">
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-danger" role="alert">
                 {{ session('delete') }}
             </div>
         </div>
@@ -65,26 +54,32 @@
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Subcategory Name</th>
-                        <th>Category Name</th>
-                        <th>Sub Category Slug</th>
+                        <th>Featured Image</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Subcategory</th>
+                        <th>Tags</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($subcategories as $subcategory)
+                    @foreach ($blogs as $blog)
                     <tr>
-                        <td>{{ $subcategory->sub_category_name }}</td>
-                        <td>{{ $subcategory->category_name }}</td>
-                        <td>{{ $subcategory->slug }}</td>
+                        <td><img src="{{ asset('template/blog/image/featured/' . $blog->featured_image) }}" class="" alt="..." height="42" width="42" /></td>
+                        <td>{{ $blog->title }}</td>
+                        <td>{{ $blog->category_name }}</td>
+                        <td>{{ $blog->subcategory_name }}</td>
+                        <td>{{ $blog->tags }}</td>
+                        <td>@if($blog->status == 1) Published @else Draft @endif</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                              <a href="{{ route('subcategory.edit',$subcategory->id) }}" class="btn btn-secondary">Edit</a>
+                              <a href="{{ route('template.blog.edit',$blog->id) }}" class="btn btn-secondary">Edit</a>
 
-                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteSubcategory{{ $subcategory->id }}">Destroy</button>
+                              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteBlog{{ $blog->id }}">Destroy</button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="deleteSubcategory{{ $subcategory->id }}" tabindex="-1" aria-labelledby="deleteSubcategoryLabel" aria-hidden="true">
+                                <div class="modal fade" id="deleteBlog{{ $blog->id }}" tabindex="-1" aria-labelledby="deleteBlogLabel" aria-hidden="true">
                                   <div class="modal-dialog">
                                     <div class="modal-content">
                                       <div class="modal-header">
@@ -94,7 +89,7 @@
                                       <div class="modal-body">
                                         <p>Do you really want to delete. This process cannot be undone.</p>
                                       </div>
-                                      <form method="POST" action="{{ route('subcategory.destroy',$subcategory->id) }}">
+                                      <form method="POST" action="{{ route('template.blog.destroy',$blog->id) }}">
                                         @csrf
                                         @method('DELETE')
                                       <div class="modal-footer">
@@ -112,9 +107,12 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>Icon</th>
-                        <th>Category Name</th>
-                        <th>Category Slug</th>
+                        <th>Featured Image</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Subcategory</th>
+                        <th>Tags</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>

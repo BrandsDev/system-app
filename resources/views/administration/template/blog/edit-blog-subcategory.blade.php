@@ -1,4 +1,4 @@
-@extends('administration.skeleton.body')
+@extends('administration.template.skeleton.body')
 @section('content') @section('custom-head')
 <script src="https://cdn.tiny.cloud/1/m9g2pjluv64jkrzcnksdf4ur6nd9lvyrbatcjua3iazeof63/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 @endsection
@@ -9,11 +9,10 @@
         <div class="col-12">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('manage-categories') }}">Categories</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('manage-subcategories') }}">Subcategories</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('manage-sub-subcategories') }}">Sub Subcategories</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                    <li class="breadcrumb-item"><a href="{{ route('template.dashboard') }}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('template.manage-categories') }}">Manage Categories</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('template.manage-subcategories') }}">Manage Subcategories</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Categories</li>
                 </ol>
             </nav>
         </div>
@@ -22,7 +21,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1>Edit Category</h1>
+            <h1>Edit Subcategory</h1>
         </div>
     </div>
 
@@ -36,7 +35,7 @@
     </div>
     @endif
 
-    <form class="needs-validation" method="POST" action="{{ route('sub-subcategory.update',$sub_subcategory->id) }}" enctype="multipart/form-data" novalidate>
+    <form class="needs-validation" method="POST" action="{{ route('template.subcategory.update',$subcategory->id) }}" enctype="multipart/form-data" novalidate>
         @csrf
         @method('PUT')
         <div class="row">
@@ -44,28 +43,25 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="sub_category_name" class="form-label">Sub Category Name *</label>
-                            <input class="form-control" list="datalistSubcategory" name="sub_category_name" id="sub_category_name" value="{{ $sub_subcategory->sub_category_name }}" placeholder="Search Category" />
-                            <datalist id="datalistSubcategory">
-                                @foreach($subcategories as $category)
-                                <option value="{{ $category->sub_category_name }}">{{ $category->csub_ategory_name }}</option>
+                            <label for="category_name" class="form-label">Category Name *</label>
+                            <input class="form-control" list="datalistCategory" name="category_name" id="category_name" value="{{ $subcategory->category_name }}" placeholder="Search Category" />
+                            <datalist id="datalistCategory">
+                                @foreach($categories as $category)
+                                <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
                                 @endforeach
                             </datalist>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="sub_sub_category_name" class="form-label">Sub SubCategory Name *</label>
-                            <input type="text" class="form-control" name="sub_sub_category_name" value="{{ $sub_subcategory->sub_sub_category_name }}" placeholder="Sub Subcategory Name" required />
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
+                            <label for="subcategory_name" class="form-label">Subcategory Name *</label>
+                            <input type="text" class="form-control" name="subcategory_name" value="{{ $subcategory->subcategory_name }}" placeholder="Subcategory Name" required />
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
-                            <label for="slug" class="form-label">Category Slug *</label>
-                            <input type="text" class="form-control" name="slug" value="{{ $sub_subcategory->slug }}" placeholder="Slug" required />
+                            <label for="slug" class="form-label">Sub Category Slug *</label>
+                            <input type="text" class="form-control" name="slug" value="{{ $subcategory->slug }}" placeholder="Slug" required />
                         </div>
                     </div>
                 </div>
@@ -73,7 +69,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control" name="description" rows="3">{{ $sub_subcategory->description }}</textarea>
+                            <textarea class="form-control" id="custom-textarea" name="description" rows="3">{{ $subcategory->description }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -81,13 +77,13 @@
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="meta_title" class="form-label">Meta Title</label>
-                            <textarea class="form-control" name="meta_title" rows="3">{{ $sub_subcategory->meta_title }}</textarea>
+                            <textarea class="form-control" name="meta_title" rows="3">{{ $subcategory->meta_title }}</textarea>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="meta_description" class="form-label">Meta Description</label>
-                            <textarea class="form-control" name="meta_description" rows="3">{{ $sub_subcategory->meta_description }}</textarea>
+                            <textarea class="form-control" name="meta_description" rows="3">{{ $subcategory->meta_description }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -96,7 +92,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <img src="{{ Vite::asset('resources/category/icon/' . $sub_subcategory->icon) }}" class="img-thumbnail" height="85" width="85" alt="...">
+                            <img src="{{ asset('template/image/category/subcategory/icon/' . $subcategory->icon) }}" class="img-thumbnail" height="85" width="85" alt="...">
                         </div>
                         <div class="mb-3">
                             <label for="icon" class="form-label">Category Icon *</label>
@@ -105,7 +101,7 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <img src="{{ Vite::asset('resources/category/thumb/' . $sub_subcategory->thumb) }}" class="img-thumbnail" height="85" width="85" alt="...">
+                            <img src="{{ asset('template/image/category/subcategory/thumb/' . $subcategory->thumb) }}" class="img-thumbnail" height="85" width="85" alt="...">
                         </div>
                         <div class="mb-3">
                             <label for="thumb" class="form-label">Category Thumb *</label>
@@ -114,7 +110,7 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <img src="{{ Vite::asset('resources/category/cover/' . $sub_subcategory->cover) }}" class="img-thumbnail" height="630" width="630" alt="...">
+                            <img src="{{ asset('template/image/category/subcategory/cover/' . $subcategory->cover) }}" class="img-thumbnail" height="630" width="630" alt="...">
                         </div>
                         <div class="mb-3">
                             <label for="cover" class="form-label">Category Cover *</label>
@@ -123,7 +119,7 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <img src="{{ Vite::asset('resources/category/og/' . $sub_subcategory->og_image) }}" class="img-thumbnail" height="630" width="630" alt="...">
+                            <img src="{{ asset('template/image/category/subcategory/og/' . $subcategory->og_image) }}" class="img-thumbnail" height="630" width="630" alt="...">
                         </div>
                         <div class="mb-3">
                             <label for="og_image" class="form-label">Category OG *</label>
@@ -146,7 +142,7 @@
 @section('custom-scripts')
 <script>
     tinymce.init({
-        selector: 'textarea',
+        selector: '#custom-textarea',
         plugins: 'link image code',
         toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
     });
