@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('template_blog_subcategory', function (Blueprint $table) {
+        Schema::create('template_blog_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('subcategory_name', 199);
-            $table->string('slug', 199);
             $table->string('category_name', 199);
-            $table->string('description', 199)->nullable();
-            $table->string('meta_title', 199)->nullable();
-            $table->string('meta_description', 199)->nullable();
+            $table->string('slug', 199);
+            $table->text('title')->nullable();
+            $table->text('description')->nullable();
+            $table->text('meta_title', 70)->nullable();
+            $table->text('meta_description', 170)->nullable();
             $table->text('facebook_meta_title', 70)->nullable();
             $table->text('facebook_meta_description', 170)->nullable();
             $table->text('twitter_meta_title', 70)->nullable();
@@ -40,6 +40,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('template_blog_subcategory');
+        Schema::dropIfExists('template_blog_categories');
     }
 };

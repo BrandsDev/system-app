@@ -30,11 +30,11 @@
 						<li><a class="dropdown-item" href="{{ route('template.new-template') }}">Add Template</a></li>
 						<li><a class="dropdown-item" href="{{ route('template.manage-templates') }}">Manage Templates</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="{{ route('template.new-blog') }}">Add Blog</a></li>
-						<li><a class="dropdown-item" href="{{ route('template.manage-blog') }}">Manage Blog</a></li>
-						<li><a class="dropdown-item" href="{{ route('template.manage-blog-categories') }}">Manage Categories</a></li>
-						<li><a class="dropdown-item" href="{{ route('template.manage-blog-subcategories') }}">Manage Subcategories</a></li>
-						<li><a class="dropdown-item" href="{{ route('template.manage-blog-sub-subcategories') }}">Manage Sub Subcategories</a></li>
+						<li><a class="dropdown-item" href="{{ route('template.blog.new-blog') }}">Add Blog</a></li>
+						<li><a class="dropdown-item" href="{{ route('template.blog.manage-blog') }}">Manage Blog</a></li>
+						<li><a class="dropdown-item" href="{{ route('template.blog.manage-categories') }}">Manage Categories</a></li>
+						<li><a class="dropdown-item" href="{{ route('template.blog.manage-subcategories') }}">Manage Subcategories</a></li>
+						<li><a class="dropdown-item" href="{{ route('template.blog.manage-sub-subcategories') }}">Manage Sub Subcategories</a></li>
 					</ul>
 				</li>
 				<!-- <li class="nav-item dropdown">

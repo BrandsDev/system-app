@@ -236,19 +236,19 @@ class TemplateBlogCategoryController extends Controller
      */
     public function show(Request $request)
     {
-        if ($request->routeIs('template.blog.manage-blog-categories')) {
+        if ($request->routeIs('template.manage-blog-categories')) {
             
             $categories = TemplateBlogCategory::all();
             
             return view('administration.template.blog.manage-blog-categories', ['categories' => $categories]);
 
-        } elseif ($request->routeIs('template.blog.manage-blog-subcategories')) {
+        } elseif ($request->routeIs('template.manage-blog-subcategories')) {
             
             $subcategories = TemplateBlogSubcategory::all();
             
             return view('administration.template.blog.manage-blog-subcategories', ['subcategories' => $subcategories]);
 
-        } elseif ($request->routeIs('template.blog.manage-blog-sub-subcategories')) {
+        } elseif ($request->routeIs('template.manage-blog-sub-subcategories')) {
         
             $sub_subcategories = TemplateBlogSubSubcategory::all();
             

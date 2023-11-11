@@ -18,7 +18,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('template.dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Manage Categories</li>
+                    <li class="breadcrumb-item active" aria-current="page">Manage Blog Categories</li>
                 </ol>
             </nav>
         </div>
@@ -26,13 +26,13 @@
     <!-- Content -->
 
     <div class="row">
-        <div class="col-lg-10">
-            <h1>Manage Categories</h1>
+        <div class="col-lg-8">
+            <h1>Manage Blog Categories</h1>
         </div>
-        <div class="col-lg-2 align-self-center">
+        <div class="col-lg-4 align-self-center">
             <div class="row">
                 <div class="col-12 col-sm-12">
-                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('template.new-category') }}">+ Add Category</a>
+                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('template.blog.new-category') }}">+ Add Blog Category</a>
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
                         <td>{{ $category->slug }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                              <a href="{{ route('template.category.edit',$category->id) }}" class="btn btn-secondary">Edit</a>
+                              <a href="{{ route('template.blog.category.edit',$category->id) }}" class="btn btn-secondary">Edit</a>
 
                               <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteCategories{{ $category->id }}">Destroy</button>
 
@@ -83,7 +83,7 @@
                                       <div class="modal-body">
                                         <p>Do you really want to delete. This process cannot be undone.</p>
                                       </div>
-                                      <form method="POST" action="{{ route('template.category.destroy',$category->id) }}">
+                                      <form method="POST" action="{{ route('template.blog.category.destroy',$category->id) }}">
                                         @csrf
                                         @method('DELETE')
                                       <div class="modal-footer">

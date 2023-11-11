@@ -18,8 +18,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('template.dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('template.manage-categories') }}">Manage Categories</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Manage Subcategories</li>
+                    <li class="breadcrumb-item"><a href="{{ route('template.manage-categories') }}">Manage Blog Categories</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Manage Blog Subcategories</li>
                 </ol>
             </nav>
         </div>
@@ -27,13 +27,13 @@
     <!-- Content -->
 
     <div class="row">
-        <div class="col-lg-10">
-            <h1>Manage Subcategories</h1>
+        <div class="col-lg-8">
+            <h1>Manage Blog Subcategories</h1>
         </div>
-        <div class="col-lg-2 align-self-center">
+        <div class="col-lg-4 align-self-center">
             <div class="row">
                 <div class="col-12 col-sm-12">
-                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('template.new-subcategory') }}">+ Add Subcategory</a>
+                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('template.new-subcategory') }}">+ Add Blog Subcategory</a>
                 </div>
             </div>
         </div>
