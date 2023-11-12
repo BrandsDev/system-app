@@ -208,34 +208,34 @@ Route::put('/template-store/update/{id}', [TemplateController::class, 'update'])
 Route::delete('/template-store/destroy/{id}', [TemplateController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.destroy-template');
 
 // Blog -> Manage Blog
-Route::get('/template-store/manage-blog', [TemplateBlogController::class, 'show'])->middleware(['auth', 'verified'])->name('template.blog.manage-blog');
-Route::get('/template-store/manage-blog/new-blog', [TemplateBlogController::class, 'create'])->middleware(['auth', 'verified'])->name('template.blog.new-blog');
-Route::post('/template-store/manage-blog/new-blog/store', [TemplateBlogController::class, 'store'])->middleware(['auth', 'verified'])->name('template.new-blog.store');
-Route::get('/template-store/manage-blog/edit/{id}', [TemplateBlogController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.blog.edit');
-Route::put('/template-store/manage-blog/update/{id}', [TemplateBlogController::class, 'update'])->middleware(['auth', 'verified'])->name('template.blog.update');
-Route::delete('/manage-blog/destroy/{id}', [TemplateBlogController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.blog.destroy');
+Route::get('/template-store/blog', [TemplateBlogController::class, 'show'])->middleware(['auth', 'verified'])->name('template.blog.manage-blog');
+Route::get('/template-store/blog/new-blog', [TemplateBlogController::class, 'create'])->middleware(['auth', 'verified'])->name('template.blog.new-blog');
+Route::post('/template-store/blog/new-blog/store', [TemplateBlogController::class, 'store'])->middleware(['auth', 'verified'])->name('template.blog.store');
+Route::get('/template-store/blog/edit/{id}', [TemplateBlogController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.blog.edit');
+Route::put('/template-store/blog/update/{id}', [TemplateBlogController::class, 'update'])->middleware(['auth', 'verified'])->name('template.blog.update');
+Route::delete('/template-store/blog/destroy/{id}', [TemplateBlogController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.blog.destroy');
 
 // Blog -> Categories
-Route::get('/template-store/blog/manage-categories', [TemplateBlogCategoryController::class, 'show'])->middleware(['auth', 'verified'])->name('template.blog.manage-categories');
+Route::get('/template-store/blog/categories', [TemplateBlogCategoryController::class, 'show'])->middleware(['auth', 'verified'])->name('template.blog.categories');
 Route::get('/template-store/blog/new-category', [TemplateBlogCategoryController::class, 'create'])->middleware(['auth', 'verified'])->name('template.blog.new-category');
 Route::post('/template-store/blog/new-category/store', [TemplateBlogCategoryController::class, 'store'])->middleware(['auth', 'verified'])->name('template.blog.new-category.store');
 Route::get('/template-store/blog/edit-category/{id}', [TemplateBlogCategoryController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.blog.category.edit');
 Route::put('/template-store/blog/update-category/{id}', [TemplateBlogCategoryController::class, 'update'])->middleware(['auth', 'verified'])->name('template.blog.category.update');
 Route::delete('/blog/destroy-category/{id}', [TemplateBlogCategoryController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.blog.category.destroy');
 
-Route::get('/template-store/blog/manage-subcategories', [TemplateBlogCategoryController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-blog-subcategories');
-Route::get('/template-store/blog/subcategories/new-subcategory', [TemplateBlogCategoryController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-blog-subcategory');
-Route::post('/template-store/blog/subcategories/new-subcategory/store', [TemplateBlogCategoryController::class, 'store'])->middleware(['auth', 'verified'])->name('template.new-blog-subcategory.store');
-Route::get('/template-store/blog/subcategories/subcategory/edit/{id}', [TemplateBlogCategoryController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.blog-subcategory.edit');
-Route::put('/template-store/blog/subcategories/subcategory/update/{id}', [TemplateBlogCategoryController::class, 'update'])->middleware(['auth', 'verified'])->name('template.blog-subcategory.update');
-Route::delete('/template-store/blog/subcategories/subcategory/destroy/{id}', [TemplateBlogCategoryController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.blog-subcategory.destroy');
+Route::get('/template-store/blog/subcategories', [TemplateBlogCategoryController::class, 'show'])->middleware(['auth', 'verified'])->name('template.blog.subcategories');
+Route::get('/template-store/blog/subcategories/new-subcategory', [TemplateBlogCategoryController::class, 'create'])->middleware(['auth', 'verified'])->name('template.blog.new-subcategory');
+Route::post('/template-store/blog/subcategories/new-subcategory/store', [TemplateBlogCategoryController::class, 'store'])->middleware(['auth', 'verified'])->name('template.blog.new-subcategory.store');
+Route::get('/template-store/blog/subcategories/subcategory/edit/{id}', [TemplateBlogCategoryController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.blog.subcategory.edit');
+Route::put('/template-store/blog/subcategories/subcategory/update/{id}', [TemplateBlogCategoryController::class, 'update'])->middleware(['auth', 'verified'])->name('template.blog.subcategory.update');
+Route::delete('/template-store/blog/subcategories/subcategory/destroy/{id}', [TemplateBlogCategoryController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.blog.subcategory.destroy');
 
-Route::get('/template-store/blog/manage-sub-subcategories', [TemplateBlogCategoryController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-blog-sub-subcategories');
-Route::get('/template-store/blog/sub-subcategories/new-subsubcategory', [TemplateBlogCategoryController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-blog-sub-subcategory');
-Route::post('/template-store/blog/sub-subcategories/new-subsubcategory/store', [TemplateBlogCategoryController::class, 'store'])->middleware(['auth', 'verified'])->name('template.new-blog-sub-subcategory.store');
-Route::get('/template-store/blog/sub-subcategories/sub-subcategory/edit/{id}', [TemplateBlogCategoryController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.blog-sub-subcategory.edit');
-Route::put('/template-store/blog/sub-subcategories/sub-subcategory/update/{id}', [TemplateBlogCategoryController::class, 'update'])->middleware(['auth', 'verified'])->name('template.blog-sub-subcategory.update');
-Route::delete('/template-store/blog/sub-subcategories/sub-subcategory/destroy/{id}', [TemplateBlogCategoryController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.blog-sub-subcategory.destroy');
+Route::get('/template-store/blog/sub-subcategories', [TemplateBlogCategoryController::class, 'show'])->middleware(['auth', 'verified'])->name('template.blog.sub-subcategories');
+Route::get('/template-store/blog/sub-subcategories/new-subsubcategory', [TemplateBlogCategoryController::class, 'create'])->middleware(['auth', 'verified'])->name('template.blog.new-sub-subcategory');
+Route::post('/template-store/blog/sub-subcategories/new-subsubcategory/store', [TemplateBlogCategoryController::class, 'store'])->middleware(['auth', 'verified'])->name('template.blog.new-sub-subcategory.store');
+Route::get('/template-store/blog/sub-subcategories/sub-subcategory/edit/{id}', [TemplateBlogCategoryController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.blog.sub-subcategory.edit');
+Route::put('/template-store/blog/sub-subcategories/sub-subcategory/update/{id}', [TemplateBlogCategoryController::class, 'update'])->middleware(['auth', 'verified'])->name('template.blog.sub-subcategory.update');
+Route::delete('/template-store/blog/sub-subcategories/sub-subcategory/destroy/{id}', [TemplateBlogCategoryController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.blog.sub-subcategory.destroy');
 
 // Streaming Audio
 Route::get('/template-store/manage-audios', [TemplateAudioController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-audios');

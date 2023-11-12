@@ -18,7 +18,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('template.dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Manage Blogs</li>
+                    <li class="breadcrumb-item active" aria-current="page">Manage Blog</li>
                 </ol>
             </nav>
         </div>
@@ -27,12 +27,12 @@
 
     <div class="row">
         <div class="col-md-10">
-            <h1>Manage Blogs</h1>
+            <h1>Manage Blog</h1>
         </div>
         <div class="col-lg-2 align-self-center">
             <div class="row">
                 <div class="col-12 col-sm-12">
-                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('template.new-blog') }}">+ Add Blog</a>
+                    <a type="button" class="btn btn-outline-secondary float-end" href="{{ route('template.blog.new-blog') }}">+ Add Blog</a>
                 </div>
             </div>
         </div>

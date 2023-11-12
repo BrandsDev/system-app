@@ -29,17 +29,17 @@ class TemplateBlogCategoryController extends Controller
      */
     public function create(Request $request)
     {
-        if ($request->routeIs('template.blog.new-blog-category')) {
+        if ($request->routeIs('template.blog.new-category')) {
             
             return view('administration.template.blog.new-blog-category');
 
-        } elseif ($request->routeIs('template.blog.new-blog-subcategory')) {
+        } elseif ($request->routeIs('template.blog.new-subcategory')) {
         
             $categories = TemplateBlogCategory::select('category_name')->get();
             
             return view('administration.template.blog.new-blog-subcategory', ['categories' => $categories]);
 
-        } elseif ($request->routeIs('template.blog.new-blog-sub-subcategory')) {
+        } elseif ($request->routeIs('template.blog.new-sub-subcategory')) {
         
             $subcategories = TemplateBlogSubcategory::select('subcategory_name')->get();
             
@@ -56,7 +56,7 @@ class TemplateBlogCategoryController extends Controller
     public function store(Request $request): RedirectResponse
     {
 
-        if ($request->routeIs('template.blog.new-blog-category.store')) {
+        if ($request->routeIs('template.blog.new-category.store')) {
 
             // $request->validate([
             //     'name' => ['required', 'string', 'max:255'],
@@ -89,25 +89,25 @@ class TemplateBlogCategoryController extends Controller
 
             if ($request->hasFile('icon')) {
                 $icon = $request->file('icon')->getClientOriginalName();
-                $request->file('icon')->move(public_path('template/blog/category/icon'), $icoimage/n);
+                $request->file('icon')->move(public_path('template/blog/category/icon'), $icon);
                 $category->icon = $icon;
             }
 
             if ($request->hasFile('thumb')) {
                 $thumb = $request->file('thumb')->getClientOriginalName();
-                $request->file('thumb')->move(public_path('template/blog/category/thumb'), $thimage/umb);
+                $request->file('thumb')->move(public_path('template/blog/category/thumb'), $thumb);
                 $category->thumb = $thumb;
             }
 
             if ($request->hasFile('cover')) {
                 $cover = $request->file('cover')->getClientOriginalName();
-                $request->file('cover')->move(public_path('template/blog/category/cover'), $coimage/ver);
+                $request->file('cover')->move(public_path('template/blog/category/cover'), $cover);
                 $category->cover = $cover;
             }
 
             if ($request->hasFile('og_image')) {
                 $oGImage = $request->file('og_image')->getClientOriginalName();
-                $request->file('og_image')->move(public_path('template/blog/category/og'), $oGImaimage/ge);
+                $request->file('og_image')->move(public_path('template/blog/category/og'), $oGImage);
                 $category->og_image = $oGImage;
             }
 
@@ -133,9 +133,18 @@ class TemplateBlogCategoryController extends Controller
                 'category_name' => $request->category_name,
                 'subcategory_name' => $request->subcategory_name,
                 'slug' => $request->slug,
+                'title' => $request->title,
                 'description' => $request->description,
                 'meta_title' => $request->meta_title,
                 'meta_description' => $request->meta_description,
+                'facebook_meta_title' => $request->facebook_meta_title,
+                'facebook_meta_description' => $request->facebook_meta_description,
+                'twitter_meta_title' => $request->twitter_meta_title,
+                'twitter_meta_description' => $request->twitter_meta_description,
+                'icon_alt_text' => $request->icon_alt_text,
+                'thumb_alt_text' => $request->thumb_alt_text,
+                'cover_alt_text' => $request->cover_alt_text,
+                'og_img_alt_text' => $request->og_img_alt_text,
             ]);
 
             $subcategory->save();
@@ -186,9 +195,18 @@ class TemplateBlogCategoryController extends Controller
                 'sub_subcategory_name' => $request->sub_subcategory_name,
                 'subcategory_name' => $request->subcategory_name,
                 'slug' => $request->slug,
+                'title' => $request->title,
                 'description' => $request->description,
                 'meta_title' => $request->meta_title,
                 'meta_description' => $request->meta_description,
+                'facebook_meta_title' => $request->facebook_meta_title,
+                'facebook_meta_description' => $request->facebook_meta_description,
+                'twitter_meta_title' => $request->twitter_meta_title,
+                'twitter_meta_description' => $request->twitter_meta_description,
+                'icon_alt_text' => $request->icon_alt_text,
+                'thumb_alt_text' => $request->thumb_alt_text,
+                'cover_alt_text' => $request->cover_alt_text,
+                'og_img_alt_text' => $request->og_img_alt_text,
             ]);
 
             $subSubcategory->save();
@@ -236,19 +254,19 @@ class TemplateBlogCategoryController extends Controller
      */
     public function show(Request $request)
     {
-        if ($request->routeIs('template.manage-blog-categories')) {
+        if ($request->routeIs('template.blog.categories')) {
             
             $categories = TemplateBlogCategory::all();
             
             return view('administration.template.blog.manage-blog-categories', ['categories' => $categories]);
 
-        } elseif ($request->routeIs('template.manage-blog-subcategories')) {
+        } elseif ($request->routeIs('template.blog.subcategories')) {
             
             $subcategories = TemplateBlogSubcategory::all();
             
             return view('administration.template.blog.manage-blog-subcategories', ['subcategories' => $subcategories]);
 
-        } elseif ($request->routeIs('template.manage-blog-sub-subcategories')) {
+        } elseif ($request->routeIs('template.blog.sub-subcategories')) {
         
             $sub_subcategories = TemplateBlogSubSubcategory::all();
             
@@ -269,7 +287,7 @@ class TemplateBlogCategoryController extends Controller
 
             $category = TemplateBlogCategory::findOrFail($id);
             
-            return view('administration.template.blog.edit-category', ['category' => $category]);
+            return view('administration.template.blog.edit-blog-category', ['category' => $category]);
 
         } elseif ($request->routeIs('template.blog.subcategory.edit')) {
 
@@ -277,7 +295,7 @@ class TemplateBlogCategoryController extends Controller
 
             $subcategory = TemplateBlogSubcategory::findOrFail($id);
             
-            return view('administration.template.blog.edit-subcategory', ['categories' => $categories, 'subcategory' => $subcategory]);
+            return view('administration.template.blog.edit-blog-subcategory', ['categories' => $categories, 'subcategory' => $subcategory]);
 
         } elseif ($request->routeIs('template.blog.sub-subcategory.edit')) {
 
@@ -285,7 +303,7 @@ class TemplateBlogCategoryController extends Controller
 
             $sub_subcategory = TemplateBlogSubSubcategory::findOrFail($id);
             
-            return view('administration.template.blog.edit-sub-subcategory', ['subcategories' => $subcategories, 'sub_subcategory' => $sub_subcategory]);
+            return view('administration.template.blog.edit-blog-sub-subcategory', ['subcategories' => $subcategories, 'sub_subcategory' => $sub_subcategory]);
 
         }
         

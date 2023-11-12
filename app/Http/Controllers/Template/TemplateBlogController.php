@@ -129,7 +129,7 @@ class TemplateBlogController extends Controller
     {            
         $blogs = TemplateBlog::all();
         
-        return view('administration.template.blog.manage-blogs', ['blogs' => $blogs]);
+        return view('administration.template.blog.manage-blog', ['blogs' => $blogs]);
     }
 
     public function detail($slug)

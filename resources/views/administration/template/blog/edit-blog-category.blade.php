@@ -10,7 +10,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('template.dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('template.manage-categories') }}">Manage Categories</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('template.blog.categories') }}">Manage Blog Categories</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Edit Category</li>
                 </ol>
             </nav>
@@ -20,7 +20,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1>Edit Category</h1>
+            <h1>Edit Blog Category</h1>
         </div>
     </div>
 
@@ -34,7 +34,7 @@
     </div>
     @endif
 
-    <form class="needs-validation" method="POST" action="{{ route('template.category.update',$category->id) }}" enctype="multipart/form-data" novalidate>
+    <form class="needs-validation" method="POST" action="{{ route('template.blog.category.update',$category->id) }}" enctype="multipart/form-data" novalidate>
         @csrf
         @method('PUT')
         <div class="row">
