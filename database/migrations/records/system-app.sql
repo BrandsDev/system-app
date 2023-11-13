@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2023 at 11:34 AM
+-- Generation Time: Nov 13, 2023 at 11:49 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -503,10 +503,10 @@ CREATE TABLE `template_blog_categories` (
 --
 
 INSERT INTO `template_blog_categories` (`id`, `category_name`, `slug`, `title`, `description`, `meta_title`, `meta_description`, `facebook_meta_title`, `facebook_meta_description`, `twitter_meta_title`, `twitter_meta_description`, `icon`, `icon_alt_text`, `thumb`, `thumb_alt_text`, `cover`, `cover_alt_text`, `og_image`, `og_img_alt_text`, `created_at`, `updated_at`) VALUES
-(2, 'A', 'A', NULL, '<p>A</p>', 'A', 'A', NULL, NULL, NULL, NULL, 'default-icon.png', NULL, 'default-icon.png', NULL, 'default-icon.png', NULL, 'default-icon.png', NULL, '2023-11-11 23:08:56', '2023-11-11 23:08:56'),
 (3, 'A', 'A', NULL, '<p>A</p>', 'A', 'A', NULL, NULL, NULL, NULL, 'islamic-english-books-icon.png', NULL, 'islamic-english-books-thumb.png', NULL, 'dummy-cover-3.jpg', NULL, 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', NULL, '2023-11-11 23:09:13', '2023-11-11 23:09:14'),
 (4, 'A', 'A', NULL, '<p>A</p>', 'A', 'A', NULL, NULL, NULL, NULL, 'islamic-english-books-icon.png', NULL, 'islamic-english-books-thumb.png', NULL, 'dummy-cover-3.jpg', NULL, 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', NULL, '2023-11-11 23:35:18', '2023-11-11 23:35:18'),
-(5, 'B', 'B', NULL, '<p>B</p>', 'B', 'B', 'B', 'B', 'B', 'B', 'dummy-icon.png', 'B', 'dummy-thumb.png', 'B', 'dummy-cover.jpg', 'B', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'B', '2023-11-12 00:28:05', '2023-11-12 00:28:05');
+(5, 'B', 'B', NULL, '<p>B</p>', 'B', 'B', 'B', 'B', 'B', 'B', 'dummy-icon.png', 'B', 'dummy-thumb.png', 'B', 'dummy-cover.jpg', 'B', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'B', '2023-11-12 00:28:05', '2023-11-12 00:28:05'),
+(6, 'C1', 'C1', 'C1', '<p>C1</p>', 'C1', 'C1', 'C1', 'C1', 'C1', 'C1', 'dummy-icon.png', 'C1', 'dummy-thumb.png', 'C1', 'dummy-cover.jpg', 'C1', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'C1', '2023-11-12 23:03:41', '2023-11-12 23:06:29');
 
 -- --------------------------------------------------------
 
@@ -519,6 +519,7 @@ CREATE TABLE `template_blog_subcategories` (
   `subcategory_name` varchar(199) NOT NULL,
   `slug` varchar(199) NOT NULL,
   `category_name` varchar(199) NOT NULL,
+  `title` text DEFAULT NULL,
   `description` varchar(199) DEFAULT NULL,
   `meta_title` varchar(199) DEFAULT NULL,
   `meta_description` varchar(199) DEFAULT NULL,
@@ -537,6 +538,13 @@ CREATE TABLE `template_blog_subcategories` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `template_blog_subcategories`
+--
+
+INSERT INTO `template_blog_subcategories` (`id`, `subcategory_name`, `slug`, `category_name`, `title`, `description`, `meta_title`, `meta_description`, `facebook_meta_title`, `facebook_meta_description`, `twitter_meta_title`, `twitter_meta_description`, `icon`, `icon_alt_text`, `thumb`, `thumb_alt_text`, `cover`, `cover_alt_text`, `og_image`, `og_img_alt_text`, `created_at`, `updated_at`) VALUES
+(1, 'a', 'a', 'A', 'a', '<p>a</p>', 'a', 'a', 'a', 'a', 'a', 'a', 'islamic-english-books-icon.png', 'a', 'islamic-english-books-thumb.png', 'a', 'dummy-cover-2.jpg', 'a', 'islamic-authentic-english-books-og.jpg', 'a', '2023-11-12 23:24:20', '2023-11-12 23:37:15');
 
 -- --------------------------------------------------------
 
@@ -549,6 +557,7 @@ CREATE TABLE `template_blog_sub_subcategories` (
   `sub_subcategory_name` varchar(199) NOT NULL,
   `subcategory_name` varchar(199) NOT NULL,
   `slug` varchar(199) NOT NULL,
+  `title` text DEFAULT NULL,
   `description` varchar(199) DEFAULT NULL,
   `meta_title` varchar(199) DEFAULT NULL,
   `meta_description` varchar(199) DEFAULT NULL,
@@ -567,6 +576,13 @@ CREATE TABLE `template_blog_sub_subcategories` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `template_blog_sub_subcategories`
+--
+
+INSERT INTO `template_blog_sub_subcategories` (`id`, `sub_subcategory_name`, `subcategory_name`, `slug`, `title`, `description`, `meta_title`, `meta_description`, `facebook_meta_title`, `facebook_meta_description`, `twitter_meta_title`, `twitter_meta_description`, `icon`, `icon_alt_text`, `thumb`, `thumb_alt_text`, `cover`, `cover_alt_text`, `og_image`, `og_img_alt_text`, `created_at`, `updated_at`) VALUES
+(2, 'a1', 'a', 'a1', 'a1', '<p>a1</p>', 'a1', 'a1', 'a1', 'a1', 'a1', 'a1', 'dummy-icon.png', 'a1', 'dummy-thumb.png', 'a1', 'dummy-cover-2.jpg', 'a1', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'a1', '2023-11-13 00:01:24', '2023-11-13 00:06:54');
 
 -- --------------------------------------------------------
 
@@ -715,6 +731,13 @@ CREATE TABLE `template_subcategories` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `template_subcategories`
+--
+
+INSERT INTO `template_subcategories` (`id`, `subcategory_name`, `slug`, `category_name`, `description`, `meta_title`, `meta_description`, `icon`, `thumb`, `cover`, `og_image`, `created_at`, `updated_at`) VALUES
+(1, 'c2', 'c2', 'C1', '<p>c2</p>', 'c2', 'c2', 'dummy-icon.png', 'dummy-thumb.png', 'dummy-cover.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', '2023-11-12 23:13:09', '2023-11-12 23:13:09');
 
 -- --------------------------------------------------------
 
@@ -1052,19 +1075,19 @@ ALTER TABLE `template_blogs`
 -- AUTO_INCREMENT for table `template_blog_categories`
 --
 ALTER TABLE `template_blog_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `template_blog_subcategories`
 --
 ALTER TABLE `template_blog_subcategories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `template_blog_sub_subcategories`
 --
 ALTER TABLE `template_blog_sub_subcategories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `template_categories`
@@ -1100,7 +1123,7 @@ ALTER TABLE `template_sellers`
 -- AUTO_INCREMENT for table `template_subcategories`
 --
 ALTER TABLE `template_subcategories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `template_subscriptions`

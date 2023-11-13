@@ -119,7 +119,7 @@ class TemplateBlogCategoryController extends Controller
             
             return redirect(RouteServiceProvider::TemplateBlogCategories);
 
-        } elseif ($request->routeIs('template.blog.new-blog-subcategory.store')) {
+        } elseif ($request->routeIs('template.blog.new-subcategory.store')) {
             
             // $request->validate([
             //     'name' => ['required', 'string', 'max:255'],
@@ -151,25 +151,25 @@ class TemplateBlogCategoryController extends Controller
 
             if ($request->hasFile('icon')) {
                 $icon = $request->file('icon')->getClientOriginalName();
-                $request->file('icon')->move(public_path('template/blog/category/subcategory/image/icon'), $icon);
+                $request->file('icon')->move(public_path('template/blog/category/subcategory/icon'), $icon);
                 $subcategory->icon = $icon;
             }
 
             if ($request->hasFile('thumb')) {
                 $thumb = $request->file('thumb')->getClientOriginalName();
-                $request->file('thumb')->move(public_path('template/blog/category/subcategory/image/thumb'), $thumb);
+                $request->file('thumb')->move(public_path('template/blog/category/subcategory/thumb'), $thumb);
                 $subcategory->thumb = $thumb;
             }
 
             if ($request->hasFile('cover')) {
                 $cover = $request->file('cover')->getClientOriginalName();
-                $request->file('cover')->move(public_path('template/blog/category/subcategory/image/cover'), $cover);
+                $request->file('cover')->move(public_path('template/blog/category/subcategory/cover'), $cover);
                 $subcategory->cover = $cover;
             }
 
             if ($request->hasFile('og_image')) {
                 $oGImage = $request->file('og_image')->getClientOriginalName();
-                $request->file('og_image')->move(public_path('template/blog/category/subcategory/image/og'), $oGImage);
+                $request->file('og_image')->move(public_path('template/blog/category/subcategory/og'), $oGImage);
                 $subcategory->og_image = $oGImage;
             }
 
@@ -181,7 +181,7 @@ class TemplateBlogCategoryController extends Controller
             
             return redirect(RouteServiceProvider::TemplateBlogSubCategories);
 
-        } elseif ($request->routeIs('template.blog.new-blog-sub-subcategory.store')) {
+        } elseif ($request->routeIs('template.blog.new-sub-subcategory.store')) {
             
             // $request->validate([
             //     'name' => ['required', 'string', 'max:255'],
@@ -213,25 +213,25 @@ class TemplateBlogCategoryController extends Controller
 
             if ($request->hasFile('icon')) {
                 $icon = $request->file('icon')->getClientOriginalName();
-                $request->file('icon')->move(public_path('template/blog/category/subcategory/sub-subcategory/image/icon'), $icon);
+                $request->file('icon')->move(public_path('template/blog/category/subcategory/sub-subcategory/icon'), $icon);
                 $subSubcategory->icon = $icon;
             }
 
             if ($request->hasFile('thumb')) {
                 $thumb = $request->file('thumb')->getClientOriginalName();
-                $request->file('thumb')->move(public_path('template/blog/category/subcategory/sub-subcategory/image/thumb'), $thumb);
+                $request->file('thumb')->move(public_path('template/blog/category/subcategory/sub-subcategory/thumb'), $thumb);
                 $subSubcategory->thumb = $thumb;
             }
 
             if ($request->hasFile('cover')) {
                 $cover = $request->file('cover')->getClientOriginalName();
-                $request->file('cover')->move(public_path('template/blog/category/subcategory/sub-subcategory/image/cover'), $cover);
+                $request->file('cover')->move(public_path('template/blog/category/subcategory/sub-subcategory/cover'), $cover);
                 $subSubcategory->cover = $cover;
             }
 
             if ($request->hasFile('og_image')) {
                 $oGImage = $request->file('og_image')->getClientOriginalName();
-                $request->file('og_image')->move(public_path('template/blog/category/subcategory/sub-subcategory/image/og'), $oGImage);
+                $request->file('og_image')->move(public_path('template/blog/category/subcategory/sub-subcategory/og'), $oGImage);
                 $subSubcategory->og_image = $oGImage;
             }
 
@@ -329,7 +329,7 @@ class TemplateBlogCategoryController extends Controller
                     ]);
 
                     $newIconName = $request->icon->getClientOriginalName();
-                    $request->icon->move(public_path('template/blog/category/image/icon'), $newimageIconName);
+                    $request->icon->move(public_path('template/blog/category/icon'), $newimageIconName);
 
                     $category->icon = $newIconName;
                 }
@@ -342,7 +342,7 @@ class TemplateBlogCategoryController extends Controller
                     ]);
 
                     $newThumbName = $request->thumb->getClientOriginalName();
-                    $request->thumb->move(public_path('template/blog/category/image/thumb'), $newimageThumbName);
+                    $request->thumb->move(public_path('template/blog/category/thumb'), $newimageThumbName);
 
                     $category->thumb = $newThumbName;
                 }
@@ -355,7 +355,7 @@ class TemplateBlogCategoryController extends Controller
                     ]);
 
                     $newCoverName = $request->cover->getClientOriginalName();
-                    $request->cover->move(public_path('template/blog/category/image/cover'), $newimageCoverName);
+                    $request->cover->move(public_path('template/blog/category/cover'), $newimageCoverName);
 
                     $category->cover = $newCoverName;
                 }
@@ -368,7 +368,7 @@ class TemplateBlogCategoryController extends Controller
                     ]);
 
                     $newOGName = $request->og_image->getClientOriginalName();
-                    $request->og_image->move(public_path('template/blog/category/image/og'), $newOGimageName);
+                    $request->og_image->move(public_path('template/blog/category/og'), $newOGimageName);
 
                     $category->og_image = $newOGName;
                 }
@@ -413,7 +413,7 @@ class TemplateBlogCategoryController extends Controller
                     ]);
 
                     $newIconName = $request->icon->getClientOriginalName();
-                    $request->icon->move(public_path('template/blog/category/subcategory/image/icon'), $newIconName);
+                    $request->icon->move(public_path('template/blog/category/subcategory/icon'), $newIconName);
 
                     $subcategory->icon = $newIconName;
                 }
@@ -426,7 +426,7 @@ class TemplateBlogCategoryController extends Controller
                     ]);
 
                     $newThumbName = $request->thumb->getClientOriginalName();
-                    $request->thumb->move(public_path('template/blog/category/subcategory/image/thumb'), $newThumbName);
+                    $request->thumb->move(public_path('template/blog/category/subcategory/thumb'), $newThumbName);
 
                     $subcategory->thumb = $newThumbName;
                 }
@@ -439,7 +439,7 @@ class TemplateBlogCategoryController extends Controller
                     ]);
 
                     $newCoverName = $request->cover->getClientOriginalName();
-                    $request->cover->move(public_path('template/blog/category/subcategory/image/cover'), $newCoverName);
+                    $request->cover->move(public_path('template/blog/category/subcategory/cover'), $newCoverName);
 
                     $subcategory->cover = $newCoverName;
                 }
@@ -452,7 +452,7 @@ class TemplateBlogCategoryController extends Controller
                     ]);
 
                     $newOGName = $request->og_image->getClientOriginalName();
-                    $request->og_image->move(public_path('template/blog/category/subcategory/image/og'), $newOGName);
+                    $request->og_image->move(public_path('template/blog/category/subcategory/og'), $newOGName);
 
                     $subcategory->og_image = $newOGName;
                 }
@@ -460,9 +460,18 @@ class TemplateBlogCategoryController extends Controller
                 $subcategory->category_name = $request->input('category_name');
                 $subcategory->subcategory_name = $request->input('subcategory_name');
                 $subcategory->slug = $request->input('slug');
+                $subcategory->title = $request->input('title');
                 $subcategory->description = $request->input('description');
                 $subcategory->meta_title = $request->input('meta_title');
                 $subcategory->meta_description = $request->input('meta_description');
+                $subcategory->facebook_meta_title = $request->input('facebook_meta_title');
+                $subcategory->facebook_meta_description = $request->input('facebook_meta_description');
+                $subcategory->twitter_meta_title = $request->input('twitter_meta_title');
+                $subcategory->twitter_meta_description = $request->input('twitter_meta_description');
+                $subcategory->icon_alt_text = $request->input('icon_alt_text');
+                $subcategory->thumb_alt_text = $request->input('thumb_alt_text');
+                $subcategory->cover_alt_text = $request->input('cover_alt_text');
+                $subcategory->og_img_alt_text = $request->input('og_img_alt_text');
 
                 $subcategory->save();
 
@@ -489,7 +498,7 @@ class TemplateBlogCategoryController extends Controller
                     ]);
 
                     $newIconName = $request->icon->getClientOriginalName();
-                    $request->icon->move(public_path('template/blog/category/subcategory/sub-subcategory/image/icon'), $newIconName);
+                    $request->icon->move(public_path('template/blog/category/subcategory/sub-subcategory/icon'), $newIconName);
 
                     $sub_subcategory->icon = $newIconName;
                 }
@@ -502,7 +511,7 @@ class TemplateBlogCategoryController extends Controller
                     ]);
 
                     $newThumbName = $request->thumb->getClientOriginalName();
-                    $request->thumb->move(public_path('template/blog/category/subcategory/sub-subcategory/image/thumb'), $newThumbName);
+                    $request->thumb->move(public_path('template/blog/category/subcategory/sub-subcategory/thumb'), $newThumbName);
 
                     $sub_subcategory->thumb = $newThumbName;
                 }
@@ -515,7 +524,7 @@ class TemplateBlogCategoryController extends Controller
                     ]);
 
                     $newCoverName = $request->cover->getClientOriginalName();
-                    $request->cover->move(public_path('template/blog/category/subcategory/sub-subcategory/image/cover'), $newCoverName);
+                    $request->cover->move(public_path('template/blog/category/subcategory/sub-subcategory/cover'), $newCoverName);
 
                     $sub_subcategory->cover = $newCoverName;
                 }
@@ -528,7 +537,7 @@ class TemplateBlogCategoryController extends Controller
                     ]);
 
                     $newOGName = $request->og_image->getClientOriginalName();
-                    $request->og_image->move(public_path('template/blog/category/subcategory/sub-subcategory/image/og'), $newOGName);
+                    $request->og_image->move(public_path('template/blog/category/subcategory/sub-subcategory/og'), $newOGName);
 
                     $sub_subcategory->og_image = $newOGName;
                 }
@@ -536,9 +545,18 @@ class TemplateBlogCategoryController extends Controller
                 $sub_subcategory->sub_subcategory_name = $request->input('sub_subcategory_name');
                 $sub_subcategory->subcategory_name = $request->input('subcategory_name');
                 $sub_subcategory->slug = $request->input('slug');
+                $sub_subcategory->title = $request->input('title');
                 $sub_subcategory->description = $request->input('description');
                 $sub_subcategory->meta_title = $request->input('meta_title');
                 $sub_subcategory->meta_description = $request->input('meta_description');
+                $sub_subcategory->facebook_meta_title = $request->input('facebook_meta_title');
+                $sub_subcategory->facebook_meta_description = $request->input('facebook_meta_description');
+                $sub_subcategory->twitter_meta_title = $request->input('twitter_meta_title');
+                $sub_subcategory->twitter_meta_description = $request->input('twitter_meta_description');
+                $sub_subcategory->icon_alt_text = $request->input('icon_alt_text');
+                $sub_subcategory->thumb_alt_text = $request->input('thumb_alt_text');
+                $sub_subcategory->cover_alt_text = $request->input('cover_alt_text');
+                $sub_subcategory->og_img_alt_text = $request->input('og_img_alt_text');
 
                 $sub_subcategory->save();
 

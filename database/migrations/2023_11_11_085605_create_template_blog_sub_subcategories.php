@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('sub_subcategory_name', 199);
             $table->string('subcategory_name', 199);
             $table->string('slug', 199);
+            $table->text('title')->nullable();
             $table->string('description', 199)->nullable();
             $table->string('meta_title', 199)->nullable();
             $table->string('meta_description', 199)->nullable();

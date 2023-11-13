@@ -122,7 +122,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="icon" class="form-label">Category Icon *</label>
-                            <input class="form-control" type="file" name="icon" id="icon" required />
+                            <input class="form-control" type="file" name="icon" id="icon" />
                         </div>
                         <div class="mb-3">
                             <input class="form-control" type="text" name="icon_alt_text" placeholder="Alt Text" />
@@ -131,7 +131,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="thumb" class="form-label">Category Thumb *</label>
-                            <input class="form-control" type="file" name="thumb" id="thumb" required />
+                            <input class="form-control" type="file" name="thumb" id="thumb" />
                         </div>
                         <div class="mb-3">
                             <input class="form-control" type="text" name="thumb_alt_text" placeholder="Alt Text" />
@@ -140,7 +140,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="cover" class="form-label">Category Cover *</label>
-                            <input class="form-control" type="file" name="cover" id="cover" required />
+                            <input class="form-control" type="file" name="cover" id="cover" />
                         </div>
                         <div class="mb-3">
                             <input class="form-control" type="text" name="cover_alt_text" placeholder="Alt Text" />
