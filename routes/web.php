@@ -31,6 +31,7 @@ use App\Http\Controllers\Template\TemplateHomeController;
 use App\Http\Controllers\Template\TemplateCategoryController;
 use App\Http\Controllers\Template\TemplateBlogController;
 use App\Http\Controllers\Template\TemplateBlogCategoryController;
+use App\Http\Controllers\Template\TemplateBlogTagController;
 use App\Http\Controllers\Template\TemplateContactController;
 use App\Http\Controllers\Template\TemplatePrivacyController;
 use App\Http\Controllers\Template\TemplateTermController;
@@ -236,6 +237,14 @@ Route::post('/template-store/blog/sub-subcategories/new-subsubcategory/store', [
 Route::get('/template-store/blog/sub-subcategories/sub-subcategory/edit/{id}', [TemplateBlogCategoryController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.blog.sub-subcategory.edit');
 Route::put('/template-store/blog/sub-subcategories/sub-subcategory/update/{id}', [TemplateBlogCategoryController::class, 'update'])->middleware(['auth', 'verified'])->name('template.blog.sub-subcategory.update');
 Route::delete('/template-store/blog/sub-subcategories/sub-subcategory/destroy/{id}', [TemplateBlogCategoryController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.blog.sub-subcategory.destroy');
+
+// Blog -> Tag
+Route::get('/template-store/blog/tags', [TemplateBlogTagController::class, 'show'])->middleware(['auth', 'verified'])->name('template.blog.tags');
+Route::get('/template-store/blog/new-tag', [TemplateBlogTagController::class, 'create'])->middleware(['auth', 'verified'])->name('template.blog.new-tag');
+Route::post('/template-store/blog/new-tag/store', [TemplateBlogTagController::class, 'store'])->middleware(['auth', 'verified'])->name('template.blog.new-tag.store');
+Route::get('/template-store/blog/edit-tag/{id}', [TemplateBlogTagController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.blog.tag.edit');
+Route::put('/template-store/blog/update-tag/{id}', [TemplateBlogTagController::class, 'update'])->middleware(['auth', 'verified'])->name('template.blog.tag.update');
+Route::delete('/template-store/blog/destroy-tag/{id}', [TemplateBlogTagController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.blog.tag.destroy');
 
 // Streaming Audio
 Route::get('/template-store/manage-audios', [TemplateAudioController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-audios');

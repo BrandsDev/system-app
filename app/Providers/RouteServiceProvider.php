@@ -41,6 +41,7 @@ class RouteServiceProvider extends ServiceProvider
     public const TemplateBlogCategories = '/template-store/blog/categories';
     public const TemplateBlogSubCategories = '/template-store/blog/subcategories';
     public const TemplateBlogSubSubCategories = '/template-store/blog/sub-subcategories';
+    public const TemplateBlogTag = '/template-store/blog/tags';
     public const TemplateNew = '/template-store/new-template';
     public const TemplateSeller = '/template-store/manage-sellers';
     public const TemplateAudio = '/template-store/manage-audios';

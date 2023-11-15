@@ -28,6 +28,7 @@
 						<li><a class="dropdown-item" href="{{ route('template.blog.categories') }}">Manage Categories</a></li>
 						<li><a class="dropdown-item" href="{{ route('template.blog.subcategories') }}">Manage Subcategories</a></li>
 						<li><a class="dropdown-item" href="{{ route('template.blog.sub-subcategories') }}">Manage Sub Subcategories</a></li>
+						<li><a class="dropdown-item" href="{{ route('template.blog.tags') }}">Manage Tags</a></li>
 					</ul>
 				</li>
 				<!-- <li class="nav-item dropdown">
