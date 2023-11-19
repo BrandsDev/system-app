@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2023 at 11:49 AM
+-- Generation Time: Nov 19, 2023 at 12:28 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -320,7 +320,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (131, '2023_11_09_102141_create_template_blog_sub_subcategory', 1),
 (132, '2023_11_11_085544_create_template_blog_categories', 2),
 (133, '2023_11_11_085555_create_template_blog_subcategories', 2),
-(134, '2023_11_11_085605_create_template_blog_sub_subcategories', 2);
+(134, '2023_11_11_085605_create_template_blog_sub_subcategories', 2),
+(135, '2023_11_15_095336_create_template_blog_tags', 3);
 
 -- --------------------------------------------------------
 
@@ -468,6 +469,14 @@ CREATE TABLE `template_blogs` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `template_blogs`
+--
+
+INSERT INTO `template_blogs` (`id`, `title`, `slug`, `tags`, `header_title`, `category_name`, `subcategory_name`, `sub_subcategory_name`, `template`, `seller_name`, `short_description`, `long_description`, `youtube_iframe`, `header_content`, `meta_title`, `meta_description`, `facebook_meta_title`, `facebook_meta_description`, `twitter_meta_title`, `twitter_meta_description`, `is_featured`, `featured_image`, `featured_img_alt_text`, `file`, `og_image`, `og_img_alt_text`, `status`, `comment`, `created_at`, `updated_at`) VALUES
+(6, 'c', 'c', 'c', 'c', 'A', 'c2', NULL, 'c', 'c', '<p>c</p>', '<p>c</p>', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 0, 'islamic-authentic-english-books-og.jpg', 'c', 'default-file.png', 'islamic-authentic-english-books-og.jpg', 'c', 1, '<p>c</p>', '2023-11-19 02:40:29', '2023-11-19 02:40:29'),
+(7, 'e', 'e', 'e', 'e', 'A', 'c2', NULL, 'e', 'e', '<p>e</p>', '<p>e</p>', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 1, 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'e', 'islamic-authentic-english-books-og.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'e', 1, '<p>e</p>', '2023-11-19 03:29:27', '2023-11-19 03:32:11');
+
 -- --------------------------------------------------------
 
 --
@@ -503,10 +512,10 @@ CREATE TABLE `template_blog_categories` (
 --
 
 INSERT INTO `template_blog_categories` (`id`, `category_name`, `slug`, `title`, `description`, `meta_title`, `meta_description`, `facebook_meta_title`, `facebook_meta_description`, `twitter_meta_title`, `twitter_meta_description`, `icon`, `icon_alt_text`, `thumb`, `thumb_alt_text`, `cover`, `cover_alt_text`, `og_image`, `og_img_alt_text`, `created_at`, `updated_at`) VALUES
-(3, 'A', 'A', NULL, '<p>A</p>', 'A', 'A', NULL, NULL, NULL, NULL, 'islamic-english-books-icon.png', NULL, 'islamic-english-books-thumb.png', NULL, 'dummy-cover-3.jpg', NULL, 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', NULL, '2023-11-11 23:09:13', '2023-11-11 23:09:14'),
 (4, 'A', 'A', NULL, '<p>A</p>', 'A', 'A', NULL, NULL, NULL, NULL, 'islamic-english-books-icon.png', NULL, 'islamic-english-books-thumb.png', NULL, 'dummy-cover-3.jpg', NULL, 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', NULL, '2023-11-11 23:35:18', '2023-11-11 23:35:18'),
 (5, 'B', 'B', NULL, '<p>B</p>', 'B', 'B', 'B', 'B', 'B', 'B', 'dummy-icon.png', 'B', 'dummy-thumb.png', 'B', 'dummy-cover.jpg', 'B', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'B', '2023-11-12 00:28:05', '2023-11-12 00:28:05'),
-(6, 'C1', 'C1', 'C1', '<p>C1</p>', 'C1', 'C1', 'C1', 'C1', 'C1', 'C1', 'dummy-icon.png', 'C1', 'dummy-thumb.png', 'C1', 'dummy-cover.jpg', 'C1', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'C1', '2023-11-12 23:03:41', '2023-11-12 23:06:29');
+(6, 'C1', 'C1', 'C1', '<p>C1</p>', 'C1', 'C1', 'C1', 'C1', 'C1', 'C1', 'dummy-icon.png', 'C1', 'dummy-thumb.png', 'C1', 'dummy-cover.jpg', 'C1', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'C1', '2023-11-12 23:03:41', '2023-11-12 23:06:29'),
+(7, 'd', 'd', 'd', '<p>d</p>', 'd', 'd', 'd', 'd', 'd', 'd', 'dummy-icon-2.png', 'd', 'dummy-thumb-2.png', 'd', 'dummy-cover-2.jpg', 'd', 'islamic-authentic-english-books-og.jpg', 'd', '2023-11-19 03:37:36', '2023-11-19 03:39:49');
 
 -- --------------------------------------------------------
 
@@ -544,7 +553,8 @@ CREATE TABLE `template_blog_subcategories` (
 --
 
 INSERT INTO `template_blog_subcategories` (`id`, `subcategory_name`, `slug`, `category_name`, `title`, `description`, `meta_title`, `meta_description`, `facebook_meta_title`, `facebook_meta_description`, `twitter_meta_title`, `twitter_meta_description`, `icon`, `icon_alt_text`, `thumb`, `thumb_alt_text`, `cover`, `cover_alt_text`, `og_image`, `og_img_alt_text`, `created_at`, `updated_at`) VALUES
-(1, 'a', 'a', 'A', 'a', '<p>a</p>', 'a', 'a', 'a', 'a', 'a', 'a', 'islamic-english-books-icon.png', 'a', 'islamic-english-books-thumb.png', 'a', 'dummy-cover-2.jpg', 'a', 'islamic-authentic-english-books-og.jpg', 'a', '2023-11-12 23:24:20', '2023-11-12 23:37:15');
+(1, 'a', 'a', 'A', 'a', '<p>a</p>', 'a', 'a', 'a', 'a', 'a', 'a', 'islamic-english-books-icon.png', 'a', 'islamic-english-books-thumb.png', 'a', 'dummy-cover-2.jpg', 'a', 'islamic-authentic-english-books-og.jpg', 'a', '2023-11-12 23:24:20', '2023-11-12 23:37:15'),
+(4, 'c', 'c', 'C1', 'c', '<p>c</p>', 'c', 'c', 'c', 'c', 'c', 'c', 'dummy-icon-2.png', 'c', 'dummy-thumb-2.png', 'c', 'dummy-cover-2.jpg', 'c', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'c', '2023-11-19 03:46:06', '2023-11-19 03:47:23');
 
 -- --------------------------------------------------------
 
@@ -582,7 +592,48 @@ CREATE TABLE `template_blog_sub_subcategories` (
 --
 
 INSERT INTO `template_blog_sub_subcategories` (`id`, `sub_subcategory_name`, `subcategory_name`, `slug`, `title`, `description`, `meta_title`, `meta_description`, `facebook_meta_title`, `facebook_meta_description`, `twitter_meta_title`, `twitter_meta_description`, `icon`, `icon_alt_text`, `thumb`, `thumb_alt_text`, `cover`, `cover_alt_text`, `og_image`, `og_img_alt_text`, `created_at`, `updated_at`) VALUES
-(2, 'a1', 'a', 'a1', 'a1', '<p>a1</p>', 'a1', 'a1', 'a1', 'a1', 'a1', 'a1', 'dummy-icon.png', 'a1', 'dummy-thumb.png', 'a1', 'dummy-cover-2.jpg', 'a1', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'a1', '2023-11-13 00:01:24', '2023-11-13 00:06:54');
+(3, 'c', 'c', 'c', 'c', '<p>c</p>', 'c', 'c', 'c', 'c', 'c', 'c', 'dummy-icon-2.png', 'c', 'dummy-thumb-2.png', 'c', 'dummy-cover-2.jpg', 'c', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'c', '2023-11-19 03:48:14', '2023-11-19 03:49:11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `template_blog_tags`
+--
+
+CREATE TABLE `template_blog_tags` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `slug` varchar(100) NOT NULL,
+  `description` text DEFAULT NULL,
+  `youtube_iframe` text DEFAULT NULL,
+  `header_content` text DEFAULT NULL,
+  `meta_title` varchar(100) DEFAULT NULL,
+  `meta_description` varchar(200) DEFAULT NULL,
+  `facebook_meta_title` varchar(100) DEFAULT NULL,
+  `facebook_meta_description` varchar(200) DEFAULT NULL,
+  `twitter_meta_title` varchar(100) DEFAULT NULL,
+  `twitter_meta_description` varchar(200) DEFAULT NULL,
+  `og_image` varchar(255) NOT NULL DEFAULT 'default-og-image.png',
+  `icon` varchar(255) NOT NULL DEFAULT 'default-icon.png',
+  `icon_alt_text` varchar(255) DEFAULT NULL,
+  `thumb` varchar(255) NOT NULL DEFAULT 'default-thumb.png',
+  `thumb_alt_text` varchar(255) DEFAULT NULL,
+  `cover` varchar(255) NOT NULL DEFAULT 'default-cover.png',
+  `cover_alt_text` varchar(255) DEFAULT NULL,
+  `og_img_alt_text` varchar(255) DEFAULT NULL,
+  `status` tinyint(4) DEFAULT 0,
+  `comment` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `template_blog_tags`
+--
+
+INSERT INTO `template_blog_tags` (`id`, `name`, `slug`, `description`, `youtube_iframe`, `header_content`, `meta_title`, `meta_description`, `facebook_meta_title`, `facebook_meta_description`, `twitter_meta_title`, `twitter_meta_description`, `og_image`, `icon`, `icon_alt_text`, `thumb`, `thumb_alt_text`, `cover`, `cover_alt_text`, `og_img_alt_text`, `status`, `comment`, `created_at`, `updated_at`) VALUES
+(15, 'e', 'e', '<p>e</p>', NULL, NULL, 'e', 'e', 'e', 'e', 'e', 'e', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'dummy-icon-2.png', 'e', 'dummy-thumb-2.png', 'e', 'dummy-cover-2.jpg', 'e', 'e', 1, NULL, '2023-11-18 03:43:12', '2023-11-19 03:50:59'),
+(16, 'b', 'b', '<p>b</p>', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'islamic-authentic-english-books-og.jpg', 'dummy-icon.png', 'b', 'dummy-thumb.png', 'b', 'dummy-cover.jpg', 'b', 'b', 1, '<p>b</p>', '2023-11-19 03:50:18', '2023-11-19 03:50:18');
 
 -- --------------------------------------------------------
 
@@ -682,6 +733,13 @@ CREATE TABLE `template_pages` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `template_pages`
+--
+
+INSERT INTO `template_pages` (`id`, `name`, `title`, `slug`, `tags`, `category_name`, `subcategory_name`, `sub_subcategory_name`, `short_description`, `long_description`, `youtube_iframe`, `header_content`, `meta_title`, `meta_description`, `thumb`, `breadcrumb_image`, `cover_image`, `og_image`, `status`, `comment`, `created_at`, `updated_at`) VALUES
+(1, 'Home', 'Home', 'home', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'default-thumb.png', 'default-breadcrumb.png', 'default-cover.png', 'default-og.png', 1, NULL, '2023-11-14 03:05:03', '2023-11-14 03:06:27');
 
 -- --------------------------------------------------------
 
@@ -922,6 +980,12 @@ ALTER TABLE `template_blog_sub_subcategories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `template_blog_tags`
+--
+ALTER TABLE `template_blog_tags`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `template_categories`
 --
 ALTER TABLE `template_categories`
@@ -1045,7 +1109,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1069,25 +1133,31 @@ ALTER TABLE `template_audios`
 -- AUTO_INCREMENT for table `template_blogs`
 --
 ALTER TABLE `template_blogs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `template_blog_categories`
 --
 ALTER TABLE `template_blog_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `template_blog_subcategories`
 --
 ALTER TABLE `template_blog_subcategories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `template_blog_sub_subcategories`
 --
 ALTER TABLE `template_blog_sub_subcategories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `template_blog_tags`
+--
+ALTER TABLE `template_blog_tags`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `template_categories`
@@ -1111,7 +1181,7 @@ ALTER TABLE `template_hires`
 -- AUTO_INCREMENT for table `template_pages`
 --
 ALTER TABLE `template_pages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `template_sellers`
