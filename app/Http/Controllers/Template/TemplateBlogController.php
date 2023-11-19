@@ -96,23 +96,25 @@ class TemplateBlogController extends Controller
             'comment' => $request->comment,
         ]);
 
+        // dd($blog);
+
         $blog->save();
 
         if ($request->hasFile('featured_image')) {
             $featuredImage = $request->file('featured_image')->getClientOriginalName();
-            $request->file('featured_image')->move(public_path('template/template/blog/image/featured'), $featuredImage);
+            $request->file('featured_image')->move(public_path('template/blog/image/featured'), $featuredImage);
             $blog->featured_image = $featuredImage;
         }
 
         if ($request->hasFile('file')) {
             $file = $request->file('file')->getClientOriginalName();
-            $request->file('file')->move(public_path('template/template/blog/file'), $file);
+            $request->file('file')->move(public_path('template/blog/file'), $file);
             $blog->file = $file;
         }
 
         if ($request->hasFile('og_image')) {
             $oGImage = $request->file('og_image')->getClientOriginalName();
-            $request->file('og_image')->move(public_path('template/template/blog/image/og'), $oGImage);
+            $request->file('og_image')->move(public_path('template/blog/image/og'), $oGImage);
             $blog->og_image = $oGImage;
         }
 

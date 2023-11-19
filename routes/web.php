@@ -209,7 +209,7 @@ Route::put('/template-store/update/{id}', [TemplateController::class, 'update'])
 Route::delete('/template-store/destroy/{id}', [TemplateController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.destroy-template');
 
 // Blog -> Manage Blog
-Route::get('/template-store/blog', [TemplateBlogController::class, 'show'])->middleware(['auth', 'verified'])->name('template.blog.manage-blog');
+Route::get('/template-store/blog/manage-blog', [TemplateBlogController::class, 'show'])->middleware(['auth', 'verified'])->name('template.blog.manage-blog');
 Route::get('/template-store/blog/new-blog', [TemplateBlogController::class, 'create'])->middleware(['auth', 'verified'])->name('template.blog.new-blog');
 Route::post('/template-store/blog/new-blog/store', [TemplateBlogController::class, 'store'])->middleware(['auth', 'verified'])->name('template.blog.store');
 Route::get('/template-store/blog/edit/{id}', [TemplateBlogController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.blog.edit');

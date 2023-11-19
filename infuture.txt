@@ -92,6 +92,8 @@ To Do
 
 - CSS & JS link to file
 
+- Add blog -> featured checkbox
+
 -----------------
 Wordpress
 -----------------

@@ -64,8 +64,8 @@
                     @foreach ($tags as $tag)
                     <tr>
                         <td>{{ $tag->name }}</td>
-                        <td>{{ $tag->description }}</td>
-                        <td>{!! $tag->slug !!}</td>
+                        <td>{!! $tag->description !!}</td>
+                        <td>{{ $tag->slug }}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                               <a href="{{ route('template.blog.tag.edit',$tag->id) }}" class="btn btn-secondary">Edit</a>
@@ -88,7 +88,7 @@
                                         @method('DELETE')
                                       <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Yes</button>
+                                        <button type="submit" class="btn btn-danger">Yes</button>
                                       </div>
                                     </form>
                                     </div>

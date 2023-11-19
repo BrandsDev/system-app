@@ -329,7 +329,7 @@ class TemplateBlogCategoryController extends Controller
                     ]);
 
                     $newIconName = $request->icon->getClientOriginalName();
-                    $request->icon->move(public_path('template/blog/category/icon'), $newimageIconName);
+                    $request->icon->move(public_path('template/blog/category/icon'), $newIconName);
 
                     $category->icon = $newIconName;
                 }
@@ -342,7 +342,7 @@ class TemplateBlogCategoryController extends Controller
                     ]);
 
                     $newThumbName = $request->thumb->getClientOriginalName();
-                    $request->thumb->move(public_path('template/blog/category/thumb'), $newimageThumbName);
+                    $request->thumb->move(public_path('template/blog/category/thumb'), $newThumbName);
 
                     $category->thumb = $newThumbName;
                 }
@@ -355,7 +355,7 @@ class TemplateBlogCategoryController extends Controller
                     ]);
 
                     $newCoverName = $request->cover->getClientOriginalName();
-                    $request->cover->move(public_path('template/blog/category/cover'), $newimageCoverName);
+                    $request->cover->move(public_path('template/blog/category/cover'), $newCoverName);
 
                     $category->cover = $newCoverName;
                 }
@@ -368,7 +368,7 @@ class TemplateBlogCategoryController extends Controller
                     ]);
 
                     $newOGName = $request->og_image->getClientOriginalName();
-                    $request->og_image->move(public_path('template/blog/category/og'), $newOGimageName);
+                    $request->og_image->move(public_path('template/blog/category/og'), $newOGName);
 
                     $category->og_image = $newOGName;
                 }

@@ -10,7 +10,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('template.dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('template.manage-blogs') }}">Manage Blogs</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('template.blog.manage-blog') }}">Manage Blog</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Edit Blog</li>
                 </ol>
             </nav>
@@ -225,14 +225,14 @@
                             <label for="featured_image" class="form-label">Featured Image</label>
                             <img src="{{ asset('template/blog/image/featured/' . $blog->featured_image) }}" class="img-thumbnail" alt="...">
                         </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="featured_img_alt_text" value="{{ $blog->featured_img_alt_text }}" placeholder="Alt Text" />
+                        </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="featured-image" class="form-label">Featured Image</label>
                             <input class="form-control" type="file" name="featured_image" />
-                        </div>
-                        <div class="mb-3">
-                            <input class="form-control" type="text" name="featured_img_alt_text" value="{{ $blog->featured_img_alt_text }}" placeholder="Alt Text" />
                         </div>
                     </div>
                     <div class="col-sm-12">

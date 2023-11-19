@@ -67,31 +67,31 @@ class TemplateBlogTagController extends Controller
         if ($request->hasFile('icon')) {
             $icon = $request->file('icon')->getClientOriginalName();
             $request->file('icon')->move(public_path('template/blog/tag/icon'), $icon);
-            $tag_img->icon = $icon;
+            $tag->icon = $icon;
         }
 
         if ($request->hasFile('thumb')) {
             $thumb = $request->file('thumb')->getClientOriginalName();
             $request->file('thumb')->move(public_path('template/blog/tag/thumb'), $thumb);
-            $tag_img->thumb = $thumb;
+            $tag->thumb = $thumb;
         }
 
         if ($request->hasFile('cover')) {
             $cover = $request->file('cover')->getClientOriginalName();
             $request->file('cover')->move(public_path('template/blog/tag/cover'), $cover);
-            $tag_img->cover = $cover;
+            $tag->cover = $cover;
         }
 
         if ($request->hasFile('og_image')) {
             $oGImage = $request->file('og_image')->getClientOriginalName();
             $request->file('og_image')->move(public_path('template/blog/tag/og'), $oGImage);
-            $tag_img->og_image = $oGImage;
+            $tag->og_image = $oGImage;
         }
 
-        dd($tag_img);
+        // dd($tag);
 
         if ($request->hasFile('icon') || $request->hasFile('thumb') || $request->hasFile('cover') || $request->hasFile('og_image')) {
-            $tag_img->save();
+            $tag->save();
         }
 
         Session::flash('message', __('New Blog Tag Successfully Added!'));
@@ -130,7 +130,7 @@ class TemplateBlogTagController extends Controller
                 $newIconName = $request->icon->getClientOriginalName();
                 $request->icon->move(public_path('template/blog/tag/icon'), $newIconName);
 
-                $category->icon = $newIconName;
+                $tag->icon = $newIconName;
             }
 
             $newThumb = $request->file('thumb');
@@ -143,7 +143,7 @@ class TemplateBlogTagController extends Controller
                 $newThumbName = $request->thumb->getClientOriginalName();
                 $request->thumb->move(public_path('template/blog/tag/thumb'), $newThumbName);
 
-                $category->thumb = $newThumbName;
+                $tag->thumb = $newThumbName;
             }
 
             $newCover = $request->file('cover');
@@ -156,7 +156,7 @@ class TemplateBlogTagController extends Controller
                 $newCoverName = $request->cover->getClientOriginalName();
                 $request->cover->move(public_path('template/blog/tag/cover'), $newCoverName);
 
-                $category->cover = $newCoverName;
+                $tag->cover = $newCoverName;
             }
 
             $newOG = $request->file('og_image');
@@ -169,7 +169,7 @@ class TemplateBlogTagController extends Controller
                 $newOGName = $request->og_image->getClientOriginalName();
                 $request->og_image->move(public_path('template/blog/tag/og'), $newOGName);
 
-                $category->og_image = $newOGName;
+                $tag->og_image = $newOGName;
             }
 
             // Update other fields of the request
