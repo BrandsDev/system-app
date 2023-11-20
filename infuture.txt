@@ -92,7 +92,9 @@ To Do
 
 - CSS & JS link to file
 
-- Add blog -> featured checkbox
+- Add blog -> featured checkbox [solved]
+- User CRUD
+- Comment CRUD
 
 -----------------
 Wordpress

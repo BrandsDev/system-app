@@ -61,13 +61,9 @@ class TemplateBlogController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        // $request->validate([
-        //     'name' => ['required', 'string', 'max:255'],
-        //     'slug' => ['required', 'regex:/^[a-z]+$/'],
-        // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        // ], [
-        //     'slug.regex' => 'The :attribute field must contain only lowercase letters.'
-        // ]);
+        $request->validate([
+            'is_featured' => 'nullable|boolean',
+        ]);
 
         $blog = TemplateBlog::create([
             'title' => $request->title,
@@ -89,14 +85,12 @@ class TemplateBlogController extends Controller
             'facebook_meta_description' => $request->facebook_meta_description,
             'twitter_meta_title' => $request->twitter_meta_title,
             'twitter_meta_description' => $request->twitter_meta_description,
-            'is_featured' => $request->is_featured,
+            'is_featured' => $request['is_featured'] ?? 0,
             'featured_img_alt_text' => $request->featured_img_alt_text,
             'og_img_alt_text' => $request->og_img_alt_text,
             'status' => $request->status,
             'comment' => $request->comment,
         ]);
-
-        // dd($blog);
 
         $blog->save();
 

@@ -215,7 +215,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <div class="form-check">
-                                  <input class="form-check-input" type="checkbox" name="is_featured" value="0" id="featuredCheckDefault">
+                                  <input class="form-check-input" type="checkbox" name="is_featured" value="1" id="featuredCheckDefault">
                                   <label class="form-check-label" for="featuredCheckDefault">
                                     Featured?
                                   </label>
@@ -225,7 +225,7 @@
                     <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="featured_image" class="form-label">Featured Image</label>
-                            <input class="form-control" type="file" name="featured_image" required />
+                            <input class="form-control" type="file" name="featured_image" />
                         </div>
                         <div class="mb-3">
                             <input class="form-control" type="text" name="featured_img_alt_text" placeholder="Alt Text" />
