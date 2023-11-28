@@ -246,6 +246,10 @@ Route::get('/template-store/blog/edit-tag/{id}', [TemplateBlogTagController::cla
 Route::put('/template-store/blog/update-tag/{id}', [TemplateBlogTagController::class, 'update'])->middleware(['auth', 'verified'])->name('template.blog.tag.update');
 Route::delete('/template-store/blog/destroy-tag/{id}', [TemplateBlogTagController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.blog.tag.destroy');
 
+// Blog -> Comments
+Route::get('/template-store/blog/comments', [TemplateBlogTagController::class, 'show'])->middleware(['auth', 'verified'])->name('template.blog.comments');
+
+
 // Streaming Audio
 Route::get('/template-store/manage-audios', [TemplateAudioController::class, 'show'])->middleware(['auth', 'verified'])->name('template.manage-audios');
 Route::get('/template-store/manage-audio/new-audio', [TemplateAudioController::class, 'create'])->middleware(['auth', 'verified'])->name('template.new-audio');

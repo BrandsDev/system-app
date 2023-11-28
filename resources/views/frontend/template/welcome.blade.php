@@ -62,7 +62,7 @@
 			<!-- Templates Section -->
 			<div class="row">
 				@foreach ($templates as $template)
-				<div class="col-lg-6">
+				<div class="col-lg-12">
 					<article>
 						<figure>
 							<div class="card shadow mb-5 rounded-3 no-border-card">
