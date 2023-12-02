@@ -2,15 +2,16 @@
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				<div class="container">
 					<a class="navbar-brand" href="{{ route('template.home') }}">
-						<img src="{{ Vite::asset('template/image/logo.png') }}" alt="Logo" width="50" height="50" />
+						<!-- <img src="{{ Vite::asset('template/image/logo.png') }}" alt="Logo" width="50" height="50" /> -->
+						<font class="fw-bold fs-2">{codephics}</font>
 					</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
 						<ul class="navbar-nav">
-							<li class="nav-item"><a href="{{ route('template.why-our-themes') }}" class="nav-link">Why Our Templates?</a></li>
-							<li class="nav-item"><a href="{{ route('template.store') }}" class="nav-link">Templates</a></li>
+							<!-- <li class="nav-item"><a href="{{ route('template.why-our-solutions') }}" class="nav-link">Why Our Solution?</a></li> -->
+							<!-- <li class="nav-item"><a href="{{ route('template.store') }}" class="nav-link">Templates</a></li> -->
 							<li class="nav-item"><a href="{{ url('template-store/qr-code-generator') }}" class="nav-link">QR Code Gen</a></li>
 							<li class="nav-item"><a href="{{ route('template.blog') }}" class="nav-link">Blog</a></li>
 							<li class="nav-item dropdown">

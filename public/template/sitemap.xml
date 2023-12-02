@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
         <loc>http://localhost/system-app/public/template-store/</loc>
             <changefreq>daily</changefreq>
@@ -16,22 +16,7 @@
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/system-app/public/template-store/about/brand</loc>
-            <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>http://localhost/system-app/public/template-store/about/overview</loc>
-            <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
         <loc>http://localhost/system-app/public/template-store/blog</loc>
-            <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>http://localhost/system-app/public/template-store/qr-code-generator</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
@@ -41,12 +26,17 @@
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/system-app/public/template-store/contact-us</loc>
+        <loc>http://localhost/system-app/public/template-store/about/brand</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/system-app/public/template-store/privacy-policy</loc>
+        <loc>http://localhost/system-app/public/template-store/qr-code-generator</loc>
+            <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/system-app/public/template-store/about/overview</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
@@ -56,17 +46,42 @@
         <priority>0.8</priority>
             </url>
     <url>
+        <loc>http://localhost/system-app/public/template-store/detail/portfolio</loc>
+            <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/system-app/public/template-store/templates</loc>
+            <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/system-app/public/template-store/template/category/a</loc>
+            <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
         <loc>http://localhost/system-app/public/template-store/terms-of-service</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/system-app/public/template-store/blog-detail/the-benefits-of-downloading-html-website-templates</loc>
+        <loc>http://localhost/system-app/public/template-store/privacy-policy</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/system-app/public/template-store/blog-detail/the-benefits-of-downloading-bootstrap-website-templates</loc>
+        <loc>http://localhost/system-app/public/template-store/blog-detail/e</loc>
+            <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/system-app/public/template-store/blog-detail/c</loc>
+            <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://localhost/system-app/public/template-store/contact-us</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>

@@ -2,8 +2,8 @@
 			<!-- Subscription -->
 			<div class="row py-3 border border-start-0 border-end-0">
 				<div class="col-md-8">
-					<h6 class="display-6">Subscribe now for free <abbr title="HyperText Markup Language" class="initialism">HTML</abbr> website templates!</h6>
-					<p>By subscribing to our email list, you'll receive free <abbr title="HyperText Markup Language" class="initialism"><strong>HTML5</strong></abbr><strong>, Bootstrap 5, and SEO-Friendly website templates</strong> straight to your inbox! Don't miss out on the latest designs and updates - subscribe now to stay up to date and elevate your web development game.</p>
+					<h6 class="display-6">Stay Ahead, Stay Informed</h6>
+					<p>Subscribe to our newsletter for the latest updates, new features, and exclusive insights. Elevate your web solutions with our continuous innovations.</p>
 				</div>
 				
 				<div class="col-md-4 align-self-center">
@@ -17,7 +17,7 @@
 						    </div>
 						</div>
 						<div class="col-auto">
-							<button type="submit" class="btn btn-primary mb-3">Subscribe</button>
+							<button type="submit" class="btn btn-primary mb-3">Subscribe Now</button>
 						</div>
 					</form>
 				</div>
@@ -30,14 +30,15 @@
 						<a class="nav-link" href="{{ route('template.terms-of-service') }}">Terms of Service</a>
 						<a class="nav-link" href="{{ route('template.license') }}">Licenses</a>
 						<a class="nav-link" href="{{ route('template.contact-us') }}">Contact Us</a>
+						<a class="nav-link" href="{{ route('template.sitemap') }}">Sitemap</a>
 					</nav>
 				</div>
 			</div>
 			<div class="row py-3">
 				<div class="col-8">
 					<details class="mb-3">
-						<summary>2022 © Bootstrap. All Rights Reserved.</summary>
-						<p>All content and graphics on this web site are the property of Bootstrap.</p>
+						<summary>2022 © Codephics. All Rights Reserved.</summary>
+						<p>All content and graphics on this web site are the property of Codephics.</p>
 					</details>
 					<nav class="nav">
 						<a href="https://twitter.com" title="Twitter" target="_blank" rel="nofollow" class="link-dark"><i class="fa-brands fa-twitter ms-2"></i></a>

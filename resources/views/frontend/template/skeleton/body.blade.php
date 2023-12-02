@@ -15,6 +15,46 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="https://themes.getbootstrap.com/wp-content/themes/bootstrap-marketplace/assets/images/fav/favicon-32x32.png" />
 		<link rel="icon" type="image/png" sizes="16x16" href="https://themes.getbootstrap.com/wp-content/themes/bootstrap-marketplace/assets/images/fav/favicon-16x16.png" />
 
+		<!-- <style>
+	        :root {
+	            --body-background-color: gray;
+	            --text-color: white;
+	            --link-color: blue;
+	            --heading-color: white;
+	            --paragraph-color: white;
+	        }
+
+	        body {
+	            background-color: var(--body-background-color);
+	            color: var(--text-color);
+	            font-family: Arial, sans-serif;
+	        }
+
+	        a {
+	            color: var(--link-color);
+	        }
+
+	        h1, h2, h3, h4, h5, h6 {
+	            color: var(--heading-color);
+	        }
+
+	        p {
+	            color: var(--paragraph-color);
+	        }
+
+	        .navbar {
+	            background-color: var(--primary-color);
+	        }
+
+	        .navbar-dark .navbar-nav .nav-link {
+	            color: var(--text-color);
+	        }
+
+	        .navbar-dark .navbar-toggler-icon {
+	            background-color: var(--text-color);
+	        }
+	    </style> -->
+
 		<!-- Custom Head -->
 		@yield('custom-head')
 		<!-- End Custom Head -->

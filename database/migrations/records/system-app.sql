@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2023 at 12:28 PM
+-- Generation Time: Dec 02, 2023 at 11:52 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -377,9 +377,9 @@ CREATE TABLE `templates` (
   `version` varchar(100) NOT NULL,
   `seller_name` varchar(100) NOT NULL,
   `seller_email` varchar(100) NOT NULL,
-  `short_description` tinytext DEFAULT NULL,
-  `long_description` tinytext DEFAULT NULL,
-  `change_log` tinytext DEFAULT NULL,
+  `short_description` text DEFAULT NULL,
+  `long_description` text DEFAULT NULL,
+  `change_log` text DEFAULT NULL,
   `youtube_iframe` text DEFAULT NULL,
   `header_content` text DEFAULT NULL,
   `meta_title` text DEFAULT NULL,
@@ -396,6 +396,13 @@ CREATE TABLE `templates` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `templates`
+--
+
+INSERT INTO `templates` (`id`, `name`, `slug`, `category_name`, `subcategory_name`, `sub_subcategory_name`, `sku`, `sale_price`, `regular_price`, `commission`, `bootstrap_v`, `released`, `updated`, `version`, `seller_name`, `seller_email`, `short_description`, `long_description`, `change_log`, `youtube_iframe`, `header_content`, `meta_title`, `meta_description`, `order_type`, `is_featured`, `live_preview_link`, `downloadable_link`, `image`, `og_image`, `file`, `status`, `comment`, `created_at`, `updated_at`) VALUES
+(1, 'BlogForge 10', 'blogforge-10', 'Blog Management System', NULL, NULL, 'portfolio', NULL, NULL, NULL, '5.2', NULL, NULL, '1.0', 'Codephics', 'codephics@gmail.com', '<p>Elevate your blogging experience with BlogForge 10, a free, SEO-friendly Laravel 10 and PHP 8.1-powered blog management system. Seamlessly designed with HTML5, CSS3, and Bootstrap 5.2, it empowers users to effortlessly create, edit, and manage blogs, categories, tags, and more through a secure admin panel.</p>', '<h2>Unleash the Power of Blogging</h2>\r\n<ul>\r\n<li>Intuitive Admin Panel</li>\r\n<li>Dynamic Blog Creation</li>\r\n<li>Effortless Category Management</li>\r\n<li>Tag Customization</li>\r\n<li>Secure Comment Handling</li>\r\n<li>Social Link Integration</li>\r\n<li>SEO-Friendly Structure</li>\r\n<li>and much more...</li>\r\n</ul>', '<p><strong>Version 1.0:</strong></p>\r\n<ul>\r\n<li>Initial Release</li>\r\n</ul>', NULL, NULL, 'BlogForge 10 - Free Laravel 10 Blog Management System', 'Experience the future of blogging with BlogForge 10. Download our free, SEO-friendly Laravel 10 blog management system. Effortlessly create, edit, and manage content in an intuitive admin panel.', NULL, NULL, NULL, NULL, 'children-and-parenting-books.jpg', 'default-og-image.png', 'default-file.mp3', 1, NULL, '2023-11-26 03:21:30', '2023-12-02 04:24:20');
 
 -- --------------------------------------------------------
 
@@ -474,8 +481,8 @@ CREATE TABLE `template_blogs` (
 --
 
 INSERT INTO `template_blogs` (`id`, `title`, `slug`, `tags`, `header_title`, `category_name`, `subcategory_name`, `sub_subcategory_name`, `template`, `seller_name`, `short_description`, `long_description`, `youtube_iframe`, `header_content`, `meta_title`, `meta_description`, `facebook_meta_title`, `facebook_meta_description`, `twitter_meta_title`, `twitter_meta_description`, `is_featured`, `featured_image`, `featured_img_alt_text`, `file`, `og_image`, `og_img_alt_text`, `status`, `comment`, `created_at`, `updated_at`) VALUES
-(6, 'c', 'c', 'c', 'c', 'A', 'c2', NULL, 'c', 'c', '<p>c</p>', '<p>c</p>', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 0, 'islamic-authentic-english-books-og.jpg', 'c', 'default-file.png', 'islamic-authentic-english-books-og.jpg', 'c', 1, '<p>c</p>', '2023-11-19 02:40:29', '2023-11-19 02:40:29'),
-(7, 'e', 'e', 'e', 'e', 'A', 'c2', NULL, 'e', 'e', '<p>e</p>', '<p>e</p>', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 1, 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'e', 'islamic-authentic-english-books-og.jpg', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'e', 1, '<p>e</p>', '2023-11-19 03:29:27', '2023-11-19 03:32:11');
+(14, 'Revolutionize Your Blogging Journey with BlogForge 10: A Free, SEO-Friendly Laravel 10 Solution', 'revolutionize-your-blogging-journey-with-blogforge-10-a-free-seo-friendly-laravel-10-solution', NULL, NULL, NULL, NULL, NULL, 'BlogForge 10', 'Codephics', NULL, '<p>Are you tired of wrestling with complex blogging platforms? Yearning for a solution that\'s both powerful and user-friendly? Look no further! Introducing <strong>BlogForge 10</strong> &ndash; a game-changing, SEO-friendly blog management system built on Laravel 10 and PHP 8.1.</p>\r\n<p><strong>Unleash the Power of BlogForge 10</strong></p>\r\n<p>BlogForge 10 is more than just a blogging platform; it\'s a comprehensive solution crafted to simplify and enhance your blogging experience. Imagine an intuitive admin panel where you can effortlessly create, edit, and manage blogs. With HTML5, CSS3, and Bootstrap 5.2, the user interface is not just seamless but visually stunning.</p>\r\n<p><strong>Effortless Content Management</strong></p>\r\n<p>Managing blogs, categories, tags, and comments has never been easier. BlogForge 10 provides a secure admin panel where you can add, edit, update, and delete content with a few clicks. The agility of BlogForge 10 ensures that even complex tasks are streamlined for efficiency.</p>\r\n<p><strong>SEO-Friendly Magic</strong></p>\r\n<p>In the digital age, visibility matters. BlogForge 10 is inherently SEO-friendly, with structured data, clean URLs, and meta tags that make your content more discoverable. It\'s not just a blog platform; it\'s your ticket to a higher ranking on search engines.</p>\r\n<p><strong>Join the Blogging Revolution</strong></p>\r\n<p>BlogForge 10 isn\'t just a tool; it\'s a revolution in the world of blogging. It\'s a solution crafted by developers, for developers. Join a community of innovators shaping the future of web development.</p>\r\n<p><strong>Why Download BlogForge 10?</strong></p>\r\n<ol>\r\n<li><strong>User-Friendly:</strong> Effortlessly manage your blog with an intuitive admin panel.</li>\r\n<li><strong>Innovative Features:</strong> Enjoy dynamic content creation, seamless category management, and more.</li>\r\n<li><strong>Secure:</strong> Manage your content securely with advanced authentication and authorization features.</li>\r\n<li><strong>SEO Optimization:</strong> Boost your blog\'s visibility with built-in SEO features.</li>\r\n<li><strong>Community-Driven:</strong> Be part of a thriving community, shaping the future of BlogForge 10.</li>\r\n</ol>\r\n<p><strong>Download Now and Transform Your Blogging Experience!</strong></p>\r\n<p>Don\'t miss out on the future of blogging. Download BlogForge 10 now and embark on a journey where innovation meets simplicity. Revolutionize your blogs, engage your audience, and enjoy the freedom to create without limits.</p>\r\n<p>Ready to experience the power of BlogForge 10? <a href=\"../../../../detail/blogforge-10\" target=\"_new\">Download Now</a> and be part of the blogging revolution!</p>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 'default-featured-image.png', NULL, 'default-file.png', 'default-og-image.png', NULL, 1, NULL, '2023-12-02 03:51:00', '2023-12-02 03:51:00'),
+(15, 'Crafting a Digital Portfolio: Unleash Your Creativity with PortFolioXpress', 'crafting-a-digital-portfolio-unleash-your-creativity-with-portfolioxpress', NULL, NULL, NULL, NULL, NULL, 'BlogForge 10', 'Codephics', NULL, '<p>Are you an artist, designer, or creative professional seeking a platform to showcase your work elegantly and effectively? Your search ends here! Welcome to <strong>PortFolioXpress</strong> &ndash; a dynamic and free portfolio web application designed to elevate your online presence.</p>\r\n<p><strong>Elevate Your Online Presence with PortFolioXpress</strong></p>\r\n<p>In a world where first impressions matter, your digital portfolio is your introduction. PortFolioXpress is not just a platform; it\'s a canvas for your creativity. Built on Laravel 10 and PHP 8.1, this application empowers you to curate and display your work seamlessly.</p>\r\n<p><strong>Why PortFolioXpress?</strong></p>\r\n<ol>\r\n<li>\r\n<p><strong>Dynamic Presentation:</strong> PortFolioXpress offers a dynamic and visually appealing way to present your work. Showcase your projects, skills, and achievements with elegance.</p>\r\n</li>\r\n<li>\r\n<p><strong>User-Friendly Admin Panel:</strong> Managing your portfolio shouldn\'t be a hassle. With PortFolioXpress, enjoy an admin panel that is not only user-friendly but also powerful, allowing you to update and modify your portfolio effortlessly.</p>\r\n</li>\r\n<li>\r\n<p><strong>Responsive Design:</strong> Your portfolio should look stunning on all devices. PortFolioXpress ensures a responsive design, so your work looks as impressive on a smartphone as it does on a desktop.</p>\r\n</li>\r\n<li>\r\n<p><strong>SEO Optimization:</strong> Just like your artwork, your portfolio deserves to be seen. PortFolioXpress is crafted with SEO best practices, ensuring that your portfolio ranks high in search engine results.</p>\r\n</li>\r\n<li>\r\n<p><strong>Community of Creatives:</strong> Join a community of fellow creatives using PortFolioXpress. Share insights, get feedback, and be part of a network that appreciates and supports your artistic journey.</p>\r\n</li>\r\n</ol>\r\n<p><strong>Transform Your Portfolio with PortFolioXpress</strong></p>\r\n<p>Creating a digital portfolio shouldn\'t be a daunting task. PortFolioXpress makes it easy for you to focus on what you do best &ndash; creating. Download PortFolioXpress now and embark on a journey where your creativity takes center stage.</p>\r\n<p><strong>Download Now and Showcase Your Creative Journey!</strong></p>\r\n<p>Ready to present your work to the world in a way that truly reflects your artistic vision? <a href=\"https://chat.openai.com/c/link-to-download\" target=\"_new\">Download PortFolioXpress</a> and let your portfolio speak volumes.</p>\r\n<p>Your creativity deserves the best platform &ndash; choose PortFolioXpress and let your work shine!</p>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 'default-featured-image.png', NULL, 'default-file.png', 'default-og-image.png', NULL, 1, NULL, '2023-12-02 03:54:23', '2023-12-02 03:54:23');
 
 -- --------------------------------------------------------
 
@@ -506,16 +513,6 @@ CREATE TABLE `template_blog_categories` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `template_blog_categories`
---
-
-INSERT INTO `template_blog_categories` (`id`, `category_name`, `slug`, `title`, `description`, `meta_title`, `meta_description`, `facebook_meta_title`, `facebook_meta_description`, `twitter_meta_title`, `twitter_meta_description`, `icon`, `icon_alt_text`, `thumb`, `thumb_alt_text`, `cover`, `cover_alt_text`, `og_image`, `og_img_alt_text`, `created_at`, `updated_at`) VALUES
-(4, 'A', 'A', NULL, '<p>A</p>', 'A', 'A', NULL, NULL, NULL, NULL, 'islamic-english-books-icon.png', NULL, 'islamic-english-books-thumb.png', NULL, 'dummy-cover-3.jpg', NULL, 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', NULL, '2023-11-11 23:35:18', '2023-11-11 23:35:18'),
-(5, 'B', 'B', NULL, '<p>B</p>', 'B', 'B', 'B', 'B', 'B', 'B', 'dummy-icon.png', 'B', 'dummy-thumb.png', 'B', 'dummy-cover.jpg', 'B', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'B', '2023-11-12 00:28:05', '2023-11-12 00:28:05'),
-(6, 'C1', 'C1', 'C1', '<p>C1</p>', 'C1', 'C1', 'C1', 'C1', 'C1', 'C1', 'dummy-icon.png', 'C1', 'dummy-thumb.png', 'C1', 'dummy-cover.jpg', 'C1', 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', 'C1', '2023-11-12 23:03:41', '2023-11-12 23:06:29'),
-(7, 'd', 'd', 'd', '<p>d</p>', 'd', 'd', 'd', 'd', 'd', 'd', 'dummy-icon-2.png', 'd', 'dummy-thumb-2.png', 'd', 'dummy-cover-2.jpg', 'd', 'islamic-authentic-english-books-og.jpg', 'd', '2023-11-19 03:37:36', '2023-11-19 03:39:49');
 
 -- --------------------------------------------------------
 
@@ -670,7 +667,8 @@ CREATE TABLE `template_categories` (
 --
 
 INSERT INTO `template_categories` (`id`, `category_name`, `slug`, `title`, `description`, `meta_title`, `meta_description`, `facebook_meta_title`, `facebook_meta_description`, `twitter_meta_title`, `twitter_meta_description`, `icon`, `icon_alt_text`, `thumb`, `thumb_alt_text`, `cover`, `cover_alt_text`, `og_image`, `og_img_alt_text`, `created_at`, `updated_at`) VALUES
-(1, 'A', 'a', NULL, '<p>A</p>', 'A', 'A', NULL, NULL, NULL, NULL, 'islamic-english-books-icon.png', NULL, 'islamic-english-books-thumb.png', NULL, 'dummy-cover-3.jpg', NULL, 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', NULL, '2023-11-11 23:04:26', '2023-11-11 23:04:26');
+(1, 'Blog Management System', 'blog-management-system', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'islamic-english-books-icon.png', NULL, 'islamic-english-books-thumb.png', NULL, 'dummy-cover-3.jpg', NULL, 'mohimannito-quran-marmartho-o-sabdik-onubad-og.jpg', NULL, '2023-11-11 23:04:26', '2023-12-02 03:33:00'),
+(2, 'Portfolio Management System', 'portfolio-management-system', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'default-icon.png', NULL, 'default-icon.png', NULL, 'default-icon.png', NULL, 'default-icon.png', NULL, '2023-12-02 04:23:37', '2023-12-02 04:23:37');
 
 -- --------------------------------------------------------
 
@@ -739,7 +737,18 @@ CREATE TABLE `template_pages` (
 --
 
 INSERT INTO `template_pages` (`id`, `name`, `title`, `slug`, `tags`, `category_name`, `subcategory_name`, `sub_subcategory_name`, `short_description`, `long_description`, `youtube_iframe`, `header_content`, `meta_title`, `meta_description`, `thumb`, `breadcrumb_image`, `cover_image`, `og_image`, `status`, `comment`, `created_at`, `updated_at`) VALUES
-(1, 'Home', 'Home', 'home', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'default-thumb.png', 'default-breadcrumb.png', 'default-cover.png', 'default-og.png', 1, NULL, '2023-11-14 03:05:03', '2023-11-14 03:06:27');
+(1, 'Template Store', 'Template Store', 'template-store', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Empowering Digital Solutions | Laravel Applications', 'Elevate your web experience with our Laravel-based solutions. From blog management to technical innovations, explore a diverse range of applications.', 'default-thumb.png', 'default-breadcrumb.png', 'default-cover.png', 'default-og.png', 1, NULL, '2023-11-14 03:05:03', '2023-12-02 02:45:38'),
+(3, 'Why Our Themes?', 'Why Our Themes?', 'why-our-themes', NULL, NULL, NULL, NULL, NULL, '<h1>Why Choose Our Solutions</h1>\r\n<p>Welcome to a world of innovation and efficiency where our Laravel-powered solutions redefine your digital experience. Here\'s why our solutions stand out:</p>\r\n<h2>1. Seamlessness at Its Core</h2>\r\n<p>Our applications are meticulously crafted for a seamless experience. Whether you\'re managing a blog or creating dynamic content, our solutions prioritize user-friendliness. Effortlessly navigate the admin panel, edit blog posts, and engage your audience.</p>\r\n<h2>2. Community-Driven Excellence</h2>\r\n<p>Join a vibrant community of developers and enthusiasts. Our solutions are not just tools; they are part of a collaborative ecosystem. Stay updated on the latest features, share insights, and contribute to the continuous evolution of our applications.</p>\r\n<h2>3. Future-Ready Integration</h2>\r\n<p>Embrace the future with confidence. Our Laravel-based solutions are designed for seamless integration, ensuring compatibility with the latest technologies. Stay ahead of industry standards and explore the cutting edge of web development.</p>\r\n<h2>4. User-Friendly Content Hub</h2>\r\n<p>Experience content creation like never before. Our solutions prioritize user-friendliness, making them suitable for both beginners and experienced users. Manage your content with ease and efficiency.</p>\r\n<h2>5. Cutting-Edge Web Development</h2>\r\n<p>Explore the forefront of web development with our applications. Crafted with cutting-edge technologies, our solutions ensure your digital presence remains innovative and in line with industry standards.</p>\r\n<p>Choose our solutions for a digital journey that goes beyond expectations. Elevate your web experience with technology that works seamlessly and innovatively.</p>', NULL, NULL, NULL, NULL, 'default-thumb.png', 'default-breadcrumb.png', 'default-cover.png', 'default-og.png', NULL, NULL, '2023-11-26 03:14:55', '2023-11-30 01:20:34'),
+(4, 'Templates', 'Templates', 'templates', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'default-thumb.png', 'default-breadcrumb.png', 'default-cover.png', 'default-og.png', NULL, NULL, '2023-11-26 03:15:20', '2023-11-26 03:15:20'),
+(5, 'QR Code Gen', 'QR Code Gen', 'qr-code-generator', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'default-thumb.png', 'default-breadcrumb.png', 'default-cover.png', 'default-og.png', NULL, NULL, '2023-11-26 03:15:48', '2023-11-26 03:15:48'),
+(6, 'Blog', 'Blog', 'blog', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'default-thumb.png', 'default-breadcrumb.png', 'default-cover.png', 'default-og.png', NULL, NULL, '2023-11-26 03:16:08', '2023-11-26 03:16:08'),
+(7, 'Overview', 'Overview', 'overview', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'default-thumb.png', 'default-breadcrumb.png', 'default-cover.png', 'default-og.png', NULL, NULL, '2023-11-26 03:16:38', '2023-11-26 03:16:38'),
+(8, 'Brand', 'Brand', 'brand', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'default-thumb.png', 'default-breadcrumb.png', 'default-cover.png', 'default-og.png', NULL, NULL, '2023-11-26 03:16:57', '2023-11-26 03:16:57'),
+(9, 'License', 'License', 'license', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'default-thumb.png', 'default-breadcrumb.png', 'default-cover.png', 'default-og.png', NULL, NULL, '2023-11-26 03:17:26', '2023-11-26 03:17:26'),
+(10, 'Hire Us', 'Hire Us', 'hire-us', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'default-thumb.png', 'default-breadcrumb.png', 'default-cover.png', 'default-og.png', NULL, NULL, '2023-11-26 03:17:47', '2023-11-26 03:17:47'),
+(11, 'Privacy Policy', 'Privacy Policy', 'privacy-policy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'default-thumb.png', 'default-breadcrumb.png', 'default-cover.png', 'default-og.png', NULL, NULL, '2023-11-26 03:18:06', '2023-11-26 03:18:06'),
+(12, 'Terms of Service', 'Terms of Service', 'terms-of-service', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'default-thumb.png', 'default-breadcrumb.png', 'default-cover.png', 'default-og.png', NULL, NULL, '2023-11-26 03:18:26', '2023-11-26 03:18:26'),
+(13, 'Contact Us', 'Contact Us', 'contact-us', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'default-thumb.png', 'default-breadcrumb.png', 'default-cover.png', 'default-og.png', NULL, NULL, '2023-11-26 03:18:52', '2023-11-26 03:18:52');
 
 -- --------------------------------------------------------
 
@@ -767,6 +776,13 @@ CREATE TABLE `template_sellers` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `template_sellers`
+--
+
+INSERT INTO `template_sellers` (`id`, `name`, `slug`, `gender`, `bio`, `mobile`, `email`, `address`, `description`, `youtube_iframe`, `meta_title`, `meta_description`, `image`, `og_image`, `cover`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Codephics', 'codephics', 'company', NULL, NULL, 'codephics@gmail.com', NULL, NULL, NULL, NULL, NULL, 'default-image.png', 'default-og-image.png', 'default-cover.png', NULL, '2023-12-02 03:29:26', '2023-12-02 03:29:26');
 
 -- --------------------------------------------------------
 
@@ -1121,7 +1137,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `templates`
 --
 ALTER TABLE `templates`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `template_audios`
@@ -1133,7 +1149,7 @@ ALTER TABLE `template_audios`
 -- AUTO_INCREMENT for table `template_blogs`
 --
 ALTER TABLE `template_blogs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `template_blog_categories`
@@ -1163,7 +1179,7 @@ ALTER TABLE `template_blog_tags`
 -- AUTO_INCREMENT for table `template_categories`
 --
 ALTER TABLE `template_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `template_contacts`
@@ -1181,13 +1197,13 @@ ALTER TABLE `template_hires`
 -- AUTO_INCREMENT for table `template_pages`
 --
 ALTER TABLE `template_pages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `template_sellers`
 --
 ALTER TABLE `template_sellers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `template_subcategories`

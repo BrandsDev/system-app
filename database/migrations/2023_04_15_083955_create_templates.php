@@ -28,9 +28,9 @@ return new class extends Migration
             $table->string('version', 100);
             $table->string('seller_name', 100);
             $table->string('seller_email', 100);
-            $table->tinyText('short_description')->nullable();
-            $table->tinyText('long_description')->nullable();
-            $table->tinyText('change_log')->nullable();
+            $table->text('short_description')->nullable();
+            $table->text('long_description')->nullable();
+            $table->text('change_log')->nullable();
             $table->text('youtube_iframe')->nullable();
             $table->text('header_content')->nullable();
             $table->text('meta_title')->nullable();

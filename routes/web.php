@@ -55,41 +55,6 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Frontend -> Blog
-|--------------------------------------------------------------------------
-*/
-
-/*
-|--------------------------------------------------------------------------
-| Frontend -> Bookstore
-|--------------------------------------------------------------------------
-*/
-
-// Book Store
-Route::get('bookstore', [BookController::class, 'index'])->name('book.home');
-Route::get('book/shop', [BookController::class, 'bookshop'])->name('bookshop');
-Route::get('book-detail/{slug}', [BookController::class, 'detail'])->name('book.detail');
-
-// Book Store -> Blog
-Route::get('book/blog', [BookBlogController::class, 'index'])->name('book.blog');
-Route::get('book/blog-detail/{slug}', [BookBlogController::class, 'detail'])->name('book.blog.detail');
-
-// Book Store -> About
-Route::get('book/about/overview', [BookAboutController::class, 'overview'])->name('book.overview');
-Route::get('book/about/brand', [BookAboutController::class, 'brand'])->name('book.brand');
-Route::get('book/about/license', [BookAboutController::class, 'license'])->name('book.license');
-
-// Book Store -> Contact Us
-Route::get('book/contact-us', [BookContactController::class, 'index'])->name('book.contact-us');
-
-// Book Store -> Privacy Policy
-Route::get('book/privacy-policy', [BookPrivacyController::class, 'index'])->name('book.privacy-policy');
-
-// Book Store -> Terms of Service
-Route::get('book/terms-of-service', [BookTermController::class, 'index'])->name('book.terms-of-service');
-
-/*
-|--------------------------------------------------------------------------
 | Frontend -> Template
 |--------------------------------------------------------------------------
 */
@@ -103,9 +68,9 @@ Route::get('template-store/detail/{slug}', [TemplateController::class, 'detail']
 // Route::get('template-store/{slug}', [TemplatePageController::class, 'index'])->name('template.page');
 
 // Menu
-Route::get('template-store/template/category/{category:slug}', [TemplateController::class, 'showByCategory'])->name('category.show');
-Route::get('template-store/template/category/{category:slug}/{subcategory:slug}', [TemplateController::class, 'showBySubcategory'])->name('subcategory.show');
-Route::get('template-store/template/category/{category:slug}/{subcategory:slug}/{subSubcategory:slug}', [TemplateController::class, 'showBySubSubcategory'])->name('subSubcategory.show');
+Route::get('template-store/template/{category:slug}', [TemplateController::class, 'showByCategory'])->name('category.show');
+Route::get('template-store/template/{category:slug}/{subcategory:slug}', [TemplateController::class, 'showBySubcategory'])->name('subcategory.show');
+Route::get('template-store/template/{category:slug}/{subcategory:slug}/{subSubcategory:slug}', [TemplateController::class, 'showBySubSubcategory'])->name('subSubcategory.show');
 
 // Template -> Blog
 Route::get('template-store/blog', [TemplateBlogController::class, 'index'])->name('template.blog');
@@ -130,7 +95,10 @@ Route::get('template-store/privacy-policy', [TemplatePrivacyController::class, '
 // Template -> Terms of Service
 Route::get('template-store/terms-of-service', [TemplateTermController::class, 'index'])->name('template.terms-of-service');
     
-// Template -> Why Our Themes
+// Template -> Why Our Solutions
+Route::get('template-store/why-our-solutions', [TemplateThemeController::class, 'index'])->name('template.why-our-solutions');
+    
+// Template -> Why Our solutions
 Route::get('template-store/why-our-themes', [TemplateThemeController::class, 'index'])->name('template.why-our-themes');
 
 // Template -> QR Code Gennerator
@@ -143,7 +111,7 @@ Route::post('/template-store/new-subscriber', [TemplateSubscriptionController::c
 Route::get('/template-store/404', [TemplatePageController::class, 'error404'])->name('template.404');
 
 // Template -> Sitemap
-Route::get('/template-store/sitemap.xml', [TemplateSitemapController::class, 'index'])->name('sitemap');
+Route::get('/template-store/sitemap.xml', [TemplateSitemapController::class, 'index'])->name('template.sitemap');
 
 /*
 |--------------------------------------------------------------------------
@@ -308,6 +276,35 @@ Route::delete('/manage-hires/destroy/{id}', [TemplateHireController::class, 'des
 
 // Backend -> Blog -> Dashboard
 Route::get('/blog/dashboard', [BlogController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('blog.dashboard');
+
+/*
+|--------------------------------------------------------------------------
+| Frontend -> Bookstore
+|--------------------------------------------------------------------------
+*/
+
+// Book Store
+Route::get('bookstore', [BookController::class, 'index'])->name('book.home');
+Route::get('book/shop', [BookController::class, 'bookshop'])->name('bookshop');
+Route::get('book-detail/{slug}', [BookController::class, 'detail'])->name('book.detail');
+
+// Book Store -> Blog
+Route::get('book/blog', [BookBlogController::class, 'index'])->name('book.blog');
+Route::get('book/blog-detail/{slug}', [BookBlogController::class, 'detail'])->name('book.blog.detail');
+
+// Book Store -> About
+Route::get('book/about/overview', [BookAboutController::class, 'overview'])->name('book.overview');
+Route::get('book/about/brand', [BookAboutController::class, 'brand'])->name('book.brand');
+Route::get('book/about/license', [BookAboutController::class, 'license'])->name('book.license');
+
+// Book Store -> Contact Us
+Route::get('book/contact-us', [BookContactController::class, 'index'])->name('book.contact-us');
+
+// Book Store -> Privacy Policy
+Route::get('book/privacy-policy', [BookPrivacyController::class, 'index'])->name('book.privacy-policy');
+
+// Book Store -> Terms of Service
+Route::get('book/terms-of-service', [BookTermController::class, 'index'])->name('book.terms-of-service');
 
 /*
 |--------------------------------------------------------------------------
