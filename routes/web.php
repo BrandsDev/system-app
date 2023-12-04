@@ -60,9 +60,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Template
-Route::get('template-store', [TemplateHomeController::class, 'index'])->name('template.home');
+Route::match(['head', 'get'], '/', [TemplateHomeController::class, 'index'])->name('template.home');
 Route::get('template-store/templates', [TemplateController::class, 'index'])->name('template.store');
-Route::get('template-store/detail/{slug}', [TemplateController::class, 'detail'])->name('template.detail');
+Route::get('/solution/detail/{slug}', [TemplateController::class, 'detail'])->name('template.detail');
 
 // Template Pages
 // Route::get('template-store/{slug}', [TemplatePageController::class, 'index'])->name('template.page');
@@ -73,27 +73,27 @@ Route::get('template-store/template/{category:slug}/{subcategory:slug}', [Templa
 Route::get('template-store/template/{category:slug}/{subcategory:slug}/{subSubcategory:slug}', [TemplateController::class, 'showBySubSubcategory'])->name('subSubcategory.show');
 
 // Template -> Blog
-Route::get('template-store/blog', [TemplateBlogController::class, 'index'])->name('template.blog');
-Route::get('template-store/blog-detail/{slug}', [TemplateBlogController::class, 'detail'])->name('template.blog.detail');
+Route::get('/blog', [TemplateBlogController::class, 'index'])->name('template.blog');
+Route::get('/blog-detail/{slug}', [TemplateBlogController::class, 'detail'])->name('template.blog.detail');
 
 // Template -> About
-Route::get('template-store/about/overview', [TemplateAboutController::class, 'overview'])->name('template.overview');
-Route::get('template-store/about/brand', [TemplateAboutController::class, 'brand'])->name('template.brand');
-Route::get('template-store/about/license', [TemplateAboutController::class, 'license'])->name('template.license');
+Route::get('/about/overview', [TemplateAboutController::class, 'overview'])->name('template.overview');
+Route::get('/about/brand', [TemplateAboutController::class, 'brand'])->name('template.brand');
+Route::get('/about/license', [TemplateAboutController::class, 'license'])->name('template.license');
 
 // Template -> Hire Us
-Route::get('template-store/hire-us', [TemplateHireController::class, 'index'])->name('template.hire-us');
-Route::post('template-store/hire-us/new-hire', [TemplateHireController::class, 'newHire'])->name('template.front.newHire');
+Route::get('/hire-us', [TemplateHireController::class, 'index'])->name('template.hire-us');
+Route::post('/hire-us/new-hire', [TemplateHireController::class, 'newHire'])->name('template.front.newHire');
 
 // Template -> Contact Us
-Route::get('template-store/contact-us', [TemplateContactController::class, 'index'])->name('template.contact-us');
-Route::post('template-store/contact-us/new-contact', [TemplateContactController::class, 'newContact'])->name('template.front.new-contact');
+Route::get('/contact-us', [TemplateContactController::class, 'index'])->name('template.contact-us');
+Route::post('/contact-us/new-contact', [TemplateContactController::class, 'newContact'])->name('template.front.new-contact');
 
 // Template -> Privacy Policy
-Route::get('template-store/privacy-policy', [TemplatePrivacyController::class, 'index'])->name('template.privacy-policy');
+Route::get('/privacy-policy', [TemplatePrivacyController::class, 'index'])->name('template.privacy-policy');
 
 // Template -> Terms of Service
-Route::get('template-store/terms-of-service', [TemplateTermController::class, 'index'])->name('template.terms-of-service');
+Route::get('/terms-of-service', [TemplateTermController::class, 'index'])->name('template.terms-of-service');
     
 // Template -> Why Our Solutions
 Route::get('template-store/why-our-solutions', [TemplateThemeController::class, 'index'])->name('template.why-our-solutions');
@@ -102,16 +102,16 @@ Route::get('template-store/why-our-solutions', [TemplateThemeController::class, 
 Route::get('template-store/why-our-themes', [TemplateThemeController::class, 'index'])->name('template.why-our-themes');
 
 // Template -> QR Code Gennerator
-Route::get('/template-store/qr-code-generator', [TemplatePageController::class, 'qrCodeGen'])->name('template.qr-code-generator');
+Route::get('/qr-code-generator', [TemplatePageController::class, 'qrCodeGen'])->name('template.qr-code-generator');
 
 // Template -> Subscriber
-Route::post('/template-store/new-subscriber', [TemplateSubscriptionController::class, 'subscriber'])->name('template.new-subscriber');
+Route::post('/new-subscriber', [TemplateSubscriptionController::class, 'subscriber'])->name('template.new-subscriber');
 
 // Template -> 404
-Route::get('/template-store/404', [TemplatePageController::class, 'error404'])->name('template.404');
+Route::get('/404', [TemplatePageController::class, 'error404'])->name('template.404');
 
 // Template -> Sitemap
-Route::get('/template-store/sitemap.xml', [TemplateSitemapController::class, 'index'])->name('template.sitemap');
+Route::get('/sitemap.xml', [TemplateSitemapController::class, 'index'])->name('template.sitemap');
 
 /*
 |--------------------------------------------------------------------------
@@ -190,7 +190,7 @@ Route::get('/template-store/blog/new-category', [TemplateBlogCategoryController:
 Route::post('/template-store/blog/new-category/store', [TemplateBlogCategoryController::class, 'store'])->middleware(['auth', 'verified'])->name('template.blog.new-category.store');
 Route::get('/template-store/blog/edit-category/{id}', [TemplateBlogCategoryController::class, 'edit'])->middleware(['auth', 'verified'])->name('template.blog.category.edit');
 Route::put('/template-store/blog/update-category/{id}', [TemplateBlogCategoryController::class, 'update'])->middleware(['auth', 'verified'])->name('template.blog.category.update');
-Route::delete('/blog/destroy-category/{id}', [TemplateBlogCategoryController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.blog.category.destroy');
+Route::delete('/template-store/blog/destroy-category/{id}', [TemplateBlogCategoryController::class, 'destroy'])->middleware(['auth', 'verified'])->name('template.blog.category.destroy');
 
 Route::get('/template-store/blog/subcategories', [TemplateBlogCategoryController::class, 'show'])->middleware(['auth', 'verified'])->name('template.blog.subcategories');
 Route::get('/template-store/blog/subcategories/new-subcategory', [TemplateBlogCategoryController::class, 'create'])->middleware(['auth', 'verified'])->name('template.blog.new-subcategory');

@@ -36,8 +36,8 @@ class TemplateBlogController extends Controller
 
     public function blogs()
     {
-        $featuredBlogs = TemplateBlog::where('is_featured', 1)->get();
-        $takeBlogs = TemplateBlog::take(2)->get();
+        $featuredBlogs = TemplateBlog::where('is_featured', 1)->take(1)->get();
+        $takeBlogs = TemplateBlog::where('is_featured', 1)->take(2)->get();
 
         return view('frontend.template.blog', ['featuredBlogs' => $featuredBlogs, 'takeBlogs' => $takeBlogs]);
     }
@@ -130,10 +130,12 @@ class TemplateBlogController extends Controller
 
     public function detail($slug)
     {
+        $page_short_des = TemplatePage::where('slug', 'blog')->firstOrFail();
         $page = TemplateBlog::where('slug', $slug)->firstOrFail();
         $relatedBlog = TemplateBlog::take(4)->get();
 
         return view('frontend.template.blog-detail', [
+            'page_short_des' => $page_short_des,
             'page' => $page,
             'relatedBlog' => $relatedBlog
         ]);

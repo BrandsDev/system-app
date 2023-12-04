@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Template\Template;
 use App\Models\Template\TemplatePage;
 use App\Models\Template\TemplateBlog;
+use App\Models\Template\TemplateSeller;
 
 use App\Models\Template\TemplateCategory;
 use App\Models\Template\TemplateSubcategory;
@@ -48,11 +49,13 @@ class TemplateController extends Controller
         $page = Template::where('slug', $slug)->firstOrFail();
         $relatedTemplate = Template::take(4)->get();
         $relatedBlog = TemplateBlog::take(4)->get();
+        // $seller = TemplateSeller::where('slug', $slug)->firstOrFail()
 
         return view('frontend.template.template-detail', [
                 'page' => $page,
                 'relatedTemplate' => $relatedTemplate,
-                'relatedBlog' => $relatedBlog
+                'relatedBlog' => $relatedBlog,
+                // 'seller' => $seller
             ]);
     }
 
@@ -299,7 +302,7 @@ class TemplateController extends Controller
                 $template->image = $newImageName;
             }
 
-            $newImage = $request->file('og');
+            $newImage = $request->file('og_image');
 
             if ($newImage) {
                 // Validate the new OG file
@@ -308,11 +311,11 @@ class TemplateController extends Controller
                 ]);
 
                 // Process the new OG file (e.g., move to a specific directory, assign a new filename)
-                $newImageName = $request->og->getClientOriginalName();
-                $request->og->move(public_path('template/image/og'), $newImageName);
+                $newImageName = $request->og_image->getClientOriginalName();
+                $request->og_image->move(public_path('template/image/og'), $newImageName);
 
                 // Update the og data in the model
-                $template->og = $newImageName;
+                $template->og_image = $newImageName;
             }
 
             // Validate and process the new image

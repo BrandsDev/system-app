@@ -40,8 +40,7 @@
 						<div class="p-4 mb-3 bg-light rounded">
 							<h5>About</h5>
 							<p>
-								Download our free website templates with <abbr title="HyperText Markup Language" class="initialism">HTML</abbr>, <abbr title="Cascading Style Sheet" class="initialism">CSS</abbr>, and Bootstrap components to build high-quality, responsive websites quickly and easily. Our templates are optimized for mobile devices, customizable to meet your needs, and will save you time and effort in web development. Start creating professional websites today!
-								<br>
+								{!! $page_short_des->short_description !!}
 								<a href="{{ route('template.store') }}">Download Now!</a>
 							</p>
 						</div>
@@ -67,9 +66,11 @@
 						<div class="p-4">
 							<h5>Elsewhere</h5>
 							<ol class="list-unstyled">
-								<li><a href="#">GitHub</a></li>
-								<li><a href="#">Twitter</a></li>
-								<li><a href="#">Facebook</a></li>
+								<li><a href="https://github.com/codephics">GitHub</a></li>
+								<li><a href="https://twitter.com/codephics">Twitter</a></li>
+								<li><a href="https://facebook.com/codephics">Facebook</a></li>
+								<li><a href="https://instagram.com/codephics">Instagram</a></li>
+								<li><a href="https://stackoverflow.com/users/22997964/codephics">Stackoverflow</a></li>
 							</ol>
 						</div>
 					</div>
@@ -87,14 +88,14 @@
 		<section>
 			<div class="row border-top-0 border-start-0 border-bottom-0 border-end-0">
 				<div class="col-lg-10">
-					<h4 class="display-6"><abbr title="HyperText Markup Language" class="initialism">HTML5</abbr>, Bootstrap 5, and SEO-Friendly Related Blog</h4>
+					<h4 class="display-6">Explore more insightful content from our blog</h4>
 
-					<p>Embark on a captivating exploration through the dynamic world of web development with our engaging blog. In our "<abbr title="HyperText Markup Language" class="initialism"><strong>HTML5</strong></abbr><strong>, Bootstrap 5, and SEO-Friendly</strong> Related Blog," we delve into the fascinating realms of modern web design and development. Discover the seamless synergy of <abbr title="HyperText Markup Language" class="initialism">HTML5</abbr> and Bootstrap 5, unlocking endless possibilities for creating visually stunning and interactive websites.</p>
+					<p>Dive into the fundamentals of SEO and discover how it can elevate your online presence. This beginner's guide covers essential strategies and tips to optimize your website for search engines.</p>
 				</div>
 				<div class="col-lg-2 align-self-center">
 					<div class="row">
 						<div class="col-12 col-sm-12">
-							<a type="button" class="btn btn-outline-secondary float-end" href="{{ route('template.blog') }}">View all</a>
+							<a type="button" class="btn btn-outline-secondary float-end" href="{{ route('template.blog') }}">Read Blogs</a>
 						</div>
 					</div>
 				</div>
@@ -115,7 +116,7 @@
 									<div class="card-body">
 										<p class="card-title lead">
 											<a href="{{ route('template.blog.detail',$page->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-												{{ \Illuminate\Support\Str::limit($page->title, 100, '...') }}
+												{{ \Illuminate\Support\Str::limit($page->title, 65, '...') }}
 											</a>
 											<small>{{ $page->created_at }}</small>
 											<p class="card-text">{!! \Illuminate\Support\Str::limit($page->short_description, 100, '...') !!}</p>

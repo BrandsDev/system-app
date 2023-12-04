@@ -14,10 +14,10 @@ class TemplateSitemapController extends Controller
     {
 
         // Define the path where you want to save the sitemap file
-        $path = public_path('template/sitemap.xml');
+        $path = public_path('sitemap.xml');
 
         // Generate the sitemap for your website
-        SitemapGenerator::create('http://localhost/system-app/public/template-store/')
+        SitemapGenerator::create('http://localhost/system-app/public/')
             ->writeToFile($path);
 
         return response()->file($path);

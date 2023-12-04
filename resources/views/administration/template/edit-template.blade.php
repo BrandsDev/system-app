@@ -262,8 +262,8 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="og" class="form-label">Upload OG</label>
-                            <input class="form-control" type="file" name="og" id="og" />
+                            <label for="og_image" class="form-label">Upload OG</label>
+                            <input class="form-control" type="file" name="og_image" id="og_image" />
                         </div>
                     </div>
                     <div class="col-sm-12">

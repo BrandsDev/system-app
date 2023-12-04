@@ -20,15 +20,15 @@
 			      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
 			        <div class="col p-4 d-flex flex-column position-static">
 			          <strong class="d-inline-block mb-2 text-primary">{{ $blog->tags }}</strong>
-			          <h2 class="mb-0">{{ \Illuminate\Support\Str::limit($blog->title, 100, '...') }}</h2>
+			          <h2 class="mb-0">{{ \Illuminate\Support\Str::limit($blog->title, 75, '...') }}</h2>
 			          <div class="mb-1 text-muted">{{ $blog->created_at }}</div>
 			          {!! \Illuminate\Support\Str::limit($blog->short_description, 150, '...') !!}
 			          <br>
 			          <a href="{{ route('template.blog.detail',$blog->slug) }}" class="stretched-link">Continue reading</a>
 			        </div>
-			        <div class="col-auto d-none d-lg-block">
+			        <!-- <div class="col-auto d-none d-lg-block">
 			          <img src="{{ asset('template/blog/image/featured/' . $blog->featured_image) }}" class="img-fluid rounded-start" width="200" height="250" alt="...">
-			        </div>
+			        </div> -->
 			      </div>
 			    </div>
 				@endforeach
@@ -59,9 +59,8 @@
 						<div class="p-4 mb-3 bg-light rounded">
 							<h5 class="fst-italic">About</h5>
 							<p>
-								Download our free website templates with <abbr title="HyperText Markup Language" class="initialism">HTML</abbr>, <abbr title="Cascading Style Sheet" class="initialism">CSS</abbr>, and Bootstrap components to build high-quality, responsive websites quickly and easily. Our templates are optimized for mobile devices, customizable to meet your needs, and will save you time and effort in web development. Start creating professional websites today!
-								<br>
-								<a href="{{ route('template.store') }}">Download Now!</a>
+								{!! $page->short_description !!}
+								<a href="{{ route('template.home') }}">Download Now!</a>
 							</p>
 						</div>
 
@@ -86,9 +85,11 @@
 						<div class="p-4">
 							<h5 class="fst-italic">Elsewhere</h5>
 							<ol class="list-unstyled">
-								<li><a href="#">GitHub</a></li>
-								<li><a href="#">Twitter</a></li>
-								<li><a href="#">Facebook</a></li>
+								<li><a href="https://github.com/codephics" target="_blank" rel="nofollow">GitHub</a></li>
+								<li><a href="https://twitter.com/codephics" target="_blank" rel="nofollow">Twitter</a></li>
+								<li><a href="https://facebook.com/codephics" target="_blank" rel="nofollow">Facebook</a></li>
+								<li><a href="https://instagram.com/codephics" target="_blank" rel="nofollow">Instagram</a></li>
+								<li><a href="https://stackoverflow.com/users/22997964/codephics" target="_blank" rel="nofollow">Stackoverflow</a></li>
 							</ol>
 						</div>
 					</div>
@@ -99,7 +100,7 @@
 		<section>
 			<div class="row">
 				<div class="col-12">
-					<p class="text-center">Have questions or suggestions? <a href="{{ route('template.contact-us') }}">Contact Us</a></p>
+					<p>Have questions or suggestions? <a href="{{ route('template.contact-us') }}">Contact Us</a></p>
 				</div>
 			</div>
 		</section>

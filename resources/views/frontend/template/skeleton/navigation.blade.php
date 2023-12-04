@@ -12,7 +12,7 @@
 						<ul class="navbar-nav">
 							<!-- <li class="nav-item"><a href="{{ route('template.why-our-solutions') }}" class="nav-link">Why Our Solution?</a></li> -->
 							<!-- <li class="nav-item"><a href="{{ route('template.store') }}" class="nav-link">Templates</a></li> -->
-							<li class="nav-item"><a href="{{ url('template-store/qr-code-generator') }}" class="nav-link">QR Code Gen</a></li>
+							<li class="nav-item"><a href="{{ url('/qr-code-generator') }}" class="nav-link">QR Code Gen</a></li>
 							<li class="nav-item"><a href="{{ route('template.blog') }}" class="nav-link">Blog</a></li>
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

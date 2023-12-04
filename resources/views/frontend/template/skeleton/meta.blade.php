@@ -26,4 +26,4 @@
 		<meta name="twitter:image" content="{{ asset('page/image/og/' . $page->og_image) }}" />
 		<meta property="twitter:url" content="" />
 
-		<meta name="robots" content="index, follow">
+		<meta name="robots" content="noindex, nofollow">
