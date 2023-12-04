@@ -68,7 +68,7 @@
                 </div>
             </div>
             <!-- End Categories -->
-            <!-- Templates -->
+            <!-- Solutions -->
             <!-- Right Side (Always Shown) -->
             <div class="col-md-9">
                 <div class="right-side">
@@ -80,7 +80,7 @@
 	                    <nav aria-label="breadcrumb">
 						    <ol class="breadcrumb">
 	                            <li class="breadcrumb-item"><a href="{{ route('template.home') }}">Home</a></li>
-	                            <li class="breadcrumb-item"><a href="{{ route('template.store') }}">Templates</a></li>
+	                            <li class="breadcrumb-item"><a href="{{ route('template.store') }}">Solutions</a></li>
 						        @foreach ($breadcrumbs as $breadcrumb)
 						            <li class="breadcrumb-item"><a href="{{ $breadcrumb['url'] }}">{{ $breadcrumb['name'] }}</a></li>
 						        @endforeach
@@ -171,7 +171,7 @@
                     </div>
                 </div>
             </div>
-            <!-- End Templates -->
+            <!-- End Solutions -->
         </div>
 
         <!-- Questions or Suggestions -->

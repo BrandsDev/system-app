@@ -61,16 +61,16 @@ use Illuminate\Support\Facades\Route;
 
 // Template
 Route::match(['head', 'get'], '/', [TemplateHomeController::class, 'index'])->name('template.home');
-Route::get('template-store/templates', [TemplateController::class, 'index'])->name('template.store');
+Route::get('solutions', [TemplateController::class, 'index'])->name('template.store');
 Route::get('/solution/detail/{slug}', [TemplateController::class, 'detail'])->name('template.detail');
 
 // Template Pages
 // Route::get('template-store/{slug}', [TemplatePageController::class, 'index'])->name('template.page');
 
 // Menu
-Route::get('template-store/template/{category:slug}', [TemplateController::class, 'showByCategory'])->name('category.show');
-Route::get('template-store/template/{category:slug}/{subcategory:slug}', [TemplateController::class, 'showBySubcategory'])->name('subcategory.show');
-Route::get('template-store/template/{category:slug}/{subcategory:slug}/{subSubcategory:slug}', [TemplateController::class, 'showBySubSubcategory'])->name('subSubcategory.show');
+Route::get('solution/{category:slug}', [TemplateController::class, 'showByCategory'])->name('category.show');
+Route::get('solution/{category:slug}/{subcategory:slug}', [TemplateController::class, 'showBySubcategory'])->name('subcategory.show');
+Route::get('solution/{category:slug}/{subcategory:slug}/{subSubcategory:slug}', [TemplateController::class, 'showBySubSubcategory'])->name('subSubcategory.show');
 
 // Template -> Blog
 Route::get('/blog', [TemplateBlogController::class, 'index'])->name('template.blog');
@@ -96,10 +96,10 @@ Route::get('/privacy-policy', [TemplatePrivacyController::class, 'index'])->name
 Route::get('/terms-of-service', [TemplateTermController::class, 'index'])->name('template.terms-of-service');
     
 // Template -> Why Our Solutions
-Route::get('template-store/why-our-solutions', [TemplateThemeController::class, 'index'])->name('template.why-our-solutions');
+Route::get('/why-our-solutions', [TemplateThemeController::class, 'index'])->name('template.why-our-solutions');
     
 // Template -> Why Our solutions
-Route::get('template-store/why-our-themes', [TemplateThemeController::class, 'index'])->name('template.why-our-themes');
+Route::get('/why-our-themes', [TemplateThemeController::class, 'index'])->name('template.why-our-themes');
 
 // Template -> QR Code Gennerator
 Route::get('/qr-code-generator', [TemplatePageController::class, 'qrCodeGen'])->name('template.qr-code-generator');

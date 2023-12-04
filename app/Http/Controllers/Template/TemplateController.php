@@ -25,7 +25,7 @@ class TemplateController extends Controller
 {
     public function index()
     {
-        $page = TemplatePage::where('slug', 'templates')->firstOrFail();
+        $page = TemplatePage::where('slug', 'solution')->firstOrFail();
         $breadcrumbs = $this->generateBreadcrumbs(request()->getPathInfo());
         
         $categories = TemplateCategory::all();
