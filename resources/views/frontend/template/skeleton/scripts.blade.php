@@ -1,2 +1,2 @@
 	<!-- JSScript -->
-	@vite(['resources/js/bootstrap.bundle.min.js'])
+	@vite(['resources/js/app.js'])

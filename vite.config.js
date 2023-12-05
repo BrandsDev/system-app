@@ -13,5 +13,7 @@ export default defineConfig({
     ],
     build: {
         sourcemap: false, // Enable source map generation
+        manifest: true,
+        cssCodeSplit: true,
     },
 });

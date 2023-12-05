@@ -2,7 +2,6 @@
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				<div class="container">
 					<a class="navbar-brand" href="{{ route('template.home') }}">
-						<!-- <img src="{{ Vite::asset('template/image/logo.png') }}" alt="Logo" width="50" height="50" /> -->
 						<font class="fw-bold fs-2">{codephics}</font>
 					</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">

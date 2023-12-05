@@ -7,53 +7,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 		<!-- Bootstrap -->
-		@vite(['resources/css/bootstrap.min.css', 'resources/js/fontawesome-6.4.0.js'])
+		@vite(['resources/css/app.css', 'resources/js/app.js'])
 
 		<title>{{ $page->meta_title }}</title>
 
 		<link rel="apple-touch-icon" sizes="180x180" href="https://themes.getbootstrap.com/wp-content/themes/bootstrap-marketplace/assets/images/fav/apple-touch-icon.png" />
 		<link rel="icon" type="image/png" sizes="32x32" href="https://themes.getbootstrap.com/wp-content/themes/bootstrap-marketplace/assets/images/fav/favicon-32x32.png" />
 		<link rel="icon" type="image/png" sizes="16x16" href="https://themes.getbootstrap.com/wp-content/themes/bootstrap-marketplace/assets/images/fav/favicon-16x16.png" />
-
-		<!-- <style>
-	        :root {
-	            --body-background-color: gray;
-	            --text-color: white;
-	            --link-color: blue;
-	            --heading-color: white;
-	            --paragraph-color: white;
-	        }
-
-	        body {
-	            background-color: var(--body-background-color);
-	            color: var(--text-color);
-	            font-family: Arial, sans-serif;
-	        }
-
-	        a {
-	            color: var(--link-color);
-	        }
-
-	        h1, h2, h3, h4, h5, h6 {
-	            color: var(--heading-color);
-	        }
-
-	        p {
-	            color: var(--paragraph-color);
-	        }
-
-	        .navbar {
-	            background-color: var(--primary-color);
-	        }
-
-	        .navbar-dark .navbar-nav .nav-link {
-	            color: var(--text-color);
-	        }
-
-	        .navbar-dark .navbar-toggler-icon {
-	            background-color: var(--text-color);
-	        }
-	    </style> -->
 
 		<!-- Custom Head -->
 		@yield('custom-head')
@@ -62,7 +22,6 @@
 		<!-- HTML Meta Tags -->
 		@include('frontend.template.skeleton.meta', ['page' => $page])
 		<!-- End HTML Meta Tags -->
-		
 
 		<!-- Schema -->
 		@include('frontend.template.skeleton.schema')
