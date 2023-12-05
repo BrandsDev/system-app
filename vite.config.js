@@ -11,8 +11,15 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    optimizeDeps: {
+        include: [
+                'resources/css/bootstrap.min.css',
+                'resources/js/fontawesome-6.4.0.js',
+                'resources/js/bootstrap.bundle.min.js',
+            ],
+        },
     build: {
-        sourcemap: false, // Enable source map generation
+        sourcemap: true, // Enable source map generation
         manifest: true,
         cssCodeSplit: true,
     },
