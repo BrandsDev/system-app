@@ -7,20 +7,12 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
+                'resources/css/bootstrap.min.css',
+                'resources/js/fontawesome-6.4.0.js',
+                'resources/js/bootstrap.bundle.min.js',
+                'resources/js/datatable-script.js',
             ],
             refresh: true,
         }),
     ],
-    optimizeDeps: {
-        include: [
-                'resources/css/bootstrap.min.css',
-                'resources/js/fontawesome-6.4.0.js',
-                'resources/js/bootstrap.bundle.min.js',
-            ],
-        },
-    build: {
-        sourcemap: true, // Enable source map generation
-        manifest: true,
-        cssCodeSplit: true,
-    },
 });

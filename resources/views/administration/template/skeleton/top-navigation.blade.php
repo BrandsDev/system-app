@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container">
 		<a class="navbar-brand" href="{{ route('template.home') }}">
-			<img src="{{ Vite::asset('public/template/image/logo.png') }}" alt="Logo" width="50" height="50" />
+			<img src="{{ asset('public/template/image/logo.png') }}" alt="Logo" width="50" height="50" />
 		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>

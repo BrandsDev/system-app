@@ -26,11 +26,11 @@
 					<span class="badge bg-primary rounded-pill">Free</span>
 					<div class="d-grid mt-3 gap-2">
 						<div class="btn-group" role="group" aria-label="Basic mixed styles example">
-							<button type="button" class="btn btn-outline-primary">Live Preview</button>
+							<a href="{{ $page->live_preview_link }}" class="btn btn-outline-primary">Live Preview <i class="fa-solid fa-external-link"></i></a>
 						</div>
 						<div class="btn-group" role="group" aria-label="Basic mixed styles example">
-							<button type="button" class="btn btn-primary position-relative" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download HTML"><i class="fa-solid fa-download"></i> HTML</button>
-							<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Github"><i class="fa-solid fa-download"></i> Github</button>
+							<a href="{{ $page->live_preview_link }}" class="btn btn-primary position-relative" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download HTML">Admin <i class="fa-solid fa-external-link"></i></a>
+							<a href="{{ $page->downloadable_link }}" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Github">Github <i class="fa-solid fa-external-link"></i></a>
 						</div>
 					</div>
 				</div>
