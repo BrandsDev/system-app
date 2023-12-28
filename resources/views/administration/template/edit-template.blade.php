@@ -233,8 +233,10 @@
                             <label for="live_preview_link" class="form-label">Live Preview Link</label>
                             <input type="text" class="form-control" name="live_preview_link" value="{{ $template->live_preview_link }}" placeholder="Live Preview Link" />
                         </div>
-                    </div>
-                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <label for="admin_link" class="form-label">Admin Link</label>
+                            <input type="text" class="form-control" name="admin_link" value="{{ $template->admin_link }}" placeholder="Admin Link" />
+                        </div>
                         <div class="mb-3">
                             <label for="downloadable_link" class="form-label">Downloadable Link</label>
                             <input type="text" class="form-control" name="downloadable_link" value="{{ $template->downloadable_link }}" placeholder="Downloadable Link" />

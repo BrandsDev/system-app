@@ -38,6 +38,7 @@ return new class extends Migration
             $table->tinyInteger('order_type')->default(0)->nullable();
             $table->tinyInteger('is_featured')->default(0)->nullable();
             $table->text('live_preview_link')->nullable();
+            $table->text('admin_link')->nullable();
             $table->text('downloadable_link')->nullable();
             $table->string('image', 255)->default('default-image.png');
             $table->string('og_image', 255)->default('default-og-image.png');

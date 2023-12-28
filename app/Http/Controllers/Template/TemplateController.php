@@ -226,6 +226,7 @@ class TemplateController extends Controller
             'order_type' => $request->order_type,
             'is_featured' => $request->input('is_featured', 0),
             'live_preview_link' => $request->live_preview_link,
+            'admin_link' => $request->admin_link,
             'downloadable_link' => $request->downloadable_link,
             'status' => $request->status,
             'comment' => $request->comment,
@@ -360,6 +361,7 @@ class TemplateController extends Controller
             $template->order_type = $request->input('order_type');
             $template->is_featured = $request->input('is_featured');
             $template->live_preview_link = $request->input('live_preview_link');
+            $template->admin_link = $request->input('admin_link');
             $template->downloadable_link = $request->input('downloadable_link');
 
             if (!is_null($request->input('status'))) {
