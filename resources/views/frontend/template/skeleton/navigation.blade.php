@@ -21,6 +21,7 @@
 									<li><a class="dropdown-item" href="{{ route('template.overview') }}">Overview</a></li>
 									<li><a class="dropdown-item" href="{{ route('template.brand') }}">Brand</a></li>
 									<li><a class="dropdown-item" href="{{ route('template.license') }}">License</a></li>
+									<li><a class="dropdown-item" href="{{ route('template.contact-us') }}">Contact Us</a></li>
 								</ul>
 							</li>
 							<li class="nav-item"><a href="{{ route('template.hire-us') }}" class="nav-link">Hire Us</a></li>

@@ -25,7 +25,7 @@
 					<img src="{{ asset('template/blog/image/featured/' . $page->featured_image) }}" alt="" class="img-fluid mt-3" />
 
 					<article class="blog-post">
-						<p class="blog-post-meta mt-3">{{ $page->created_at }} <a href="#">{{ $page->author }}</a></p>
+						<p class="blog-post-meta mt-3">{{ $page->created_at->format('M d, Y') }} <a href="#">{{ $page->author }}</a></p>
 						{!! $page->long_description !!}
 					</article>
 
@@ -41,7 +41,7 @@
 							<h5>About</h5>
 							<p>
 								{!! $page_short_des->short_description !!}
-								<a href="{{ route('template.store') }}">Download Now!</a>
+								<a href="{{ route('template.home') }}">Download Now!</a>
 							</p>
 						</div>
 
@@ -66,11 +66,11 @@
 						<div class="p-4">
 							<h5>Elsewhere</h5>
 							<ol class="list-unstyled">
-								<li><a href="https://github.com/codephics">GitHub</a></li>
-								<li><a href="https://twitter.com/codephics">Twitter</a></li>
-								<li><a href="https://facebook.com/codephics">Facebook</a></li>
-								<li><a href="https://instagram.com/codephics">Instagram</a></li>
-								<li><a href="https://stackoverflow.com/users/22997964/codephics">Stackoverflow</a></li>
+								<li><a href="https://github.com/codephics" target="_blank">GitHub</a></li>
+								<li><a href="https://twitter.com/codephics" target="_blank">Twitter</a></li>
+								<li><a href="https://facebook.com/codephics" target="_blank">Facebook</a></li>
+								<li><a href="https://instagram.com/codephics" target="_blank">Instagram</a></li>
+								<li><a href="https://stackoverflow.com/users/22997964/codephics" target="_blank">Stackoverflow</a></li>
 							</ol>
 						</div>
 					</div>
@@ -116,21 +116,21 @@
 									<div class="card-body">
 										<p class="card-title lead">
 											<a href="{{ route('template.blog.detail',$page->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-												{{ \Illuminate\Support\Str::limit($page->title, 65, '...') }}
+												{{ \Illuminate\Support\Str::limit($page->title, 60, '...') }}
 											</a>
-											<small>{{ $page->created_at }}</small>
+											<small>{{ $page->created_at->format('M d, Y') }}</small>
 											<p class="card-text">{!! \Illuminate\Support\Str::limit($page->short_description, 100, '...') !!}</p>
-											<!-- <p class="card-text">
-												<small><i>by</i> {{ $page->author }}</small><br>
-												<small><i>in</i> <a href="{{ url('/' . $page->slug) }}" target="_blank" class="link-dark">{{ $page->category_name }}</a></small>
-											</p> -->
+											<p class="card-text">
+												<small><i>by</i> {{ $page->seller_name }}</small><br>
+												<!-- <small><i>in</i> <a href="{{ url('/' . $page->slug) }}" target="_blank" class="link-dark">{{ $page->category_name }}</a></small> -->
+											</p>
 										</p>
 									</div>
-									<!-- <div class="card-body">
+									<div class="card-body">
 										<div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
-											<a href="{{ route('template.blog.detail',$page->slug) }}" target="_self" type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download HTML">Details</a>
+											<a href="{{ route('template.blog.detail',$page->slug) }}" target="_self" type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Read Blog">Read</a>
 										</div>
-									</div> -->
+									</div>
 								</figcaption>
 							</div>
 						</figure>

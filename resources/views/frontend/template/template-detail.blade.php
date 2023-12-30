@@ -64,11 +64,11 @@
 						</li>
 						<li class="list-group-item d-flex justify-content-between align-items-center bg-light">
 							Released
-							<span class="text-muted">{{ $page->created_at }}</span>
+							<span class="text-muted">{{ $page->created_at->format('M d, Y') }}</span>
 						</li>
 						<li class="list-group-item d-flex justify-content-between align-items-center bg-light">
 							Updated
-							<span class="text-muted">{{ $page->updated_at }}</span>
+							<span class="text-muted">{{ $page->updated_at->format('M d, Y') }}</span>
 						</li>
 						<li class="list-group-item d-flex justify-content-between align-items-center bg-light">
 							Version
@@ -109,7 +109,7 @@
 						</li>
 						<li class="list-group-item d-flex justify-content-between align-items-center bg-light">
 							Questions?
-							<a href="mailto:codephics@gmail.com" class="btn btn-outline-primary btn-sm">Contact Seller</a>
+							<a href="mailto:codephics@gmail.com" class="btn btn-outline-primary btn-sm">Contact Developer</a>
 						</li>
 						<li class="list-group-item d-flex justify-content-between align-items-center p-3 bg-light">
 							<div class="d-flex align-items-center">
@@ -165,21 +165,21 @@
 										<div class="card-body">
 											<p class="card-title lead">
 												<a href="{{ route('template.blog.detail',$page->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-													{{ \Illuminate\Support\Str::limit($page->title, 65, '...') }}
+													{{ \Illuminate\Support\Str::limit($page->title, 60, '...') }}
 												</a>
-												<small>{{ $page->created_at }}</small>
+												<small>{{ $page->created_at->format('M d, Y') }}</small>
 												<p class="card-text">{!! \Illuminate\Support\Str::limit($page->short_description, 100, '...') !!}</p>
-												<!-- <p class="card-text">
-													<small><i>by</i> {{ $page->author }}</small><br>
-													<small><i>in</i> <a href="{{ url('/' . $page->slug) }}" target="_blank" class="link-dark">{{ $page->category_name }}</a></small>
-												</p> -->
+												<p class="card-text">
+													<small><i>by</i> {{ $page->seller_name }}</small><br>
+													<!-- <small><i>in</i> <a href="{{ url('/' . $page->slug) }}" target="_blank" class="link-dark">{{ $page->category_name }}</a></small> -->
+												</p>
 											</p>
 										</div>
-										<!-- <div class="card-body">
+										<div class="card-body">
 											<div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
-												<a href="{{ route('template.blog.detail',$page->slug) }}" target="_self" type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download HTML">Details</a>
+												<a href="{{ route('template.blog.detail',$page->slug) }}" target="_self" type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download HTML">Read</a>
 											</div>
-										</div> -->
+										</div>
 									</figcaption>
 								</div>
 							</figure>
