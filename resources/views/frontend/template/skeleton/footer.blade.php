@@ -37,7 +37,7 @@
 			<div class="row py-3">
 				<div class="col-8">
 					<details class="mb-3">
-						<summary>2022 © Codephics. All Rights Reserved.</summary>
+						<summary>{{ now()->format('Y') }} © Codephics. All Rights Reserved.</summary>
 						<p>All content and graphics on this web site are the property of Codephics.</p>
 					</details>
 					<nav class="nav">
