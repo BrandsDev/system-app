@@ -78,26 +78,38 @@ class TemplatePageController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        // $request->validate([
-        //     'email' => 'email',
-        // ]);
-
-        // dd($request);
+        $keywords = implode(', ', $request->keywords);
 
         $page = TemplatePage::create([
             'name' => $request->name,
             'title' => $request->title,
             'slug' => $request->slug,
-            'tags' => $request->tags,
+            'keywords' => $keywords,
             'category_name' => $request->category_name,
             'subcategory_name' => $request->subcategory_name,
             'sub_subcategory_name' => $request->sub_subcategory_name,
+            'author' => $request->author,
             'short_description' => $request->short_description,
             'long_description' => $request->long_description,
             'youtube_iframe' => $request->youtube_iframe,
             'header_content' => $request->header_content,
             'meta_title' => $request->meta_title,
             'meta_description' => $request->meta_description,
+            'facebook_meta_title' => $request->facebook_meta_title,
+            'facebook_meta_description' => $request->facebook_meta_description,
+            'twitter_meta_title' => $request->twitter_meta_title,
+            'twitter_meta_description' => $request->twitter_meta_description,
+            'thumb_alt_text' => $request->thumb_alt_text,
+            'breadcrumb_alt_text' => $request->breadcrumb_alt_text,
+            'cover_alt_text' => $request->cover_alt_text,
+            'og_img_alt_text' => $request->og_img_alt_text,
+            'is_index' => $request->is_index,
+            'is_follow' => $request->is_follow,
+            'is_featured' => $request->is_featured,
+            'app_id' => $request->app_id,
+            'markup_url' => $request->markup_url,
+            'markup_url_dev' => $request->markup_url_dev,
+            'rules_url_dev' => $request->rules_url_dev,
             'status' => $request->status,
             'comment' => $request->comment,
         ]);
@@ -223,33 +235,47 @@ class TemplatePageController extends Controller
                 $page->og_image = $ogImageName;
             }
 
-            // Update other fields of the request
+            $keywords = implode(', ', (array) $request->keywords);
+
             $page->name = $request->input('name');
             $page->title = $request->input('title');
             $page->slug = $request->input('slug');            
-            $page->tags = $request->input('tags');
+            $page->keywords = $keywords;
             $page->category_name = $request->input('category_name');
             $page->subcategory_name = $request->input('subcategory_name');
             $page->sub_subcategory_name = $request->input('sub_subcategory_name');
+            $page->author = $request->input('author');
             $page->short_description = $request->input('short_description');
             $page->long_description = $request->input('long_description');
             $page->youtube_iframe = $request->input('youtube_iframe');
             $page->header_content = $request->input('header_content');
             $page->meta_title = $request->input('meta_title');
             $page->meta_description = $request->input('meta_description');
+            $page->facebook_meta_title = $request->input('facebook_meta_title');
+            $page->facebook_meta_description = $request->input('facebook_meta_description');
+            $page->twitter_meta_title = $request->input('twitter_meta_title');
+            $page->twitter_meta_description = $request->input('twitter_meta_description');
+            $page->thumb_alt_text = $request->input('thumb_alt_text');
+            $page->breadcrumb_alt_text = $request->input('breadcrumb_alt_text');
+            $page->cover_alt_text = $request->input('cover_alt_text');
+            $page->og_img_alt_text = $request->input('og_img_alt_text');
+            $page->is_index = $request->input('is_index');
+            $page->is_follow = $request->input('is_follow');
+            $page->is_featured = $request->input('is_featured');
+            $page->app_id = $request->input('app_id');
+            $page->markup_url = $request->input('markup_url');
+            $page->markup_url_dev = $request->input('markup_url_dev');
+            $page->rules_url_dev = $request->input('rules_url_dev');
 
             if (!is_null($request->input('status'))) {
                 $page->status = $request->input('status');
-            }
+            }                        
             
             $page->comment = $request->input('comment');
 
-            // Save the changes
             $page->save();
 
-            // Perform any additional actions or redirect as needed
         } else {
-            // Handle the case when the record doesn't exist
             Session::flash('update', __('There is a problem!'));
 
             return redirect()->back();

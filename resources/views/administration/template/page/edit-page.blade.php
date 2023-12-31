@@ -60,13 +60,13 @@
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="slug" class="form-label">Slug</label>
-                            <input type="text" class="form-control" name="slug" value="{{ $page->slug }}" placeholder="Slug" required />
+                            <input type="text" class="form-control" name="slug" value="{{ $page->slug }}" placeholder="Slug" />
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-3">
-                            <label for="tags" class="form-label">Tags</label>
-                            <input type="text" class="form-control" name="tags" value="{{ $page->tags }}" placeholder="Tags" />
+                            <label for="keywords" class="form-label">Keywords</label>
+                            <input type="text" class="form-control" name="keywords[]" value="{{ $page->keywords }}" placeholder="Keywords" />
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="category_name" class="form-label">Category</label>
                             <input class="form-control" list="datalistCategory" name="category_name" value="{{ $page->category_name }}" placeholder="Category" />
@@ -85,7 +85,7 @@
                             </datalist>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="subcategory_name" class="form-label">Subcategory</label>
                             <input class="form-control" list="datalistSubcategory" name="subcategory_name" value="{{ $page->subcategory_name }}" id="subcategory_name" placeholder="Subcategory" />
@@ -96,7 +96,9 @@
                             </datalist>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="sub_subcategory_name" class="form-label">Sub Subcategory</label>
                             <input class="form-control" list="datalistSubSubcategory" name="sub_subcategory_name" value="{{ $page->sub_subcategory_name }}" placeholder="Sub Subcategory" />
@@ -105,6 +107,12 @@
                                 <option value="{{ $sub_subcategory->sub_subcategory_name }}"></option>
                                 @endforeach
                             </datalist>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="author" class="form-label">Author</label>
+                            <input type="text" class="form-control" name="author" value="{{ $page->author }}" placeholder="Author" />
                         </div>
                     </div>
                 </div>
@@ -128,13 +136,13 @@
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="youtube_iframe" class="form-label">Youtube Iframe</label>
-                            <textarea class="form-control" rows="2" name="youtube_iframe">{{ $page->youtube_iframe }}</textarea>
+                            <textarea class="form-control" rows="3" name="youtube_iframe">{{ $page->youtube_iframe }}</textarea>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="header_content" class="form-label">Header Content</label>
-                            <textarea class="form-control" rows="2" name="header_content">{{ $page->header_content }}</textarea>
+                            <textarea class="form-control" rows="3" name="header_content">{{ $page->header_content }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -142,13 +150,41 @@
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="meta_title" class="form-label">Meta Title</label>
-                            <textarea class="form-control" id="meta_title" rows="2" name="meta_title">{{ $page->meta_title }}</textarea>
+                            <textarea class="form-control" id="meta_title" rows="3" name="meta_title">{{ $page->meta_title }}</textarea>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="meta_description" class="form-label">Meta Description</label>
-                            <textarea class="form-control" id="meta_description" rows="2" name="meta_description">{{ $page->meta_description }}</textarea>
+                            <textarea class="form-control" id="meta_description" rows="3" name="meta_description">{{ $page->meta_description }}</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="facebook_meta_title" class="form-label">Facebook Meta Title</label>
+                            <textarea class="form-control" id="facebook_meta_title" rows="3" name="facebook_meta_title">{{ $page->facebook_meta_title }}</textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="facebook_meta_description" class="form-label">Facebook Meta Description</label>
+                            <textarea class="form-control" id="facebook_meta_description" rows="3" name="facebook_meta_description">{{ $page->facebook_meta_description }}</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="twitter_meta_title" class="form-label">Twitter Meta Title</label>
+                            <textarea class="form-control" id="twitter_meta_title" rows="3" name="twitter_meta_title">{{ $page->twitter_meta_title }}</textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="twitter_meta_description" class="form-label">Twitter Meta Description</label>
+                            <textarea class="form-control" id="twitter_meta_description" rows="3" name="twitter_meta_description">{{ $page->twitter_meta_description }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -159,57 +195,88 @@
                         <div class="mb-3">
                             <img src="{{ asset('template/page/image/thumb/' . $page->thumb) }}" class="img-thumbnail" alt="...">
                         </div>
-                    </div>
-                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="thumb_alt_text" value="{{ $page->thumb_alt_text }}" placeholder="Alt Text" />
+                        </div>
                         <div class="mb-3">
                             <label for="fthumb" class="form-label">Thumb</label>
                             <input class="form-control" type="file" name="thumb" />
                         </div>
-                    </div>
-                    <div class="col-sm-12">
                         <div class="mb-3">
                             <img src="{{ asset('template/page/image/breadcrumb/' . $page->breadcrumb_image) }}" class="img-thumbnail" alt="...">
                         </div>
-                    </div>
-                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="breadcrumb_alt_text" value="{{ $page->breadcrumb_alt_text }}" placeholder="Alt Text" />
+                        </div>
                         <div class="mb-3">
                             <label for="breadcrumb_image" class="form-label">Breadcrumb</label>
                             <input class="form-control" type="file" name="breadcrumb_image" />
                         </div>
-                    </div>
-                    <div class="col-sm-12">
                         <div class="mb-3">
                             <img src="{{ asset('template/page/image/cover/' . $page->cover_image) }}" class="img-thumbnail" alt="...">
                         </div>
-                    </div>
-                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="cover_alt_text" value="{{ $page->cover_alt_text }}" placeholder="Alt Text" />
+                        </div>
                         <div class="mb-3">
                             <label for="cover_image" class="form-label">Cover</label>
                             <input class="form-control" type="file" name="cover_image" />
                         </div>
-                    </div>
-                    <div class="col-sm-12">
                         <div class="mb-3">
                             <img src="{{ asset('template/page/image/og/' . $page->og_image) }}" class="img-thumbnail" alt="...">
                         </div>
-                    </div>
-                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="og_img_alt_text" value="{{ $page->og_img_alt_text }}" placeholder="Alt Text" />
+                        </div>
                         <div class="mb-3">
                             <label for="og_image" class="form-label">Upload OG</label>
                             <input class="form-control" type="file" name="og_image" multiple />
                         </div>
-                    </div>
-                    <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="status" class="form-label">Status</label>
-                            <input class="form-control" list="datalistStatus" name="status" placeholder="@if($page->status == 1) Published @else Draft @endif" />
-                            <datalist id="datalistStatus">
-                                <option value="1">Publish</option>
-                                <option value="0">Draft</option>
-                            </datalist>
+                            <label class="form-label" for="content">Content?</label>
                         </div>
-                    </div>
-                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="is_index" value="1" id="featuredCheckDefault" @if($page->is_index == 1) checked @endif>
+                                <label class="form-check-label" for="featuredCheckDefault">Index?</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="is_follow" value="1" id="featuredCheckDefault" @if($page->is_follow == 1) checked @endif>
+                                <label class="form-check-label" for="featuredCheckDefault">Follow?</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="is_featured" value="1" id="featuredCheckDefault" @if($page->is_featured == 1) checked @endif>
+                                <label class="form-check-label" for="featuredCheckDefault">Featured?</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="app_id" value="{{ $page->app_id }}" placeholder="FB App Id" />
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="markup_url" value="{{ $page->markup_url }}" placeholder="FB Markup URL" />
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="markup_url_dev" value="{{ $page->markup_url_dev }}" placeholder="FB Markup URL Dev" />
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="rules_url_dev" value="{{ $page->rules_url_dev }}" placeholder="FB Rules URL Dev" />
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupStatus">Status</label>
+                                <select class="form-select" id="inputGroupStatus" name="status">
+                                    @if($page->status == 1)
+                                    <option value="1">Published</option>
+                                    <option value="0">Draft</option>
+                                    @else
+                                    <option value="0">Draft</option>
+                                    <option value="1">Publish</option>
+                                    @endif
+                                </select>
+                            </div>
+                        </div>
                         <div class="mb-3">
                             <label for="comment" class="form-label">Comment</label>
                             <textarea class="form-control" id="custom-textarea" name="comment" rows="3">{{ $page->comment }}</textarea>
@@ -221,8 +288,6 @@
         <div class="row">
             <div class="col-sm-12">
                 <button type="submit" class="btn btn-primary">Publish</button>
-                <button type="submit" class="btn btn-primary">Draft</button>
-                <button type="submit" class="btn btn-secondary">Publish & Add Another</button>
             </div>
         </div>
     </form>

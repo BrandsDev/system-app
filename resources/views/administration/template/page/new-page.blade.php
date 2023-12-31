@@ -64,8 +64,8 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-3">
-                            <label for="tags" class="form-label">Tags</label>
-                            <input type="text" class="form-control" name="tags" placeholder="Tags" />
+                            <label for="keywords" class="form-label">Keywords</label>
+                            <input type="text" class="form-control" name="keywords[]" placeholder="Keywords" />
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="category_name" class="form-label">Category</label>
                             <input class="form-control" list="datalistCategory" name="category_name" placeholder="Category" />
@@ -84,7 +84,7 @@
                             </datalist>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="subcategory_name" class="form-label">Sub Category</label>
                             <input class="form-control" list="datalistSubcategory" name="subcategory_name" id="subcategory_name" placeholder="Sub Category" />
@@ -95,7 +95,9 @@
                             </datalist>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="sub_subcategory_name" class="form-label">Sub Subcategory</label>
                             <input class="form-control" list="datalistSubSubcategory" name="sub_subcategory_name" placeholder="Sub Subcategory" />
@@ -104,6 +106,15 @@
                                 <option value="{{ $sub_subcategory->sub_subcategory_name }}"></option>
                                 @endforeach
                             </datalist>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="author" class="form-label">Author</label>
+                            <input type="text" class="form-control" name="author" placeholder="author" />
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -141,13 +152,41 @@
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="meta_title" class="form-label">Meta Title</label>
-                            <textarea class="form-control" id="meta_title" rows="5" name="meta_title"></textarea>
+                            <textarea class="form-control" id="meta_title" rows="3" name="meta_title"></textarea>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="meta_description" class="form-label">Meta Description</label>
-                            <textarea class="form-control" id="meta_description" rows="5" name="meta_description"></textarea>
+                            <textarea class="form-control" id="meta_description" rows="3" name="meta_description"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="facebook_meta_title" class="form-label">Facebook Meta Title</label>
+                            <textarea class="form-control" name="facebook_meta_title" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="facebook_meta_description" class="form-label">Facebook Meta Description</label>
+                            <textarea class="form-control" name="facebook_meta_description" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="twitter_meta_title" class="form-label">Twitter Meta Title</label>
+                            <textarea class="form-control" name="twitter_meta_title" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="twitter_meta_description" class="form-label">Twitter Meta Description</label>
+                            <textarea class="form-control" name="twitter_meta_description" rows="3"></textarea>
                         </div>
                     </div>
                 </div>
@@ -156,45 +195,74 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="slug" class="form-label">Slug</label>
-                            <input type="text" class="form-control" name="slug" placeholder="Slug" disabled />
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="mb-3">
                             <label for="thumb" class="form-label">Thumb</label>
                             <input class="form-control" type="file" name="thumb" />
                         </div>
-                    </div>
-                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="thumb_alt_text" placeholder="Thumb Alt Text" />
+                        </div>
                         <div class="mb-3">
                             <label for="breadcrumb_image" class="form-label">Breadcrumb Image</label>
                             <input class="form-control" type="file" name="breadcrumb_image" />
                         </div>
-                    </div>
-                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="breadcrumb_alt_text" placeholder="Breadcrumb Alt Text" />
+                        </div>
                         <div class="mb-3">
                             <label for="cover_image" class="form-label">Cover Image</label>
                             <input class="form-control" type="file" name="cover_image" />
                         </div>
-                    </div>
-                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="cover_alt_text" placeholder="Cover Alt Text" />
+                        </div>
                         <div class="mb-3">
                             <label for="og_image" class="form-label">Upload OG</label>
                             <input class="form-control" type="file" name="og_image" multiple />
                         </div>
-                    </div>
-                    <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="status" class="form-label">Status</label>
-                            <input class="form-control" list="datalistStatus" name="status" placeholder="Status" />
-                            <datalist id="datalistStatus">
+                            <input class="form-control" type="text" name="og_img_alt_text" placeholder="OG Alt Text" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="content">Content?</label>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="is_index" value="1" id="featuredCheckDefault" />
+                                <label class="form-check-label" for="featuredCheckDefault">Index?</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="is_follow" value="1" id="featuredCheckDefault" />
+                                <label class="form-check-label" for="featuredCheckDefault">Follow?</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="is_featured" value="1" id="featuredCheckDefault" />
+                                <label class="form-check-label" for="featuredCheckDefault">
+                                    Featured?
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="app_id" placeholder="FB App Id" />
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="markup_url" placeholder="FB Markup URL" />
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="markup_url_dev" placeholder="FB Markup URL Dev" />
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="rules_url_dev" placeholder="FB Rules URL Dev" />
+                        </div>
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="inputGroupStatus">Status</label>
+                            <select class="form-select" id="inputGroupStatus" name="status">
+                                <option value="0">Choose...</option>
                                 <option value="1">Publish</option>
                                 <option value="0">Draft</option>
-                            </datalist>
+                            </select>
                         </div>
-                    </div>
-                    <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="comment" class="form-label">Comment</label>
                             <textarea class="form-control" id="custom-textarea" name="comment" rows="3"></textarea>
@@ -206,8 +274,6 @@
         <div class="row">
             <div class="col-sm-12">
                 <button type="submit" class="btn btn-primary">Publish</button>
-                <button type="submit" class="btn btn-primary">Draft</button>
-                <button type="submit" class="btn btn-secondary">Publish & Add Another</button>
             </div>
         </div>
     </form>
