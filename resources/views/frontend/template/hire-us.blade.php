@@ -62,7 +62,7 @@
 							</div>
 							<div class="col-12">
 								<label for="details" class="form-label fw-bold">Tell us about your project in short <span class="text-danger">*</span></label>
-								<textarea class="form-control" name="details" id="custom-textarea" rows="3" placeholder="Something has in my mind." required></textarea>
+								<textarea class="form-control" name="details" rows="3" placeholder="Something has in my mind." required></textarea>
 							</div>
 							<div class="col-12">
 								<button class="w-100 btn btn-primary btn-lg" type="submit">Let's Start Working Together</button>

@@ -51,7 +51,7 @@
 							</div>
 							<div class="col-12">
 								<label for="exampleFormControlTextarea1" class="form-label fw-bold">Tell us about your thoughts<span class="text-danger">*</span></label>
-								<textarea class="form-control" id="custom-textarea" name="description" rows="3" placeholder="I want to tell." required></textarea>
+								<textarea class="form-control" name="description" rows="3" placeholder="I want to tell." required></textarea>
 							</div>
 							<div class="col-12">
 								<button class="w-100 btn btn-primary btn-lg" type="submit">Let's Start Discussion</button>

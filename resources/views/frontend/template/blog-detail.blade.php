@@ -25,7 +25,7 @@
 					<img src="{{ asset('template/blog/image/featured/' . $page->featured_image) }}" alt="" class="img-fluid mt-3" />
 
 					<article class="blog-post">
-						<p class="blog-post-meta mt-3">{{ $page->created_at->format('M d, Y') }} <a href="#">{{ $page->author }}</a></p>
+						<p class="blog-post-meta mt-3">{{ $page->created_at->format('M d, Y') }} <b>{{ $page->seller_name }}</b></p>
 						{!! $page->long_description !!}
 					</article>
 

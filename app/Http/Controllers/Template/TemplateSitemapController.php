@@ -17,7 +17,7 @@ class TemplateSitemapController extends Controller
         $path = public_path('sitemap.xml');
 
         // Generate the sitemap for your website
-        SitemapGenerator::create('http://localhost/system-app/public/')
+        SitemapGenerator::create('https://codephics.com/')
             ->writeToFile($path);
 
         return response()->file($path);

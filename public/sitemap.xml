@@ -1,87 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
-        <loc>http://localhost/system-app/public/</loc>
+        <loc>https://codephics.com/</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/system-app/public</loc>
+        <loc>https://codephics.com</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/system-app/public/blog</loc>
+        <loc>https://codephics.com/about/overview</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/system-app/public/terms-of-service</loc>
+        <loc>https://codephics.com/qr-code-generator</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/system-app/public/hire-us</loc>
+        <loc>https://codephics.com/about/brand</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/system-app/public/about/license</loc>
+        <loc>https://codephics.com/about/license</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/system-app/public/about/brand</loc>
+        <loc>https://codephics.com/contact-us</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/system-app/public/about/overview</loc>
+        <loc>https://codephics.com/hire-us</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/system-app/public/privacy-policy</loc>
+        <loc>https://codephics.com/blog</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/system-app/public/contact-us</loc>
+        <loc>https://codephics.com/terms-of-service</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/system-app/public/template-store/detail/blogforge-10</loc>
+        <loc>https://codephics.com/solution/detail/blogforge10</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/system-app/public/sitemap.xml</loc>
+        <loc>https://codephics.com/sitemap.xml</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/system-app/public/blog-detail/revolutionize-your-blogging-journey-with-blogforge-10-a-free-seo-friendly-laravel-10-solution</loc>
+        <loc>https://codephics.com/privacy-policy</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/system-app/public/blog-detail/crafting-a-digital-portfolio-unleash-your-creativity-with-portfolioxpress</loc>
+        <loc>https://codephics.com/blog-detail/revolutionize-your-blogging-journey-with-blogforge-10-a-free-seo-friendly-laravel-10-solution</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://localhost/system-app/public/template-store/templates</loc>
-            <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>http://localhost/system-app/public/template-store/template/blog-management-system</loc>
-            <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>http://localhost/system-app/public/template-store/template/portfolio-management-system</loc>
+        <loc>https://codephics.com/blog-detail/empower-your-content-journey-with-blogforge10-unleashing-the-power-of-blogging</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>

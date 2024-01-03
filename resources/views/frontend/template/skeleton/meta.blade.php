@@ -2,7 +2,7 @@
 		<meta name="keywords" content="{{ $page->keywords }}">
 		<meta name="author" content="{{ $page->author }}">
 		<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-		<link rel="canonical" href="https:///" />
+		<link rel="canonical" href="{{ url()->full() }}" />
 
 		<!-- Meta OG Tags -->
 		<meta property="og:locale" content="en_US" />
