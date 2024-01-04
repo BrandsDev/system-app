@@ -11,10 +11,11 @@
 
 		<title>{{ $page->meta_title }}</title>
 
-		<link rel="favicon" sizes="48x48" href="{{ asset('template/favicon.png') }}" />
-		<!-- <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('public/template/favicon.png') }}" />
-		<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('public/template/favicon.png') }}" />
-		<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('public/template/favicon.png') }}" /> -->
+		<link rel="icon" type="image/png" sizes="48x48" href="{{ asset('template/favicon.png') }}" />
+
+		<!-- <link rel="favicon" sizes="48x48" href="{{ asset('template/favicon.png') }}" /> -->
+		<!-- <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('template/favicon.png') }}" /> -->
+		<!-- <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('template/favicon.png') }}" /> -->
 
 		<!-- Custom Head -->
 		@yield('custom-head')
