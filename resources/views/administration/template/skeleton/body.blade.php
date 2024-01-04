@@ -13,9 +13,10 @@
 
 		<title>Download Free HTML Website Templates | Responsive & SEO Friendly</title>
 
-		<link rel="apple-touch-icon" sizes="180x180" href="https://themes.getbootstrap.com/wp-content/themes/bootstrap-marketplace/assets/images/fav/apple-touch-icon.png" />
-		<link rel="icon" type="image/png" sizes="32x32" href="https://themes.getbootstrap.com/wp-content/themes/bootstrap-marketplace/assets/images/fav/favicon-32x32.png" />
-		<link rel="icon" type="image/png" sizes="16x16" href="https://themes.getbootstrap.com/wp-content/themes/bootstrap-marketplace/assets/images/fav/favicon-16x16.png" />
+		<link rel="favicon" sizes="48x48" href="{{ asset('template/favicon.png') }}" />
+		<!-- <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('public/template/favicon.png') }}" />
+		<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('public/template/favicon.png') }}" />
+		<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('public/template/favicon.png') }}" /> -->
 
 		<!-- Custom Head -->
 		@yield('custom-head')
