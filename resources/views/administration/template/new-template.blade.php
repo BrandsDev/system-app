@@ -191,16 +191,44 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="meta_title" class="form-label">Meta Title</label>
-                            <textarea class="form-control" id="meta_title" rows="2" name="meta_title"></textarea>
+                            <textarea class="form-control" id="meta_title" rows="3" name="meta_title"></textarea>
                         </div>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="meta_description" class="form-label">Meta Description</label>
-                            <textarea class="form-control" id="meta_description" rows="2" name="meta_description"></textarea>
+                            <textarea class="form-control" id="meta_description" rows="3" name="meta_description"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="facebook_meta_title" class="form-label">Facebook Meta Title</label>
+                            <textarea class="form-control" name="facebook_meta_title" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="facebook_meta_description" class="form-label">Facebook Meta Description</label>
+                            <textarea class="form-control" name="facebook_meta_description" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="twitter_meta_title" class="form-label">Twitter Meta Title</label>
+                            <textarea class="form-control" name="twitter_meta_title" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="twitter_meta_description" class="form-label">Twitter Meta Description</label>
+                            <textarea class="form-control" name="twitter_meta_description" rows="3"></textarea>
                         </div>
                     </div>
                 </div>
@@ -250,38 +278,49 @@
                             <label for="image" class="form-label">Upload Image</label>
                             <input class="form-control" type="file" name="image" multiple />
                         </div>
-                    </div>
-                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <label for="img_alt_text" class="form-label">Image</label>
+                            <input type="text" class="form-control" name="img_alt_text" placeholder="Image Alt Text" />
+                        </div>
                         <div class="mb-3">
                             <label for="og" class="form-label">OG Image</label>
                             <input class="form-control" type="file" name="og" />
                         </div>
-                    </div>
-                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <label for="og_img_alt_text" class="form-label">OG Image Alt Text</label>
+                            <input type="text" class="form-control" name="og_img_alt_text" placeholder="OG Image Alt Text" />
+                        </div>
                         <div class="mb-3">
                             <label for="file" class="form-label">Upload File</label>
                             <input class="form-control" type="file" name="file" multiple />
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="status" class="form-label">Status</label>
-                            <input class="form-control" list="datalistStatus" name="status" value="{{ old('status', '0') }}" placeholder="Draft"/>
-                            <datalist id="datalistStatus">
+                            <label class="form-label" for="content">Content?</label>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="is_index" value="1" id="featuredCheckDefault" />
+                                <label class="form-check-label" for="featuredCheckDefault">Index?</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="is_follow" value="1" id="featuredCheckDefault" />
+                                <label class="form-check-label" for="featuredCheckDefault">Follow?</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="inputGroupStatus">Status</label>
+                            <select class="form-select" id="inputGroupStatus" name="status">
+                                <option value="0">Choose...</option>
                                 <option value="1">Publish</option>
                                 <option value="0">Draft</option>
-                            </datalist>
+                            </select>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="mb-3">
-                            <label for="comment" class="form-label">Comment</label>
-                            <textarea class="form-control" id="custom-textarea" name="comment" rows="3"></textarea>
-                        </div>
+                    <div class="mb-3">
+                        <label for="comment" class="form-label">Comment</label>
+                        <textarea class="form-control" id="custom-textarea" name="comment" rows="3"></textarea>
                     </div>
                 </div>
             </div>

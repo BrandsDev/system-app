@@ -181,27 +181,55 @@
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="youtube_iframe" class="form-label">Youtube Iframe</label>
-                            <textarea class="form-control" id="youtube_iframe" rows="2" name="youtube_iframe">{{ $template->youtube_iframe }}</textarea>
+                            <textarea class="form-control" id="youtube_iframe" rows="3" name="youtube_iframe">{{ $template->youtube_iframe }}</textarea>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="header_content" class="form-label">Header Content</label>
-                            <textarea class="form-control" id="header_content" rows="2" name="header_content">{{ $template->header_content }}</textarea>
+                            <textarea class="form-control" id="header_content" rows="3" name="header_content">{{ $template->header_content }}</textarea>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="meta_title" class="form-label">Meta Title</label>
-                            <textarea class="form-control" id="meta_title" rows="2" name="meta_title">{{ $template->meta_title }}</textarea>
+                            <textarea class="form-control" id="meta_title" rows="3" name="meta_title">{{ $template->meta_title }}</textarea>
                         </div>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="meta_description" class="form-label">Meta Description</label>
-                            <textarea class="form-control" id="meta_description" rows="2" name="meta_description">{{ $template->meta_description }}</textarea>
+                            <textarea class="form-control" id="meta_description" rows="3" name="meta_description">{{ $template->meta_description }}</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="facebook_meta_title" class="form-label">Facebook Meta Title</label>
+                            <textarea class="form-control" id="facebook_meta_title" rows="3" name="facebook_meta_title">{{ $template->facebook_meta_title }}</textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="facebook_meta_description" class="form-label">Facebook Meta Description</label>
+                            <textarea class="form-control" id="facebook_meta_description" rows="3" name="facebook_meta_description">{{ $template->facebook_meta_description }}</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="twitter_meta_title" class="form-label">Twitter Meta Title</label>
+                            <textarea class="form-control" id="twitter_meta_title" rows="3" name="twitter_meta_title">{{ $template->twitter_meta_title }}</textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="twitter_meta_description" class="form-label">Twitter Meta Description</label>
+                            <textarea class="form-control" id="twitter_meta_description" rows="3" name="twitter_meta_description">{{ $template->twitter_meta_description }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -249,46 +277,59 @@
                             <label for="image" class="form-label">Live Image</label>
                             <img src="{{ asset('template/image/' . $template->image) }}" class="img-thumbnail" alt="...">
                         </div>
-                    </div>
-                    <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="image" class="form-label">Upload Image</label>
                             <input class="form-control" type="file" name="image" id="image" />
                         </div>
-                    </div>
-                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <label for="img_alt_text" class="form-label">Image Alt Text</label>
+                            <input type="text" class="form-control" name="img_alt_text" value="{{ $template->img_alt_text }}" placeholder="Image Alt Text" />
+                        </div>
                         <div class="mb-3">
                             <label for="og" class="form-label">OG Image</label>
                             <img src="{{ asset('template/image/og/' . $template->og) }}" class="img-thumbnail" alt="...">
                         </div>
-                    </div>
-                    <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="og_image" class="form-label">Upload OG</label>
                             <input class="form-control" type="file" name="og_image" id="og_image" />
                         </div>
-                    </div>
-                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <label for="og_img_alt_text" class="form-label">OG Image Alt Text</label>
+                            <input type="text" class="form-control" name="og_img_alt_text" value="{{ $template->og_img_alt_text }}" placeholder="OG Image Alt Text" />
+                        </div>
                         <div class="mb-3">
                             <label for="file" class="form-label"><a href="{{ asset('template/file/' . $template->file) }}" target="_blank">Open</a></label>
                         </div>
-                    </div>
-                    <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="file" class="form-label">Upload File</label>
                             <input class="form-control" type="file" name="file" id="file" multiple />
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="status" class="form-label">Status</label>
-                            <input class="form-control" list="datalistStatus" name="status" id="status" placeholder="@if($template->status == 1) Published @else Draft @endif" />
-                            <datalist id="datalistStatus">
-                                <option value="1">Publish</option>
-                                <option value="0">Draft</option>
-                            </datalist>
+                            <label class="form-label" for="content">Content?</label>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="is_index" value="1" id="featuredCheckDefault" @if($template->is_index == 1) checked @endif>
+                                <label class="form-check-label" for="featuredCheckDefault">Index?</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="is_follow" value="1" id="featuredCheckDefault" @if($template->is_follow == 1) checked @endif>
+                                <label class="form-check-label" for="featuredCheckDefault">Follow?</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupStatus">Status</label>
+                                <select class="form-select" id="inputGroupStatus" name="status">
+                                    @if($template->status == 1)
+                                    <option value="1">Published</option>
+                                    <option value="0">Draft</option>
+                                    @else
+                                    <option value="0">Draft</option>
+                                    <option value="1">Publish</option>
+                                    @endif
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>

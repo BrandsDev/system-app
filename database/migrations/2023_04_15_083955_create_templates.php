@@ -35,6 +35,10 @@ return new class extends Migration
             $table->text('header_content')->nullable();
             $table->text('meta_title')->nullable();
             $table->text('meta_description')->nullable();
+            $table->string('img_alt_text', 255)->nullable();
+            $table->string('og_img_alt_text', 255)->nullable();
+            $table->tinyInteger('is_index')->default(0)->nullable();
+            $table->tinyInteger('is_follow')->default(0)->nullable();
             $table->tinyInteger('order_type')->default(0)->nullable();
             $table->tinyInteger('is_featured')->default(0)->nullable();
             $table->text('live_preview_link')->nullable();

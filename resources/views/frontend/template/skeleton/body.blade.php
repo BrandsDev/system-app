@@ -26,7 +26,7 @@
 		<!-- End HTML Meta Tags -->
 
 		<!-- Schema -->
-		@include('frontend.template.skeleton.schema')
+		<!-- @include('frontend.template.skeleton.schema') -->
 		<!-- End Schema -->
 
 	</head>
