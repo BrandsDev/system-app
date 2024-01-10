@@ -1,5 +1,5 @@
 @extends('frontend.template.skeleton.body')
-@section('content') @section('custom-head')
+@section('custom-head')
 <script src="https://cdn.tiny.cloud/1/m9g2pjluv64jkrzcnksdf4ur6nd9lvyrbatcjua3iazeof63/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 @endsection
 @section('content')

@@ -88,6 +88,8 @@ class TemplateBlogController extends Controller
             'is_featured' => $request['is_featured'] ?? 0,
             'featured_img_alt_text' => $request->featured_img_alt_text,
             'og_img_alt_text' => $request->og_img_alt_text,
+            'is_index' => $request->is_index,
+            'is_follow' => $request->is_follow,
             'status' => $request->status,
             'comment' => $request->comment,
         ]);
@@ -130,14 +132,14 @@ class TemplateBlogController extends Controller
 
     public function detail($slug)
     {
-        $page_short_des = TemplatePage::where('slug', 'blog')->firstOrFail();
         $page = TemplateBlog::where('slug', $slug)->firstOrFail();
         $relatedBlog = TemplateBlog::take(4)->get();
+        $page_short_des = TemplatePage::where('slug', 'blog')->firstOrFail();
 
         return view('frontend.template.blog-detail', [
-            'page_short_des' => $page_short_des,
             'page' => $page,
-            'relatedBlog' => $relatedBlog
+            'relatedBlog' => $relatedBlog,
+            'page_short_des' => $page_short_des,
         ]);
     }
 
@@ -228,6 +230,8 @@ class TemplateBlogController extends Controller
             $blog->is_featured = $request->input('is_featured');
             $blog->featured_img_alt_text = $request->input('featured_img_alt_text');
             $blog->og_img_alt_text = $request->input('og_img_alt_text');
+            $blog->is_index = $request->input('is_index');
+            $blog->is_follow = $request->input('is_follow');
 
             if (!is_null($request->input('status'))) {
                 $blog->status = $request->input('status');

@@ -62,7 +62,6 @@ class TemplatePageController extends Controller
         echo "string";
     }
 
-
     public function create(Request $request)
     {
         $categories = TemplateCategory::all();

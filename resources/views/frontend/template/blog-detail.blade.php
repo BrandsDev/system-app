@@ -104,31 +104,31 @@
 			<div class="mt-3"></div>
 
 			<div class="row">
-				@foreach ($relatedBlog as $page)
+				@foreach ($relatedBlog as $blog)
 				<div class="col-lg-6">
 					<article>
 						<figure>
 							<div class="card shadow mb-5 rounded-3 no-border-card">
-								<a href="{{ route('template.blog.detail',$page->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-									<img src="{{ asset('template/blog/image/featured/' . $page->featured_image) }}" class="card-img-top" alt="...">
+								<a href="{{ route('template.blog.detail',$blog->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+									<img src="{{ asset('template/blog/image/featured/' . $blog->featured_image) }}" class="card-img-top" alt="...">
 								</a>
 								<figcaption>
 									<div class="card-body">
 										<p class="card-title lead">
-											<a href="{{ route('template.blog.detail',$page->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-												{{ \Illuminate\Support\Str::limit($page->title, 60, '...') }}
+											<a href="{{ route('template.blog.detail',$blog->slug) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+												{{ \Illuminate\Support\Str::limit($blog->title, 60, '...') }}
 											</a>
-											<small>{{ $page->created_at->format('M d, Y') }}</small>
-											<p class="card-text">{!! \Illuminate\Support\Str::limit($page->short_description, 100, '...') !!}</p>
+											<small>{{ $blog->created_at->format('M d, Y') }}</small>
+											<p class="card-text">{!! \Illuminate\Support\Str::limit($blog->short_description, 100, '...') !!}</p>
 											<p class="card-text">
-												<small><i>by</i> {{ $page->seller_name }}</small><br>
-												<!-- <small><i>in</i> <a href="{{ url('/' . $page->slug) }}" target="_blank" class="link-dark">{{ $page->category_name }}</a></small> -->
+												<small><i>by</i> {{ $blog->seller_name }}</small><br>
+												<!-- <small><i>in</i> <a href="{{ url('/' . $blog->slug) }}" target="_blank" class="link-dark">{{ $blog->category_name }}</a></small> -->
 											</p>
 										</p>
 									</div>
 									<div class="card-body">
 										<div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
-											<a href="{{ route('template.blog.detail',$page->slug) }}" target="_self" type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Read Blog">Read</a>
+											<a href="{{ route('template.blog.detail',$blog->slug) }}" target="_self" type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Read Blog">Read</a>
 										</div>
 									</div>
 								</figcaption>

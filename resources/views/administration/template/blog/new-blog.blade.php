@@ -211,8 +211,6 @@
                             <label for="link" class="form-label">Link</label>
                             <input type="text" class="form-control" name="link" placeholder="Link" disabled />
                         </div>
-                    </div>
-                    <div class="col-sm-12">
                         <div class="mb-3">
                             <div class="form-check">
                                   <input class="form-check-input" type="checkbox" name="is_featured" value="1" id="featuredCheckDefault">
@@ -221,8 +219,6 @@
                                   </label>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="featured_image" class="form-label">Featured Image</label>
                             <input class="form-control" type="file" name="featured_image" />
@@ -230,14 +226,10 @@
                         <div class="mb-3">
                             <input class="form-control" type="text" name="featured_img_alt_text" placeholder="Alt Text" />
                         </div>
-                    </div>
-                    <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="file" class="form-label">Upload File</label>
                             <input class="form-control" type="file" name="file" multiple />
                         </div>
-                    </div>
-                    <div class="col-sm-12">
                         <div class="mb-3">
                             <label for="og_image" class="form-label">Upload OG</label>
                             <input class="form-control" type="file" name="og_image" multiple />
@@ -245,18 +237,29 @@
                         <div class="mb-3">
                             <input class="form-control" type="text" name="og_img_alt_text" placeholder="Alt Text" />
                         </div>
-                    </div>
-                    <div class="col-sm-12">
                         <div class="mb-3">
-                            <label for="status" class="form-label">Status</label>
-                            <input class="form-control" list="datalistStatus" name="status" placeholder="Status" />
-                            <datalist id="datalistStatus">
-                                <option value="1">Publish</option>
-                                <option value="0">Draft</option>
-                            </datalist>
+                            <label class="form-label" for="content">Content?</label>
                         </div>
-                    </div>
-                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="is_index" value="1" id="featuredCheckDefault" />
+                                <label class="form-check-label" for="featuredCheckDefault">Index?</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="is_follow" value="1" id="featuredCheckDefault" />
+                                <label class="form-check-label" for="featuredCheckDefault">Follow?</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupStatus">Status</label>
+                                <select class="form-select" id="inputGroupStatus" name="status">
+                                    <option value="0">Choose...</option>
+                                    <option value="1">Publish</option>
+                                    <option value="0">Draft</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="mb-3">
                             <label for="comment" class="form-label">Comment</label>
                             <textarea class="form-control" id="custom-textarea" name="comment" rows="3"></textarea>

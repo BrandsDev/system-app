@@ -49,13 +49,11 @@ class TemplateController extends Controller
         $page = Template::where('slug', $slug)->firstOrFail();
         $relatedTemplate = Template::take(4)->get();
         $relatedBlog = TemplateBlog::take(4)->get();
-        // $seller = TemplateSeller::where('slug', $slug)->firstOrFail()
 
         return view('frontend.template.template-detail', [
                 'page' => $page,
                 'relatedTemplate' => $relatedTemplate,
-                'relatedBlog' => $relatedBlog,
-                // 'seller' => $seller
+                'relatedBlog' => $relatedBlog
             ]);
     }
 

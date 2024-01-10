@@ -40,6 +40,8 @@ class TemplateBlog extends Model
         'file',
         'og_image',
         'og_img_alt_text',
+        'is_index',
+        'is_follow',
         'status',
         'comment',
     ];

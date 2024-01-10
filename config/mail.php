@@ -36,13 +36,14 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+            'host' => env('MAIL_HOST', 'smtp.gmail.com'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
+            'username' => env('codephics@gmail.com'),
+            'password' => env('@Google.27'),
             'timeout' => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN'),
+            'auth_mode' => null,
         ],
 
         'ses' => [
@@ -88,6 +89,26 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Custom
+    |--------------------------------------------------------------------------
+    */
+
+    'mail' => [
+        'driver' => env('MAIL_MAILER', 'smtp'),
+        'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+        'port' => env('MAIL_PORT', 587),
+        'from' => [
+            'address' => env('MAIL_FROM_ADDRESS', 'codephics@gmail.com'),
+            'name' => env('MAIL_FROM_NAME', 'Codephics'),
+        ],
+        'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+        'username' => env('MAIL_USERNAME', 'codephics@gmail.com'),
+        'password' => env('MAIL_PASSWORD', '@Google.27'),
+        'sendmail' => '/usr/sbin/sendmail -bs',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Global "From" Address
     |--------------------------------------------------------------------------
     |
@@ -98,8 +119,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'codephics@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'Codephics'),
     ],
 
     /*
@@ -112,7 +133,6 @@ return [
     | of the emails. Or, you may simply stick with the Laravel defaults!
     |
     */
-
     'markdown' => [
         'theme' => 'default',
 

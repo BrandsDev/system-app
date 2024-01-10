@@ -38,6 +38,8 @@ return new class extends Migration
             $table->string('file', 255)->default('default-file.png');
             $table->string('og_image', 255)->default('default-og-image.png');
             $table->string('og_img_alt_text', 255)->nullable();
+            $table->tinyInteger('is_index')->default(0)->nullable();
+            $table->tinyInteger('is_follow')->default(0)->nullable();
             $table->tinyInteger('status')->default(0)->nullable();
             $table->text('comment')->nullable();
             $table->timestamps();

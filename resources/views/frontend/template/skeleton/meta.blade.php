@@ -25,7 +25,7 @@
 		<meta name="twitter:description" content="{{ $page->twitter_meta_description }}" />
 		<meta name="twitter:image" content="{{ asset('page/image/og/' . $page->og_image) }}" />
 		<meta property="twitter:url" content="{{ url()->full() }}" />
-
+		
 		@if($page->is_index == 1 && $page->is_follow == 1)
 		<meta name="robots" content="index, follow">
 		@elseif($page->is_index == 1) 
