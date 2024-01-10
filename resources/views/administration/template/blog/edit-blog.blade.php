@@ -249,11 +249,11 @@
                         </div>
                         <div class="mb-3">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="is_index" value="1" id="featuredCheckDefault" @if($template->is_index == 1) checked @endif>
+                                <input class="form-check-input" type="checkbox" name="is_index" value="1" id="featuredCheckDefault" @if($blog->is_index == 1) checked @endif>
                                 <label class="form-check-label" for="featuredCheckDefault">Index?</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="is_follow" value="1" id="featuredCheckDefault" @if($template->is_follow == 1) checked @endif>
+                                <input class="form-check-input" type="checkbox" name="is_follow" value="1" id="featuredCheckDefault" @if($blog->is_follow == 1) checked @endif>
                                 <label class="form-check-label" for="featuredCheckDefault">Follow?</label>
                             </div>
                         </div>
@@ -261,7 +261,7 @@
                             <div class="input-group mb-3">
                                 <label class="input-group-text" for="inputGroupStatus">Status</label>
                                 <select class="form-select" id="inputGroupStatus" name="status">
-                                    @if($template->status == 1)
+                                    @if($blog->status == 1)
                                     <option value="1">Published</option>
                                     <option value="0">Draft</option>
                                     @else
