@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /private/
 Allow: /public/
-Sitemap: http://localhost/system-app/public/template-store/sitemap.xml
+Sitemap: https://codephics.com/sitemap.xml

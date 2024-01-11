@@ -21,7 +21,7 @@
         <!-- Content -->
         <section>
 			<div class="my-5 text-center">
-				<img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57" />
+				<img class="d-block mx-auto mb-4" src="{{ asset('template/boxed-logo.png') }}" alt="" width="72" height="57" />
 				<h1>Got a Project for Us?</h1>
 				<div class="col-lg-6 mx-auto">
 					<p>We would love to hear from you! If you have a project in mind that you would like us to work on, please don't hesitate to reach out to us. Our team of experts is always ready to take on new challenges and deliver exceptional results. Contact us today and let's discuss how we can help you achieve your goals.</p>
