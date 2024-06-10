@@ -2,7 +2,7 @@
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				<div class="container">
 					<a class="navbar-brand" href="{{ route('template.home') }}">
-						<font class="fw-bold fs-2">{codephics}</font>
+						<font class="fw-bold fs-3">codephics</font>
 					</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -21,9 +21,9 @@
 									<li><a class="dropdown-item" href="{{ route('template.overview') }}">Overview</a></li>
 									<li><a class="dropdown-item" href="{{ route('template.brand') }}">Brand</a></li>
 									<li><a class="dropdown-item" href="{{ route('template.license') }}">License</a></li>
-									<li><a class="dropdown-item" href="{{ route('template.contact-us') }}">Contact Us</a></li>
 								</ul>
 							</li>
+							<li class="nav-item"><a href="{{ route('template.contact-us') }}" class="nav-link">Contact Us</a></li>
 							<li class="nav-item"><a href="{{ route('template.hire-us') }}" class="nav-link">Hire Us</a></li>
 							<!-- <li class="nav-item"><a href="{{ url('/fix-errors') }}" class="nav-link">Fix Errors</a></li> -->
 						</ul>
