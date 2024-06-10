@@ -102,7 +102,7 @@ Route::get('/why-our-solutions', [TemplateThemeController::class, 'index'])->nam
 Route::get('/why-our-themes', [TemplateThemeController::class, 'index'])->name('template.why-our-themes');
 
 // Template -> QR Code Gennerator
-Route::get('/qr-code-generator', [TemplatePageController::class, 'qrCodeGen'])->name('template.qr-code-generator');
+// Route::get('/qr-code-generator', [TemplatePageController::class, 'qrCodeGen'])->name('template.qr-code-generator');
 
 // Template -> Subscriber
 Route::post('/new-subscriber', [TemplateSubscriptionController::class, 'subscriber'])->name('template.new-subscriber');
